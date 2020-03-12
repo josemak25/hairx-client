@@ -3,6 +3,7 @@ import styled from 'styled-components/native';
 export const Container = styled.TouchableOpacity`
   min-width: 100px;
   min-height: 50px;
+  padding: 15px;
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.BD_DARK_COLOR};
@@ -11,7 +12,7 @@ export const Container = styled.TouchableOpacity`
 
 export const ButtonText = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
-  font-family: ${({ theme }) => theme.fonts.FAMILY_REGULAR};
+  font-family: ${({ theme }) => theme.fonts.NOTOSANS_BOLD};
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   text-transform: capitalize;
 `;
