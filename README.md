@@ -1,1 +1,1 @@
-# babybliss-app
+# hairx client
