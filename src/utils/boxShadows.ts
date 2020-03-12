@@ -2,30 +2,27 @@ import { StyleSheet } from 'react-native';
 
 interface BoxShadowInterface {
   elevation?: number;
-  color?: string;
-  opacity?: number;
-  radius?: number;
+  shadowColor?: string;
+  shadowOpacity?: number;
+  shadowRadius?: number;
   width?: number;
   height?: number;
 }
 
 function createBoxShadowStyle({
   elevation,
-  color,
-  opacity,
-  radius,
-  width,
-  height
+  shadowColor,
+  shadowOpacity = 0.4,
+  shadowRadius = Math.floor((0.8 * elevation) / 2),
+  width = 0,
+  height = 0.5 * elevation
 }: BoxShadowInterface) {
   return {
     elevation,
-    shadowColor: color,
-    shadowOffset: {
-      width: width || 0,
-      height: height || 0.5 * elevation
-    },
-    shadowOpacity: opacity || 0.4,
-    shadowRadius: radius || Math.floor((0.8 * elevation) / 2)
+    shadowColor,
+    shadowOpacity,
+    shadowRadius,
+    shadowOffset: { width, height }
   };
 }
 
