@@ -1,4 +1,4 @@
-import boxShadows from '../../utils/boxShadows';
+import boxShadows from '../../src/utils/boxShadows';
 
 describe('TEST BOX SHADOW FUNCTIONALITY', () => {
   test('test shadow return shadow default styles when no arguments is passed', () => {
@@ -11,7 +11,7 @@ describe('TEST BOX SHADOW FUNCTIONALITY', () => {
   });
 
   test('test shadow return shadow style correctly', () => {
-    const style = boxShadows({ elevation: 1, color: '#000FD3' });
+    const style = boxShadows({ elevation: 1, shadowColor: '#000FD3' });
     expect(style).toHaveProperty('elevation');
     expect(style).toHaveProperty('shadowColor');
     expect(style).toHaveProperty('shadowOffset');
