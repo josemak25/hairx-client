@@ -6,11 +6,10 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest --runInBand --verbose --detectOpenHandles --forceExit",
+    "test": "jest -u --runInBand --verbose --detectOpenHandles --forceExit",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "test:coverage": "yarn test --coverage",
-    "report-coverage": "coveralls < ./coverage/lcov.info",
-    "postinstall": "rm -rf .git/hooks/pre-push && node node_modules/husky/bin/install.js && rm -rf .git/hooks/pre-commit"
+    "report-coverage": "coveralls < ./coverage/lcov.info"
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.0",
@@ -53,7 +52,6 @@
     "jest-expo": "^36.0.1",
     "jest-styled-components": "^7.0.0",
     "prettier": "^1.19.1",
-    "reactotron-react-native": "^4.0.3",
     "typescript": "~3.6.3"
   },
   "private": true
