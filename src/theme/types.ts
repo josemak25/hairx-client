@@ -11,8 +11,8 @@ enum COLORS {
 // All app font sizes
 enum FONTS {
   SMALL_SIZE = 10,
-  MEDIUM_SIZE = 12,
-  LARGE_SIZE = 15,
+  MEDIUM_SIZE = 14,
+  LARGE_SIZE = 18,
   NOTOSANS_REGULAR = 'notosans-regular',
   NOTOSANS_BOLD = 'notosans-bold',
   FONT_WEIGHT_LIGHT = 200,

@@ -4,6 +4,7 @@ export const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
+  background-color: ${({ theme }) => theme.colors.BG_LIGHT_COLOR};
 `;
 
 export const Welcome = styled.Text`

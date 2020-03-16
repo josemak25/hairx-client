@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Babybliss App",
-    "slug": "babybliss-app",
+    "name": "Shoe-Shopper App",
+    "slug": "shoe-shopper-app",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": ["ios", "android", "web"],

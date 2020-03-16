@@ -1,19 +1,18 @@
 import React from 'react';
 import Button from '../../components/button';
 import { NavigationInterface } from '../types';
-import { useStoreContext } from '../../store';
 
 import { Container, Welcome } from './styles';
 
-interface HomeScreenProp extends NavigationInterface {
+interface ProfileScreenProp extends NavigationInterface {
   testID?: string;
 }
 
-export default function Home(props: HomeScreenProp) {
+export default function Profile(props: ProfileScreenProp) {
   return (
     <Container>
-      <Button title="Home screen button" />
-      <Welcome>Home Screen</Welcome>
+      <Button title="Profile screen button" />
+      <Welcome>Profile Screen</Welcome>
     </Container>
   );
 }
