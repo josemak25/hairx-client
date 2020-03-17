@@ -10,21 +10,23 @@ import Screens from './screens';
 
 const Stack = createStackNavigator();
 
-const defaultNavigationOptions = () => ({ headerStyle: customHeaderStyle });
-
 export default function AppNavigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="SplashScreen"
-        screenOptions={defaultNavigationOptions}
+        screenOptions={{ headerStyle: customHeaderStyle }}
       >
         <Stack.Screen
           name="HomeScreen"
           component={DrawerNavigator}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="SplashScreen" component={Screens.SplashScreen} />
+        <Stack.Screen
+          name="SplashScreen"
+          component={Screens.SplashScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
