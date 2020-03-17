@@ -2,10 +2,13 @@ import 'styled-components';
 
 // All app colors
 enum COLORS {
-  BD_DARK_COLOR = '#F4F8FB',
+  BD_DARK_COLOR = '#F6F7F9',
   BG_LIGHT_COLOR = '#FFFFFF',
-  FONT_DARK_COLOR = '#0D0E10',
-  FONT_LIGHT_COLOR = '#68696F'
+  FONT_DARK_COLOR = '#5D6969',
+  FONT_LIGHT_COLOR = '#FFFFFF',
+  DRAWER_COLOR = '#3888C7',
+  ACTION_FONT_COLOR = '#FF0000',
+  ACTIVE_TAB_ICON_COLOR = '#5D6969'
 }
 
 // All app font sizes
@@ -28,6 +31,9 @@ declare module 'styled-components' {
       BG_LIGHT_COLOR: string;
       FONT_DARK_COLOR: string;
       FONT_LIGHT_COLOR: string;
+      DRAWER_COLOR: string;
+      ACTION_FONT_COLOR: string;
+      ACTIVE_TAB_ICON_COLOR: string;
     };
 
     // All Global App Font Sizes
