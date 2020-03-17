@@ -19,7 +19,14 @@ export type UserInitialState = {
   isLoading: boolean;
   error?: string | null;
   token?: null;
-  user?: {}; // user object interface when user object structure is identified
+  user: UserInterface | null; // user object interface when user object structure is identified
+};
+
+export type UserInterface = {
+  name: string;
+  phone: string;
+  email: string;
+  avatar: string | null;
 };
 
 export type UserAction =

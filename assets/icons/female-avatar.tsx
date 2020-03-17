@@ -1,7 +1,8 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
+import { IconProps } from './types';
 
-export default function FemaleAvatar(props) {
+export default function FemaleAvatar(props: IconProps) {
   return (
     <Svg width="40" height="40" viewBox="0 0 163.327 188.009" {...props}>
       <Path

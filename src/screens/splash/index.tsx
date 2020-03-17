@@ -15,10 +15,5 @@ export default function Splash({ navigation }: SplashScreenProp) {
     }, 2000);
   }, []);
 
-  return (
-    <Container>
-      <Welcome>Splash Screen</Welcome>
-      <Button title="Splash screen button" />
-    </Container>
-  );
+  return <Container></Container>;
 }

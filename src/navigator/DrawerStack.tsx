@@ -2,63 +2,30 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Platform, TouchableOpacity } from 'react-native';
 
-import Screens from '../screens';
 import BackButtonIcon from '../../assets/icons/back-button';
 import { useThemeContext } from '../theme';
 import { NavigationInterface } from '../screens/types';
 
 const Stack = createStackNavigator();
 
-export function TrackOrdersStack({ navigation }: NavigationInterface) {
-  const { fonts } = useThemeContext();
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="TrackOrdersScreen"
-        component={Screens.TrackOrdersScreen}
-        options={{
-          title: 'Track orders',
-          headerLeft: () => (
-            <TouchableOpacity
-              style={{
-                width: '100%',
-                height: '100%',
-                justifyContent: 'center',
-                paddingLeft: 10
-              }}
-              onPress={() => navigation.goBack()}
-            >
-              <BackButtonIcon
-                width={`${Platform.OS === 'ios' ? '45%' : '30%'}`}
-                height={`${Platform.OS === 'ios' ? '45%' : '30%'}`}
-              />
-            </TouchableOpacity>
-          ),
-          headerLeftContainerStyle: { width: 70 },
-
-          headerTitleStyle: {
-            fontFamily: fonts.NOTOSANS_BOLD,
-            fontSize: Platform.select({
-              ios: fonts.MEDIUM_SIZE - 2,
-              android: fonts.MEDIUM_SIZE - 2
-            })
-          }
-        }}
-      />
-    </Stack.Navigator>
-  );
+interface DrawerStackProps extends NavigationInterface {
+  stackName: string;
+  component: any;
+  stackTitle: string;
 }
 
-export function AboutUsStack({ navigation }: NavigationInterface) {
+export default function DrawerStack(props: DrawerStackProps) {
+  const { navigation, stackName, stackTitle, component } = props;
+
   const { fonts } = useThemeContext();
 
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="AboutUsScreen"
-        component={Screens.AboutUsScreen}
+        name={stackName}
+        component={component}
         options={{
-          title: 'About Us',
+          title: stackTitle,
           headerLeft: () => (
             <TouchableOpacity
               style={{
@@ -70,49 +37,8 @@ export function AboutUsStack({ navigation }: NavigationInterface) {
               onPress={() => navigation.goBack()}
             >
               <BackButtonIcon
-                width={`${Platform.OS === 'ios' ? '45%' : '30%'}`}
-                height={`${Platform.OS === 'ios' ? '45%' : '30%'}`}
-              />
-            </TouchableOpacity>
-          ),
-          headerLeftContainerStyle: { width: 70 },
-
-          headerTitleStyle: {
-            fontFamily: fonts.NOTOSANS_BOLD,
-            fontSize: Platform.select({
-              ios: fonts.MEDIUM_SIZE - 2,
-              android: fonts.MEDIUM_SIZE - 2
-            })
-          }
-        }}
-      />
-    </Stack.Navigator>
-  );
-}
-
-export function PrivacyAndPolicyStack({ navigation }: NavigationInterface) {
-  const { fonts } = useThemeContext();
-
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="PrivacyAndPolicyScreen"
-        component={Screens.PrivacyAndPolicyScreen}
-        options={{
-          title: 'Privacy & Policy',
-          headerLeft: () => (
-            <TouchableOpacity
-              style={{
-                width: '100%',
-                height: '100%',
-                justifyContent: 'center',
-                paddingLeft: 10
-              }}
-              onPress={() => navigation.goBack()}
-            >
-              <BackButtonIcon
-                width={`${Platform.OS === 'ios' ? '45%' : '30%'}`}
-                height={`${Platform.OS === 'ios' ? '45%' : '30%'}`}
+                width={`${Platform.OS === 'ios' ? '40%' : '30%'}`}
+                height={`${Platform.OS === 'ios' ? '40%' : '30%'}`}
               />
             </TouchableOpacity>
           ),
