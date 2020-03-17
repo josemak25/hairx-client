@@ -8,7 +8,7 @@ interface DrawerButtonsProps extends IconProps {
 
 export function DrawerButtons(props: DrawerButtonsProps) {
   return (
-    <Svg width="20%" height="20%" viewBox="0 0 24 25" fill="none" {...props}>
+    <Svg width="20%" height="30%" viewBox="0 0 24 25" fill="none" {...props}>
       <Path
         d={
           props.buttonState
@@ -16,7 +16,7 @@ export function DrawerButtons(props: DrawerButtonsProps) {
             : 'M2 12.5h20M2 17.5h14M2 7.5h20'
         }
         stroke={props.fillColor}
-        strokeWidth={1.8}
+        strokeWidth={2.5}
         strokeLinecap="round"
         strokeLinejoin="round"
       />

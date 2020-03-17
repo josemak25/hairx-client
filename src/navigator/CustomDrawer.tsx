@@ -27,7 +27,7 @@ import {
 const IMAGE_SIZE = applyScale(80);
 
 export default function CustomDrawer(props) {
-  const { fonts, colors } = useThemeContext();
+  const { colors } = useThemeContext();
   const isDrawerOpen = useIsDrawerOpen();
 
   const {
