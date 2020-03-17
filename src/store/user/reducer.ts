@@ -4,7 +4,12 @@ export const userInitialState: UserInitialState = {
   isLoading: false,
   error: null,
   token: null,
-  user: {}
+  user: {
+    name: 'Elaine Marshall James Brian',
+    phone: '09032426735',
+    email: 'JamesB@gmail.com',
+    avatar: 'https://bit.ly/2WldiMc'
+  }
 };
 
 export default function userReducer(
