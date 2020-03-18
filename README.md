@@ -1,1 +1,1 @@
-# shoe-shopper-app
+# babybliss-app

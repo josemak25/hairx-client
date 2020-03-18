@@ -6,5 +6,5 @@ export type IconProps = {
   fillColor?: string;
   useCase?: boolean;
   style?: object;
-  isFocused?: boolean;
+  onPress?(): void;
 };

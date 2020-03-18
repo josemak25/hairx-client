@@ -1,77 +1,48 @@
-//@ts-nocheck
 import React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { useThemeContext } from '../theme';
-import { useStoreContext } from '../store';
 import Screens from '../screens';
-import HomeIcon from '../../assets/icons/home-icon';
-import ProfileIcon from '../../assets/icons/profile-icon';
-import CartIcon from '../../assets/icons/cart-icon';
+import HomeNavigator from './HomeNavigator';
 
-import { TabBarLabel, CartContainer, CartNotification } from './styles';
+import HomeIcon from '../../assets/icons/home';
+import CommunityIcon from '../../assets/icons/community';
+import CommunityNavigator from './CommunityNavigator';
+import UserIcon from '../../assets/icons/user';
 
 const Tab = createMaterialBottomTabNavigator();
 
-export default function BottomNavigator(props) {
+export default function BottomNavigator() {
   const { colors } = useThemeContext();
-
-  const {
-    state: { cartState }
-  } = useStoreContext();
 
   return (
     <Tab.Navigator
-      activeColor={colors.ACTIVE_TAB_ICON_COLOR}
-      inactiveColor={colors.ACTIVE_TAB_ICON_COLOR}
+      activeColor={colors.ACTIVE_TAB_COLOR}
+      inactiveColor={colors.INACTIVE_ICON_COLOR}
       barStyle={{ backgroundColor: colors.BG_LIGHT_COLOR }}
+      initialRouteName="HomeScreen"
+      labeled={false}
     >
       <Tab.Screen
         name="HomeScreen"
-        component={Screens.HomeScreen}
+        component={HomeNavigator}
         options={{
-          tabBarLabel: <TabBarLabel>home</TabBarLabel>,
-          tabBarIcon: ({ color, focused }) => (
-            <HomeIcon fillColor={color} isFocused={focused} />
-          )
+          tabBarIcon: ({ color }) => <HomeIcon fillColor={color} />
         }}
       />
+
       <Tab.Screen
-        name="Cart"
-        children={() => null}
+        name="CommunityScreen"
+        component={CommunityNavigator}
         options={{
-          tabBarLabel: <TabBarLabel>cart</TabBarLabel>,
-          tabBarIcon: ({ color, focused }) => {
-            const tabState = props.route.state;
-
-            if (tabState) {
-              const { history } = tabState;
-              const [previousScreen] = history[history.length - 2]['key'].split(
-                '-'
-              );
-
-              if (focused && tabState.index === 1) {
-                props.navigation.navigate('CartScreen');
-                props.route.state.index =
-                  previousScreen === 'HomeScreen' ? 0 : 2;
-              }
-            }
-            return (
-              <CartContainer>
-                {cartState.cart.length ? <CartNotification /> : null}
-                <CartIcon fillColor={color} />
-              </CartContainer>
-            );
-          }
+          tabBarIcon: ({ color }) => <CommunityIcon fillColor={color} />
         }}
       />
+
       <Tab.Screen
         name="ProfileScreen"
         component={Screens.ProfileScreen}
         options={{
-          tabBarLabel: <TabBarLabel>profile</TabBarLabel>,
-          tabBarIcon: ({ color, focused }) => (
-            <ProfileIcon fillColor={color} isFocused={focused} />
-          )
+          tabBarIcon: ({ color }) => <UserIcon fillColor={color} />
         }}
       />
     </Tab.Navigator>

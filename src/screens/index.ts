@@ -1,17 +1,23 @@
 import HomeScreen from './home';
 import SplashScreen from './splash';
-import AboutUsScreen from './about-us';
-import PrivacyAndPolicyScreen from './privacy-policy';
-import TrackOrdersScreen from './track-orders';
 import ProfileScreen from './profile';
-import CartScreen from './cart';
+import SignupScreen from './signup';
+import SigninScreen from './signin';
+import BlogDetailScreen from './blog_details';
+import CommunityScreen from './community';
+import QuestionScreen from './question';
+import GetStartedScreen from './get_started';
+import ProfileSetupScreen from './profile_setup';
 
 export default {
   HomeScreen,
   SplashScreen,
-  AboutUsScreen,
-  PrivacyAndPolicyScreen,
-  TrackOrdersScreen,
   ProfileScreen,
-  CartScreen
+  SigninScreen,
+  SignupScreen,
+  BlogDetailScreen,
+  CommunityScreen,
+  QuestionScreen,
+  GetStartedScreen,
+  ProfileSetupScreen
 };

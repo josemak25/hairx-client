@@ -20,15 +20,30 @@ export default function AppLoading({ setIsAppReady }) {
   const loadAllAppAssets = async () => {
     const imageAssets = cacheImages([
       require('../../../assets/icon.png'),
-      require('../../../assets/splash.png')
+      require('../../../assets/images/splash.png')
     ]);
 
     const fontAssets = cacheFonts([
       {
-        'notosans-regular': require('../../../assets/fonts/NotoSans-Regular.ttf')
+        'IBM-regular': require('../../../assets/fonts/IBMPlexSans-Regular.ttf')
       },
       {
-        'notosans-bold': require('../../../assets/fonts/NotoSans-Bold.ttf')
+        'IBM-bold': require('../../../assets/fonts/IBMPlexSans-Bold.ttf')
+      },
+      {
+        'montserrat-bold': require('../../../assets/fonts/Montserrat-Bold.ttf')
+      },
+      {
+        'montserrat-medium': require('../../../assets/fonts/Montserrat-Medium.ttf')
+      },
+      {
+        'montserrat-regular': require('../../../assets/fonts/Montserrat-Regular.ttf')
+      },
+      {
+        'montserrat-semi-bold': require('../../../assets/fonts/Montserrat-SemiBold.ttf')
+      },
+      {
+        'pacifico-regular': require('../../../assets/fonts/Pacifico-Regular.ttf')
       }
     ]);
 

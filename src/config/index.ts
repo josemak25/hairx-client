@@ -1,7 +1,10 @@
-const { HAIRX_CLIENT_BASE_URI } = 'react-native-dotenv';
+//@ts-nocheck
+import { BABY_BLISS_BASE_URI } from 'react-native-dotenv';
 
-type EnvPropsTypes = { HAIRX_CLIENT_BASE_URI: string };
+export type ENV_VARIABLES_TYPES = {
+  BABY_BLISS_BASE_URI: string;
+};
 
-const ENVIRONMENT_VARIABLES: EnvPropsTypes = { HAIRX_CLIENT_BASE_URI };
+const ENV_VARIABLES: ENV_VARIABLES_TYPES = { BABY_BLISS_BASE_URI };
 
-export default ENVIRONMENT_VARIABLES;
+export default ENV_VARIABLES;

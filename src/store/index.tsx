@@ -5,39 +5,30 @@ import React, {
   FunctionComponent
 } from 'react';
 
-import useCombinedReducers from '../utils/useCombinedReducers';
+import useCombinedReducers from '../libs/useCombineReducer';
 
+// all reducers on store
 import userReducer, { userInitialState } from './user/reducer';
-import cartReducer, { cartInitialState } from './cart/reducer';
-import productReducer, { productInitialState } from './product/reducer';
+import gridSizeReducer, { gridInitialState } from './grid/reducer';
 
+// all reducers initial state interface
 import { UserInitialState } from './user/types';
-import { CartInitialState } from './cart/types';
-import { ProductInitialState } from './product/types';
+import { ScreenGridStateInterface } from './grid/types';
 
 // We define our type for the context properties right here
 export interface ContextProps {
-  state: {
-    userState: UserInitialState;
-    cartState: CartInitialState;
-    productState: ProductInitialState;
-  };
+  state: { userState: UserInitialState; grid: ScreenGridStateInterface };
   dispatch?: any;
 }
 
 const StoreContext = createContext<ContextProps>({
-  state: {
-    userState: userInitialState,
-    cartState: cartInitialState,
-    productState: productInitialState
-  }
+  state: { userState: userInitialState, grid: gridInitialState }
 });
 
 const StoreProvider: FunctionComponent = ({ children }) => {
   const [state, dispatch] = useCombinedReducers({
     userState: useReducer(userReducer, userInitialState),
-    cartState: useReducer(cartReducer, cartInitialState),
-    productState: useReducer(productReducer, productInitialState)
+    grid: useReducer(gridSizeReducer, gridInitialState)
   });
 
   return (

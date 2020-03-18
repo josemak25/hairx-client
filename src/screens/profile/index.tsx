@@ -8,7 +8,7 @@ interface ProfileScreenProp extends NavigationInterface {
   testID?: string;
 }
 
-export default function Profile(props: ProfileScreenProp) {
+export default function ProfileScreen(props: ProfileScreenProp) {
   return (
     <Container>
       <Button title="Profile screen button" />
