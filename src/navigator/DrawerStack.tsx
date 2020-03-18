@@ -32,7 +32,7 @@ export default function DrawerStack(props: DrawerStackProps) {
                 width: '100%',
                 height: '100%',
                 justifyContent: 'center',
-                paddingLeft: 10
+                marginLeft: 20
               }}
               onPress={() => navigation.goBack()}
             >
@@ -43,7 +43,6 @@ export default function DrawerStack(props: DrawerStackProps) {
             </TouchableOpacity>
           ),
           headerLeftContainerStyle: { width: 70 },
-
           headerTitleStyle: {
             fontFamily: fonts.NOTOSANS_BOLD,
             fontSize: Platform.select({
