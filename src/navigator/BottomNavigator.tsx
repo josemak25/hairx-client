@@ -1,9 +1,9 @@
 //@ts-nocheck
 import React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import Screens from '../screens';
 import { useThemeContext } from '../theme';
 import { useStoreContext } from '../store';
+import Screens from '../screens';
 import HomeIcon from '../../assets/icons/home-icon';
 import ProfileIcon from '../../assets/icons/profile-icon';
 import CartIcon from '../../assets/icons/cart-icon';
@@ -12,8 +12,9 @@ import { TabBarLabel, CartContainer, CartNotification } from './styles';
 
 const Tab = createMaterialBottomTabNavigator();
 
-export default function BottomNavigator() {
+export default function BottomNavigator(props) {
   const { colors } = useThemeContext();
+
   const {
     state: { cartState }
   } = useStoreContext();
@@ -35,16 +36,32 @@ export default function BottomNavigator() {
         }}
       />
       <Tab.Screen
-        name="CartScreen"
-        component={Screens.CartScreen}
+        name="Cart"
+        children={() => null}
         options={{
           tabBarLabel: <TabBarLabel>cart</TabBarLabel>,
-          tabBarIcon: ({ color }) => (
-            <CartContainer>
-              {cartState.cart.length ? <CartNotification /> : null}
-              <CartIcon fillColor={color} />
-            </CartContainer>
-          )
+          tabBarIcon: ({ color, focused }) => {
+            const tabState = props.route.state;
+
+            if (tabState) {
+              const { history } = tabState;
+              const [previousScreen] = history[history.length - 2]['key'].split(
+                '-'
+              );
+
+              if (focused && tabState.index === 1) {
+                props.navigation.navigate('CartScreen');
+                props.route.state.index =
+                  previousScreen === 'HomeScreen' ? 0 : 2;
+              }
+            }
+            return (
+              <CartContainer>
+                {cartState.cart.length ? <CartNotification /> : null}
+                <CartIcon fillColor={color} />
+              </CartContainer>
+            );
+          }
         }}
       />
       <Tab.Screen
