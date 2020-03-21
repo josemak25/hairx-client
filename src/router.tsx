@@ -1,5 +1,4 @@
 import React from 'react';
-import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useThemeContext } from './theme';
@@ -19,7 +18,7 @@ export default function AppNavigator() {
         screenOptions={{
           headerStyle: customHeaderStyle,
           headerBackTitleStyle: {
-            fontFamily: fonts.MONTSERRAT_SEMI_BOLD,
+            fontFamily: fonts.NOTOSANS_BOLD,
             color: colors.FONT_DARK_COLOR,
             fontSize: fonts.MEDIUM_SIZE,
             textTransform: 'capitalize'
@@ -42,10 +41,6 @@ export default function AppNavigator() {
         <RootStack.Screen
           name="GetStartedScreen"
           component={Screens.GetStartedScreen}
-        />
-        <RootStack.Screen
-          name="ProfileSetupScreen"
-          component={Screens.ProfileSetupScreen}
         />
         <RootStack.Screen
           name="HomeScreen"

@@ -8,6 +8,7 @@ type ButtonProps = {
   textStyle?: {};
   testID?: string;
   title: string;
+  activeOpacity?: number;
   onPress?(): void;
 };
 

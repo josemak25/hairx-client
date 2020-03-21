@@ -7,3 +7,11 @@ export const customHeaderStyle = {
   shadowOpacity: 0,
   backgroundColor: theme.colors.BD_DARK_COLOR
 };
+
+// App HeaderBack button styles
+export const headerBackTitleStyle = {
+  fontFamily: theme.fonts.NOTOSANS_BOLD,
+  color: theme.colors.BD_DARK_COLOR,
+  fontSize: theme.fonts.MEDIUM_SIZE,
+  textTransform: 'capitalize'
+};

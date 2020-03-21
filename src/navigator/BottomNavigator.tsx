@@ -5,8 +5,6 @@ import Screens from '../screens';
 import HomeNavigator from './HomeNavigator';
 
 import HomeIcon from '../../assets/icons/home';
-import CommunityIcon from '../../assets/icons/community';
-import CommunityNavigator from './CommunityNavigator';
 import UserIcon from '../../assets/icons/user';
 
 const Tab = createMaterialBottomTabNavigator();
@@ -16,8 +14,8 @@ export default function BottomNavigator() {
 
   return (
     <Tab.Navigator
-      activeColor={colors.ACTIVE_TAB_COLOR}
-      inactiveColor={colors.INACTIVE_ICON_COLOR}
+      activeColor={colors.FONT_DARK_COLOR}
+      inactiveColor={colors.FONT_DARK_COLOR}
       barStyle={{ backgroundColor: colors.BG_LIGHT_COLOR }}
       initialRouteName="HomeScreen"
       labeled={false}
@@ -26,15 +24,9 @@ export default function BottomNavigator() {
         name="HomeScreen"
         component={HomeNavigator}
         options={{
-          tabBarIcon: ({ color }) => <HomeIcon fillColor={color} />
-        }}
-      />
-
-      <Tab.Screen
-        name="CommunityScreen"
-        component={CommunityNavigator}
-        options={{
-          tabBarIcon: ({ color }) => <CommunityIcon fillColor={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <HomeIcon fillColor={color} isFocused={focused} />
+          )
         }}
       />
 
@@ -42,7 +34,9 @@ export default function BottomNavigator() {
         name="ProfileScreen"
         component={Screens.ProfileScreen}
         options={{
-          tabBarIcon: ({ color }) => <UserIcon fillColor={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <UserIcon fillColor={color} isFocused={focused} />
+          )
         }}
       />
     </Tab.Navigator>
