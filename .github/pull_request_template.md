@@ -26,5 +26,3 @@ yarn test
 Using an emulator: Launch the app, and you should see the home screen after loading.
 
 #### Screenshots (if appropriate)
-
-![Simulator Screen Shot - iPhone Xs - 2020-02-24 at 09 56 16](https://user-images.githubusercontent.com/12932317/75139025-e9eabd80-56eb-11ea-944f-93bec2b9e9d1.png)
