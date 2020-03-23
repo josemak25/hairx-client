@@ -6,6 +6,7 @@ type CardProps = {
   style?: {};
   testID?: string;
   onPress?(): void;
+  activeOpacity?: number;
 };
 
 const Card: FunctionComponent<CardProps> = props => {

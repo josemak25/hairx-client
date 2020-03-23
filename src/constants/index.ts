@@ -1,30 +1,17 @@
-// App Icons prop types
-export type IconProps = {
-  testID?: string;
-  width?: string;
-  height?: string;
-  fillColor?: string;
-  useCase?: boolean;
-  style?: object;
-};
+import { theme } from '../theme/types';
 
 // App header custom style
 export const customHeaderStyle = {
   borderBottomWidth: 0,
   elevation: 0,
   shadowOpacity: 0,
-  backgroundColor: '#F4F8FB'
+  backgroundColor: theme.colors.BD_DARK_COLOR
 };
 
-// Navigation Header back button default
-export const navigationBackButton = {
-  headerBackTitle: 'back',
-  headerBackColor: '#0D0E10',
-  headerTintColor: '#0D0E10',
-  headerBackTitleStyle: {
-    color: '#0D0E10',
-    fontFamily: 'notosans-regular',
-    textTransform: 'capitalize',
-    fontSize: 12
-  }
+// App HeaderBack button styles
+export const headerBackTitleStyle = {
+  fontFamily: theme.fonts.NOTOSANS_BOLD,
+  color: theme.colors.BD_DARK_COLOR,
+  fontSize: theme.fonts.MEDIUM_SIZE,
+  textTransform: 'capitalize'
 };

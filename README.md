@@ -1,1 +1,1 @@
-# hairx client
+# hairx client app

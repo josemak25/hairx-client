@@ -4,15 +4,15 @@ import { NavigationInterface } from '../types';
 
 import { Container, Welcome } from './styles';
 
-interface HomeScreenProp extends NavigationInterface {
+interface SigninScreenProp extends NavigationInterface {
   testID?: string;
 }
 
-export default function HomeScreen(props: HomeScreenProp) {
+export default function SigninScreen(props: SigninScreenProp) {
   return (
     <Container>
-      <Button title="Home screen button" />
-      <Welcome>Home Screen</Welcome>
+      <Button title="Signin screen button" />
+      <Welcome>Signin Screen</Welcome>
     </Container>
   );
 }

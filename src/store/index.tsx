@@ -1,28 +1,16 @@
-import React, {
-  createContext,
-  useReducer,
-  useContext,
-  FunctionComponent
-} from 'react';
+import React, { useReducer, useContext, FunctionComponent } from 'react';
 
-import useCombinedReducers from '../utils/useCombinedReducers';
+import StoreContext from './types';
+import useCombinedReducers from '../libs/useCombineReducer';
 
+// all reducers on store
 import userReducer, { userInitialState } from './user/reducer';
-import { UserInitialState } from './user/types';
-
-// We define our type for the context properties right here
-export interface ContextProps {
-  state: { userState: UserInitialState };
-  dispatch?: any;
-}
-
-const StoreContext = createContext<ContextProps>({
-  state: { userState: userInitialState }
-});
+import gridSizeReducer, { gridInitialState } from './grid/reducer';
 
 const StoreProvider: FunctionComponent = ({ children }) => {
   const [state, dispatch] = useCombinedReducers({
-    userState: useReducer(userReducer, userInitialState)
+    userState: useReducer(userReducer, userInitialState),
+    grid: useReducer(gridSizeReducer, gridInitialState)
   });
 
   return (
