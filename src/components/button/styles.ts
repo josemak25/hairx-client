@@ -1,8 +1,8 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.TouchableOpacity`
-  min-width: 100px;
-  min-height: 50px;
+  width: 200px;
+  height: 50px;
   padding: 15px;
   justify-content: center;
   align-items: center;
@@ -13,6 +13,6 @@ export const Container = styled.TouchableOpacity`
 export const ButtonText = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
   font-family: ${({ theme }) => theme.fonts.NOTOSANS_BOLD};
-  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  color: ${({ theme }) => theme.colors.FONT_LIGHT_COLOR};
   text-transform: capitalize;
 `;

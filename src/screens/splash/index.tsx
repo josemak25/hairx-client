@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useStoreContext } from '../../store';
 import CARD_ITEM from '../../utils/getItemCardSize';
 import ScreenGridSizeActions from '../../store/grid/actions';
-import Button from '../../components/button';
 import { NavigationInterface } from '../types';
 
 import { Container } from './styles';
@@ -29,9 +28,5 @@ export default function SplashScreen({ navigation }: SplashScreenProp) {
     navigation.replace('HomeScreen');
   };
 
-  return (
-    <Container>
-      <Button title="Splash Screen" />
-    </Container>
-  );
+  return <Container></Container>;
 }

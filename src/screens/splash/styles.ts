@@ -4,5 +4,5 @@ export const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.BD_DARK_COLOR};
+  background-color: ${({ theme }) => theme.colors.BG_YELLOW_COLOR};
 `;
