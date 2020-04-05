@@ -6,7 +6,8 @@ enum COLORS {
   BG_LIGHT_COLOR = '#FFFFFF',
   FONT_DARK_COLOR = '#3b3b3b',
   FONT_LIGHT_COLOR = '#FFFFFF',
-  BG_YELLOW_COLOR = '#ffd5a2'
+  BG_YELLOW_COLOR = '#ffd5a2',
+  INPUT_FIELD_COLOR = '#f6f6f6'
 }
 
 // All app font sizes
@@ -30,6 +31,7 @@ declare module 'styled-components' {
       FONT_DARK_COLOR: string;
       FONT_LIGHT_COLOR: string;
       BG_YELLOW_COLOR: string;
+      INPUT_FIELD_COLOR: string;
     };
 
     // All Global App Font Sizes
