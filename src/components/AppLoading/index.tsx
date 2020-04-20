@@ -22,10 +22,19 @@ export default function AppLoading({ setIsAppReady }) {
 
     const fontAssets = cacheFonts([
       {
-        'notosans-regular': require('../../../assets/fonts/NotoSans-Regular.ttf')
+        'jost-book': require('../../../assets/fonts/Jost-Book.otf')
       },
       {
-        'notosans-bold': require('../../../assets/fonts/NotoSans-Bold.ttf')
+        'jost-medium': require('../../../assets/fonts/Jost-Medium.otf')
+      },
+      {
+        'cormorant-medium': require('../../../assets/fonts/Cormorant-Medium.ttf')
+      },
+      {
+        'cormorant-regular': require('../../../assets/fonts/Cormorant-Regular.ttf')
+      },
+      {
+        'cormorant-italic': require('../../../assets/fonts/Cormorant-Italic.ttf')
       }
     ]);
 
