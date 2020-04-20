@@ -6,13 +6,13 @@ export const Container = styled.TouchableOpacity`
   padding: 15px;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.BD_DARK_COLOR};
+  background-color: ${({ theme }) => theme.colors.BUTTON_DARK_COLOR};
   border-radius: 5px;
 `;
 
 export const ButtonText = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
-  font-family: ${({ theme }) => theme.fonts.NOTOSANS_BOLD};
+  font-family: ${({ theme }) => theme.fonts.JOST_MEDIUM};
   color: ${({ theme }) => theme.colors.FONT_LIGHT_COLOR};
   text-transform: capitalize;
 `;
