@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { useThemeContext } from './theme';
 import { customHeaderStyle } from './constants';
 import Screens from './screens';
-import BottomNavigator from './navigator/BottomNavigator';
+import HomeNavigator from './navigator/HomeNavigator';
 
 const RootStack = createStackNavigator();
 
@@ -18,7 +18,7 @@ export default function AppNavigator() {
         screenOptions={{
           headerStyle: customHeaderStyle,
           headerBackTitleStyle: {
-            fontFamily: fonts.NOTOSANS_BOLD,
+            fontFamily: fonts.CORMORANT_REGULAR,
             color: colors.FONT_DARK_COLOR,
             fontSize: fonts.MEDIUM_SIZE,
             textTransform: 'capitalize'
@@ -44,7 +44,7 @@ export default function AppNavigator() {
         />
         <RootStack.Screen
           name="HomeScreen"
-          component={BottomNavigator}
+          component={HomeNavigator}
           options={{ headerShown: false }}
         />
       </RootStack.Navigator>

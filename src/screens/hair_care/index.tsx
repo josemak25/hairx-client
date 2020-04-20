@@ -4,15 +4,15 @@ import { NavigationInterface } from '../types';
 
 import { Container, Welcome } from './styles';
 
-interface ProfileScreenProp extends NavigationInterface {
+interface HairCareScreenScreenProp extends NavigationInterface {
   testID?: string;
 }
 
-export default function ProfileScreen(props: ProfileScreenProp) {
+export default function HairCareScreen(props: HairCareScreenScreenProp) {
   return (
     <Container>
-      <Button title="Profile screen button" />
-      <Welcome>Profile Screen</Welcome>
+      <Button title="Hair care screen button" />
+      <Welcome>Hair Care Screen</Welcome>
     </Container>
   );
 }

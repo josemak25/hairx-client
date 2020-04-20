@@ -1,17 +1,24 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Screens from '../screens';
+import BottomNavigator from './BottomNavigator';
 
-const HomeStack = createStackNavigator();
+const RegimenStack = createStackNavigator();
 
 export default function HomeNavigator() {
   return (
-    <HomeStack.Navigator
-      initialRouteName="HomeScreen"
+    <RegimenStack.Navigator
+      initialRouteName="RegimenScreen"
       headerMode="screen"
-      screenOptions={{ headerShown: false }}
+      mode="modal"
     >
-      <HomeStack.Screen name="HomeScreen" component={Screens.HomeScreen} />
-    </HomeStack.Navigator>
+      <RegimenStack.Screen name="RegimenScreen" component={BottomNavigator} />
+
+      <RegimenStack.Screen
+        name="RegimenSetupScreen"
+        component={Screens.RegimenSetupScreen}
+        options={{ headerShown: false }}
+      />
+    </RegimenStack.Navigator>
   );
 }

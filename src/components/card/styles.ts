@@ -5,5 +5,5 @@ export const Container = styled.TouchableOpacity`
   height: 50px;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.colors.BG_LIGHT_COLOR};
+  background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
 `;
