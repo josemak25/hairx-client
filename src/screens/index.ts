@@ -1,14 +1,18 @@
-import HomeScreen from './home';
+import RegimenScreen from './regimen';
+import RegimenSetupScreen from './regimen_setup';
 import SplashScreen from './splash';
-import ProfileScreen from './profile';
+import SettingsScreen from './settings';
+import HairCareScreen from './hair_care';
 import SignupScreen from './signup';
 import SigninScreen from './signin';
 import GetStartedScreen from './get_started';
 
 export default {
-  HomeScreen,
+  RegimenScreen,
+  RegimenSetupScreen,
   SplashScreen,
-  ProfileScreen,
+  SettingsScreen,
+  HairCareScreen,
   SigninScreen,
   SignupScreen,
   GetStartedScreen
