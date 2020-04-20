@@ -2,10 +2,11 @@ import React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { useThemeContext } from '../theme';
 import Screens from '../screens';
-import HomeNavigator from './HomeNavigator';
-
-import HomeIcon from '../../assets/icons/home';
-import UserIcon from '../../assets/icons/user';
+import RegimenIcon from '../../assets/icons/regimen';
+import HairCareIcon from '../../assets/icons/hair_care';
+import SettingIcon from '../../assets/icons/settings';
+import TabBarLabel from '../commons/header/tab-bar-label';
+import { IconContainer } from './styles';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -14,28 +15,47 @@ export default function BottomNavigator() {
 
   return (
     <Tab.Navigator
-      activeColor={colors.FONT_DARK_COLOR}
-      inactiveColor={colors.FONT_DARK_COLOR}
-      barStyle={{ backgroundColor: colors.BG_LIGHT_COLOR }}
-      initialRouteName="HomeScreen"
+      activeColor={colors.ACTIVE_ICON_COLOR}
+      inactiveColor={colors.INACTIVE_FIELD_COLOR}
+      barStyle={{ backgroundColor: colors.INPUT_FIELD_COLOR }}
+      initialRouteName="RegimenScreen"
       labeled={false}
     >
       <Tab.Screen
-        name="HomeScreen"
-        component={HomeNavigator}
+        name="RegimenScreen"
+        component={Screens.RegimenScreen}
         options={{
           tabBarIcon: ({ color, focused }) => (
-            <HomeIcon fillColor={color} isFocused={focused} />
+            <IconContainer>
+              <RegimenIcon fillColor={color} isFocused={focused} />
+              <TabBarLabel label="Regimen" {...{ color, focused }} />
+            </IconContainer>
           )
         }}
       />
 
       <Tab.Screen
-        name="ProfileScreen"
-        component={Screens.ProfileScreen}
+        name="HairCareScreen"
+        component={Screens.HairCareScreen}
         options={{
           tabBarIcon: ({ color, focused }) => (
-            <UserIcon fillColor={color} isFocused={focused} />
+            <IconContainer>
+              <HairCareIcon fillColor={color} isFocused={focused} />
+              <TabBarLabel label="Hair care" {...{ color, focused }} />
+            </IconContainer>
+          )
+        }}
+      />
+
+      <Tab.Screen
+        name="Settings"
+        component={Screens.SettingsScreen}
+        options={{
+          tabBarIcon: ({ color, focused }) => (
+            <IconContainer>
+              <SettingIcon fillColor={color} isFocused={focused} />
+              <TabBarLabel label="Settings" {...{ color, focused }} />
+            </IconContainer>
           )
         }}
       />
