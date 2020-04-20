@@ -4,7 +4,7 @@ import CARD_ITEM from '../../utils/getItemCardSize';
 import ScreenGridSizeActions from '../../store/grid/actions';
 import { NavigationInterface } from '../types';
 
-import { Container } from './styles';
+import { Container, Logo } from './styles';
 interface SplashScreenProp extends NavigationInterface {
   testID?: string;
 }
@@ -28,5 +28,9 @@ export default function SplashScreen({ navigation }: SplashScreenProp) {
     navigation.replace('HomeScreen');
   };
 
-  return <Container></Container>;
+  return (
+    <Container>
+      <Logo source={require('../../../assets/images/logo.png')} />
+    </Container>
+  );
 }
