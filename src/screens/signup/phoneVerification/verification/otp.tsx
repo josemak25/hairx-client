@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Container, Info, Text } from './style';
-export default function InputCountry() {
+export default function InputOTP() {
   return (
     <Container>
       <Info>Provide your phone number to receive an OTP via text message</Info>
