@@ -1,7 +1,7 @@
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 
-import { Container, Header, Subtitle, button } from './style';
+import { Container, Header, Subtitle, ButtonStyle } from './style';
 import InputCountry from './verification/country';
 import InputOTP from './verification/otp';
 import Button from '../../../components/button';
@@ -33,7 +33,12 @@ export default function Phoneverify(props: Iprops) {
       <Header>VERIFY YOUR IDENTITY</Header>
       <Subtitle>{props.subtitle}</Subtitle>
       {props.context === 'country' ? <InputCountry /> : <InputOTP />}
-      <Button buttonStyle={button} title={props.buttonText} onPress={verify} />
+      <Button
+        buttonStyle={ButtonStyle.mainButton}
+        textStyle={ButtonStyle.textStyle}
+        title={props.buttonText}
+        onPress={verify}
+      />
     </Container>
   );
 }

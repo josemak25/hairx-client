@@ -1,13 +1,23 @@
 import styled from 'styled-components/native';
 import { Dimensions } from 'react-native';
+import { theme } from '../../../theme/types';
+
+const { width } = Dimensions.get('window');
+const WIDTH = width - 30;
 
 export const Container = styled.View`
   flex: 1;
-  margin: 0px 15px;
+  width: ${WIDTH}px;
 `;
 
 export const ButtonStyle = {
-  width: '100%'
+  mainButton: {
+    width: '100%'
+  },
+  textStyle: {
+    fontFamily: theme.fonts.JOST_MEDIUM,
+    fontSize: 15
+  }
 };
 
 export const Header = styled.Text`
