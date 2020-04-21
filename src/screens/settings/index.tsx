@@ -1,25 +1,35 @@
 import React from 'react';
-import Button from '../../components/button';
 import { NavigationInterface } from '../types';
 import SafeAreaView from '../../commons/header/safe-area-view';
 import Header from '../../commons/header/header';
 
 import {
   Container,
-  Welcome,
   HeaderTitleContainer,
   HeaderTitle,
   HeaderTitleLabel,
   TextContainer,
   AboutText,
-  Description
+  Description,
+  OptionsContainer,
+  SettingsItem,
+  SettingsText
 } from './styles';
+import { useThemeContext } from '../../theme';
 
 interface SettingsScreenScreenProp extends NavigationInterface {
   testID?: string;
 }
 
 export default function SettingsScreen(props: SettingsScreenScreenProp) {
+  const { colors } = useThemeContext();
+
+  const settingsOptions = [
+    'Edit account details',
+    'Adjust notifications',
+    'Contact us'
+  ];
+
   return (
     <SafeAreaView>
       <Header
@@ -40,8 +50,19 @@ export default function SettingsScreen(props: SettingsScreenScreenProp) {
             make salon bookings and track your growth.
           </Description>
         </TextContainer>
-        <Button title="Settings screen button" />
-        <Welcome>Settings Screen</Welcome>
+
+        <OptionsContainer>
+          {settingsOptions.map((item, index) => (
+            <SettingsItem key={index} onPress={() => {}}>
+              <SettingsText>{item}</SettingsText>
+            </SettingsItem>
+          ))}
+          <SettingsItem onPress={() => {}}>
+            <SettingsText style={{ color: colors.FONT_RED_COLOR }}>
+              Log out
+            </SettingsText>
+          </SettingsItem>
+        </OptionsContainer>
       </Container>
     </SafeAreaView>
   );
