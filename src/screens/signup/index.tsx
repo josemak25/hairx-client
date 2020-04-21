@@ -13,7 +13,7 @@ interface SignupScreenProp extends NavigationInterface {
 export default function SignupScreen(props: SignupScreenProp) {
   return (
     <Container>
-      <ScrollView horizontal={true}>
+      <ScrollView horizontal={true} pagingEnabled={true}>
         {data.map((item, ind) => (
           <Phoneverify
             key={ind}
