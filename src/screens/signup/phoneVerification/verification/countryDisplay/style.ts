@@ -3,7 +3,11 @@ import { theme } from '../../../../../theme/types';
 
 export const Container = styled.View`
   width: 100%;
+  padding: 0px 10px;
   height: 45px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   border-radius: 5px;
   background-color: ${({ theme }) => theme.colors.INPUT_FIELD_COLOR};
 `;
@@ -18,10 +22,16 @@ export const Text = styled.Text`
 `;
 
 export const ButtonStyle = {
-  Mainbutton: {},
+  Mainbutton: {
+    backgroundColor: theme.colors.INPUT_FIELD_COLOR,
+    elevation: 0,
+    height: 18,
+    width: 'auto'
+  },
   textStyle: {
     width: 63,
     height: 18,
+    color: theme.colors.FONT_DARK_COLOR,
     fontSize: theme.fonts.LARGE_SIZE,
     fontFamily: theme.fonts.JOST_BOOK
   }
