@@ -6,6 +6,10 @@ export const Container = styled.View`
   margin: 0px 15px;
 `;
 
+export const button = {
+  width: '100%'
+};
+
 export const Header = styled.Text`
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   width: 311px;
@@ -19,5 +23,6 @@ export const Subtitle = styled.Text`
   font-family: ${({ theme }) => theme.fonts.CORMORANT_MEDIUM};
   text-align: left;
   width: 327px;
+  opacity: 0.7;
   height: 53px;
 `;
