@@ -57,10 +57,10 @@ export default function RenderItem(props: RenderItemProp) {
               borderColor: colors.BG_WHITE_COLOR
             }}
             onPress={handleSkip}
-            textStyle={{ color: colors.FONT_DARK_COLOR }}
+            textStyle={{ color: colors.FONT_DARK_COLOR, opacity: 0.3 }}
           />
           <Button
-            title="next"
+            title={`${index !== 2 ? 'next' : 'login'}`}
             buttonStyle={{
               width: 120,
               backgroundColor: colors.BG_WHITE_COLOR,
