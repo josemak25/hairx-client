@@ -19,9 +19,6 @@ export default function InputCountry() {
   };
   return (
     <Container>
-      {/* country select here library*/}
-      <Text>What's your number?</Text>
-      <Button title="change" onPress={() => setvisibility(true)} />
       <CountryPicker
         visible={vis}
         withCallingCode={true}

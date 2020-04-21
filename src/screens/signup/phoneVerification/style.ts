@@ -3,10 +3,10 @@ import { Dimensions } from 'react-native';
 import { theme } from '../../../theme/types';
 
 const { width } = Dimensions.get('window');
-const WIDTH = width - 30;
 
 export const Container = styled.View`
   flex: 1;
+  margin-top: 170px;
   width: ${width}px;
   padding: 15px;
 `;

@@ -2,8 +2,8 @@ import styled from 'styled-components/native';
 import { Dimensions } from 'react-native';
 
 export const Container = styled.View`
-  border: 1px solid red;
   width: 100%;
+  margin-top: 40px;
 `;
 
 export const Info = styled.Text``;
