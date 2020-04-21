@@ -1,15 +1,16 @@
 import styled from 'styled-components/native';
 import { Dimensions } from 'react-native';
 
-const { width: WIDTH } = Dimensions.get('window');
-
 export const Container = styled.View`
-  flex: 1;
-  align-items: center;
   border: 1px solid red;
-  width: ${WIDTH}px;
+  width: 100%;
 `;
 
 export const Info = styled.Text``;
 
-export const Text = styled.Text``;
+export const Text = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  font-size: 15px;
+  opacity: 0.7;
+  text-align: left;
+`;
