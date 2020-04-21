@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { AntDesign } from '@expo/vector-icons';
+import { Dimensions, Text } from 'react-native';
+import AppIntroSlider from 'react-native-app-intro-slider';
 import { NavigationInterface } from '../types';
 import { useThemeContext } from '../../theme';
+import Button from '../../components/button';
 import Header from '../../commons/header/header';
 import SafeAreaView from '../../commons/header/safe-area-view';
+import { questions } from '../../libs/regimen_setup.json';
+import Question from './question';
+import applyScale from '../../utils/applyScale';
+
+const { height: SCREEN_HEIGHT } = Dimensions.get('screen');
 
 import {
   Container,
@@ -13,18 +21,26 @@ import {
   CancelSetupButton,
   HeaderTitleContainer,
   RegimenQuestionBody,
-  QuestionSection,
-  QuestionHeader,
+  QuestionContainer,
+  QuestionTitle,
   QuestionRelevanceHeader,
-  QuestionRelevanceBody,
-  AnswerSection,
+  QuestionRelevanceText,
+  AnswersContainer,
   AnswerOption,
   AnswerOptionText,
-  ButtonSection,
+  ButtonContainer,
   Button1,
   Button2,
   ButtonText
 } from './styles';
+
+export type QuestionItem = {
+  key: string;
+  index: number;
+  question: string;
+  questionRelevance: string;
+  options: string[];
+};
 
 interface RegimenSetupScreenProp extends NavigationInterface {
   testID?: string;
@@ -34,12 +50,30 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
   const { colors } = useThemeContext();
   const { navigation } = props;
 
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const sliderRef = useRef<{ goToSlide(index: number): void }>(null);
+
+  const handleNextButton = () => {
+    const nextScrollIndex = currentSlide + 1;
+    sliderRef.current.goToSlide(nextScrollIndex);
+    handleSlideChange(nextScrollIndex);
+  };
+
+  const handlePreviousButton = () => {
+    const previousScrollIndex = currentSlide - 1;
+    sliderRef.current.goToSlide(previousScrollIndex);
+    handleSlideChange(previousScrollIndex);
+  };
+
+  const handleSlideChange = (index: number) => setCurrentSlide(index);
+
   return (
     <SafeAreaView>
       <Header
         title={() => (
           <HeaderTitleContainer>
-            <HeaderTitle>Regimen Question 1</HeaderTitle>
+            <HeaderTitle>Regimen Question {currentSlide + 1}</HeaderTitle>
             <HeaderTitleOf>of</HeaderTitleOf>
             <HeaderTitleNumber>10</HeaderTitleNumber>
           </HeaderTitleContainer>
@@ -50,52 +84,33 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
           </CancelSetupButton>
         )}
       />
-      <Container>
-        <RegimenQuestionBody>
-          <QuestionSection>
-            <QuestionHeader>HOW OLD ARE YOU?</QuestionHeader>
-            <QuestionRelevanceHeader>
-              Question Relevance
-            </QuestionRelevanceHeader>
-            <QuestionRelevanceBody>
-              This helps to understand how strong your hair scalps will be. The
-              older you are, the stronger your scalps and vice versa.
-            </QuestionRelevanceBody>
-          </QuestionSection>
-          <AnswerSection>
-            <AnswerOption>
-              <AnswerOptionText>18 or less</AnswerOptionText>
-            </AnswerOption>
-            <AnswerOption>
-              <AnswerOptionText>19 - 25</AnswerOptionText>
-            </AnswerOption>
-            <AnswerOption>
-              <AnswerOptionText>26 - 35</AnswerOptionText>
-            </AnswerOption>
-            <AnswerOption>
-              <AnswerOptionText>36 - 45</AnswerOptionText>
-            </AnswerOption>
-            <AnswerOption>
-              <AnswerOptionText>46 - 55</AnswerOptionText>
-            </AnswerOption>
-            <AnswerOption>
-              <AnswerOptionText>55 and over</AnswerOptionText>
-            </AnswerOption>
-          </AnswerSection>
-          <ButtonSection>
-            <Button1>
-              <ButtonText
-                style={{ color: '#000', opacity: 0.3, textAlign: 'left' }}
-              >
-                Previous
-              </ButtonText>
-            </Button1>
-            <Button2>
-              <ButtonText>Next</ButtonText>
-            </Button2>
-          </ButtonSection>
-        </RegimenQuestionBody>
-      </Container>
+      <AppIntroSlider
+        testID="slider"
+        renderItem={({ item }) => (
+          <Question
+            key={item.key}
+            {...item}
+            handleNext={handleNextButton}
+            handlePrevious={handlePreviousButton}
+          />
+        )}
+        onSlideChange={handleSlideChange}
+        showSkipButton={false}
+        activeDotStyle={{
+          width: 0,
+          height: 0
+        }}
+        dotStyle={{
+          width: 0,
+          height: 0
+        }}
+        paginationStyle={{
+          height: 50,
+          top: applyScale(SCREEN_HEIGHT / 2 - 100)
+        }}
+        slides={questions}
+        ref={sliderRef}
+      />
     </SafeAreaView>
   );
 }
