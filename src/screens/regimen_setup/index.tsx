@@ -1,10 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { AntDesign } from '@expo/vector-icons';
-import { Dimensions, Text } from 'react-native';
+import { Dimensions } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { NavigationInterface } from '../types';
 import { useThemeContext } from '../../theme';
-import Button from '../../components/button';
 import Header from '../../commons/header/header';
 import SafeAreaView from '../../commons/header/safe-area-view';
 import { questions } from '../../libs/regimen_setup.json';
@@ -14,29 +13,15 @@ import applyScale from '../../utils/applyScale';
 const { height: SCREEN_HEIGHT } = Dimensions.get('screen');
 
 import {
-  Container,
   HeaderTitle,
   HeaderTitleNumber,
   HeaderTitleOf,
   CancelSetupButton,
-  HeaderTitleContainer,
-  RegimenQuestionBody,
-  QuestionContainer,
-  QuestionTitle,
-  QuestionRelevanceHeader,
-  QuestionRelevanceText,
-  AnswersContainer,
-  AnswerOption,
-  AnswerOptionText,
-  ButtonContainer,
-  Button1,
-  Button2,
-  ButtonText
+  HeaderTitleContainer
 } from './styles';
 
 export type QuestionItem = {
   key: string;
-  index: number;
   question: string;
   questionRelevance: string;
   options: string[];
@@ -48,34 +33,39 @@ interface RegimenSetupScreenProp extends NavigationInterface {
 
 export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
   const { colors } = useThemeContext();
+
   const { navigation } = props;
 
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const sliderRef = useRef<{ goToSlide(index: number): void }>(null);
 
   const handleNextButton = () => {
-    const nextScrollIndex = currentSlide + 1;
+    const nextScrollIndex = currentQuestion + 1;
     sliderRef.current.goToSlide(nextScrollIndex);
     handleSlideChange(nextScrollIndex);
   };
 
   const handlePreviousButton = () => {
-    const previousScrollIndex = currentSlide - 1;
+    const previousScrollIndex = currentQuestion - 1;
     sliderRef.current.goToSlide(previousScrollIndex);
     handleSlideChange(previousScrollIndex);
   };
 
-  const handleSlideChange = (index: number) => setCurrentSlide(index);
+  const handleGoBackButton = () => navigation.goBack();
+
+  const handleDoneButton = () => navigation.replace('RegimenScreen');
+
+  const handleSlideChange = (index: number) => setCurrentQuestion(index);
 
   return (
     <SafeAreaView>
       <Header
         title={() => (
           <HeaderTitleContainer>
-            <HeaderTitle>Regimen Question {currentSlide + 1}</HeaderTitle>
+            <HeaderTitle>Regimen Question {currentQuestion + 1}</HeaderTitle>
             <HeaderTitleOf>of</HeaderTitleOf>
-            <HeaderTitleNumber>10</HeaderTitleNumber>
+            <HeaderTitleNumber>{questions.length}</HeaderTitleNumber>
           </HeaderTitleContainer>
         )}
         headerRight={() => (
@@ -92,10 +82,15 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
             {...item}
             handleNext={handleNextButton}
             handlePrevious={handlePreviousButton}
+            handleGoBack={handleGoBackButton}
+            handleDone={handleDoneButton}
           />
         )}
         onSlideChange={handleSlideChange}
         showSkipButton={false}
+        showNextButton={false}
+        showPrevButton={false}
+        showDoneButton={false}
         activeDotStyle={{
           width: 0,
           height: 0

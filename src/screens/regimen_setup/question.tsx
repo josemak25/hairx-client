@@ -23,6 +23,8 @@ interface RenderItemProp {
   index: number;
   options: string[];
   handleNext(): void;
+  handleDone(): void;
+  handleGoBack(): void;
   handlePrevious(): void;
 }
 
@@ -35,6 +37,8 @@ export default function RenderItem(props: RenderItemProp) {
     options,
     index,
     handleNext,
+    handleDone,
+    handleGoBack,
     handlePrevious
   } = props;
 
@@ -62,25 +66,25 @@ export default function RenderItem(props: RenderItemProp) {
         </AnswersContainer>
         <ButtonContainer>
           <Button
-            title="previous"
+            title={`${index === 0 ? 'go back' : 'previous'}`}
             buttonStyle={{
               width: 120,
               backgroundColor: colors.BG_WHITE_COLOR,
               borderWidth: 1,
               borderColor: colors.BG_WHITE_COLOR
             }}
-            onPress={handlePrevious}
+            onPress={index === 0 ? handleGoBack : handlePrevious}
             textStyle={{ color: colors.FONT_DARK_COLOR, opacity: 0.3 }}
           />
           <Button
-            title={'next'}
+            title={`${index !== 2 ? 'next' : 'login'}`}
             buttonStyle={{
               width: 120,
               backgroundColor: colors.BG_WHITE_COLOR,
               borderWidth: 1,
               borderColor: colors.INACTIVE_FIELD_COLOR
             }}
-            onPress={handleNext}
+            onPress={index !== 2 ? handleNext : handleDone}
             textStyle={{ color: colors.FONT_DARK_COLOR }}
           />
         </ButtonContainer>
