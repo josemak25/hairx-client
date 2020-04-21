@@ -1,5 +1,9 @@
 import styled from 'styled-components/native';
 import applyScale from '../../utils/applyScale';
+import { Dimensions } from 'react-native';
+
+const deviceHeight = Dimensions.get('window').height;
+const deviceWidth = Dimensions.get('window').width;
 
 export const Container = styled.View`
   flex: 1;
@@ -58,7 +62,7 @@ export const RegimenQuestionBody = styled.View`
 `;
 
 export const QuestionSection = styled.View`
-  height: 100px;
+  height: ${deviceHeight / 6}px;
   width: 240px;
   justify-content: space-between;
   align-items: center;
@@ -84,6 +88,17 @@ export const QuestionRelevanceBody = styled.Text`
   text-align: center;
 `;
 
-export const AnswerOption = styled.View``;
+export const AnswerSection = styled.View`
+  height: ${deviceHeight * 0.5}px;
+`;
 
-export const AnswerOptionText = styled.Text``;
+export const AnswerOption = styled.TouchableOpacity`
+  height: 50px;
+  border-radius: 5px;
+  background-color: #f4f4f4;
+`;
+
+export const AnswerOptionText = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+`;

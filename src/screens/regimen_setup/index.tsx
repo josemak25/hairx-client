@@ -16,7 +16,10 @@ import {
   QuestionSection,
   QuestionHeader,
   QuestionRelevanceHeader,
-  QuestionRelevanceBody
+  QuestionRelevanceBody,
+  AnswerSection,
+  AnswerOption,
+  AnswerOptionText
 } from './styles';
 
 interface RegimenSetupScreenProp extends NavigationInterface {
@@ -55,6 +58,26 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
               older you are, the stronger your scalps and vice versa.
             </QuestionRelevanceBody>
           </QuestionSection>
+          <AnswerSection>
+            <AnswerOption>
+              <AnswerOptionText>18 or less</AnswerOptionText>
+            </AnswerOption>
+            <AnswerOption>
+              <AnswerOptionText>19 - 25</AnswerOptionText>
+            </AnswerOption>
+            <AnswerOption>
+              <AnswerOptionText>26 - 35</AnswerOptionText>
+            </AnswerOption>
+            <AnswerOption>
+              <AnswerOptionText>36 - 45</AnswerOptionText>
+            </AnswerOption>
+            <AnswerOption>
+              <AnswerOptionText>46 - 55</AnswerOptionText>
+            </AnswerOption>
+            <AnswerOption>
+              <AnswerOptionText>55 and over</AnswerOptionText>
+            </AnswerOption>
+          </AnswerSection>
         </RegimenQuestionBody>
       </Container>
     </SafeAreaView>
