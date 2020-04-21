@@ -11,13 +11,13 @@ export default function HomeNavigator() {
       initialRouteName="RegimenScreen"
       headerMode="screen"
       mode="modal"
+      screenOptions={{ headerShown: false }}
     >
       <RegimenStack.Screen name="RegimenScreen" component={BottomNavigator} />
 
       <RegimenStack.Screen
         name="RegimenSetupScreen"
         component={Screens.RegimenSetupScreen}
-        options={{ headerShown: false }}
       />
     </RegimenStack.Navigator>
   );

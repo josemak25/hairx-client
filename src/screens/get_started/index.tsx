@@ -1,8 +1,9 @@
 import React from 'react';
-import Button from '../../components/button';
 import { NavigationInterface } from '../types';
+import SafeAreaView from '../../commons/header/safe-area-view';
+import getStartedData from '../../libs/get_started.json';
 
-import { Container, Welcome } from './styles';
+import SplashScreen from './splash';
 
 interface GetStartedScreenProp extends NavigationInterface {
   testID?: string;
@@ -10,9 +11,8 @@ interface GetStartedScreenProp extends NavigationInterface {
 
 export default function GetStartedScreen(props: GetStartedScreenProp) {
   return (
-    <Container>
-      <Button title="Get started screen button" />
-      <Welcome>Get Started Screen</Welcome>
-    </Container>
+    <SafeAreaView>
+      <SplashScreen data={getStartedData[0]} navigation={props.navigation} />
+    </SafeAreaView>
   );
 }
