@@ -13,3 +13,24 @@ export const Welcome = styled.Text`
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   text-transform: capitalize;
 `;
+
+export const HeaderTitleContainer = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const HeaderTitle = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 5}px;
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_MEDIUM};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  text-transform: uppercase;
+`;
+
+export const HeaderTitleLabel = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 2}px;
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  text-transform: capitalize;
+  padding: 0px 5px;
+`;
