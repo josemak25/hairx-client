@@ -1,0 +1,14 @@
+[
+  {
+    "question": "How old are you?",
+    "question_relevance": "This helps to understand how strong your hair scalps will be. The older you are, the stronger your scalps and vice versa.",
+    "options": [
+      "18 or less",
+      "19 - 25",
+      "26 - 35",
+      "36 - 45",
+      "46 - 55",
+      "55 and over"
+    ]
+  }
+]
