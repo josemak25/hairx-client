@@ -59,10 +59,11 @@ export const Welcome = styled.Text`
 export const RegimenQuestionBody = styled.View`
   flex: 1;
   justify-content: space-evenly;
+  align-items: center;
 `;
 
 export const QuestionSection = styled.View`
-  height: ${deviceHeight / 6}px;
+  height: ${deviceHeight * 0.18}px;
   width: 240px;
   justify-content: space-between;
   align-items: center;
@@ -90,9 +91,12 @@ export const QuestionRelevanceBody = styled.Text`
 
 export const AnswerSection = styled.View`
   height: ${deviceHeight * 0.5}px;
+  /* margin-top: -20px; */
 `;
 
 export const AnswerOption = styled.TouchableOpacity`
+  width: ${deviceWidth * 0.8}px;
+  margin-bottom: 8px;
   height: 50px;
   border-radius: 5px;
   background-color: #f4f4f4;
@@ -101,4 +105,33 @@ export const AnswerOption = styled.TouchableOpacity`
 export const AnswerOptionText = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  line-height: 60px;
+  padding-left: 10px;
+`;
+
+export const ButtonSection = styled.View`
+  flex-direction: row;
+  width: ${deviceWidth * 0.8}px;
+  justify-content: space-between;
+`;
+
+export const Button1 = styled.TouchableOpacity`
+  height: 50px;
+  width: 117px;
+  border-radius: 5px;
+`;
+
+export const Button2 = styled.TouchableOpacity`
+  height: 50px;
+  width: 117px;
+  background-color: #3b3b3b;
+  border-radius: 5px;
+`;
+
+export const ButtonText = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE - 1}px;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  text-align: center;
+  line-height: 60px;
+  color: #fff;
 `;

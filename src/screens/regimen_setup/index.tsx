@@ -19,7 +19,11 @@ import {
   QuestionRelevanceBody,
   AnswerSection,
   AnswerOption,
-  AnswerOptionText
+  AnswerOptionText,
+  ButtonSection,
+  Button1,
+  Button2,
+  ButtonText
 } from './styles';
 
 interface RegimenSetupScreenProp extends NavigationInterface {
@@ -78,6 +82,18 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
               <AnswerOptionText>55 and over</AnswerOptionText>
             </AnswerOption>
           </AnswerSection>
+          <ButtonSection>
+            <Button1>
+              <ButtonText
+                style={{ color: '#000', opacity: 0.3, textAlign: 'left' }}
+              >
+                Previous
+              </ButtonText>
+            </Button1>
+            <Button2>
+              <ButtonText>Next</ButtonText>
+            </Button2>
+          </ButtonSection>
         </RegimenQuestionBody>
       </Container>
     </SafeAreaView>
