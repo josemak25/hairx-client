@@ -4,7 +4,9 @@ import { Container, Info, Text } from './style';
 export default function InputOTP() {
   return (
     <Container>
-      <Info>Provide your phone number to receive an OTP via text message</Info>
+      <Info>
+        We have sent a text message with your OTP to your phone, provide it here
+      </Info>
       {/* country select here library*/}
       <Text>What's your number?</Text>
       {/* input phone number library*/}

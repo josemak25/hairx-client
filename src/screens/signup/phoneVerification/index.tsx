@@ -10,7 +10,7 @@ export default function Phoneverify() {
   return (
     <Container>
       <Header>VERIFY YOUR IDENTITY</Header>
-      <ScrollView pagingEnabled={true}>
+      <ScrollView pagingEnabled={true} horizontal={true}>
         <InputCountry />
         <InputOTP />
       </ScrollView>
