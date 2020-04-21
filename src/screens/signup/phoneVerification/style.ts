@@ -7,7 +7,8 @@ const WIDTH = width - 30;
 
 export const Container = styled.View`
   flex: 1;
-  width: ${WIDTH}px;
+  width: ${width}px;
+  padding: 15px;
 `;
 
 export const ButtonStyle = {
