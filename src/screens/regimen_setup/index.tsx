@@ -7,12 +7,16 @@ import SafeAreaView from '../../commons/header/safe-area-view';
 
 import {
   Container,
-  Welcome,
   HeaderTitle,
   HeaderTitleNumber,
   HeaderTitleOf,
   CancelSetupButton,
-  HeaderTitleContainer
+  HeaderTitleContainer,
+  RegimenQuestionBody,
+  QuestionSection,
+  QuestionHeader,
+  QuestionRelevanceHeader,
+  QuestionRelevanceBody
 } from './styles';
 
 interface RegimenSetupScreenProp extends NavigationInterface {
@@ -40,7 +44,18 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
         )}
       />
       <Container>
-        <Welcome>Regimen Setup Screen</Welcome>
+        <RegimenQuestionBody>
+          <QuestionSection>
+            <QuestionHeader>HOW OLD ARE YOU?</QuestionHeader>
+            <QuestionRelevanceHeader>
+              Question Relevance
+            </QuestionRelevanceHeader>
+            <QuestionRelevanceBody>
+              This helps to understand how strong your hair scalps will be. The
+              older you are, the stronger your scalps and vice versa.
+            </QuestionRelevanceBody>
+          </QuestionSection>
+        </RegimenQuestionBody>
       </Container>
     </SafeAreaView>
   );
