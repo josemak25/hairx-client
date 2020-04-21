@@ -1,5 +1,9 @@
 import styled from 'styled-components/native';
 import applyScale from '../../utils/applyScale';
+import { Dimensions } from 'react-native';
+
+const deviceHeight = Dimensions.get('window').height;
+const deviceWidth = Dimensions.get('window').width;
 
 export const Container = styled.View`
   flex: 1;
@@ -50,4 +54,93 @@ export const Welcome = styled.Text`
   font-family: ${({ theme }) => theme.fonts.JOST_MEDIUM};
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   text-transform: capitalize;
+`;
+
+export const RegimenQuestionBody = styled.View`
+  flex: 1;
+  justify-content: space-evenly;
+  align-items: center;
+`;
+
+export const QuestionContainer = styled.View`
+  height: ${deviceHeight * 0.18}px;
+  width: 240px;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const QuestionTitle = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 15}px;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  text-transform: uppercase;
+`;
+
+export const QuestionRelevanceHeader = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE}px;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  font-weight: ${({ theme }) => theme.fonts.FONT_WEIGHT_HEAVY};
+  text-transform: uppercase;
+  opacity: 0.3;
+`;
+
+export const QuestionRelevanceText = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
+  text-align: center;
+`;
+
+export const AnswersContainer = styled.View`
+  height: ${deviceHeight * 0.5}px;
+`;
+
+export const AnswerOption = styled.TouchableOpacity`
+  width: ${deviceWidth * 0.8}px;
+  margin-bottom: 8px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #f4f4f4;
+`;
+
+export const AnswerOptionText = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  line-height: 60px;
+  padding-left: 10px;
+`;
+
+export const ButtonContainer = styled.View`
+  flex-direction: row;
+  width: ${deviceWidth * 0.8}px;
+  justify-content: space-between;
+`;
+
+export const Button1 = styled.TouchableOpacity`
+  height: 50px;
+  width: 117px;
+  border-radius: 5px;
+`;
+
+export const Button2 = styled.TouchableOpacity`
+  height: 50px;
+  width: 117px;
+  background-color: #3b3b3b;
+  border-radius: 5px;
+  border: 1px solid #707070;
+`;
+
+export const ButtonText = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE - 1}px;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  text-align: center;
+  line-height: 60px;
+  color: #fff;
+`;
+
+export const SplashButtons = styled.View`
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 20px;
 `;

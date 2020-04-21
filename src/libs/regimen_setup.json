@@ -1,0 +1,38 @@
+{
+  "questions": [
+    {
+      "key": "935023c1-aac8-443c-baf4-fb8f4647f390",
+      "index": 0,
+      "question": "How old are you?",
+      "questionRelevance": "This helps to understand how strong your hair scalp will be. The older you are, the stronger your scalp and vice versa.",
+      "options": [
+        "18 or less",
+        "19 - 25",
+        "26 - 35",
+        "36 - 45",
+        "46 - 55",
+        "55 and over"
+      ]
+    },
+    {
+      "key": "1818f121-0b80-4039-bdec-22750ab7d43b",
+      "index": 1,
+      "question": "Your ethnicity?",
+      "questionRelevance": "This helps to understand how strong your hair scalp will be. The older you are, the stronger your scalp and vice versa.",
+      "options": [
+        "African American",
+        "Caucasian or White",
+        "Latino or Hispanic",
+        "Asian",
+        "Other"
+      ]
+    },
+    {
+      "key": "6ac90574-f1f2-40d7-abe3-4c0e8d8657d8",
+      "index": 2,
+      "question": "Hair type?",
+      "questionRelevance": "This helps to understand how strong your hair scalp will be. The older you are, the stronger your scalp and vice versa.",
+      "options": ["Straight", "Wavy", "Curly", "Kinky"]
+    }
+  ]
+}
