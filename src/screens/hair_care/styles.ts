@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import applyScale from '../../utils/applyScale';
 
 export const Container = styled.View`
   flex: 1;
@@ -12,4 +13,33 @@ export const Welcome = styled.Text`
   font-family: ${({ theme }) => theme.fonts.JOST_MEDIUM};
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   text-transform: capitalize;
+`;
+
+export const RefreshButton = styled.TouchableHighlight`
+  width: ${applyScale(40)}px;
+  height: ${applyScale(40)}px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+`;
+
+export const HeaderTitleContainer = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const HeaderTitle = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 5}px;
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_MEDIUM};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  text-transform: uppercase;
+`;
+
+export const HeaderTitleLabel = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 2}px;
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  text-transform: capitalize;
+  padding: 0px 5px;
 `;
