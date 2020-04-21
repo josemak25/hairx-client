@@ -38,6 +38,7 @@ export default function GetStartedScreen(props: GetStartedScreenProp) {
   };
 
   const handleSkipButton = () => {
+    if (currentSlide === 2) return;
     const nextScrollIndex = 2;
     sliderRef.current.goToSlide(nextScrollIndex);
     handleSlideChange(nextScrollIndex);
