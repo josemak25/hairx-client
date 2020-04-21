@@ -56,3 +56,31 @@ export const Description = styled.Text`
   color: ${({ theme }) => theme.colors.BUTTON_DARK_COLOR};
   padding: 0px 16px;
 `;
+
+export const OptionsContainer = styled.View`
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 125px;
+  width: 100%;
+`;
+
+export const SettingsItem = styled.TouchableOpacity`
+  width: 90%;
+  height: 50px;
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
+  padding: 0px 16px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+`;
+
+export const SettingsText = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  margin-top: 12px;
+`;
