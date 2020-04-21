@@ -9,7 +9,10 @@ import {
   Welcome,
   HeaderTitleContainer,
   HeaderTitle,
-  HeaderTitleLabel
+  HeaderTitleLabel,
+  TextContainer,
+  AboutText,
+  Description
 } from './styles';
 
 interface SettingsScreenScreenProp extends NavigationInterface {
@@ -28,6 +31,15 @@ export default function SettingsScreen(props: SettingsScreenScreenProp) {
         )}
       />
       <Container>
+        <TextContainer>
+          <AboutText>About hairX</AboutText>
+          <Description>
+            Hair growth and maintenance can be a difficult process to manage,
+            that’s why we created HairX. Use the app to generate a bespoke
+            regimen for your unique hair challenges, get daily reminders and
+            make salon bookings and track your growth.
+          </Description>
+        </TextContainer>
         <Button title="Settings screen button" />
         <Welcome>Settings Screen</Welcome>
       </Container>
