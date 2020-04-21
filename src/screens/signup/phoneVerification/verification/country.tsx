@@ -33,7 +33,7 @@ export default function InputCountry() {
         )}
         onClose={() => setvisibility(false)}
       />
-      {/* input phone number library*/}
+      <Text>What's your number?</Text>
     </Container>
   );
 }

@@ -27,10 +27,11 @@ export const ButtonStyle = {
     backgroundColor: theme.colors.INPUT_FIELD_COLOR,
     elevation: 0,
     height: 18,
-    width: 'auto'
+    width: 63
   },
   textStyle: {
     width: 63,
+    textAlign: 'right',
     height: 18,
     color: theme.colors.FONT_DARK_COLOR,
     fontSize: theme.fonts.LARGE_SIZE,
