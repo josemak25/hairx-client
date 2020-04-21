@@ -1,8 +1,7 @@
-import React from 'react';
-import Button from '../../components/button';
+import React, { useRef } from 'react';
 import { NavigationInterface } from '../types';
 
-import { Container, Welcome } from './styles';
+import { Container } from './styles';
 import Phoneverify from './phoneVerification';
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -11,9 +10,10 @@ interface SignupScreenProp extends NavigationInterface {
 }
 
 export default function SignupScreen(props: SignupScreenProp) {
+  const scrollRef = useRef<ScrollView | null>(null);
   return (
     <Container>
-      <ScrollView>
+      <ScrollView horizontal={true} ref={scrollRef}>
         {data.map((item, ind) => (
           <Phoneverify
             key={ind}
