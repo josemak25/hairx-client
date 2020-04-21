@@ -14,7 +14,7 @@ export default function AppNavigator() {
   return (
     <NavigationContainer>
       <RootStack.Navigator
-        initialRouteName="SplashScreen"
+        initialRouteName="SignupScreen"
         screenOptions={{
           headerStyle: customHeaderStyle,
           headerBackTitleStyle: {
