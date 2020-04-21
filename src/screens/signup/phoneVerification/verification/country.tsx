@@ -12,12 +12,15 @@ import { TextInput } from 'react-native';
 import { theme } from '../../../../theme/types';
 export default function InputCountry() {
   const [country, setCountry] = useState<string>('United States');
+  const [phoneNumber, setPhoneNumber] = useState<string>('');
   const [vis, setvisibility] = useState<boolean>(false);
   const [code, setCode] = useState<CountryCode>('US');
   const phoneRef = useRef<ReactNativePhoneInput<typeof TextInput>>(null);
 
   const selection = (country: Country) => {
     setCountry(country.name as string);
+    console.log(country);
+    setPhoneNumber('+' + country.callingCode[0]);
     setCode(country.cca2);
     phoneRef.current.selectCountry(country.cca2.toLocaleLowerCase());
   };
@@ -42,6 +45,7 @@ export default function InputCountry() {
 
       <PhoneInput
         ref={phoneRef}
+        value={phoneNumber}
         style={{
           width: '100%',
           backgroundColor: theme.colors.INPUT_FIELD_COLOR,
@@ -56,7 +60,6 @@ export default function InputCountry() {
         }}
         // flagStyle={{ width: 0, height: 0 }}
         initialCountry={code.toLocaleLowerCase()}
-        onSelectCountry={val => console.log(val)}
         textProps={{
           placeholder: '202-555-0152'
         }}
