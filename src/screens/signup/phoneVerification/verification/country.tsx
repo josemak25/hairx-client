@@ -3,10 +3,9 @@ import CountryPicker, {
   Country,
   CountryCode
 } from 'react-native-country-picker-modal';
+import PhoneInput from 'react-native-phone-input';
 
 import { Container, Text } from './style';
-import { Button } from 'react-native';
-import { TextInput, View } from 'react-native';
 import CountryDisplay from './countryDisplay';
 export default function InputCountry() {
   const [country, setCountry] = useState<string>('');
