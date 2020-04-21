@@ -16,6 +16,7 @@ export const Header = styled.Text`
 
 export const Subtitle = styled.Text`
   font-size: 20px;
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_MEDIUM};
   text-align: left;
   width: 327px;
   height: 53px;
