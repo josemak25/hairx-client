@@ -5,9 +5,11 @@ import { Container, Header, Subtitle, ButtonStyle } from './style';
 import InputCountry from './verification/country';
 import InputOTP from './verification/otp';
 import Button from '../../../components/button';
+import { ScrollView } from 'react-native';
 
 interface Iprops {
   header?: string;
+  scroll?: ScrollView;
   context?: string;
   subtitle?: string;
   buttonText?: string;
@@ -20,6 +22,7 @@ export default function Phoneverify(props: Iprops) {
       //save current number to spread in otp screen;
       //check number if valid (create a function), send otp to number
       //slide to  otp screen
+      // ref.sc
       case 'otp':
       //verify
       //if verify is true (create a function to run verify), transition to next screen
