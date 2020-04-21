@@ -6,7 +6,7 @@ export const Container = styled.View`
   margin: 0px 15px;
 `;
 
-export const button = {
+export const ButtonStyle = {
   width: '100%'
 };
 
