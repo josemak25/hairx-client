@@ -12,6 +12,8 @@ import applyScale from '../../utils/applyScale';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('screen');
 
+const SLIDE_INCREMENT = 1;
+
 import {
   HeaderTitle,
   HeaderTitleNumber,
@@ -41,13 +43,13 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
   const sliderRef = useRef<{ goToSlide(index: number): void }>(null);
 
   const handleNextButton = () => {
-    const nextScrollIndex = currentQuestion + 1;
+    const nextScrollIndex = currentQuestion + SLIDE_INCREMENT;
     sliderRef.current.goToSlide(nextScrollIndex);
     handleSlideChange(nextScrollIndex);
   };
 
   const handlePreviousButton = () => {
-    const previousScrollIndex = currentQuestion - 1;
+    const previousScrollIndex = currentQuestion - SLIDE_INCREMENT;
     sliderRef.current.goToSlide(previousScrollIndex);
     handleSlideChange(previousScrollIndex);
   };
@@ -63,7 +65,9 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
       <Header
         title={() => (
           <HeaderTitleContainer>
-            <HeaderTitle>Regimen Question {currentQuestion + 1}</HeaderTitle>
+            <HeaderTitle>
+              Regimen Question {currentQuestion + SLIDE_INCREMENT}
+            </HeaderTitle>
             <HeaderTitleOf>of</HeaderTitleOf>
             <HeaderTitleNumber>{questions.length}</HeaderTitleNumber>
           </HeaderTitleContainer>
