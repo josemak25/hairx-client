@@ -96,14 +96,14 @@ export default function RenderItem(props: RenderItemProp) {
               }}
             />
             <Button
-              title={`${index !== lastItemIndex ? 'next' : 'login'}`}
+              title="next"
               buttonStyle={{
                 width: 120,
                 backgroundColor: colors.BG_WHITE_COLOR,
                 borderWidth: 1,
                 borderColor: colors.INACTIVE_FIELD_COLOR
               }}
-              onPress={index !== lastItemIndex ? handleNext : handleDone}
+              onPress={index !== lastItemIndex ? handleNext : null}
               textStyle={{ color: colors.FONT_DARK_COLOR }}
             />
           </ButtonContainer>
