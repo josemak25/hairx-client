@@ -36,7 +36,7 @@ export default function InputCountry() {
           <CountryDisplay
             context="country"
             country={country}
-            setVisibility={setvisibility}
+            onPress={() => setvisibility(true)}
           />
         )}
         onClose={() => setvisibility(false)}

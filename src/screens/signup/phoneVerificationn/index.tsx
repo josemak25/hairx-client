@@ -25,7 +25,6 @@ interface OTPVerificationProps extends NavigationInterface {
 }
 
 export default function PhoneVerification(props: OTPVerificationProps) {
-  const { colors, fonts } = useThemeContext();
   return (
     <SafeAreaView>
       <Header
