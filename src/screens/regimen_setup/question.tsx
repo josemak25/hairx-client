@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FlatList } from 'react-native';
 import { useThemeContext } from '../../theme';
 import Button from '../../components/button';
@@ -14,7 +14,8 @@ import {
   AnswersContainer,
   AnswerOption,
   AnswerOptionText,
-  ButtonContainer
+  ButtonContainer,
+  AnswerOptionSelected
 } from './styles';
 
 interface RenderItemProp {
@@ -31,6 +32,8 @@ interface RenderItemProp {
 
 export default function RenderItem(props: RenderItemProp) {
   const { colors } = useThemeContext();
+
+  const [selectedOption, setSelectedOption] = useState(null);
 
   const firstItemIndex = 0;
   const lastItemIndex = questions.length - 1;
@@ -61,7 +64,17 @@ export default function RenderItem(props: RenderItemProp) {
             keyExtractor={option => option}
             renderItem={({ item }) => {
               return (
-                <AnswerOption>
+                <AnswerOption
+                  style={{
+                    backgroundColor:
+                      selectedOption === item
+                        ? colors.BG_LIGHT_GOLD_COLOR
+                        : null
+                  }}
+                  onPress={() => {
+                    setSelectedOption(item);
+                  }}
+                >
                   <AnswerOptionText>{item}</AnswerOptionText>
                 </AnswerOption>
               );

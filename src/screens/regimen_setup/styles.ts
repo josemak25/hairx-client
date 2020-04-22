@@ -113,3 +113,11 @@ export const ButtonContainer = styled.View`
   width: ${deviceWidth * 0.8}px;
   justify-content: space-between;
 `;
+
+export const AnswerOptionSelected = styled.TouchableOpacity`
+  width: ${deviceWidth * 0.8}px;
+  margin-bottom: 8px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: ${({ theme }) => theme.colors.BG_LIGHT_GOLD_COLOR};
+`;

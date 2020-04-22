@@ -80,6 +80,7 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
       />
       <AppIntroSlider
         testID="slider"
+        disableSlide={true}
         renderItem={({ item }) => (
           <Question
             key={item.key}
