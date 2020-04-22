@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import SafeAreaView from '../../commons/header/safe-area-view'
+import SafeAreaView from '../../commons/header/safe-area-view';
 import Button from '../../components/button';
 import Input from '../../components/input';
+import GoogleIcon from '../../../assets/icons/google_icon';
 import { NavigationInterface } from '../types';
 import { useThemeContext } from '../../theme';
 
@@ -15,7 +16,6 @@ import {
   Choice,
   Terms,
   IconView,
-  GoogleIcon,
   Service,
   ButtonView
 } from './styles';
@@ -86,9 +86,7 @@ export default function SignupScreen(props: SignupScreenProp) {
               textStyle={{ color: colors.GOOGLE_COLOR }}
             >
               <IconView>
-                <GoogleIcon
-                  source={require('../../../assets/icons/google.png')}
-                />
+                <GoogleIcon />
               </IconView>
             </Button>
           </ButtonView>
