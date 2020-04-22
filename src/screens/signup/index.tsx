@@ -18,6 +18,7 @@ import {
   Service,
   ButtonView
 } from './styles';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 interface SignupScreenProp extends NavigationInterface {
   testID?: string;
@@ -64,7 +65,11 @@ export default function SignupScreen(props: SignupScreenProp) {
               textStyle={{ color: colors.FACEBOOK_COLOR }}
             >
               <IconView>
-                <Ionicons name="logo-facebook" size={30} color="#4267B2" />
+                <Ionicons
+                  name="logo-facebook"
+                  size={30}
+                  color={colors.FACEBOOK_COLOR}
+                />
               </IconView>
             </Button>
           </ButtonView>
