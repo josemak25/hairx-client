@@ -25,8 +25,8 @@ export default function SignUpScreenTwo(props: SignupScreenTwoProp) {
   const { colors, fonts } = useThemeContext();
 
   const [email, setEmail] = useState('clairetamara08@gmail.com');
-  const [firstName, setFirst] =  useState('');
-  const [lastName, setLast] =  useState('')
+  const [firstName, setFirst] = useState('');
+  const [lastName, setLast] = useState('');
 
   return (
     <Container>
@@ -39,7 +39,7 @@ export default function SignUpScreenTwo(props: SignupScreenTwoProp) {
             2<OfText> of </OfText>4
           </Pagination>
         </NavigationView>
-        <Welcome>Good to have you</Welcome>
+        <Welcome style={{ marginTop: '15%' }}>Good to have you</Welcome>
         <Prompt>CREATE ACCOUNT</Prompt>
         <Input
           defaultValue={email}
@@ -48,37 +48,43 @@ export default function SignUpScreenTwo(props: SignupScreenTwoProp) {
           textInputStyle={{
             height: 60,
             fontSize: fonts.LARGE_SIZE,
-            marginBottom: '10%'
+            marginBottom: '8%'
           }}
         />
         <Input
-            inputLabel="What's your first name?"
-            placeholder="Claire"
-            defaultValue={firstName}
-            onChangeText={input => setFirst(input)}
-            inputLabelStyle={{ fontSize: fonts.LARGE_SIZE + 3 }}
-            textInputStyle={{
-              height: 60,
-              borderColor: colors.FONT_DARK_COLOR,
-              borderBottomWidth: 1,
-              fontSize: fonts.LARGE_SIZE,
-              marginBottom: '5%'
-            }}
-          />
-          <Input
-            inputLabel="What's your last name?"
-            placeholder="Tamara"
-            defaultValue={lastName}
-            onChangeText={input => setLast(input)}
-            inputLabelStyle={{ fontSize: fonts.LARGE_SIZE + 3 }}
-            textInputStyle={{
-              height: 60,
-              borderColor: colors.FONT_DARK_COLOR,
-              borderBottomWidth: 1,
-              fontSize: fonts.LARGE_SIZE,
-              marginBottom: '15%'
-            }}
-          />
+          inputLabel="What's your first name?"
+          placeholder="Claire"
+          defaultValue={firstName}
+          onChangeText={input => setFirst(input)}
+          inputLabelStyle={{ fontSize: fonts.LARGE_SIZE + 3 }}
+          textInputStyle={{
+            height: 60,
+            borderColor: colors.FONT_DARK_COLOR,
+            borderBottomWidth: 1,
+            fontSize: fonts.LARGE_SIZE,
+            marginBottom: '3%'
+          }}
+        />
+        <Input
+          inputLabel="What's your last name?"
+          placeholder="Tamara"
+          defaultValue={lastName}
+          onChangeText={input => setLast(input)}
+          inputLabelStyle={{ fontSize: fonts.LARGE_SIZE + 3 }}
+          textInputStyle={{
+            height: 60,
+            borderColor: colors.FONT_DARK_COLOR,
+            borderBottomWidth: 1,
+            fontSize: fonts.LARGE_SIZE,
+            marginBottom: '8%'
+          }}
+        />
+        <Button
+          title="Proceed"
+          buttonStyle={{ height: 60 }}
+          textStyle={{ fontSize: fonts.LARGE_SIZE }}
+          onPress={() => props.navigation.navigate('SignUpScreenThree')}
+        />
       </SafeAreaView>
     </Container>
   );
