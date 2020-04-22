@@ -19,12 +19,14 @@ import Button from '../../../../components/button';
 import { useThemeContext } from '../../../../theme';
 import ContextDisplay from '../contextDisplay';
 import OTPField from './otpField';
+import boxShadow from '../../../../utils/boxShadows';
 
 interface OTPVerificationProps extends NavigationInterface {
   testID?: string;
 }
 
 export default function OTPVerification(props: OTPVerificationProps) {
+  const { colors } = useThemeContext();
   return (
     <SafeAreaView>
       <Header
