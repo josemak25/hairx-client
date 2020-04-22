@@ -1,5 +1,5 @@
-import OTPVerificationScreen from './otpVerification';
-import PhoneVerificationScreen from './phoneVerificationn';
+import OTPVerificationScreen from './phoneVerification/otpVerificationScreen';
+import PhoneVerificationScreen from './phoneVerification/phoneVerificationScreen';
 
 export default {
   PhoneVerificationScreen,

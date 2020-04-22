@@ -1,12 +1,12 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import CountryPicker, {
   Country,
   CountryCode
 } from 'react-native-country-picker-modal';
 import { AsYouType } from 'libphonenumber-js';
 
-import ContextDisplay from '../display/index';
-import { Container, Text, PhoneInputField, CountryDailingCode } from '../style';
+import ContextDisplay from '../contextDisplay/index';
+import { Container, Text, PhoneInputField, CountryDailingCode } from './style';
 export default function InputCountry() {
   const [country, setCountry] = useState<string>('United States');
   const [phoneNumber, setPhoneNumber] = useState<string>('');
@@ -45,6 +45,7 @@ export default function InputCountry() {
       <PhoneInputField
         onChangeText={number => format(number)}
         placeholder="202-555-0152"
+        keyboardType="phone-pad"
         value={phoneNumber}
       />
       <CountryDailingCode>+{DailingCode}</CountryDailingCode>

@@ -1,6 +1,6 @@
 import React, { Dispatch } from 'react';
 
-import Button from '../../../../../components/button';
+import Button from '../../../../components/button';
 import { Container, Text, ButtonStyle } from './style';
 
 interface Iprops {

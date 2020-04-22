@@ -2,8 +2,8 @@ import React from 'react';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 import { AntDesign } from '@expo/vector-icons';
 
-import SafeAreaView from '../../../commons/header/safe-area-view';
-import Header from '../../../commons/header/header';
+import SafeAreaView from '../../../../commons/header/safe-area-view';
+import Header from '../../../../commons/header/header';
 import {
   Container,
   HeaderTitleContainer,
@@ -12,21 +12,19 @@ import {
   CancelSetupButton,
   Subtitle,
   Title,
-  Time,
   ButtonStyle
 } from './style';
-import { NavigationInterface } from '../../types';
-import Button from '../../../components/button';
-import { useThemeContext } from '../../../theme';
-import ContextDisplay from '../phoneVerification/verification/display';
-import OTPField from './otpField';
+import { NavigationInterface } from '../../../types';
+import Button from '../../../../components/button';
+import { useThemeContext } from '../../../../theme';
+import CountryDisplay from '../contextDisplay';
+import InputCountry from '../countryInput/country';
 
-interface OTPVerificationProps extends NavigationInterface {
+interface PhoneVerificationProps extends NavigationInterface {
   testID?: string;
 }
 
-export default function OTPVerification(props: OTPVerificationProps) {
-  const { colors, fonts } = useThemeContext();
+export default function PhoneVerification(props: PhoneVerificationProps) {
   return (
     <SafeAreaView>
       <Header
@@ -46,19 +44,14 @@ export default function OTPVerification(props: OTPVerificationProps) {
       <Container>
         <Title>VERIFY YOUR IDENTITY</Title>
         <Subtitle>
-          We have sent a text message with your OTP to your phone, provide it
-          here
+          Provide your phone number to receive an OTP via text message
         </Subtitle>
-        <ContextDisplay
-          context="+1 234 555-6754"
-          onPress={props.navigation.goBack}
-        />
-        <OTPField />
-        <Time>Resend in 19secs</Time>
+        <InputCountry />
         <Button
           buttonStyle={ButtonStyle.mainButton}
           textStyle={ButtonStyle.textStyle}
-          title="Verify"
+          title="Text me OTP"
+          onPress={() => props.navigation.navigate('OTPVerificationScreen')}
         />
       </Container>
     </SafeAreaView>

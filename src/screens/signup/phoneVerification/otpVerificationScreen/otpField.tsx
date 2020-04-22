@@ -1,6 +1,6 @@
 import React from 'react';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
-import { useThemeContext } from '../../../theme';
+import { useThemeContext } from '../../../../theme';
 
 export default function OTPField() {
   const { colors, fonts } = useThemeContext();
