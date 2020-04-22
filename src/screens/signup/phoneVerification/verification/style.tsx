@@ -13,3 +13,12 @@ export const Text = styled.Text`
   opacity: 0.7;
   text-align: left;
 `;
+
+export const Time = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  text-align: center;
+  font-size: 13px;
+  width: 327px;
+  height: 18px;
+  margin-bottom: 20px;
+`;

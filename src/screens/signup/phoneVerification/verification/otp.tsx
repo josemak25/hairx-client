@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 
-import { Container, Info, Text } from './style';
+import { Container, Time } from './style';
 import CountryDisplay from './countryDisplay';
 import { useThemeContext } from '../../../../theme';
 export default function InputOTP() {
@@ -31,7 +31,7 @@ export default function InputOTP() {
           fontSize: 20
         }}
       />
-      <Text>Resend in {countDown}secs</Text>
+      <Time>Resend in {countDown}secs</Time>
     </Container>
   );
 }
