@@ -4,15 +4,7 @@ export const Container = styled.View`
   flex: 1;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
-  border: 1px solid red;
   padding: 70px 15px 0 15px;
-`;
-
-export const Welcome = styled.Text`
-  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
-  font-family: ${({ theme }) => theme.fonts.JOST_MEDIUM};
-  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
-  text-transform: capitalize;
 `;
 
 export const AccentText = styled.Text`
@@ -27,6 +19,13 @@ export const PrimaryText = styled.Text`
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   text-transform: uppercase;
   text-align: center;
+`;
+export const Placeholder = styled.Image`
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  margin-top: 40px;
 `;
 
 export const HeaderTitleContainer = styled.View`

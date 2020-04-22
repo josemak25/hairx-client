@@ -8,6 +8,7 @@ import {
   Container,
   AccentText,
   PrimaryText,
+  Placeholder,
   HeaderTitleContainer,
   HeaderTitle
 } from './styles';
@@ -31,7 +32,15 @@ export default function ProceedHomeScreen(props: ProceedHomeScreenProp) {
       <Container>
         <AccentText>That was quick, Claire</AccentText>
         <PrimaryText>You are done with the basics</PrimaryText>
-        <Button title="Proceed home" onPress={() => {}} />
+        <Placeholder
+          source={require('../../../assets/images/placeholder.png')}
+        />
+        <Button
+          title="Proceed home"
+          buttonStyle={{ width: 180, marginTop: 30 }}
+          textStyle={{ textTransform: 'none' }}
+          onPress={() => navigation.navigate('RegimenScreen')}
+        />
       </Container>
     </SafeAreaView>
   );
