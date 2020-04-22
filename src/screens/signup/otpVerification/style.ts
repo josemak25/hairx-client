@@ -52,15 +52,6 @@ export const CancelSetupButton = styled.TouchableOpacity`
   height: ${applyScale(25)}px;
   justify-content: center;
   align-items: center;
-  border-radius: 25px;
-  background-color: ${({ theme }) => theme.colors.BUTTON_DARK_COLOR};
-`;
-
-export const Text = styled.Text`
-  font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE}px;
-  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
-  text-align: center;
-  margin-left: 40%;
 `;
 
 export const ButtonStyle = {
@@ -89,4 +80,13 @@ export const Subtitle = styled.Text`
   width: 327px;
   opacity: 0.7;
   height: 53px;
+`;
+
+export const Time = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  text-align: center;
+  font-size: 13px;
+  width: 327px;
+  height: 18px;
+  margin-bottom: 20px;
 `;

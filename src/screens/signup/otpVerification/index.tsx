@@ -1,4 +1,7 @@
 import React from 'react';
+import OTPInputView from '@twotalltotems/react-native-otp-input';
+import { AntDesign } from '@expo/vector-icons';
+
 import SafeAreaView from '../../../commons/header/safe-area-view';
 import Header from '../../../commons/header/header';
 import {
@@ -9,17 +12,20 @@ import {
   CancelSetupButton,
   Subtitle,
   Title,
+  Time,
   ButtonStyle
 } from './style';
 import { NavigationInterface } from '../../types';
-import { AntDesign } from '@expo/vector-icons';
 import Button from '../../../components/button';
+import { useThemeContext } from '../../../theme';
+import CountryDisplay from '../phoneVerification/verification/display';
 
 interface OTPVerificationProps extends NavigationInterface {
   testID?: string;
 }
 
 export default function OTPVerification(props: OTPVerificationProps) {
+  const { colors, fonts } = useThemeContext();
   return (
     <SafeAreaView>
       <Header
@@ -42,6 +48,29 @@ export default function OTPVerification(props: OTPVerificationProps) {
           We have sent a text message with your OTP to your phone, provide it
           here
         </Subtitle>
+        <CountryDisplay />
+        <OTPInputView
+          pinCount={5}
+          style={{
+            width: 238,
+            height: 45,
+            marginBottom: 27,
+            borderRadius: 5,
+            backgroundColor: colors.INPUT_FIELD_COLOR,
+            alignSelf: 'center'
+          }}
+          codeInputFieldStyle={{
+            borderWidth: 0,
+            height: 42,
+            borderBottomWidth: 4,
+            margin: 2,
+            color: colors.FONT_DARK_COLOR,
+            textAlign: 'center',
+            fontFamily: fonts.JOST_BOOK,
+            fontSize: 20
+          }}
+        />
+        <Time>Resend in 19secs</Time>
         <Button
           buttonStyle={ButtonStyle.mainButton}
           textStyle={ButtonStyle.textStyle}
