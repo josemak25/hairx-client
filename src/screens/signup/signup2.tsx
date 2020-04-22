@@ -24,6 +24,8 @@ export default function SignUpScreenTwo(props: SignupScreenTwoProp) {
                 <OfText> of </OfText>
                  4</Pagination>
          </NavigationView>
+         <Welcome>Good to have you</Welcome>
+         <Prompt>CREATE ACCOUNT</Prompt>
      </SafeAreaView>
     </Container>
   );
