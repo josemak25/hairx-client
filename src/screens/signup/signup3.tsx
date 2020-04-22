@@ -78,6 +78,12 @@ export default function SignUpScreenThree(props: SignupScreenThreeProp) {
             marginBottom: '8%'
           }}
         />
+        <Button
+          title="Proceed"
+          buttonStyle={{ height: 60 }}
+          textStyle={{ fontSize: fonts.LARGE_SIZE }}
+          onPress={() => props.navigation.navigate('SignUpScreenFour')}
+        />
       </SafeAreaView>
     </Container>
   );
