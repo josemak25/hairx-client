@@ -60,7 +60,7 @@ export default function InputCountry() {
           opacity: true ? 0.3 : 0.7
         }}
         onChangePhoneNumber={val => setPhoneNumber(phoneNumber + val)}
-        flagStyle={{ width: 0, height: 0 }}
+        // flagStyle={{ width: 0, height: 0 }}
         initialCountry={code.toLocaleLowerCase()}
         textProps={{
           placeholder: '202-555-0152'
