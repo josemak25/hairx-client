@@ -64,7 +64,7 @@ export const RegimenQuestionBody = styled.View`
 
 export const QuestionContainer = styled.View`
   height: ${deviceHeight * 0.18}px;
-  width: 240px;
+  width: 80%;
   justify-content: space-between;
   align-items: center;
 `;
@@ -73,6 +73,9 @@ export const QuestionTitle = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 15}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 20px;
 `;
 
 export const QuestionRelevanceHeader = styled.Text`
@@ -81,6 +84,11 @@ export const QuestionRelevanceHeader = styled.Text`
   font-weight: ${({ theme }) => theme.fonts.FONT_WEIGHT_HEAVY};
   text-transform: uppercase;
   opacity: 0.3;
+  margin-bottom: 5px;
+`;
+
+export const QuestionRelevanceTextContainer = styled.View`
+  width: 70%;
 `;
 
 export const QuestionRelevanceText = styled.Text`
@@ -90,6 +98,8 @@ export const QuestionRelevanceText = styled.Text`
 `;
 
 export const AnswersContainer = styled.View`
+  margin-top: 50px;
+  margin-bottom: 20px;
   height: ${deviceHeight * 0.5}px;
 `;
 
@@ -112,12 +122,4 @@ export const ButtonContainer = styled.View`
   flex-direction: row;
   width: ${deviceWidth * 0.8}px;
   justify-content: space-between;
-`;
-
-export const AnswerOptionSelected = styled.TouchableOpacity`
-  width: ${deviceWidth * 0.8}px;
-  margin-bottom: 8px;
-  height: 50px;
-  border-radius: 5px;
-  background-color: ${({ theme }) => theme.colors.BG_LIGHT_GOLD_COLOR};
 `;
