@@ -18,6 +18,7 @@ export const Prompt = styled.Text`
   font-family: ${({ theme }) => theme.fonts.JOST_MEDIUM};
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   margin: 0 0 10%;
+  text-transform: uppercase;
 `;
 
 export const Choice = styled.Text`

@@ -32,7 +32,7 @@ export default function SignupScreen(props: SignupScreenProp) {
       <Container>
         <ScrollView showsVerticalScrollIndicator={false}>
           <Welcome>Welcome</Welcome>
-          <Prompt>SIGN UP OR LOG IN</Prompt>
+          <Prompt>sign up or log in</Prompt>
           <Input
             inputLabel="Email address"
             placeholder="tashacombs@ymmail.com"

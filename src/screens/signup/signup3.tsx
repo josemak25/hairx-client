@@ -38,7 +38,7 @@ export default function SignUpScreenThree(props: SignupScreenThreeProp) {
           </Pagination>
         </NavigationView>
         <Welcome style={{ marginTop: '15%' }}>Good to have you</Welcome>
-        <Prompt>CREATE ACCOUNT</Prompt>
+        <Prompt>create account</Prompt>
         <Input
           defaultValue={name}
           onChangeText={input => setName(input)}

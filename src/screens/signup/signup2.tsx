@@ -41,7 +41,7 @@ export default function SignUpScreenTwo(props: SignupScreenTwoProp) {
           </Pagination>
         </NavigationView>
         <Welcome style={{ marginTop: '15%' }}>Good to have you</Welcome>
-        <Prompt>CREATE ACCOUNT</Prompt>
+        <Prompt>create account</Prompt>
         <Input
           defaultValue={email}
           onChangeText={input => setEmail(input)}
