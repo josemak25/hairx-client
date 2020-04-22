@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import Button from '../../components/button';
@@ -7,7 +7,15 @@ import Input from '../../components/input';
 import { NavigationInterface } from '../types';
 import { useThemeContext } from '../../theme';
 
-import { Container, Welcome, Prompt, Choice, Terms, IconView } from './styles';
+import {
+  Container,
+  Welcome,
+  Prompt,
+  Choice,
+  Terms,
+  IconView,
+  GoogleIcon
+} from './styles';
 
 interface SignupScreenProp extends NavigationInterface {
   testID?: string;
@@ -18,6 +26,7 @@ export default function SignupScreen(props: SignupScreenProp) {
   const [email, setEmail] = useState('');
   return (
     <Container>
+        <ScrollView>
       <SafeAreaView>
         <Welcome>Welcome</Welcome>
         <Prompt>SIGN UP OR LOG IN</Prompt>
@@ -55,7 +64,23 @@ export default function SignupScreen(props: SignupScreenProp) {
             <Ionicons name="logo-facebook" size={30} color="#4267B2" />
           </IconView>
         </Button>
-      </SafeAreaView>
-    </Container>
+        <Button
+          title="Continue with Google"
+          buttonStyle={{
+            marginBottom: '6%',
+            height: 60,
+            borderColor: colors.GOOGLE_COLOR,
+            borderWidth: 1,
+            backgroundColor: colors.BG_WHITE_COLOR
+          }}
+          textStyle={{ color: colors.GOOGLE_COLOR }}
+        >
+          <IconView>
+            <GoogleIcon source={require('../../../assets/icons/google.png')} />
+          </IconView>
+        </Button>
+      </SafeAreaView>  
+      </ScrollView>
+   </Container>
   );
 }
