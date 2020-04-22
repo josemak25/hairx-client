@@ -10,14 +10,14 @@ export const Welcome = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 5}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
-  margin: 25% 0 1%;
+  margin: 20% 0 1%;
 `;
 
 export const Prompt = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 15}px;
   font-family: ${({ theme }) => theme.fonts.JOST_MEDIUM};
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
-  margin: 0 0 15%;
+  margin: 0 0 10%;
 `;
 
 export const Choice = styled.Text`
@@ -41,10 +41,14 @@ export const Terms = styled.Text`
   font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   text-align: center;
-  margin-top: 40%;
-  padding-bottom: 10%
+  position: relative;
+  top: 70;
 `;
 
 export const Service = styled.Text`
   text-decoration: underline;
+`;
+
+export const ButtonView = styled.View`
+  margin-bottom: 6%;
 `;
