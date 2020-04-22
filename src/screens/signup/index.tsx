@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { ScrollView } from 'react-native';
 import { NavigationInterface } from '../types';
 import OTPVerification from './otpVerification';
+import PhoneVerification from './phoneVerificationn';
 
 // import { Container } from './styles';
 // import Phoneverify from './phoneVerification';
@@ -12,7 +13,7 @@ import OTPVerification from './otpVerification';
 // }
 
 export default {
-  // PhoneVerification,
+  PhoneVerification,
   OTPVerification
 };
 

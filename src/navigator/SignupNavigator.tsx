@@ -6,18 +6,20 @@ const SignupStack = createStackNavigator();
 
 export default function SignupNavigator() {
   return (
-    <SignupStack.Navigator initialRouteName="SignupScreen" headerMode="screen">
-      {/* <SignupStack.Screen
-        name="SignupScree3"
-        component={Screens.SignupScreen}
-      /> */}
-
+    <SignupStack.Navigator
+      initialRouteName="PhoneVerificationScreen"
+      headerMode="screen"
+      screenOptions={{
+        headerShown: false
+      }}
+    >
       <SignupStack.Screen
-        name="OTPScreen"
+        name="PhoneVerificationScreen"
+        component={Screens.PhoneVerification}
+      />
+      <SignupStack.Screen
+        name="OTPVerificationScreen"
         component={Screens.OTPVerification}
-        options={{
-          headerShown: false
-        }}
       />
     </SignupStack.Navigator>
   );

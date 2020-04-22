@@ -12,19 +12,19 @@ import {
   CancelSetupButton,
   Subtitle,
   Title,
-  Time,
   ButtonStyle
 } from './style';
 import { NavigationInterface } from '../../types';
 import Button from '../../../components/button';
 import { useThemeContext } from '../../../theme';
 import CountryDisplay from '../phoneVerification/verification/display';
+import InputCountry from '../phoneVerification/verification/countryInput/country';
 
 interface OTPVerificationProps extends NavigationInterface {
   testID?: string;
 }
 
-export default function OTPVerification(props: OTPVerificationProps) {
+export default function PhoneVerification(props: OTPVerificationProps) {
   const { colors, fonts } = useThemeContext();
   return (
     <SafeAreaView>
@@ -45,36 +45,14 @@ export default function OTPVerification(props: OTPVerificationProps) {
       <Container>
         <Title>VERIFY YOUR IDENTITY</Title>
         <Subtitle>
-          We have sent a text message with your OTP to your phone, provide it
-          here
+          Provide your phone number to receive an OTP via text message
         </Subtitle>
-        <CountryDisplay />
-        <OTPInputView
-          pinCount={5}
-          style={{
-            width: 240,
-            height: 45,
-            marginBottom: 27,
-            borderRadius: 5,
-            backgroundColor: colors.INPUT_FIELD_COLOR,
-            alignSelf: 'center'
-          }}
-          codeInputFieldStyle={{
-            borderWidth: 0,
-            height: 42,
-            borderBottomWidth: 4,
-            margin: 1,
-            color: colors.FONT_DARK_COLOR,
-            textAlign: 'center',
-            fontFamily: fonts.JOST_BOOK,
-            fontSize: 20
-          }}
-        />
-        <Time>Resend in 19secs</Time>
+        <InputCountry />
         <Button
           buttonStyle={ButtonStyle.mainButton}
           textStyle={ButtonStyle.textStyle}
-          title="Verify"
+          title="Text me OTP"
+          onPress={() => props.navigation.navigate('OTPVerificationScreen')}
         />
       </Container>
     </SafeAreaView>
