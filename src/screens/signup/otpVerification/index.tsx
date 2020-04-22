@@ -18,7 +18,7 @@ import {
 import { NavigationInterface } from '../../types';
 import Button from '../../../components/button';
 import { useThemeContext } from '../../../theme';
-import CountryDisplay from '../phoneVerification/verification/display';
+import ContextDisplay from '../phoneVerification/verification/display';
 import OTPField from './otpField';
 
 interface OTPVerificationProps extends NavigationInterface {
@@ -49,7 +49,10 @@ export default function OTPVerification(props: OTPVerificationProps) {
           We have sent a text message with your OTP to your phone, provide it
           here
         </Subtitle>
-        <CountryDisplay onPress={props.navigation.goBack} />
+        <ContextDisplay
+          context="+1 234 555-6754"
+          onPress={props.navigation.goBack}
+        />
         <OTPField />
         <Time>Resend in 19secs</Time>
         <Button

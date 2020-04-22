@@ -2,7 +2,6 @@ import React, { Dispatch } from 'react';
 
 import Button from '../../../../../components/button';
 import { Container, Text, ButtonStyle } from './style';
-import { NavigationInterface } from '../../../../types';
 
 interface Iprops {
   context?: string;
@@ -10,7 +9,7 @@ interface Iprops {
   setVisibility?: Dispatch<boolean>;
 }
 
-export default function CountryDisplay(props: Iprops) {
+export default function ContextDisplay(props: Iprops) {
   return (
     <Container>
       <Text>{props.context}</Text>

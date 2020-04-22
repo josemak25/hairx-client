@@ -5,7 +5,7 @@ import CountryPicker, {
 } from 'react-native-country-picker-modal';
 import { AsYouType } from 'libphonenumber-js';
 
-import CountryDisplay from '../display/index';
+import ContextDisplay from '../display/index';
 import { Container, Text, PhoneInputField, CountryDailingCode } from '../style';
 export default function InputCountry() {
   const [country, setCountry] = useState<string>('United States');
@@ -33,7 +33,7 @@ export default function InputCountry() {
         withFlag={false}
         onSelect={country => selection(country)}
         renderFlagButton={() => (
-          <CountryDisplay
+          <ContextDisplay
             context={country}
             onPress={() => setvisibility(true)}
           />
