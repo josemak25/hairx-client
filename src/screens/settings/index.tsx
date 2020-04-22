@@ -2,6 +2,7 @@ import React from 'react';
 import { NavigationInterface } from '../types';
 import SafeAreaView from '../../commons/header/safe-area-view';
 import Header from '../../commons/header/header';
+import { useThemeContext } from '../../theme';
 
 import {
   Container,
@@ -15,20 +16,14 @@ import {
   SettingsItem,
   SettingsText
 } from './styles';
-import { useThemeContext } from '../../theme';
 
 interface SettingsScreenScreenProp extends NavigationInterface {
   testID?: string;
+  settingsOptions?: string[];
 }
 
 export default function SettingsScreen(props: SettingsScreenScreenProp) {
   const { colors } = useThemeContext();
-
-  const settingsOptions = [
-    'Edit account details',
-    'Adjust notifications',
-    'Contact us'
-  ];
 
   return (
     <SafeAreaView>
@@ -52,7 +47,7 @@ export default function SettingsScreen(props: SettingsScreenScreenProp) {
         </TextContainer>
 
         <OptionsContainer>
-          {settingsOptions.map((item, index) => (
+          {props.settingsOptions.map((item, index) => (
             <SettingsItem key={index} onPress={() => {}}>
               <SettingsText>{item}</SettingsText>
             </SettingsItem>
@@ -67,3 +62,11 @@ export default function SettingsScreen(props: SettingsScreenScreenProp) {
     </SafeAreaView>
   );
 }
+
+SettingsScreen.defaultProps = {
+  settingsOptions: [
+    'Edit account details',
+    'Adjust notifications',
+    'Contact us'
+  ]
+};
