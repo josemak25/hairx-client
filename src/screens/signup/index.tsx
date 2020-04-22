@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { ScrollView } from 'react-native';
 import { NavigationInterface } from '../types';
 
-import { Container, Welcome } from './styles';
+import { Container } from './styles';
 import Phoneverify from './phoneVerification';
 import VerifyDetails from '../../libs/getPhoneverify.json';
 
