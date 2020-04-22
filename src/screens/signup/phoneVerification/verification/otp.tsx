@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 
 import { Container, Info, Text } from './style';
 import CountryDisplay from './countryDisplay';
 import { useThemeContext } from '../../../../theme';
 export default function InputOTP() {
+  const [countDown, setCountdown] = useState<number>(19);
   const { colors, fonts } = useThemeContext();
   return (
     <Container>
@@ -14,6 +15,7 @@ export default function InputOTP() {
         style={{
           width: 238,
           height: 45,
+          marginBottom: 27,
           borderRadius: 5,
           backgroundColor: colors.INPUT_FIELD_COLOR,
           alignSelf: 'center'
@@ -29,8 +31,7 @@ export default function InputOTP() {
           fontSize: 20
         }}
       />
-      {/* phone number place holder */}
-      {/* input phone number library*/}
+      <Text>Resend in {countDown}secs</Text>
     </Container>
   );
 }
