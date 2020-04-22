@@ -37,4 +37,14 @@ export const GoogleIcon = styled.Image`
   height: 25px;
 `;
 
-export const Terms = styled.Text``;
+export const Terms = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE}px;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  text-align: center;
+  margin-top: 40%;
+  padding-bottom: 10%
+`;
+
+export const Service = styled.Text`
+  text-decoration: underline;
+`;

@@ -14,7 +14,8 @@ import {
   Choice,
   Terms,
   IconView,
-  GoogleIcon
+  GoogleIcon,
+  Service
 } from './styles';
 
 interface SignupScreenProp extends NavigationInterface {
@@ -26,7 +27,7 @@ export default function SignupScreen(props: SignupScreenProp) {
   const [email, setEmail] = useState('');
   return (
     <Container>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
       <SafeAreaView>
         <Welcome>Welcome</Welcome>
         <Prompt>SIGN UP OR LOG IN</Prompt>
@@ -79,6 +80,9 @@ export default function SignupScreen(props: SignupScreenProp) {
             <GoogleIcon source={require('../../../assets/icons/google.png')} />
           </IconView>
         </Button>
+        <Terms>By signing up, you agree to our 
+          <Service> Terms of Service</Service>
+        </Terms>
       </SafeAreaView>  
       </ScrollView>
    </Container>
