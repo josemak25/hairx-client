@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { SafeAreaView, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -23,6 +23,8 @@ interface SignupScreenThreeProp extends NavigationInterface {
 
 export default function SignUpScreenThree(props: SignupScreenThreeProp) {
   const { colors, fonts } = useThemeContext();
+  const [name, setName] = useState('Claire Tamara');
+  const [password, setPassword] = useState('')
   return (
     <Container>
       <SafeAreaView>
@@ -36,6 +38,16 @@ export default function SignUpScreenThree(props: SignupScreenThreeProp) {
         </NavigationView>
         <Welcome style={{ marginTop: '15%' }}>Good to have you</Welcome>
         <Prompt>CREATE ACCOUNT</Prompt>
+        <Input
+          defaultValue={name}
+          onChangeText={input => setName(input)}
+          placeholder={name}
+          textInputStyle={{
+            height: 60,
+            fontSize: fonts.LARGE_SIZE,
+            marginBottom: '8%'
+          }}
+        />
       </SafeAreaView>
     </Container>
   );
