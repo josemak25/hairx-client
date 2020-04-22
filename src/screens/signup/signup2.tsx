@@ -25,10 +25,8 @@ export default function SignUpScreenTwo(props: SignupScreenTwoProp) {
   const { colors, fonts } = useThemeContext();
 
   const [email, setEmail] = useState('clairetamara08@gmail.com');
-  const [values, setValues] =  useState({
-      firstName: '',
-      lastName: ''
-  })
+  const [firstName, setFirst] =  useState('');
+  const [lastName, setLast] =  useState('')
 
   return (
     <Container>
@@ -53,6 +51,20 @@ export default function SignUpScreenTwo(props: SignupScreenTwoProp) {
             marginBottom: '10%'
           }}
         />
+        <Input
+            inputLabel="What's your first name?"
+            placeholder="Claire"
+            defaultValue={firstName}
+            onChangeText={input => setFirst(input)}
+            inputLabelStyle={{ fontSize: fonts.LARGE_SIZE + 3 }}
+            textInputStyle={{
+              height: 60,
+              borderColor: colors.FONT_DARK_COLOR,
+              borderBottomWidth: 1,
+              fontSize: fonts.LARGE_SIZE,
+              marginBottom: '6%'
+            }}
+          />
       </SafeAreaView>
     </Container>
   );
