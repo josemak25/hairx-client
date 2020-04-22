@@ -10,9 +10,9 @@ import { Container, Text, PhoneInputField, CountryDailingCode } from '../style';
 export default function InputCountry() {
   const [country, setCountry] = useState<string>('United States');
   const [phoneNumber, setPhoneNumber] = useState<string>('');
-  const [vis, setvisibility] = useState<boolean>(false);
+  const [visibility, setvisibility] = useState<boolean>(false);
   const [code, setCode] = useState<CountryCode>('US');
-  const [DailingCode, setDailingCode] = useState<string>('+1');
+  const [DailingCode, setDailingCode] = useState<string>('1');
 
   const selection = (country: Country) => {
     setCountry(country.name as string);
@@ -27,7 +27,7 @@ export default function InputCountry() {
   return (
     <Container>
       <CountryPicker
-        visible={vis}
+        visible={visibility}
         withCallingCode={true}
         countryCode={code}
         withFlag={false}
