@@ -27,7 +27,7 @@ export const PhoneInputField = styled.TextInput`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.INPUT_FIELD_COLOR};
   height: 45px;
-  padding-left: 50px;
+  padding-left: 55px;
   border-radius: 5px;
   margin-top: 10px;
   margin-bottom: 40px;
@@ -37,6 +37,8 @@ export const PhoneInputField = styled.TextInput`
 export const CountryDailingCode = styled.Text`
   position: absolute;
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
-  top: 115px;
+  text-align: right;
+  width: 40px;
+  top: 116px;
   left: 10px;
 `;

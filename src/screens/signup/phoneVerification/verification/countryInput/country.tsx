@@ -50,7 +50,7 @@ export default function InputCountry() {
         placeholder="202-555-0152"
         value={phoneNumber}
       />
-      <CountryDailingCode>{DailingCode}</CountryDailingCode>
+      <CountryDailingCode>+{DailingCode}</CountryDailingCode>
     </Container>
   );
 }
