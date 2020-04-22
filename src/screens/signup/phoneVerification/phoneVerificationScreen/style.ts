@@ -70,7 +70,7 @@ export const Title = styled.Text`
   font-size: 30px;
   text-align: left;
   height: 43px;
-  margin-top: 170px;
+  margin-top: 95px;
 `;
 
 export const Subtitle = styled.Text`

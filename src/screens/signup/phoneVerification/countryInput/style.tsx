@@ -30,7 +30,7 @@ export const PhoneInputField = styled.TextInput`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   height: 45px;
-  padding-left: 55px;
+  padding-left: 59px;
   border-radius: 5px;
   margin-top: 10px;
   margin-bottom: 40px;
@@ -40,7 +40,7 @@ export const CountryDailingCode = styled.Text`
   position: absolute;
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
   text-align: right;
-  width: 40px;
+  width: 45px;
   top: 116px;
   left: 10px;
 `;

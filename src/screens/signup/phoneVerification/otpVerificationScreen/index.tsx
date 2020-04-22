@@ -1,5 +1,4 @@
 import React from 'react';
-import OTPInputView from '@twotalltotems/react-native-otp-input';
 import { AntDesign } from '@expo/vector-icons';
 
 import SafeAreaView from '../../../../commons/header/safe-area-view';
@@ -26,7 +25,6 @@ interface OTPVerificationProps extends NavigationInterface {
 }
 
 export default function OTPVerification(props: OTPVerificationProps) {
-  const { colors, fonts } = useThemeContext();
   return (
     <SafeAreaView>
       <Header
