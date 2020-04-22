@@ -2,6 +2,7 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import { useThemeContext } from '../../theme';
 import Button from '../../components/button';
+import { questions } from '../../libs/regimen_setup.json';
 
 import {
   Container,
@@ -23,11 +24,16 @@ interface RenderItemProp {
   index: number;
   options: string[];
   handleNext(): void;
+  handleDone(): void;
+  handleGoBack(): void;
   handlePrevious(): void;
 }
 
 export default function RenderItem(props: RenderItemProp) {
   const { colors } = useThemeContext();
+
+  const firstItemIndex = 0;
+  const lastItemIndex = questions.length - 1;
 
   const {
     question,
@@ -35,6 +41,8 @@ export default function RenderItem(props: RenderItemProp) {
     options,
     index,
     handleNext,
+    handleDone,
+    handleGoBack,
     handlePrevious
   } = props;
 
@@ -62,25 +70,25 @@ export default function RenderItem(props: RenderItemProp) {
         </AnswersContainer>
         <ButtonContainer>
           <Button
-            title="previous"
+            title={`${index === firstItemIndex ? 'go back' : 'previous'}`}
             buttonStyle={{
               width: 120,
               backgroundColor: colors.BG_WHITE_COLOR,
               borderWidth: 1,
               borderColor: colors.BG_WHITE_COLOR
             }}
-            onPress={handlePrevious}
+            onPress={index === firstItemIndex ? handleGoBack : handlePrevious}
             textStyle={{ color: colors.FONT_DARK_COLOR, opacity: 0.3 }}
           />
           <Button
-            title={'next'}
+            title={`${index !== lastItemIndex ? 'next' : 'login'}`}
             buttonStyle={{
               width: 120,
               backgroundColor: colors.BG_WHITE_COLOR,
               borderWidth: 1,
               borderColor: colors.INACTIVE_FIELD_COLOR
             }}
-            onPress={handleNext}
+            onPress={index !== lastItemIndex ? handleNext : handleDone}
             textStyle={{ color: colors.FONT_DARK_COLOR }}
           />
         </ButtonContainer>

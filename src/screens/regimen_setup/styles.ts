@@ -98,7 +98,7 @@ export const AnswerOption = styled.TouchableOpacity`
   margin-bottom: 8px;
   height: 50px;
   border-radius: 5px;
-  background-color: #f4f4f4;
+  background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
 `;
 
 export const AnswerOptionText = styled.Text`
@@ -112,35 +112,4 @@ export const ButtonContainer = styled.View`
   flex-direction: row;
   width: ${deviceWidth * 0.8}px;
   justify-content: space-between;
-`;
-
-export const Button1 = styled.TouchableOpacity`
-  height: 50px;
-  width: 117px;
-  border-radius: 5px;
-`;
-
-export const Button2 = styled.TouchableOpacity`
-  height: 50px;
-  width: 117px;
-  background-color: #3b3b3b;
-  border-radius: 5px;
-  border: 1px solid #707070;
-`;
-
-export const ButtonText = styled.Text`
-  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE - 1}px;
-  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
-  text-align: center;
-  line-height: 60px;
-  color: #fff;
-`;
-
-export const SplashButtons = styled.View`
-  width: 100%;
-  flex-direction: row;
-  justify-content: space-between;
-  position: absolute;
-  bottom: 0;
-  padding-bottom: 20px;
 `;
