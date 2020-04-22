@@ -13,15 +13,22 @@ export const Container = styled.View`
 export const Navigate = styled.View`
   margin-top: 24.5px;
   width: 100%;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-start;
   height: 18px;
 `;
 
-export const GoBack = styled.TouchableOpacity``;
+export const GoBack = styled.TouchableOpacity`
+  height: 18px;
+  width: 18px;
+`;
 
 export const Text = styled.Text`
   font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   text-align: center;
+  margin-left: 40%;
 `;
 
 export const ButtonStyle = {
