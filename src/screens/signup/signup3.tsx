@@ -34,7 +34,8 @@ export default function SignUpScreenThree(props: SignupScreenThreeProp) {
             3<OfText> of </OfText>4
           </Pagination>
         </NavigationView>
-        
+        <Welcome style={{ marginTop: '15%' }}>Good to have you</Welcome>
+        <Prompt>CREATE ACCOUNT</Prompt>
       </SafeAreaView>
     </Container>
   );
