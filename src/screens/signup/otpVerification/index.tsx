@@ -4,10 +4,16 @@ import Header from '../../../commons/header/header';
 import {
   HeaderTitleContainer,
   HeaderTitleOf,
-  HeaderTitleNumber
+  HeaderTitleNumber,
+  CancelSetupButton
 } from './style';
+import { NavigationInterface } from '../../types';
 
-export default function componentName() {
+interface OTPVerificationProps extends NavigationInterface {
+  testID?: string;
+}
+
+export default function OTPVerification(props: OTPVerificationProps) {
   return (
     <SafeAreaView>
       <Header
@@ -18,6 +24,7 @@ export default function componentName() {
             <HeaderTitleNumber>4</HeaderTitleNumber>
           </HeaderTitleContainer>
         )}
+        headerLeft={() => <CancelSetupButton></CancelSetupButton>}
       ></Header>
     </SafeAreaView>
   );
