@@ -1,15 +1,12 @@
 import React from 'react';
+import boxShadow from '../../../utils/boxShadows';
+import { useThemeContext } from '../../../theme';
 
-import {
-  Container,
-  Title,
-  HeaderLeft,
-  HeaderRight,
-  HeaderBackTitle
-} from './styles';
+import { Container, HeaderLeft, HeaderRight, HeaderBackTitle } from './styles';
 
 type HeaderProps = {
-  title?: string;
+  title: React.ElementType;
+  titleContainerStyle?: object;
   style?: object;
   headerBackTitleVisible?: boolean;
   headerLeft?: React.ElementType;
@@ -19,21 +16,28 @@ type HeaderProps = {
 };
 
 export default function Header(props: HeaderProps) {
+  const { colors } = useThemeContext();
+
   const {
-    title,
     style,
+    titleContainerStyle,
     headerBackTitleVisible,
     headerLeftContainerStyle,
     headerRightContainerStyle
   } = props;
 
   return (
-    <Container style={style}>
+    <Container
+      style={[
+        style,
+        boxShadow({ elevation: 5, shadowColor: colors.BG_LIGHT_BLUE_COLOR })
+      ]}
+    >
       <HeaderLeft style={headerLeftContainerStyle}>
         {props.headerLeft ? <props.headerLeft /> : null}
         {headerBackTitleVisible && <HeaderBackTitle>back</HeaderBackTitle>}
       </HeaderLeft>
-      <Title>{title}</Title>
+      <props.title style={titleContainerStyle} />
       <HeaderRight style={headerRightContainerStyle}>
         {props.headerRight ? <props.headerRight /> : null}
       </HeaderRight>

@@ -44,6 +44,7 @@ export default function AppNavigator() {
         <RootStack.Screen
           name="GetStartedScreen"
           component={Screens.GetStartedScreen}
+          options={{ headerShown: false }}
         />
         <RootStack.Screen
           name="HomeScreen"

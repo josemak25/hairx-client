@@ -1,10 +1,19 @@
 import React from 'react';
 import { AntDesign } from '@expo/vector-icons';
-import Button from '../../components/button';
 import { NavigationInterface } from '../types';
-
-import { Container, Welcome, CancelSetupButton } from './styles';
 import { useThemeContext } from '../../theme';
+import Header from '../../commons/header/header';
+import SafeAreaView from '../../commons/header/safe-area-view';
+
+import {
+  Container,
+  Welcome,
+  HeaderTitle,
+  HeaderTitleNumber,
+  HeaderTitleOf,
+  CancelSetupButton,
+  HeaderTitleContainer
+} from './styles';
 
 interface RegimenSetupScreenProp extends NavigationInterface {
   testID?: string;
@@ -15,12 +24,24 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
   const { navigation } = props;
 
   return (
-    <Container>
-      <CancelSetupButton onPress={() => navigation.goBack()}>
-        <AntDesign name="close" size={22} color={colors.BG_WHITE_COLOR} />
-      </CancelSetupButton>
-      <Button title="Regimen setup screen button" />
-      <Welcome>Regimen Setup Screen</Welcome>
-    </Container>
+    <SafeAreaView>
+      <Header
+        title={() => (
+          <HeaderTitleContainer>
+            <HeaderTitle>Regimen Question 1</HeaderTitle>
+            <HeaderTitleOf>of</HeaderTitleOf>
+            <HeaderTitleNumber>10</HeaderTitleNumber>
+          </HeaderTitleContainer>
+        )}
+        headerRight={() => (
+          <CancelSetupButton onPress={() => navigation.goBack()}>
+            <AntDesign name="close" size={15} color={colors.BG_WHITE_COLOR} />
+          </CancelSetupButton>
+        )}
+      />
+      <Container>
+        <Welcome>Regimen Setup Screen</Welcome>
+      </Container>
+    </SafeAreaView>
   );
 }

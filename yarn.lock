@@ -5897,6 +5897,11 @@ react-is@^16.12.0, react-is@^16.13.0, react-is@^16.7.0, react-is@^16.8.1, react-
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-native-app-intro-slider@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-app-intro-slider/-/react-native-app-intro-slider-3.0.0.tgz#c3620b967503ce410b3d767252392bb6fb2edf97"
+  integrity sha512-2XXUYnSeMYZTLhdRYHSwv8mhoyuEaYxmQfXrWQInH1QvjsnJtKgvORI3bJuJN+tNPg3aut6JYYCNOFsI5of32A==
+
 react-native-country-picker-modal@^1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/react-native-country-picker-modal/-/react-native-country-picker-modal-1.10.0.tgz#ff4a3b73f08d5241f75f9edfaa2ad4cc0b1823f7"

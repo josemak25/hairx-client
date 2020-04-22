@@ -18,7 +18,7 @@ export default function Button(props: ButtonProps) {
   return (
     <Container
       activeOpacity={0.5}
-      style={[boxShadow({ elevation: 2 }), buttonStyle]}
+      style={[boxShadow({ elevation: 0 }), buttonStyle]}
       {...props}
     >
       <ButtonText style={textStyle}>{title}</ButtonText>

@@ -1,0 +1,25 @@
+{
+  "slides": [
+    {
+      "key": "935023c1-aac8-443c-baf4-fb8f4647f390",
+      "index": 0,
+      "title": "Track growth",
+      "text": "See how much you’ve improved with before and after pictures of yourself as you smash your hair goals.",
+      "backgroundColor": "#FFFDD3"
+    },
+    {
+      "key": "1818f121-0b80-4039-bdec-22750ab7d43b",
+      "index": 1,
+      "title": "Bespoke regimen",
+      "text": "Answer a couple of questions about your hair and we’d recommend the right regimen for fabulous results.",
+      "backgroundColor": "#D3E7FF"
+    },
+    {
+      "key": "6ac90574-f1f2-40d7-abe3-4c0e8d8657d8",
+      "index": 2,
+      "title": "Routine alerts",
+      "text": "With regular push notifications on your phone, there’s no way you would forget to wash your hair again.",
+      "backgroundColor": "#FFE0F7"
+    }
+  ]
+}
