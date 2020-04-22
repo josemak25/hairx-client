@@ -42,7 +42,7 @@ export const Terms = styled.Text`
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   text-align: center;
   position: relative;
-  top: 70;
+  top: 70px;
 `;
 
 export const Service = styled.Text`
