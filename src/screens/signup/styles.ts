@@ -8,7 +8,7 @@ export const Container = styled.View`
 
 export const Welcome = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 5}px;
-  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   margin: 20% 0 1%;
 `;
