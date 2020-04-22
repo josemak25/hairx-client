@@ -5,6 +5,7 @@ import { useThemeContext } from './theme';
 import { customHeaderStyle } from './constants';
 import Screens from './screens';
 import HomeNavigator from './navigator/HomeNavigator';
+import SignupNavigator from './navigator/SignupNavigator';
 
 const RootStack = createStackNavigator();
 
@@ -36,10 +37,8 @@ export default function AppNavigator() {
         />
         <RootStack.Screen
           name="SignupScreen"
-          component={Screens.SignupScreen}
-          options={{
-            header: () => null
-          }}
+          component={SignupNavigator}
+          options={{ headerShown: false }}
         />
         <RootStack.Screen
           name="GetStartedScreen"

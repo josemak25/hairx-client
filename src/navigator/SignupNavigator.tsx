@@ -6,14 +6,21 @@ const SignupStack = createStackNavigator();
 
 export default function SignupNavigator() {
   return (
-    <SignupStack.Navigator
-      initialRouteName="RegimenScreen"
-      headerMode="screen"
-      mode="modal"
-      screenOptions={{ headerShown: false }}
-    >
+    <SignupStack.Navigator initialRouteName="SignupScreen" headerMode="screen">
       <SignupStack.Screen
-        name="RegimenScreen"
+        name="SignupScreen"
+        component={Screens.SignupScreen}
+      />
+      <SignupStack.Screen
+        name="SignupScree1"
+        component={Screens.SignupScreen}
+      />
+      <SignupStack.Screen
+        name="SignupScree2"
+        component={Screens.SignupScreen}
+      />
+      <SignupStack.Screen
+        name="SignupScree3"
         component={Screens.SignupScreen}
       />
 

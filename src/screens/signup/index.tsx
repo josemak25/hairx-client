@@ -10,6 +10,16 @@ interface SignupScreenProp extends NavigationInterface {
   testID?: string;
 }
 
+// import {
+//   PhoneVerification,
+//   OTPVerification
+// }
+
+// export default {
+//   PhoneVerification,
+//   OTPVerification
+// }
+
 export default function SignupScreen(props: SignupScreenProp) {
   const scrollRef = useRef<ScrollView>(null);
 
