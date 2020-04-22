@@ -5,7 +5,6 @@ import { Container, Text, ButtonStyle } from './style';
 import { NavigationInterface } from '../../../../types';
 
 interface Iprops {
-  country?: string;
   context?: string;
   onPress?: () => void | boolean;
   setVisibility?: Dispatch<boolean>;
@@ -14,7 +13,7 @@ interface Iprops {
 export default function CountryDisplay(props: Iprops) {
   return (
     <Container>
-      <Text>{props.country}</Text>
+      <Text>{props.context}</Text>
       <Button
         title="Change"
         buttonStyle={ButtonStyle.Mainbutton}

@@ -15,11 +15,11 @@ export default function SignupNavigator() {
     >
       <SignupStack.Screen
         name="PhoneVerificationScreen"
-        component={Screens.PhoneVerification}
+        component={Screens.PhoneVerificationScreen}
       />
       <SignupStack.Screen
         name="OTPVerificationScreen"
-        component={Screens.OTPVerification}
+        component={Screens.OTPVerificationScreen}
       />
     </SignupStack.Navigator>
   );

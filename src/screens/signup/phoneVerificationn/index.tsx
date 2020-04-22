@@ -20,11 +20,11 @@ import { useThemeContext } from '../../../theme';
 import CountryDisplay from '../phoneVerification/verification/display';
 import InputCountry from '../phoneVerification/verification/countryInput/country';
 
-interface OTPVerificationProps extends NavigationInterface {
+interface PhoneVerificationProps extends NavigationInterface {
   testID?: string;
 }
 
-export default function PhoneVerification(props: OTPVerificationProps) {
+export default function PhoneVerification(props: PhoneVerificationProps) {
   return (
     <SafeAreaView>
       <Header

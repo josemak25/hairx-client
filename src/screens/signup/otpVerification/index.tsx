@@ -49,7 +49,7 @@ export default function OTPVerification(props: OTPVerificationProps) {
           We have sent a text message with your OTP to your phone, provide it
           here
         </Subtitle>
-        <CountryDisplay onPress={props.navigation.goBack()} />
+        <CountryDisplay onPress={props.navigation.goBack} />
         <OTPField />
         <Time>Resend in 19secs</Time>
         <Button

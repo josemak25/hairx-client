@@ -34,8 +34,7 @@ export default function InputCountry() {
         onSelect={country => selection(country)}
         renderFlagButton={() => (
           <CountryDisplay
-            context="country"
-            country={country}
+            context={country}
             onPress={() => setvisibility(true)}
           />
         )}
