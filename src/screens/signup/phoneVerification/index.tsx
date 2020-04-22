@@ -1,11 +1,18 @@
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
+import { ScrollView } from 'react-native';
 
-import { Container, Header, Subtitle, ButtonStyle } from './style';
+import {
+  Container,
+  Header,
+  Subtitle,
+  ButtonStyle,
+  Navigate,
+  Text
+} from './style';
 import InputCountry from './verification/countryInput/country';
 import InputOTP from './verification/otpInput/otp';
 import Button from '../../../components/button';
-import { ScrollView } from 'react-native';
 
 interface Iprops {
   header?: string;
@@ -33,6 +40,10 @@ export default function Phoneverify(props: Iprops) {
 
   return (
     <Container>
+      <Navigate>
+        <Ionicons name="md-greater" size={18} />
+        <Text>4 of 4</Text>
+      </Navigate>
       <Header>VERIFY YOUR IDENTITY</Header>
       <Subtitle>{props.subtitle}</Subtitle>
       {props.context === 'country' ? <InputCountry /> : <InputOTP />}
