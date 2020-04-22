@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
-import Button from '../../components/button';
 import { NavigationInterface } from '../types';
 import SafeAreaView from '../../commons/header/safe-area-view';
 import Header from '../../commons/header/header';
@@ -9,11 +8,17 @@ import { Animated } from 'react-native';
 
 import {
   Container,
-  Welcome,
   HeaderTitleContainer,
   HeaderTitle,
   HeaderTitleLabel,
-  RefreshButton
+  RefreshButton,
+  ProfileSection,
+  ProfileImage,
+  Username,
+  HairConditionSummary,
+  HairConditionLabel,
+  HairConditionValueSection,
+  HairConditionValue
 } from './styles';
 
 interface HairCareScreenScreenProp extends NavigationInterface {
@@ -72,8 +77,27 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
       />
 
       <Container>
-        <Button title="Hair care screen button" />
-        <Welcome>Hair Care Screen</Welcome>
+        <ProfileSection>
+          <ProfileImage
+            source={require('../../../assets/images/logo.png')}
+            style={{ resizeMode: 'center' }}
+          />
+          <Username>Claire tamara</Username>
+          <HairConditionSummary>
+            <HairConditionValueSection>
+              <HairConditionLabel>Status</HairConditionLabel>
+              <HairConditionValue>Natural</HairConditionValue>
+            </HairConditionValueSection>
+            <HairConditionValueSection>
+              <HairConditionLabel>Type</HairConditionLabel>
+              <HairConditionValue>Curly</HairConditionValue>
+            </HairConditionValueSection>
+            <HairConditionValueSection>
+              <HairConditionLabel>Salon visits</HairConditionLabel>
+              <HairConditionValue>0</HairConditionValue>
+            </HairConditionValueSection>
+          </HairConditionSummary>
+        </ProfileSection>
       </Container>
     </SafeAreaView>
   );
