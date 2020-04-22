@@ -22,3 +22,13 @@ export const Time = styled.Text`
   height: 18px;
   margin-bottom: 20px;
 `;
+
+export const PhoneInputField = styled.TextInput`
+  width: 100%;
+  background-color: ${({ theme }) => theme.colors.INPUT_FIELD_COLOR};
+  height: 45;
+  border-radius: 5;
+  margin-top: 10;
+  margin-bottom: 40;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+`;

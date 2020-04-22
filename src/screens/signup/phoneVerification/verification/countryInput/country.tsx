@@ -5,10 +5,11 @@ import CountryPicker, {
 } from 'react-native-country-picker-modal';
 import ReactNativePhoneInput from 'react-native-phone-input';
 import { TextInput } from 'react-native';
+import { AsYouType } from 'libphonenumber-js';
 import PhoneInput from 'react-native-phone-input';
 
 import CountryDisplay from '../display/index';
-import { Container, Text } from '../style';
+import { Container, Text, PhoneInputField } from '../style';
 import { useThemeContext } from '../../../../../theme';
 export default function InputCountry() {
   const { colors, fonts } = useThemeContext();
@@ -23,7 +24,13 @@ export default function InputCountry() {
     console.log(country);
     setPhoneNumber('+' + country.callingCode[0]);
     setCode(country.cca2);
-    phoneRef.current.selectCountry(country.cca2.toLocaleLowerCase());
+    // phoneRef.current.selectCountry(country.cca2.toLocaleLowerCase());
+  };
+
+  const format = (number: string) => {
+    const formatedNumber = new AsYouType(code as any).input(number);
+    setPhoneNumber(formatedNumber);
+    console.log(formatedNumber);
   };
   return (
     <Container>
@@ -43,10 +50,15 @@ export default function InputCountry() {
         onClose={() => setvisibility(false)}
       />
       <Text>What's your number?</Text>
+      <PhoneInputField
+        onChangeText={number => format(number)}
+        value={phoneNumber}
+      />
 
-      <PhoneInput
+      {/* <PhoneInput
         ref={phoneRef}
         value={phoneNumber}
+
         style={{
           width: '100%',
           backgroundColor: colors.INPUT_FIELD_COLOR,
@@ -66,7 +78,7 @@ export default function InputCountry() {
           placeholder: '202-555-0152'
         }}
         allowZeroAfterCountryCode={false}
-      />
+      /> */}
     </Container>
   );
 }
