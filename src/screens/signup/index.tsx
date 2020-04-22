@@ -19,6 +19,7 @@ export default function SignupScreen(props: SignupScreenProp) {
         {data.map((item, ind) => (
           <Phoneverify
             key={ind}
+            index={ind}
             scroll={scrollRef}
             buttonText={item.buttonText}
             context={item.context}
