@@ -58,7 +58,7 @@ export default function SignupScreen(props: SignupScreenProp) {
               title="Continue with facebook"
               buttonStyle={{
                 height: 60,
-                borderColor: colors.FACEBOOK_COLOR,
+                borderColor: 'rgba(59, 89, 152, 0.3)',
                 borderWidth: 1,
                 backgroundColor: colors.BG_WHITE_COLOR
               }}
@@ -79,7 +79,7 @@ export default function SignupScreen(props: SignupScreenProp) {
               title="Continue with Google"
               buttonStyle={{
                 height: 60,
-                borderColor: colors.GOOGLE_COLOR,
+                borderColor: 'rgba(212, 70, 56, 0.3)',
                 borderWidth: 1,
                 backgroundColor: colors.BG_WHITE_COLOR
               }}
