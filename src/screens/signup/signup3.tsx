@@ -48,6 +48,21 @@ export default function SignUpScreenThree(props: SignupScreenThreeProp) {
             marginBottom: '8%'
           }}
         />
+        <Input
+          inputLabel="Create Password"
+          placeholder="........"
+          defaultValue={password}
+          onChangeText={input => setPassword(input)}
+          secureTextEntry={true}
+          inputLabelStyle={{ fontSize: fonts.LARGE_SIZE + 3 }}
+          textInputStyle={{
+            height: 60,
+            borderColor: colors.FONT_DARK_COLOR,
+            borderBottomWidth: 1,
+            fontSize: fonts.LARGE_SIZE,
+            marginBottom: '3%'
+          }}
+        />
       </SafeAreaView>
     </Container>
   );
