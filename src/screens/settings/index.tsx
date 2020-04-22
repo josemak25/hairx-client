@@ -16,6 +16,7 @@ import {
   SettingsItem,
   SettingsText
 } from './styles';
+import { ScrollView } from 'react-native';
 
 interface SettingsScreenScreenProp extends NavigationInterface {
   testID?: string;
@@ -35,7 +36,7 @@ export default function SettingsScreen(props: SettingsScreenScreenProp) {
           </HeaderTitleContainer>
         )}
       />
-      <Container>
+      <Container contentContainerStyle={{ alignItems: 'center' }}>
         <TextContainer>
           <AboutText>About hairX</AboutText>
           <Description>
