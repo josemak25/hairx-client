@@ -15,7 +15,7 @@ import InputCountry from './verification/countryInput/country';
 import InputOTP from './verification/otpInput/otp';
 import Button from '../../../components/button';
 
-const { width } = Dimensions.get('screen');
+const { width } = Dimensions.get('window');
 
 interface Iprops {
   header?: string;
@@ -43,8 +43,11 @@ export default function Phoneverify(props: Iprops) {
   };
 
   const goBack = () => {
+    console.log('going back');
+    const limit = width * props.index + 1 - width;
+    console.log(limit);
     props.scroll.current.scrollTo({
-      // x:d width
+      x: limit
     });
   };
 
@@ -58,7 +61,11 @@ export default function Phoneverify(props: Iprops) {
       </Navigate>
       <Header>VERIFY YOUR IDENTITY</Header>
       <Subtitle>{props.subtitle}</Subtitle>
-      {props.context === 'country' ? <InputCountry /> : <InputOTP />}
+      {props.context === 'country' ? (
+        <InputCountry />
+      ) : (
+        <InputOTP goBack={goBack} />
+      )}
       <Button
         buttonStyle={ButtonStyle.mainButton}
         textStyle={ButtonStyle.textStyle}

@@ -4,12 +4,21 @@ import OTPInputView from '@twotalltotems/react-native-otp-input';
 import { Container, Time } from '../style';
 import CountryDisplay from '../display';
 import { useThemeContext } from '../../../../../theme';
-export default function InputOTP() {
+
+interface Iprops {
+  goBack: () => void;
+}
+
+export default function InputOTP(props: Iprops) {
   const [countDown, setCountdown] = useState<number>(19);
   const { colors, fonts } = useThemeContext();
   return (
     <Container>
-      <CountryDisplay context="otp" country="+1 234-568-0989" />
+      <CountryDisplay
+        context="otp"
+        country="+1 234-568-0989"
+        goBack={props.goBack}
+      />
       <OTPInputView
         pinCount={5}
         style={{
