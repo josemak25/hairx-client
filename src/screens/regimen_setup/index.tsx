@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { AntDesign } from '@expo/vector-icons';
-import { Dimensions } from 'react-native';
+import { Dimensions, View } from 'react-native';
+import Modal from 'react-native-modal';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { NavigationInterface } from '../types';
 import { useThemeContext } from '../../theme';
@@ -9,6 +10,7 @@ import SafeAreaView from '../../commons/header/safe-area-view';
 import { questions } from '../../libs/regimen_setup.json';
 import Question from './question';
 import applyScale from '../../utils/applyScale';
+import Button from '../../components/button';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('screen');
 
@@ -19,7 +21,11 @@ import {
   HeaderTitleNumber,
   HeaderTitleOf,
   CancelSetupButton,
-  HeaderTitleContainer
+  HeaderTitleContainer,
+  ModalView,
+  ModalHeaderText,
+  ModalBodyText,
+  ModalButtonContainer
 } from './styles';
 
 export type QuestionItem = {
@@ -37,7 +43,7 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
   const { colors } = useThemeContext();
 
   const { navigation } = props;
-
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const sliderRef = useRef<{ goToSlide(index: number): void }>(null);
@@ -52,6 +58,10 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
     const previousScrollIndex = currentQuestion - SLIDE_INCREMENT;
     sliderRef.current.goToSlide(previousScrollIndex);
     handleSlideChange(previousScrollIndex);
+  };
+
+  const displayModal = () => {
+    isModalVisible ? setIsModalVisible(true) : setIsModalVisible(false);
   };
 
   const handleGoBackButton = () => navigation.goBack();
@@ -73,13 +83,18 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
           </HeaderTitleContainer>
         )}
         headerRight={() => (
-          <CancelSetupButton onPress={() => navigation.goBack()}>
+          <CancelSetupButton
+            onPress={() => {
+              setIsModalVisible(true);
+            }}
+          >
             <AntDesign name="close" size={15} color={colors.BG_WHITE_COLOR} />
           </CancelSetupButton>
         )}
       />
       <AppIntroSlider
         testID="slider"
+        disableSlide={true}
         renderItem={({ item }) => (
           <Question
             key={item.key}
@@ -110,6 +125,51 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
         slides={questions}
         ref={sliderRef}
       />
+      <Modal
+        isVisible={isModalVisible}
+        animationIn="slideInUp"
+        animationOut="slideOutDown"
+        style={{
+          display: 'flex',
+          justifyContent: 'flex-end',
+          margin: 0
+        }}
+      >
+        <ModalView>
+          <ModalHeaderText>Quit regimen?</ModalHeaderText>
+          <ModalBodyText>
+            You’ve answered 3 of 10 questions to set up your own bespoke
+            regimen. If you need to do something quickly, you can save your
+            progress instead.
+          </ModalBodyText>
+          <ModalButtonContainer>
+            <Button
+              title="Save my progress"
+              buttonStyle={{
+                width: 345,
+                backgroundColor: colors.FONT_DARK_COLOR
+              }}
+              onPress={() => {
+                setIsModalVisible(false);
+              }}
+              textStyle={{
+                color: colors.BG_WHITE_COLOR
+              }}
+            />
+            <Button
+              title="Quit & lose progress"
+              buttonStyle={{
+                width: 345,
+                backgroundColor: colors.BUTTON_LIGHT_COLOR
+              }}
+              onPress={() => {
+                setIsModalVisible(false);
+              }}
+              textStyle={{ color: colors.FONT_DARK_COLOR }}
+            />
+          </ModalButtonContainer>
+        </ModalView>
+      </Modal>
     </SafeAreaView>
   );
 }
