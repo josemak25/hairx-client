@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import SafeAreaView from '../../commons/header/safe-area-view'
 import Button from '../../components/button';
 import Input from '../../components/input';
 import { NavigationInterface } from '../types';
@@ -18,7 +19,6 @@ import {
   Service,
   ButtonView
 } from './styles';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 interface SignupScreenProp extends NavigationInterface {
   testID?: string;
@@ -28,9 +28,9 @@ export default function SignupScreen(props: SignupScreenProp) {
   const { colors, fonts } = useThemeContext();
   const [email, setEmail] = useState('');
   return (
-    <Container>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <SafeAreaView>
+    <SafeAreaView>
+      <Container>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <Welcome>Welcome</Welcome>
           <Prompt>SIGN UP OR LOG IN</Prompt>
           <Input
@@ -96,8 +96,8 @@ export default function SignupScreen(props: SignupScreenProp) {
             By signing up, you agree to our
             <Service> Terms of Service</Service>
           </Terms>
-        </SafeAreaView>
-      </ScrollView>
-    </Container>
+        </ScrollView>
+      </Container>
+    </SafeAreaView>
   );
 }

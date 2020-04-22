@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
-import { SafeAreaView, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import { useThemeContext } from '../../theme';
 import { NavigationInterface } from '../types';
 
+import SafeAreaView from '../../commons/header/safe-area-view';
 import Button from '../../components/button';
 import Input from '../../components/input';
 
@@ -24,11 +25,11 @@ interface SignupScreenThreeProp extends NavigationInterface {
 export default function SignUpScreenThree(props: SignupScreenThreeProp) {
   const { colors, fonts } = useThemeContext();
   const [name, setName] = useState('Claire Tamara');
-  const [password, setPassword] = useState('')
+  const [password, setPassword] = useState('');
   return (
-    <Container>
-      <SafeAreaView>
-      <NavigationView>
+    <SafeAreaView>
+      <Container>
+        <NavigationView>
           <TouchableOpacity onPress={() => props.navigation.goBack()}>
             <Ionicons name="ios-arrow-back" size={35} color="#707070" />
           </TouchableOpacity>
@@ -84,7 +85,7 @@ export default function SignUpScreenThree(props: SignupScreenThreeProp) {
           textStyle={{ fontSize: fonts.LARGE_SIZE }}
           onPress={() => props.navigation.navigate('SignUpScreenFour')}
         />
-      </SafeAreaView>
-    </Container>
+      </Container>
+    </SafeAreaView>
   );
 }

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { SafeAreaView, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import { NavigationInterface } from '../types';
 import { useThemeContext } from '../../theme';
 
+import SafeAreaView from '../../commons/header/safe-area-view';
 import Button from '../../components/button';
 import Input from '../../components/input';
 
@@ -29,8 +30,8 @@ export default function SignUpScreenTwo(props: SignupScreenTwoProp) {
   const [lastName, setLast] = useState('');
 
   return (
-    <Container>
-      <SafeAreaView>
+    <SafeAreaView>
+      <Container>
         <NavigationView>
           <TouchableOpacity onPress={() => props.navigation.goBack()}>
             <Ionicons name="ios-arrow-back" size={35} color="#707070" />
@@ -85,7 +86,7 @@ export default function SignUpScreenTwo(props: SignupScreenTwoProp) {
           textStyle={{ fontSize: fonts.LARGE_SIZE }}
           onPress={() => props.navigation.navigate('SignUpScreenThree')}
         />
-      </SafeAreaView>
-    </Container>
+      </Container>
+    </SafeAreaView>
   );
 }
