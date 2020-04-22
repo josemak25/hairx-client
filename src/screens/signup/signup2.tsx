@@ -62,7 +62,21 @@ export default function SignUpScreenTwo(props: SignupScreenTwoProp) {
               borderColor: colors.FONT_DARK_COLOR,
               borderBottomWidth: 1,
               fontSize: fonts.LARGE_SIZE,
-              marginBottom: '6%'
+              marginBottom: '5%'
+            }}
+          />
+          <Input
+            inputLabel="What's your last name?"
+            placeholder="Tamara"
+            defaultValue={lastName}
+            onChangeText={input => setLast(input)}
+            inputLabelStyle={{ fontSize: fonts.LARGE_SIZE + 3 }}
+            textInputStyle={{
+              height: 60,
+              borderColor: colors.FONT_DARK_COLOR,
+              borderBottomWidth: 1,
+              fontSize: fonts.LARGE_SIZE,
+              marginBottom: '15%'
             }}
           />
       </SafeAreaView>
