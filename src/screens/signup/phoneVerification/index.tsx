@@ -6,6 +6,7 @@ import {
   Container,
   Header,
   Subtitle,
+  GoBack,
   ButtonStyle,
   Navigate,
   Text
@@ -41,7 +42,9 @@ export default function Phoneverify(props: Iprops) {
   return (
     <Container>
       <Navigate>
-        <Ionicons name="md-greater" size={18} />
+        <GoBack>
+          <Ionicons name="chevron-back-outline" size={18} />
+        </GoBack>
         <Text>4 of 4</Text>
       </Navigate>
       <Header>VERIFY YOUR IDENTITY</Header>

@@ -11,11 +11,14 @@ export const Container = styled.View`
 `;
 
 export const Navigate = styled.View`
+  margin-top: 24.5px;
   width: 100%;
   height: 18px;
 `;
 
-export const Text = styled.View`
+export const GoBack = styled.TouchableOpacity``;
+
+export const Text = styled.Text`
   font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   text-align: center;
