@@ -33,11 +33,6 @@ export const IconView = styled.View`
   left: 20px;
 `;
 
-export const GoogleIcon = styled.Image`
-  width: 25px;
-  height: 25px;
-`;
-
 export const Terms = styled.Text`
   font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
@@ -63,10 +58,10 @@ export const NavigationView = styled.View`
 export const Pagination = styled.Text`
   margin-left: auto;
   margin-right: auto;
-  font-family: ${({theme}) => theme.fonts.JOST_BOOK};
-  font-size: ${({theme}) => theme.fonts.LARGE_SIZE};
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE};
 `;
 
 export const OfText = styled.Text`
-font-family: ${({theme}) => theme.fonts.CORMORANT_REGULAR}
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
 `;
