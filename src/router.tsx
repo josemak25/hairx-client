@@ -44,6 +44,12 @@ export default function AppNavigator() {
           options={{ headerShown: false }}
         />
         <RootStack.Screen
+          name="SignUpScreenThree"
+          component={Screens.SignUpScreenThree}
+          options={{ headerShown: false }}
+        />
+
+        <RootStack.Screen
           name="GetStartedScreen"
           component={Screens.GetStartedScreen}
           options={{ headerShown: false }}
