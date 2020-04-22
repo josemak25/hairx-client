@@ -2,8 +2,8 @@ import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 
 import { Container, Header, Subtitle, ButtonStyle } from './style';
-import InputCountry from './verification/country';
-import InputOTP from './verification/otp';
+import InputCountry from './verification/countryInput/country';
+import InputOTP from './verification/otpInput/otp';
 import Button from '../../../components/button';
 import { ScrollView } from 'react-native';
 

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 
-import { Container, Time } from './style';
-import CountryDisplay from './countryDisplay';
-import { useThemeContext } from '../../../../theme';
+import { Container, Time } from '../style';
+import CountryDisplay from '../display';
+import { useThemeContext } from '../../../../../theme';
 export default function InputOTP() {
   const [countDown, setCountdown] = useState<number>(19);
   const { colors, fonts } = useThemeContext();

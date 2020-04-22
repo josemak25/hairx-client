@@ -3,13 +3,13 @@ import CountryPicker, {
   Country,
   CountryCode
 } from 'react-native-country-picker-modal';
-import CountryDisplay from './countryDisplay';
 import ReactNativePhoneInput from 'react-native-phone-input';
 import { TextInput } from 'react-native';
 import PhoneInput from 'react-native-phone-input';
 
-import { Container, Text } from './style';
-import { theme } from '../../../../theme/types';
+import CountryDisplay from '../display/index';
+import { Container, Text } from '../style';
+import { theme } from '../../../../../theme/types';
 export default function InputCountry() {
   const [country, setCountry] = useState<string>('United States');
   const [phoneNumber, setPhoneNumber] = useState<string>('+1');
