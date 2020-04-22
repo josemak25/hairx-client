@@ -27,4 +27,9 @@ export const Choice = styled.Text`
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
 `;
 
+export const IconView = styled.View`
+  position: absolute;
+  left: 20px
+`;
+
 export const Terms = styled.Text``;
