@@ -10,6 +10,7 @@ type InputProps = {
   placeholder: string;
   defaultValue: string;
   inputLabelStyle?: {};
+  secureTextEntry?: boolean;
   onChangeText(T: any): void;
 };
 
