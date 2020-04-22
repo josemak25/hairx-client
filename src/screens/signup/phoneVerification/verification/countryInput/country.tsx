@@ -9,8 +9,9 @@ import PhoneInput from 'react-native-phone-input';
 
 import CountryDisplay from '../display/index';
 import { Container, Text } from '../style';
-import { theme } from '../../../../../theme/types';
+import { useThemeContext } from '../../../../../theme';
 export default function InputCountry() {
+  const { colors, fonts } = useThemeContext();
   const [country, setCountry] = useState<string>('United States');
   const [phoneNumber, setPhoneNumber] = useState<string>('+1');
   const [vis, setvisibility] = useState<boolean>(false);
@@ -48,14 +49,14 @@ export default function InputCountry() {
         value={phoneNumber}
         style={{
           width: '100%',
-          backgroundColor: theme.colors.INPUT_FIELD_COLOR,
+          backgroundColor: colors.INPUT_FIELD_COLOR,
           height: 45,
           borderRadius: 5,
           marginTop: 10,
           marginBottom: 40
         }}
         textStyle={{
-          fontFamily: theme.fonts.JOST_BOOK as string,
+          fontFamily: fonts.JOST_BOOK as string,
           opacity: true ? 0.3 : 0.7
         }}
         onChangePhoneNumber={val => setPhoneNumber(phoneNumber + val)}
