@@ -16,7 +16,6 @@ export default function InputCountry() {
 
   const selection = (country: Country) => {
     setCountry(country.name as string);
-    console.log(country);
     setDailingCode(country.callingCode[0]);
     setCode(country.cca2);
   };
@@ -24,7 +23,6 @@ export default function InputCountry() {
   const format = (number: string) => {
     const formatedNumber = new AsYouType(code as any).input(number);
     setPhoneNumber(formatedNumber);
-    console.log(formatedNumber);
   };
   return (
     <Container>

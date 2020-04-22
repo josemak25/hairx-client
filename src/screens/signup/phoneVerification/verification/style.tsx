@@ -26,12 +26,13 @@ export const Time = styled.Text`
 export const PhoneInputField = styled.TextInput`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.INPUT_FIELD_COLOR};
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   height: 45px;
   padding-left: 55px;
   border-radius: 5px;
   margin-top: 10px;
   margin-bottom: 40px;
-  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
 `;
 
 export const CountryDailingCode = styled.Text`

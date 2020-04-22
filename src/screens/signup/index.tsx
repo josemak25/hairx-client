@@ -15,7 +15,12 @@ export default function SignupScreen(props: SignupScreenProp) {
 
   return (
     <Container>
-      <ScrollView horizontal={true} pagingEnabled={true} ref={scrollRef}>
+      <ScrollView
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        pagingEnabled={true}
+        ref={scrollRef}
+      >
         {VerifyDetails.map((item, ind) => (
           <Phoneverify
             key={ind}
