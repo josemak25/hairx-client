@@ -21,6 +21,7 @@ export default function SignupScreen(props: SignupScreenProp) {
       <Welcome>Welcome</Welcome>
       <Prompt>SIGN UP OR LOG IN</Prompt>
       <Input inputLabel="Email address" placeholder="tashacombs@ymmail.com" defaultValue={email} onChangeText={input => setEmail(input)} inputLabelStyle={{fontSize: fonts.LARGE_SIZE + 3}} textInputStyle={{height: 60, borderColor: colors.FONT_DARK_COLOR, borderBottomWidth: 1, fontSize: fonts.LARGE_SIZE}} />
+      <Button title="Get Started with email" buttonStyle={{marginTop: "6%", height: 60}} onPress={() => props.navigation.navigate("createAccountScreen")} />
       </SafeAreaView>
     </Container>
   );
