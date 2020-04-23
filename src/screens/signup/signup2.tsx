@@ -5,6 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { NavigationInterface } from '../types';
 import { useThemeContext } from '../../theme';
 
+import Header from '../../commons/header/header';
 import SafeAreaView from '../../commons/header/safe-area-view';
 import Button from '../../components/button';
 import Input from '../../components/input';
@@ -31,15 +32,25 @@ export default function SignUpScreenTwo(props: SignupScreenTwoProp) {
 
   return (
     <SafeAreaView>
-      <Container>
-        <NavigationView>
+      <Header
+        headerLeft={() => (
           <TouchableOpacity onPress={() => props.navigation.goBack()}>
-            <Ionicons name="ios-arrow-back" size={35} color="#707070" />
+            <Ionicons
+              name="ios-arrow-back"
+              size={30}
+              color={colors.INACTIVE_FIELD_COLOR}
+            />
           </TouchableOpacity>
-          <Pagination>
-            2<OfText> of </OfText>4
-          </Pagination>
-        </NavigationView>
+        )}
+        title={() => (
+          <NavigationView>
+            <Pagination>
+              2<OfText> of </OfText>4
+            </Pagination>
+          </NavigationView>
+        )}
+      />
+      <Container style={{ paddingTop: 0 }}>
         <Welcome style={{ marginTop: '15%' }}>Good to have you</Welcome>
         <Prompt>create account</Prompt>
         <Input
