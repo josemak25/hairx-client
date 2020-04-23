@@ -22,10 +22,12 @@ const initialState: stateType = {
   code: 'US',
   DailingCode: '1'
 };
+
 export default function InputCountry() {
   const [context, setContext] = useState<stateType>(initialState);
 
   const selection = (country: Country) => {
+    console.log(country);
     setContext({
       ...context,
       country: country.name as string,
@@ -38,6 +40,7 @@ export default function InputCountry() {
     const formatedNumber = new AsYouType(context.code as any).input(number);
     setContext({ ...context, phoneNumber: formatedNumber });
   };
+
   return (
     <Container>
       <CountryPicker
@@ -52,7 +55,7 @@ export default function InputCountry() {
             onPress={() => setContext({ ...context, visibility: true })}
           />
         )}
-        onClose={() => setContext({ ...context, visibility: true })}
+        onClose={() => setContext({ ...context, visibility: false })}
       />
       <Text>What's your number?</Text>
 
