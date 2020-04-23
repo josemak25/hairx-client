@@ -56,7 +56,7 @@ export const ButtonStyle = {
   },
   textStyle: {
     fontFamily: theme.fonts.JOST_MEDIUM,
-    fontSize: 15
+    fontSize: applyScale(15)
   }
 };
 
@@ -64,7 +64,6 @@ export const Title = styled.Text`
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   width: 70%;
   font-size: 30px;
-  text-align: left;
   height: ${applyScale(43)}px;
   margin-top: 95px;
 `;
@@ -72,7 +71,6 @@ export const Title = styled.Text`
 export const Subtitle = styled.Text`
   font-size: 20px;
   font-family: ${({ theme }) => theme.fonts.CORMORANT_MEDIUM};
-  text-align: left;
   width: 80%;
   opacity: 0.7;
   height: ${applyScale(53)}px;

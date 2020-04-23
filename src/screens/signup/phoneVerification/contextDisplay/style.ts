@@ -15,18 +15,18 @@ export const Container = styled.View`
 `;
 
 export const Text = styled.Text`
-  text-align: left;
   opacity: 0.7;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   width: 50%;
   height: ${applyScale(18)}px;
-  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE};
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
 `;
 
 export const ButtonStyle = {
   Mainbutton: {
     backgroundColor: theme.colors.INPUT_FIELD_COLOR,
     elevation: 0,
+    shadowOpacity: 0,
     height: applyScale(18),
     width: '20%'
   },
