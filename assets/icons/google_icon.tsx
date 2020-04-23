@@ -1,7 +1,8 @@
-import * as React from "react"
-import Svg, { Path } from "react-native-svg"
+import * as React from 'react';
+import Svg, { Path } from 'react-native-svg';
+import { IconProps } from './types';
 
-function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
+export default function GoogleIcon(props: IconProps) {
   return (
     <Svg
       width={25}
@@ -27,7 +28,5 @@ function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
         fill="#EB4335"
       />
     </Svg>
-  )
+  );
 }
-
-export default SvgComponent
