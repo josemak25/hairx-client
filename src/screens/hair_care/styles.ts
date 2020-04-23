@@ -1,10 +1,8 @@
 import styled from 'styled-components/native';
 import applyScale from '../../utils/applyScale';
 
-export const Container = styled.View`
+export const Container = styled.ScrollView`
   flex: 1;
-  justify-content: center;
-  align-items: center;
   background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
 `;
 
@@ -84,10 +82,3 @@ export const HairConditionValue = styled.Text`
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   text-transform: capitalize;
 `;
-
-// export const Welcome = styled.Text`
-//   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
-//   font-family: ${({ theme }) => theme.fonts.JOST_MEDIUM};
-//   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
-//   text-transform: capitalize;
-// `;
