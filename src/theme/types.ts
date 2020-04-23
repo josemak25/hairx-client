@@ -15,7 +15,9 @@ enum COLORS {
   INPUT_FIELD_COLOR = '#F7F7F7',
   INACTIVE_FIELD_COLOR = '#707070',
   ACTIVE_ICON_COLOR = '#BAB200',
-  BACK_BUTTON_BG_COLOR = '#494039'
+  BACK_BUTTON_BG_COLOR = '#494039',
+  BG_DARK_BLUE_COLOR = '#0856B4',
+  BG_RED_COLOR = '#B40808'
 }
 
 // All app font sizes
@@ -51,6 +53,8 @@ declare module 'styled-components' {
       INACTIVE_FIELD_COLOR: string;
       ACTIVE_ICON_COLOR: string;
       BACK_BUTTON_BG_COLOR: string;
+      BG_DARK_BLUE_COLOR: string;
+      BG_RED_COLOR: string;
     };
 
     // All Global App Font Sizes
