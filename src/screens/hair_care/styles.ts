@@ -112,6 +112,7 @@ export const SaloonCardContainer = styled.View`
 
 export const SaloonCard = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
+  background-color: ${({ theme }) => theme.colors.BG_LIGHT_GOLD_COLOR};
   width: 155px;
   height: 184px;
   border-radius: 5px;

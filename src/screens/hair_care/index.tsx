@@ -127,7 +127,7 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
           )}
           <SaloonCardContainer>
             {props.visitedSaloons.map((visitedSaloon, index) => (
-              <SaloonCard key={index}>
+              <SaloonCard key={index} onPress={() => {}}>
                 <Cover>
                   <CoverPart
                     source={require('../../../assets/images/before.jpg')}
