@@ -26,19 +26,21 @@ const initialState: stateType = {
 export default function InputCountry() {
   const [context, setContext] = useState<stateType>(initialState);
 
-  const selection = (country: Country) => {
-    console.log(country);
+  const selection = async (country: Country) => {
+    const countryDetails = await country;
     setContext({
       ...context,
-      country: country.name as string,
-      DailingCode: country.callingCode[0],
-      code: country.cca2
+      country: countryDetails.name as string,
+      DailingCode: countryDetails.callingCode[0],
+      code: await countryDetails.cca2,
+      visibility: false
     });
   };
 
   const format = (number: string) => {
     const formatedNumber = new AsYouType(context.code as any).input(number);
     setContext({ ...context, phoneNumber: formatedNumber });
+    console.log(context.phoneNumber);
   };
 
   return (
@@ -55,7 +57,6 @@ export default function InputCountry() {
             onPress={() => setContext({ ...context, visibility: true })}
           />
         )}
-        onClose={() => setContext({ ...context, visibility: false })}
       />
       <Text>What's your number?</Text>
 
