@@ -89,7 +89,10 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
         )}
       />
 
-      <Container contentContainerStyle={{ alignItems: 'center' }}>
+      <Container
+        contentContainerStyle={{ alignItems: 'center' }}
+        showsVerticalScrollIndicator={false}
+      >
         <ProfileSection>
           <ProfileImage
             source={require('../../../assets/images/logo.png')}
