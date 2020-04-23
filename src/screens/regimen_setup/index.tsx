@@ -60,10 +60,6 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
     handleSlideChange(previousScrollIndex);
   };
 
-  const displayModal = () => {
-    isModalVisible ? setIsModalVisible(true) : setIsModalVisible(false);
-  };
-
   const handleGoBackButton = () => navigation.goBack();
 
   const handleDoneButton = () => navigation.replace('RegimenScreen');
