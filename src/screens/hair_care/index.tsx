@@ -22,7 +22,15 @@ import {
   HairConditionValue,
   VisitedSaloonContainer,
   EmptyListContainer,
-  EmptyListText
+  EmptyListText,
+  SaloonCardContainer,
+  SaloonCard,
+  Cover,
+  CardLabel,
+  CardLabelContainer,
+  CardText,
+  DateText,
+  CoverPart
 } from './styles';
 
 interface HairCareScreenScreenProp extends NavigationInterface {
@@ -117,6 +125,26 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
               />
             </EmptyListContainer>
           )}
+          <SaloonCardContainer>
+            {props.visitedSaloons.map((visitedSaloon, index) => (
+              <SaloonCard key={index}>
+                <Cover>
+                  <CoverPart
+                    source={require('../../../assets/images/before.jpg')}
+                  />
+                  <CoverPart
+                    source={require('../../../assets/images/after-image.jpg')}
+                  />
+                </Cover>
+
+                <DateText>{visitedSaloon.date}</DateText>
+                <CardLabelContainer>
+                  <CardLabel>issue:</CardLabel>
+                  <CardText>{visitedSaloon.issue}</CardText>
+                </CardLabelContainer>
+              </SaloonCard>
+            ))}
+          </SaloonCardContainer>
         </VisitedSaloonContainer>
       </Container>
     </SafeAreaView>
@@ -126,5 +154,8 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
 const AnimatedRefreshButton = Animated.createAnimatedComponent(RefreshButton);
 
 HairCareScreen.defaultProps = {
-  visitedSaloons: [{ date: 'April 7, 2020', issue: 'Hair loss' }]
+  visitedSaloons: new Array(4).fill({
+    date: 'April 7, 2020',
+    issue: 'Hair loss'
+  })
 };

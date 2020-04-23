@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
 import applyScale from '../../utils/applyScale';
+import { Dimensions } from 'react-native';
 
+const { width } = Dimensions.get('screen');
 export const Container = styled.ScrollView`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
@@ -99,4 +101,64 @@ export const EmptyListText = styled.Text`
   font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   margin: 0px 75px;
+`;
+
+export const SaloonCardContainer = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: ${applyScale(width)}px;
+`;
+
+export const SaloonCard = styled.TouchableOpacity`
+  background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
+  width: 155px;
+  height: 184px;
+  border-radius: 5px;
+  align-items: center;
+  margin: 3px;
+`;
+
+export const Cover = styled.View`
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 123px;
+  border-radius: 5px;
+  overflow: hidden;
+`;
+
+export const CoverPart = styled.Image`
+  flex: 1;
+  height: 100%;
+`;
+
+export const DateText = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE}px;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  opacity: 0.7;
+  margin-top: 13px;
+`;
+
+export const CardLabelContainer = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const CardLabel = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  text-transform: capitalize;
+  opacity: 0.7;
+`;
+
+export const CardText = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  opacity: 0.7;
+  margin: 3px;
 `;
