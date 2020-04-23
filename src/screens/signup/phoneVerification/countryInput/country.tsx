@@ -4,41 +4,55 @@ import CountryPicker, {
   CountryCode
 } from 'react-native-country-picker-modal';
 import { AsYouType } from 'libphonenumber-js';
-
-import { Container, Text, PhoneInputField, CountryDailingCode } from './style';
 import ContextDisplay from '../contextDisplay/index';
+import { Container, Text, PhoneInputField, CountryDailingCode } from './style';
+
+interface stateType {
+  country: string;
+  phoneNumber: string;
+  visibility: boolean;
+  code: CountryCode;
+  DailingCode: string;
+}
+
+const initialState: stateType = {
+  country: 'United States',
+  phoneNumber: '',
+  visibility: false,
+  code: 'US',
+  DailingCode: '1'
+};
 export default function InputCountry() {
-  const [country, setCountry] = useState<string>('United States');
-  const [phoneNumber, setPhoneNumber] = useState<string>('');
-  const [visibility, setvisibility] = useState<boolean>(false);
-  const [code, setCode] = useState<CountryCode>('US');
-  const [DailingCode, setDailingCode] = useState<string>('1');
+  const [context, setContext] = useState<stateType>(initialState);
 
   const selection = (country: Country) => {
-    setCountry(country.name as string);
-    setDailingCode(country.callingCode[0]);
-    setCode(country.cca2);
+    setContext({
+      ...context,
+      country: country.name as string,
+      DailingCode: country.callingCode[0],
+      code: country.cca2
+    });
   };
 
   const format = (number: string) => {
-    const formatedNumber = new AsYouType(code as any).input(number);
-    setPhoneNumber(formatedNumber);
+    const formatedNumber = new AsYouType(context.code as any).input(number);
+    setContext({ ...context, phoneNumber: formatedNumber });
   };
   return (
     <Container>
       <CountryPicker
-        visible={visibility}
+        visible={context.visibility}
         withCallingCode={true}
-        countryCode={code}
+        countryCode={context.code}
         withFlag={false}
         onSelect={country => selection(country)}
         renderFlagButton={() => (
           <ContextDisplay
-            context={country}
-            onPress={() => setvisibility(true)}
+            context={context.country}
+            onPress={() => setContext({ ...context, visibility: true })}
           />
         )}
-        onClose={() => setvisibility(false)}
+        onClose={() => setContext({ ...context, visibility: true })}
       />
       <Text>What's your number?</Text>
 
@@ -46,9 +60,9 @@ export default function InputCountry() {
         onChangeText={number => format(number)}
         placeholder="202-555-0152"
         keyboardType="phone-pad"
-        value={phoneNumber}
+        value={context.phoneNumber}
       />
-      <CountryDailingCode>+{DailingCode}</CountryDailingCode>
+      <CountryDailingCode>+{context.DailingCode}</CountryDailingCode>
     </Container>
   );
 }
