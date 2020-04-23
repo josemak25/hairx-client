@@ -5,6 +5,7 @@ import SafeAreaView from '../../commons/header/safe-area-view';
 import Header from '../../commons/header/header';
 import { useThemeContext } from '../../theme';
 import { Animated } from 'react-native';
+import Button from '../../components/button';
 
 import {
   Container,
@@ -18,7 +19,10 @@ import {
   HairConditionSummary,
   HairConditionLabel,
   HairConditionValueSection,
-  HairConditionValue
+  HairConditionValue,
+  VisitedSaloonContainer,
+  EmptyListContainer,
+  EmptyListText
 } from './styles';
 
 interface HairCareScreenScreenProp extends NavigationInterface {
@@ -98,6 +102,19 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
             </HairConditionValueSection>
           </HairConditionSummary>
         </ProfileSection>
+        <VisitedSaloonContainer>
+          <EmptyListContainer>
+            <EmptyListText>
+              When you visit a salon, the care that was administered to you will
+              show up here.
+            </EmptyListText>
+            <Button
+              title="Book session at JHB Studio"
+              onPress={() => {}}
+              buttonStyle={{ marginTop: 100 }}
+            />
+          </EmptyListContainer>
+        </VisitedSaloonContainer>
       </Container>
     </SafeAreaView>
   );

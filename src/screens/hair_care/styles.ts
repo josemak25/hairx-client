@@ -82,3 +82,21 @@ export const HairConditionValue = styled.Text`
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   text-transform: capitalize;
 `;
+
+export const VisitedSaloonContainer = styled.View`
+  justify-content: center;
+  align-items: center;
+  margin-top: 260px;
+`;
+
+export const EmptyListContainer = styled.View`
+  justify-content: center;
+  align-items: center;
+`;
+
+export const EmptyListText = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE * 2}px;
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  margin: 0px 75px;
+`;
