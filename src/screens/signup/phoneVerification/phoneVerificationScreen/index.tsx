@@ -1,7 +1,9 @@
 import React from 'react';
-import OTPInputView from '@twotalltotems/react-native-otp-input';
 import { AntDesign } from '@expo/vector-icons';
 
+import { NavigationInterface } from '../../../types';
+import Button from '../../../../components/button';
+import InputCountry from '../countryInput/country';
 import SafeAreaView from '../../../../commons/header/safe-area-view';
 import Header from '../../../../commons/header/header';
 import {
@@ -14,11 +16,6 @@ import {
   Title,
   ButtonStyle
 } from './style';
-import { NavigationInterface } from '../../../types';
-import Button from '../../../../components/button';
-import { useThemeContext } from '../../../../theme';
-import CountryDisplay from '../contextDisplay';
-import InputCountry from '../countryInput/country';
 
 interface PhoneVerificationProps extends NavigationInterface {
   testID?: string;
