@@ -125,6 +125,9 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
         isVisible={isModalVisible}
         animationIn="slideInUp"
         animationOut="slideOutDown"
+        onBackdropPress={() => {
+          setIsModalVisible(false);
+        }}
         style={{
           display: 'flex',
           justifyContent: 'flex-end',
