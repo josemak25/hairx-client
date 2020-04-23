@@ -56,7 +56,7 @@ export const ButtonStyle = {
   },
   textStyle: {
     fontFamily: theme.fonts.JOST_MEDIUM,
-    fontSize: 15
+    fontSize: theme.fonts.LARGE_SIZE
   }
 };
 
