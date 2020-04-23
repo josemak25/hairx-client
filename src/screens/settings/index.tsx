@@ -16,7 +16,6 @@ import {
   SettingsItem,
   SettingsText
 } from './styles';
-import { ScrollView } from 'react-native';
 
 interface SettingsScreenScreenProp extends NavigationInterface {
   testID?: string;
