@@ -1,6 +1,10 @@
 import React from 'react';
 import { AntDesign } from '@expo/vector-icons';
 
+import { NavigationInterface } from '../../../types';
+import Button from '../../../../components/button';
+import ContextDisplay from '../contextDisplay';
+import OTPField from './otpField';
 import SafeAreaView from '../../../../commons/header/safe-area-view';
 import Header from '../../../../commons/header/header';
 import {
@@ -14,19 +18,12 @@ import {
   Time,
   ButtonStyle
 } from './style';
-import { NavigationInterface } from '../../../types';
-import Button from '../../../../components/button';
-import { useThemeContext } from '../../../../theme';
-import ContextDisplay from '../contextDisplay';
-import OTPField from './otpField';
-import boxShadow from '../../../../utils/boxShadows';
 
 interface OTPVerificationProps extends NavigationInterface {
   testID?: string;
 }
 
 export default function OTPVerification(props: OTPVerificationProps) {
-  const { colors } = useThemeContext();
   return (
     <SafeAreaView>
       <Header
