@@ -43,8 +43,13 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
   const { colors } = useThemeContext();
 
   const { navigation } = props;
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+
+  const [state, setState] = useState({
+    modalVisible: false,
+    currentQuestion: 0
+  });
+
+  const { modalVisible, currentQuestion } = state;
 
   const sliderRef = useRef<{ goToSlide(index: number): void }>(null);
 
@@ -64,7 +69,8 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
 
   const handleDoneButton = () => navigation.replace('RegimenScreen');
 
-  const handleSlideChange = (index: number) => setCurrentQuestion(index);
+  const handleSlideChange = (index: number) =>
+    setState({ ...state, currentQuestion: index });
 
   return (
     <SafeAreaView>
@@ -81,7 +87,7 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
         headerRight={() => (
           <CancelSetupButton
             onPress={() => {
-              setIsModalVisible(true);
+              setState({ ...state, modalVisible: true });
             }}
           >
             <AntDesign name="close" size={15} color={colors.BG_WHITE_COLOR} />
@@ -122,11 +128,11 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
         ref={sliderRef}
       />
       <Modal
-        isVisible={isModalVisible}
+        isVisible={modalVisible}
         animationIn="slideInUp"
         animationOut="slideOutDown"
         onBackdropPress={() => {
-          setIsModalVisible(false);
+          setState({ ...state, modalVisible: false });
         }}
         style={{
           display: 'flex',
@@ -149,7 +155,7 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
                 backgroundColor: colors.FONT_DARK_COLOR
               }}
               onPress={() => {
-                setIsModalVisible(false);
+                setState({ ...state, modalVisible: false });
               }}
               textStyle={{
                 color: colors.BG_WHITE_COLOR
@@ -162,7 +168,8 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
                 backgroundColor: colors.BUTTON_LIGHT_COLOR
               }}
               onPress={() => {
-                setIsModalVisible(false);
+                setState({ ...state, modalVisible: false });
+                navigation.goBack();
               }}
               textStyle={{ color: colors.FONT_DARK_COLOR }}
             />
