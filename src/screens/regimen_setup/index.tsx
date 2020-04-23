@@ -169,7 +169,6 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
               }}
               onPress={() => {
                 setState({ ...state, modalVisible: false });
-                navigation.goBack();
               }}
               textStyle={{ color: colors.FONT_DARK_COLOR }}
             />
