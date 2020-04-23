@@ -1,13 +1,9 @@
-import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 import applyScale from '../../../../utils/applyScale';
 import { theme } from '../../../../theme/types';
 
-const { width } = Dimensions.get('window');
-
 export const Container = styled.View`
   flex: 1;
-  width: ${width}px;
   padding: 15px;
 `;
 
@@ -66,10 +62,10 @@ export const ButtonStyle = {
 
 export const Title = styled.Text`
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
-  width: 311px;
+  width: 70%;
   font-size: 30px;
   text-align: left;
-  height: 43px;
+  height: ${applyScale(43)}px;
   margin-top: 95px;
 `;
 
@@ -77,9 +73,9 @@ export const Subtitle = styled.Text`
   font-size: 20px;
   font-family: ${({ theme }) => theme.fonts.CORMORANT_MEDIUM};
   text-align: left;
-  width: 327px;
+  width: 80%;
   opacity: 0.7;
-  height: 53px;
+  height: ${applyScale(53)}px;
 `;
 
 export const Time = styled.Text`
@@ -87,7 +83,7 @@ export const Time = styled.Text`
   text-align: center;
   margin: 0px auto 20px auto;
   font-size: 13px;
-  width: 327px;
-  height: 18px;
+  width: 80%;
+  height: ${applyScale(18)}px;
   margin-bottom: 20px;
 `;
