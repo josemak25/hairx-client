@@ -35,7 +35,10 @@ export default function SettingsScreen(props: SettingsScreenScreenProp) {
           </HeaderTitleContainer>
         )}
       />
-      <Container contentContainerStyle={{ alignItems: 'center' }}>
+      <Container
+        contentContainerStyle={{ alignItems: 'center' }}
+        showsVerticalScrollIndicator={false}
+      >
         <TextContainer>
           <AboutText>About hairX</AboutText>
           <Description>
