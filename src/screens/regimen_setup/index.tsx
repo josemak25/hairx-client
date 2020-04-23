@@ -156,6 +156,7 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
               }}
               onPress={() => {
                 setState({ ...state, modalVisible: false });
+                navigation.goBack();
               }}
               textStyle={{
                 color: colors.BG_WHITE_COLOR
@@ -169,6 +170,7 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
               }}
               onPress={() => {
                 setState({ ...state, modalVisible: false });
+                navigation.goBack();
               }}
               textStyle={{ color: colors.FONT_DARK_COLOR }}
             />
