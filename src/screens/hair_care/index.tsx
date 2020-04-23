@@ -27,6 +27,7 @@ import {
 
 interface HairCareScreenScreenProp extends NavigationInterface {
   testID?: string;
+  visitedSaloons: { date: string; issue: string }[];
 }
 
 export default function HairCareScreen(props: HairCareScreenScreenProp) {
@@ -103,17 +104,19 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
           </HairConditionSummary>
         </ProfileSection>
         <VisitedSaloonContainer>
-          <EmptyListContainer>
-            <EmptyListText>
-              When you visit a salon, the care that was administered to you will
-              show up here.
-            </EmptyListText>
-            <Button
-              title="Book session at JHB Studio"
-              onPress={() => {}}
-              buttonStyle={{ marginTop: 100 }}
-            />
-          </EmptyListContainer>
+          {!props.visitedSaloons.length && (
+            <EmptyListContainer>
+              <EmptyListText>
+                When you visit a salon, the care that was administered to you
+                will show up here.
+              </EmptyListText>
+              <Button
+                title="Book session at JHB Studio"
+                onPress={() => {}}
+                buttonStyle={{ marginTop: 100 }}
+              />
+            </EmptyListContainer>
+          )}
         </VisitedSaloonContainer>
       </Container>
     </SafeAreaView>
@@ -121,3 +124,7 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
 }
 
 const AnimatedRefreshButton = Animated.createAnimatedComponent(RefreshButton);
+
+HairCareScreen.defaultProps = {
+  visitedSaloons: [{ date: 'April 7, 2020', issue: 'Hair loss' }]
+};
