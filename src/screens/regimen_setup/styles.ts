@@ -153,3 +153,40 @@ export const ModalButtonContainer = styled.View`
   height: 120px;
   justify-content: space-between;
 `;
+
+export const ResumeContainer = styled.View`
+  flex: 1;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
+`;
+
+export const ResumeSetupTextContainer = styled.View`
+  height: 20%;
+  text-align: center;
+  width: 80%;
+`;
+
+export const ResumeSetupHeaderText = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 15}px;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+`;
+
+export const ResumeSetupBodyText = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 5}px;
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
+`;
+
+export const ResumeImage = styled.Image`
+  width: 80%;
+`;
+
+export const TakeMeBackButton = styled.TouchableOpacity``;
+
+export const HeaderTitleLabel = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 2}px;
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  text-transform: capitalize;
+  padding: 0px 5px;
+`;
