@@ -12,11 +12,20 @@ import {
   HairCareSaloonCard,
   CardInfo,
   CardLabel,
-  CardValue
+  CardValue,
+  AssessmentCard,
+  AssessmentCardContainer,
+  AssessmentLabel,
+  AssessmentCardContent,
+  ContentLabel,
+  ContentValue,
+  ValueDegreeContainer,
+  ValueDegree
 } from './styles';
 
 interface HairCareScreenScreenProp extends NavigationInterface {
   testID?: string;
+  assessments: { label: string; value: string; degree: string }[];
 }
 
 export default function HairCareDetailScreen(props: HairCareScreenScreenProp) {
@@ -53,8 +62,53 @@ export default function HairCareDetailScreen(props: HairCareScreenScreenProp) {
             <CardValue>JHB Studio</CardValue>
           </CardInfo>
         </HairCareSaloonCard>
+        <AssessmentLabel>Hair assessment</AssessmentLabel>
+        <AssessmentCardContainer
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{
+            alignItems: 'center',
+            justifyContent: 'space-between'
+          }}
+        >
+          {props.assessments.map((assessment, index) => (
+            <AssessmentCard key={index}>
+              <AssessmentCardContent>
+                <ContentLabel>{assessment.label}</ContentLabel>
+                <ContentValue>{assessment.value}</ContentValue>
+                <ValueDegreeContainer
+                  style={
+                    assessment.value.toLowerCase() === 'low' && {
+                      backgroundColor: colors.BG_LIGHT_PINK_COLOR
+                    }
+                  }
+                >
+                  <ValueDegree
+                    style={
+                      assessment.value.toLowerCase() === 'low' && {
+                        color: colors.BG_RED_COLOR
+                      }
+                    }
+                  >
+                    {assessment.degree}
+                  </ValueDegree>
+                </ValueDegreeContainer>
+              </AssessmentCardContent>
+            </AssessmentCard>
+          ))}
+        </AssessmentCardContainer>
       </ContentArea>
     </Container>
-    // </View>
   );
 }
+
+HairCareDetailScreen.defaultProps = {
+  assessments: [
+    { label: 'texture', value: 'Fine hair', degree: '3b' },
+    { label: 'porosity', value: 'low', degree: '7e' },
+    { label: 'elasticity', value: 'Fine hair', degree: '3b' },
+    { label: 'texture', value: 'good', degree: '70%' }
+  ],
+  products: [],
+  recommendations: []
+};
