@@ -19,6 +19,11 @@ export default function HomeNavigator() {
         name="RegimenSetupScreen"
         component={Screens.RegimenSetupScreen}
       />
+
+      <RegimenStack.Screen
+        name="ResumeScreen"
+        component={Screens.ResumeScreen}
+      />
     </RegimenStack.Navigator>
   );
 }
