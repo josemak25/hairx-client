@@ -145,6 +145,7 @@ export const ModalBodyText = styled.Text`
   width: 80%;
   font-family: ${({ theme }) => theme.fonts.CORMORANT_MEDIUM};
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  text-align: center;
   opacity: 0.7;
 `;
 
