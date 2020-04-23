@@ -13,15 +13,19 @@ import {
   TakeMeBackButton,
   HeaderTitleContainer,
   HeaderTitle,
-  HeaderTitleLabel
+  HeaderTitleLabel,
+  ResumeImage
 } from './styles';
 
 interface ResumeProp extends NavigationInterface {
   testID?: string;
+  currentQuestion: number;
 }
 
-export default function ResumeScreen({ navigation }: ResumeProp) {
+export default function ResumeScreen(props: ResumeProp) {
   const { colors } = useThemeContext();
+
+  const { navigation } = props;
 
   return (
     <SafeAreaView>
@@ -37,11 +41,11 @@ export default function ResumeScreen({ navigation }: ResumeProp) {
         <ResumeSetupTextContainer>
           <ResumeSetupHeaderText>Resume setup</ResumeSetupHeaderText>
           <ResumeSetupBodyText>
-            Hey Claire, you’ve answered 3 of 10 questions. Continue where you
+            Hey Claire, you’ve answered 0 of 5 questions. Continue where you
             left off to set up a bespoke regimen for your hair challenges.
           </ResumeSetupBodyText>
         </ResumeSetupTextContainer>
-        {/* <ResumeImage /> */}
+        <ResumeImage source={require('../../../assets/icon.png')} />
         <TakeMeBackButton>
           <Button
             title="take me back"

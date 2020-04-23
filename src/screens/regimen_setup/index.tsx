@@ -170,7 +170,10 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
               }}
               onPress={() => {
                 setState({ ...state, modalVisible: false });
-                navigation.goBack();
+                navigation.navigate('ResumeScreen', {
+                  currentQuestion,
+                  length: questions.length
+                });
               }}
               textStyle={{ color: colors.FONT_DARK_COLOR }}
             />

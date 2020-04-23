@@ -163,22 +163,27 @@ export const ResumeContainer = styled.View`
 
 export const ResumeSetupTextContainer = styled.View`
   height: 20%;
-  text-align: center;
-  width: 80%;
+  width: 70%;
 `;
 
 export const ResumeSetupHeaderText = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 15}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 5px;
 `;
 
 export const ResumeSetupBodyText = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 5}px;
   font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
+  text-align: center;
+  margin-bottom: 5px;
 `;
 
 export const ResumeImage = styled.Image`
   width: 80%;
+  height: 30%;
 `;
 
 export const TakeMeBackButton = styled.TouchableOpacity``;
