@@ -26,9 +26,11 @@ interface SignupScreenTwoProp extends NavigationInterface {
 export default function SignUpScreenTwo(props: SignupScreenTwoProp) {
   const { colors, fonts } = useThemeContext();
 
-  const [email, setEmail] = useState('clairetamara08@gmail.com');
-  const [firstName, setFirst] = useState('');
-  const [lastName, setLast] = useState('');
+  const [profile, setProfile] = useState({
+    firstName: '',
+    lastName: '',
+    email: 'clairetamara08@gmail.com'
+  });
 
   return (
     <SafeAreaView>
@@ -54,9 +56,9 @@ export default function SignUpScreenTwo(props: SignupScreenTwoProp) {
         <Welcome style={{ marginTop: '15%' }}>Good to have you</Welcome>
         <Prompt>create account</Prompt>
         <Input
-          defaultValue={email}
-          onChangeText={input => setEmail(input)}
-          placeholder={email}
+          defaultValue={profile.email}
+          onChangeText={input => setProfile({...profile, email: input})}
+          placeholder={profile.email}
           textInputStyle={{
             height: 60,
             fontSize: fonts.LARGE_SIZE,
@@ -66,8 +68,8 @@ export default function SignUpScreenTwo(props: SignupScreenTwoProp) {
         <Input
           inputLabel="What's your first name?"
           placeholder="Claire"
-          defaultValue={firstName}
-          onChangeText={input => setFirst(input)}
+          defaultValue={profile.firstName}
+          onChangeText={input => setProfile({...profile, firstName: input})}
           inputLabelStyle={{ fontSize: fonts.LARGE_SIZE + 3 }}
           textInputStyle={{
             height: 60,
@@ -80,8 +82,8 @@ export default function SignUpScreenTwo(props: SignupScreenTwoProp) {
         <Input
           inputLabel="What's your last name?"
           placeholder="Tamara"
-          defaultValue={lastName}
-          onChangeText={input => setLast(input)}
+          defaultValue={profile.lastName}
+          onChangeText={input => setProfile({...profile, lastName: input})}
           inputLabelStyle={{ fontSize: fonts.LARGE_SIZE + 3 }}
           textInputStyle={{
             height: 60,
