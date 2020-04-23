@@ -137,9 +137,9 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
         <ModalView>
           <ModalHeaderText>Quit regimen?</ModalHeaderText>
           <ModalBodyText>
-            You’ve answered 3 of 10 questions to set up your own bespoke
-            regimen. If you need to do something quickly, you can save your
-            progress instead.
+            You’ve answered {currentQuestion} of {questions.length} questions to
+            set up your own bespoke regimen. If you need to do something
+            quickly, you can save your progress instead.
           </ModalBodyText>
           <ModalButtonContainer>
             <Button
