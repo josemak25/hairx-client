@@ -28,7 +28,7 @@ export default function SignUpScreenThree(props: SignupScreenThreeProp) {
   const [profile, setProfile] = useState({
     fullName: 'Claire Tamara',
     password: ''
-  })
+  });
   return (
     <SafeAreaView>
       <Header
@@ -54,7 +54,7 @@ export default function SignUpScreenThree(props: SignupScreenThreeProp) {
         <Prompt>create account</Prompt>
         <Input
           defaultValue={profile.fullName}
-          onChangeText={input => setProfile({...profile, fullName: input})}
+          onChangeText={input => setProfile({ ...profile, fullName: input })}
           placeholder={profile.fullName}
           textInputStyle={{
             height: 60,
@@ -66,13 +66,11 @@ export default function SignUpScreenThree(props: SignupScreenThreeProp) {
           inputLabel="Create Password"
           placeholder="........"
           defaultValue={profile.password}
-          onChangeText={input => setProfile({...profile, password: input})}
+          onChangeText={input => setProfile({ ...profile, password: input })}
           secureTextEntry={true}
           inputLabelStyle={{ fontSize: fonts.LARGE_SIZE + 3 }}
           textInputStyle={{
             height: 60,
-            borderColor: colors.FONT_DARK_COLOR,
-            borderBottomWidth: 1,
             fontSize: fonts.LARGE_SIZE,
             marginBottom: '3%'
           }}
@@ -81,13 +79,11 @@ export default function SignUpScreenThree(props: SignupScreenThreeProp) {
           inputLabel="Confirm Password"
           placeholder="........"
           defaultValue={profile.password}
-          onChangeText={input => setProfile({...profile, password: input})}
+          onChangeText={input => setProfile({ ...profile, password: input })}
           secureTextEntry={true}
           inputLabelStyle={{ fontSize: fonts.LARGE_SIZE + 3 }}
           textInputStyle={{
             height: 60,
-            borderColor: colors.FONT_DARK_COLOR,
-            borderBottomWidth: 1,
             fontSize: fonts.LARGE_SIZE,
             marginBottom: '8%'
           }}

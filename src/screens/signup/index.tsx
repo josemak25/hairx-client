@@ -41,8 +41,6 @@ export default function SignupScreen(props: SignupScreenProp) {
             inputLabelStyle={{ fontSize: fonts.LARGE_SIZE + 3 }}
             textInputStyle={{
               height: 60,
-              borderColor: colors.FONT_DARK_COLOR,
-              borderBottomWidth: 1,
               fontSize: fonts.LARGE_SIZE,
               marginBottom: '6%'
             }}

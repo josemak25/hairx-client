@@ -57,7 +57,7 @@ export default function SignUpScreenTwo(props: SignupScreenTwoProp) {
         <Prompt>create account</Prompt>
         <Input
           defaultValue={profile.email}
-          onChangeText={input => setProfile({...profile, email: input})}
+          onChangeText={input => setProfile({ ...profile, email: input })}
           placeholder={profile.email}
           textInputStyle={{
             height: 60,
@@ -69,12 +69,10 @@ export default function SignUpScreenTwo(props: SignupScreenTwoProp) {
           inputLabel="What's your first name?"
           placeholder="Claire"
           defaultValue={profile.firstName}
-          onChangeText={input => setProfile({...profile, firstName: input})}
+          onChangeText={input => setProfile({ ...profile, firstName: input })}
           inputLabelStyle={{ fontSize: fonts.LARGE_SIZE + 3 }}
           textInputStyle={{
             height: 60,
-            borderColor: colors.FONT_DARK_COLOR,
-            borderBottomWidth: 1,
             fontSize: fonts.LARGE_SIZE,
             marginBottom: '3%'
           }}
@@ -83,12 +81,10 @@ export default function SignUpScreenTwo(props: SignupScreenTwoProp) {
           inputLabel="What's your last name?"
           placeholder="Tamara"
           defaultValue={profile.lastName}
-          onChangeText={input => setProfile({...profile, lastName: input})}
+          onChangeText={input => setProfile({ ...profile, lastName: input })}
           inputLabelStyle={{ fontSize: fonts.LARGE_SIZE + 3 }}
           textInputStyle={{
             height: 60,
-            borderColor: colors.FONT_DARK_COLOR,
-            borderBottomWidth: 1,
             fontSize: fonts.LARGE_SIZE,
             marginBottom: '8%'
           }}
