@@ -2,10 +2,16 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex: 1;
-  justify-content: space-evenly;
+  width: 80%;
   align-items: center;
+  justify-content: space-around;
   background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
-  padding: 70px 15px 0 15px;
+  padding-top: 30px;
+`;
+
+export const ContainerHeaderTexts = styled.View`
+  align-items: center;
+  padding: 0px 10px;
 `;
 
 export const AccentText = styled.Text`
@@ -15,18 +21,18 @@ export const AccentText = styled.Text`
 `;
 
 export const PrimaryText = styled.Text`
-  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE * 2.2}px;
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE * 2.3}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   text-transform: uppercase;
   text-align: center;
 `;
+
 export const Placeholder = styled.Image`
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 200px;
-  margin-top: 40px;
+  width: 80%;
+  height: 40%;
 `;
 
 export const HeaderTitleContainer = styled.View`
