@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { Animated } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationInterface } from '../types';
 import { useThemeContext } from '../../theme';
-import { Animated } from 'react-native';
 
 import {
   Container,
