@@ -13,22 +13,20 @@ export const Text = styled.Text`
 `;
 
 export const PhoneInputField = styled.TextInput`
-  width: 100%;
-  background-color: ${({ theme }) => theme.colors.INPUT_FIELD_COLOR};
+  width: 80%;
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
-  height: ${applyScale(43)}px;
-  padding-left: ${applyScale(80)}px;
-  border-radius: 5px;
-  margin-top: ${applyScale(10)}px;
-  margin-bottom: 40px;
+  height: ${applyScale(45)}px;
+  padding-left: ${applyScale(10)}px;
 `;
 
-export const CountryDailingCode = styled.Text`
-  position: absolute;
-  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
-  text-align: right;
-  width: 15%;
-  top: ${applyScale(117)}px;
-  left: ${applyScale(10)}px;
+export const CountryDailingCode = styled.View`
+  background: ${({ theme }) => theme.colors.INPUT_FIELD_COLOR};
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: ${applyScale(40)}px;
+  height: ${applyScale(45)}px;
 `;

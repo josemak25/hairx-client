@@ -1,7 +1,6 @@
 import React, { Dispatch } from 'react';
 
-import Button from '../../../../components/button';
-import { Container, Text, ButtonStyle, Change } from './style';
+import { Container, Text, Change } from './style';
 
 interface Iprops {
   context?: string;

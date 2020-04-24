@@ -60,14 +60,15 @@ export default function InputCountry() {
         )}
       />
       <Text>What's your number?</Text>
-
-      <PhoneInputField
-        onChangeText={number => format(number)}
-        placeholder="202-555-0152"
-        keyboardType="phone-pad"
-        value={context.phoneNumber}
-      />
-      <CountryDailingCode>+{context.DailingCode}</CountryDailingCode>
+      <CountryDailingCode>
+        <Text>+{context.DailingCode}</Text>
+        <PhoneInputField
+          onChangeText={number => format(number)}
+          placeholder="202-555-0152"
+          keyboardType="phone-pad"
+          value={context.phoneNumber}
+        />
+      </CountryDailingCode>
     </Container>
   );
 }
