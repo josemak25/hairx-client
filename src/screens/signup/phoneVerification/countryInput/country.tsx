@@ -6,6 +6,7 @@ import CountryPicker, {
 import { AsYouType } from 'libphonenumber-js';
 import ContextDisplay from '../contextDisplay/index';
 import { Container, Text, PhoneInputField, CountryDailingCode } from './style';
+import { KeyboardAvoidingView } from 'react-native';
 
 interface stateType {
   country: string;
