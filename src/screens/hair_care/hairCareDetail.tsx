@@ -42,14 +42,27 @@ interface HairCareScreenScreenProp extends NavigationInterface {
 
 export default function HairCareDetailScreen(props: HairCareScreenScreenProp) {
   const { colors } = useThemeContext();
-  const [state] = useState({ animation: new Animated.Value(1) });
+  const [state] = useState({
+    beforeAnimation: new Animated.Value(1),
+    afterAnimation: new Animated.Value(1)
+  });
 
   const startAnimation = () => {
-    Animated.timing(state.animation, {
+    Animated.timing(state.afterAnimation, {
       toValue: 1.5,
       duration: 1000
     }).start(() => {
-      Animated.timing(state.animation, {
+      Animated.timing(state.afterAnimation, {
+        toValue: 1,
+        duration: 1000
+      }).start();
+    });
+
+    Animated.timing(state.beforeAnimation, {
+      toValue: 0.5,
+      duration: 1000
+    }).start(() => {
+      Animated.timing(state.beforeAnimation, {
         toValue: 1,
         duration: 1000
       }).start();
@@ -133,13 +146,22 @@ export default function HairCareDetailScreen(props: HairCareScreenScreenProp) {
       showsVerticalScrollIndicator={false}
     >
       <Cover>
-        <BeforeImage source={require('../../../assets/images/before.jpg')} />
+        <AnimateBeforeImage
+          source={require('../../../assets/images/before.jpg')}
+          style={{
+            transform: [
+              {
+                scale: state.beforeAnimation
+              }
+            ]
+          }}
+        />
         <AnimateAfterImage
           source={require('../../../assets/images/after-image.jpg')}
           style={{
             transform: [
               {
-                scale: state.animation
+                scale: state.afterAnimation
               }
             ]
           }}
@@ -185,6 +207,7 @@ export default function HairCareDetailScreen(props: HairCareScreenScreenProp) {
 }
 
 const AnimateAfterImage = Animated.createAnimatedComponent(AfterImage);
+const AnimateBeforeImage = Animated.createAnimatedComponent(BeforeImage);
 
 HairCareDetailScreen.defaultProps = {
   assessments: [
