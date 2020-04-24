@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationInterface } from '../types';
 import { useThemeContext } from '../../theme';
+import { Animated } from 'react-native';
 
 import {
   Container,
   BackButtonContainer,
   Cover,
   ContentArea,
-  CoverPart,
   HairCareSaloonCard,
   CardInfo,
   CardLabel,
@@ -24,55 +24,75 @@ import {
   ProductDescription,
   ProductBenefit,
   ProductImage,
-  ProductCard
+  ProductCard,
+  RecommendationView,
+  Recommendation,
+  RecommendationFrequency,
+  RecommendationContainer,
+  BeforeImage,
+  AfterImage
 } from './styles';
 
 interface HairCareScreenScreenProp extends NavigationInterface {
   testID?: string;
   assessments: { label: string; value: string; degree: string }[];
   products: { description: string; benefits: string; image: string }[];
+  recommendations: { text: string; frequency: string }[];
 }
 
 export default function HairCareDetailScreen(props: HairCareScreenScreenProp) {
   const { colors } = useThemeContext();
+  const [state] = useState({ animation: new Animated.Value(1) });
 
-  const PopulateAssessments = () => {
-    return (
-      <AssessmentCardContainer
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{
-          alignItems: 'center'
-        }}
-      >
-        {props.assessments.map((assessment, index) => (
-          <AssessmentCard key={index}>
-            <AssessmentCardContent>
-              <ContentLabel>{assessment.label}</ContentLabel>
-              <ContentValue>{assessment.value}</ContentValue>
-              <ValueDegreeContainer
+  const startAnimation = () => {
+    Animated.timing(state.animation, {
+      toValue: 1.5,
+      duration: 1000
+    }).start(() => {
+      Animated.timing(state.animation, {
+        toValue: 1,
+        duration: 1000
+      }).start();
+    });
+  };
+
+  setTimeout(() => startAnimation(), 1000);
+
+  const PopulateAssessments = () => (
+    <AssessmentCardContainer
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={{
+        alignItems: 'center'
+      }}
+    >
+      {props.assessments.map((assessment, index) => (
+        <AssessmentCard key={index}>
+          <AssessmentCardContent>
+            <ContentLabel>{assessment.label}</ContentLabel>
+            <ContentValue>{assessment.value}</ContentValue>
+            <ValueDegreeContainer
+              style={
+                assessment.value.toLowerCase() === 'low' && {
+                  backgroundColor: colors.BG_LIGHT_PINK_COLOR
+                }
+              }
+            >
+              <ValueDegree
                 style={
                   assessment.value.toLowerCase() === 'low' && {
-                    backgroundColor: colors.BG_LIGHT_PINK_COLOR
+                    color: colors.BG_RED_COLOR
                   }
                 }
               >
-                <ValueDegree
-                  style={
-                    assessment.value.toLowerCase() === 'low' && {
-                      color: colors.BG_RED_COLOR
-                    }
-                  }
-                >
-                  {assessment.degree}
-                </ValueDegree>
-              </ValueDegreeContainer>
-            </AssessmentCardContent>
-          </AssessmentCard>
-        ))}
-      </AssessmentCardContainer>
-    );
-  };
+                {assessment.degree}
+              </ValueDegree>
+            </ValueDegreeContainer>
+          </AssessmentCardContent>
+        </AssessmentCard>
+      ))}
+    </AssessmentCardContainer>
+  );
 
   const PopulateProducts = () => (
     <AssessmentCardContainer
@@ -94,14 +114,36 @@ export default function HairCareDetailScreen(props: HairCareScreenScreenProp) {
     </AssessmentCardContainer>
   );
 
+  const PopulateRecommendations = () => (
+    <RecommendationContainer>
+      {props.recommendations.map((recommendation, index) => (
+        <RecommendationView key={index}>
+          <Recommendation>{recommendation.text}</Recommendation>
+          <RecommendationFrequency>
+            {recommendation.frequency}
+          </RecommendationFrequency>
+        </RecommendationView>
+      ))}
+    </RecommendationContainer>
+  );
+
   return (
     <Container
       contentContainerStyle={{ alignItems: 'center' }}
       showsVerticalScrollIndicator={false}
     >
       <Cover>
-        <CoverPart source={require('../../../assets/images/before.jpg')} />
-        <CoverPart source={require('../../../assets/images/after-image.jpg')} />
+        <BeforeImage source={require('../../../assets/images/before.jpg')} />
+        <AnimateAfterImage
+          source={require('../../../assets/images/after-image.jpg')}
+          style={{
+            transform: [
+              {
+                scale: state.animation
+              }
+            ]
+          }}
+        />
         <BackButtonContainer>
           <Ionicons
             name="ios-arrow-back"
@@ -125,14 +167,24 @@ export default function HairCareDetailScreen(props: HairCareScreenScreenProp) {
             <CardValue>JHB Studio</CardValue>
           </CardInfo>
         </HairCareSaloonCard>
-        <AssessmentLabel>Hair assessment</AssessmentLabel>
+        {props.assessments.length > 0 && (
+          <AssessmentLabel>Hair assessment</AssessmentLabel>
+        )}
         <PopulateAssessments />
-        <AssessmentLabel>Care products</AssessmentLabel>
+        {props.products.length > 0 && (
+          <AssessmentLabel>Care products</AssessmentLabel>
+        )}
         <PopulateProducts />
+        {props.recommendations.length > 0 && (
+          <AssessmentLabel>Recommendations</AssessmentLabel>
+        )}
+        <PopulateRecommendations />
       </ContentArea>
     </Container>
   );
 }
+
+const AnimateAfterImage = Animated.createAnimatedComponent(AfterImage);
 
 HairCareDetailScreen.defaultProps = {
   assessments: [
@@ -163,5 +215,18 @@ HairCareDetailScreen.defaultProps = {
       image: require('../../../assets/images/balea-cream.jpg')
     }
   ],
-  recommendations: []
+  recommendations: [
+    {
+      text: 'Sleep on silk pillow',
+      frequency: 'DAILY'
+    },
+    {
+      text: 'Brush and blow out',
+      frequency: 'DAILY'
+    },
+    {
+      text: 'Straighten with straightener',
+      frequency: 'DAILY'
+    }
+  ]
 };
