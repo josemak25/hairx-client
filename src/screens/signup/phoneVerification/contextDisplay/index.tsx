@@ -1,7 +1,7 @@
 import React, { Dispatch } from 'react';
 
 import Button from '../../../../components/button';
-import { Container, Text, ButtonStyle } from './style';
+import { Container, Text, ButtonStyle, Change } from './style';
 
 interface Iprops {
   context?: string;
@@ -12,13 +12,10 @@ interface Iprops {
 export default function ContextDisplay(props: Iprops) {
   return (
     <Container>
-      <Text>{props.context}</Text>
-      <Button
-        title="Change"
-        buttonStyle={ButtonStyle.Mainbutton}
-        textStyle={ButtonStyle.textStyle}
-        onPress={props.onPress}
-      />
+      <Change onPress={props.onPress}>
+        <Text>{props.context}</Text>
+        <Text>Change</Text>
+      </Change>
     </Container>
   );
 }

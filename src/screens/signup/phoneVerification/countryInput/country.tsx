@@ -51,6 +51,7 @@ export default function InputCountry() {
         countryCode={context.code}
         withFlag={false}
         onSelect={country => selection(country)}
+        onClose={() => setContext({ ...context, visibility: false })}
         renderFlagButton={() => (
           <ContextDisplay
             context={context.country}
