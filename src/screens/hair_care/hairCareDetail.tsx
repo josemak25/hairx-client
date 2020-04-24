@@ -28,9 +28,9 @@ import {
   RecommendationView,
   Recommendation,
   RecommendationFrequency,
-  RecommendationContainer,
   BeforeImage,
-  AfterImage
+  AfterImage,
+  RecommendationContainer
 } from './styles';
 
 interface HairCareScreenScreenProp extends NavigationInterface {
