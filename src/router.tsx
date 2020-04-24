@@ -59,6 +59,11 @@ export default function AppNavigator() {
           component={HomeNavigator}
           options={{ headerShown: false }}
         />
+        <RootStack.Screen
+          name="BookingScreen"
+          component={Screens.BookingScreen}
+          options={{ headerShown: false }}
+        />
       </RootStack.Navigator>
     </NavigationContainer>
   );
