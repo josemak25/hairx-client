@@ -3,7 +3,8 @@ import applyScale from '../../utils/applyScale';
 import { Dimensions } from 'react-native';
 
 const { width } = Dimensions.get('screen');
-export const Container = styled.ScrollView`
+
+export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
 `;
@@ -38,9 +39,8 @@ export const HeaderTitleLabel = styled.Text`
 `;
 
 export const ProfileSection = styled.View`
-  justify-content: center;
   align-items: center;
-  position: absolute;
+  align-content: center;
   top: 15px;
 `;
 
@@ -86,9 +86,14 @@ export const HairConditionValue = styled.Text`
 `;
 
 export const VisitedSaloonContainer = styled.View`
+  flex: 1;
   justify-content: center;
   align-items: center;
-  margin-top: 260px;
+  margin-top: 60px;
+`;
+
+export const FlatList = styled.FlatList`
+  flex: 1;
 `;
 
 export const EmptyListContainer = styled.View`
@@ -100,7 +105,7 @@ export const EmptyListText = styled.Text`
   font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE * 2}px;
   font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
-  margin: 0px 75px;
+  margin: 0px 25px;
 `;
 
 export const SaloonCardContainer = styled.View`
@@ -108,6 +113,7 @@ export const SaloonCardContainer = styled.View`
   justify-content: center;
   align-items: center;
   width: ${applyScale(width)}px;
+  flex-wrap: wrap;
 `;
 
 export const SaloonCard = styled.TouchableOpacity`

@@ -6,6 +6,10 @@ import Header from '../../commons/header/header';
 import { useThemeContext } from '../../theme';
 import { Animated } from 'react-native';
 import Button from '../../components/button';
+import { Dimensions } from 'react-native';
+import applyScale from '../../utils/applyScale';
+
+const { width } = Dimensions.get('screen');
 
 import {
   Container,
@@ -23,14 +27,14 @@ import {
   VisitedSaloonContainer,
   EmptyListContainer,
   EmptyListText,
-  SaloonCardContainer,
   SaloonCard,
   Cover,
   CardLabel,
   CardLabelContainer,
   CardText,
   DateText,
-  CoverPart
+  CoverPart,
+  FlatList
 } from './styles';
 
 interface HairCareScreenScreenProp extends NavigationInterface {
@@ -89,10 +93,7 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
         )}
       />
 
-      <Container
-        contentContainerStyle={{ alignItems: 'center' }}
-        showsVerticalScrollIndicator={false}
-      >
+      <Container>
         <ProfileSection>
           <ProfileImage
             source={require('../../../assets/images/logo.png')}
@@ -114,23 +115,26 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
             </HairConditionValueSection>
           </HairConditionSummary>
         </ProfileSection>
+
         <VisitedSaloonContainer>
-          {!props.visitedSaloons.length && (
-            <EmptyListContainer>
-              <EmptyListText>
-                When you visit a salon, the care that was administered to you
-                will show up here.
-              </EmptyListText>
-              <Button
-                title="Book session at JHB Studio"
-                onPress={() => {}}
-                buttonStyle={{ marginTop: 100 }}
-              />
-            </EmptyListContainer>
-          )}
-          <SaloonCardContainer>
-            {props.visitedSaloons.map((visitedSaloon, index) => (
-              <SaloonCard key={index} onPress={() => {}}>
+          <FlatList
+            ListEmptyComponent={
+              <EmptyListContainer>
+                <EmptyListText>
+                  When you visit a salon, the care that was administered to you
+                  will show up here.
+                </EmptyListText>
+                <Button
+                  title="Book session at JHB Studio"
+                  onPress={() => {}}
+                  buttonStyle={{ marginTop: 100 }}
+                />
+              </EmptyListContainer>
+            }
+            data={props.visitedSaloons}
+            //@ts-ignore
+            renderItem={({ item: { date, issue } }) => (
+              <SaloonCard onPress={() => {}}>
                 <Cover>
                   <CoverPart
                     source={require('../../../assets/images/before.jpg')}
@@ -139,15 +143,20 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
                     source={require('../../../assets/images/after-image.jpg')}
                   />
                 </Cover>
-
-                <DateText>{visitedSaloon.date}</DateText>
+                <DateText>{date}</DateText>
                 <CardLabelContainer>
                   <CardLabel>issue:</CardLabel>
-                  <CardText>{visitedSaloon.issue}</CardText>
+                  <CardText>{issue}</CardText>
                 </CardLabelContainer>
               </SaloonCard>
-            ))}
-          </SaloonCardContainer>
+            )}
+            keyExtractor={(_item, index) => index.toString()}
+            contentContainerStyle={{
+              alignItems: 'center',
+              width: applyScale(width)
+            }}
+            showsVerticalScrollIndicator={false}
+          />
         </VisitedSaloonContainer>
       </Container>
     </SafeAreaView>
@@ -157,7 +166,7 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
 const AnimatedRefreshButton = Animated.createAnimatedComponent(RefreshButton);
 
 HairCareScreen.defaultProps = {
-  visitedSaloons: new Array(4).fill({
+  visitedSaloons: new Array(11).fill({
     date: 'April 7, 2020',
     issue: 'Hair loss'
   })
