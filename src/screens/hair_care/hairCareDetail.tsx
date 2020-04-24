@@ -20,16 +20,79 @@ import {
   ContentLabel,
   ContentValue,
   ValueDegreeContainer,
-  ValueDegree
+  ValueDegree,
+  ProductDescription,
+  ProductBenefit,
+  ProductImage,
+  ProductCard
 } from './styles';
 
 interface HairCareScreenScreenProp extends NavigationInterface {
   testID?: string;
   assessments: { label: string; value: string; degree: string }[];
+  products: { description: string; benefits: string; image: string }[];
 }
 
 export default function HairCareDetailScreen(props: HairCareScreenScreenProp) {
   const { colors } = useThemeContext();
+
+  const PopulateAssessments = () => {
+    return (
+      <AssessmentCardContainer
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{
+          alignItems: 'center'
+        }}
+      >
+        {props.assessments.map((assessment, index) => (
+          <AssessmentCard key={index}>
+            <AssessmentCardContent>
+              <ContentLabel>{assessment.label}</ContentLabel>
+              <ContentValue>{assessment.value}</ContentValue>
+              <ValueDegreeContainer
+                style={
+                  assessment.value.toLowerCase() === 'low' && {
+                    backgroundColor: colors.BG_LIGHT_PINK_COLOR
+                  }
+                }
+              >
+                <ValueDegree
+                  style={
+                    assessment.value.toLowerCase() === 'low' && {
+                      color: colors.BG_RED_COLOR
+                    }
+                  }
+                >
+                  {assessment.degree}
+                </ValueDegree>
+              </ValueDegreeContainer>
+            </AssessmentCardContent>
+          </AssessmentCard>
+        ))}
+      </AssessmentCardContainer>
+    );
+  };
+
+  const PopulateProducts = () => (
+    <AssessmentCardContainer
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={{
+        alignItems: 'center'
+      }}
+    >
+      {props.products.map((product, index) => (
+        <ProductCard key={index}>
+          <AssessmentCardContent>
+            <ProductDescription>{product.description}</ProductDescription>
+            <ProductBenefit>benefit: {product.benefits}</ProductBenefit>
+            <ProductImage source={{ uri: product.image.toString() }} />
+          </AssessmentCardContent>
+        </ProductCard>
+      ))}
+    </AssessmentCardContainer>
+  );
 
   return (
     <Container
@@ -63,40 +126,9 @@ export default function HairCareDetailScreen(props: HairCareScreenScreenProp) {
           </CardInfo>
         </HairCareSaloonCard>
         <AssessmentLabel>Hair assessment</AssessmentLabel>
-        <AssessmentCardContainer
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{
-            alignItems: 'center',
-            justifyContent: 'space-between'
-          }}
-        >
-          {props.assessments.map((assessment, index) => (
-            <AssessmentCard key={index}>
-              <AssessmentCardContent>
-                <ContentLabel>{assessment.label}</ContentLabel>
-                <ContentValue>{assessment.value}</ContentValue>
-                <ValueDegreeContainer
-                  style={
-                    assessment.value.toLowerCase() === 'low' && {
-                      backgroundColor: colors.BG_LIGHT_PINK_COLOR
-                    }
-                  }
-                >
-                  <ValueDegree
-                    style={
-                      assessment.value.toLowerCase() === 'low' && {
-                        color: colors.BG_RED_COLOR
-                      }
-                    }
-                  >
-                    {assessment.degree}
-                  </ValueDegree>
-                </ValueDegreeContainer>
-              </AssessmentCardContent>
-            </AssessmentCard>
-          ))}
-        </AssessmentCardContainer>
+        <PopulateAssessments />
+        <AssessmentLabel>Care products</AssessmentLabel>
+        <PopulateProducts />
       </ContentArea>
     </Container>
   );
@@ -109,6 +141,27 @@ HairCareDetailScreen.defaultProps = {
     { label: 'elasticity', value: 'Fine hair', degree: '3b' },
     { label: 'texture', value: 'good', degree: '70%' }
   ],
-  products: [],
+  products: [
+    {
+      description: 'Cantu Coconut Curling Cream, 12 Ounce',
+      benefits: 'Fine hair',
+      image: require('../../../assets/images/balea-cream.jpg')
+    },
+    {
+      description: 'ECO Styler Professional Styling Gel, Olive Oil',
+      benefits: 'Growth',
+      image: require('../../../assets/images/balea-cream.jpg')
+    },
+    {
+      description: 'The Curl Friend Rich in Olive & Natural Oils',
+      benefits: 'Styling',
+      image: require('../../../assets/images/butter-cream.jpg')
+    },
+    {
+      description: 'For magical growth',
+      benefits: 'Exotic',
+      image: require('../../../assets/images/balea-cream.jpg')
+    }
+  ],
   recommendations: []
 };

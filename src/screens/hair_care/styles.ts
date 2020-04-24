@@ -84,15 +84,12 @@ export const AssessmentCard = styled.View`
   width: 116px;
   height: 139px;
   border-radius: 5px;
-  border: 1px;
 `;
 
 export const AssessmentCardContent = styled.View`
   flex: 1;
   align-content: center;
   align-items: center;
-  /* width: 100%;
-  height: 100%; */
 `;
 
 export const ContentLabel = styled.Text`
@@ -128,4 +125,36 @@ export const ValueDegree = styled.Text`
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   color: ${({ theme }) => theme.colors.BG_DARK_BLUE_COLOR};
   text-align: center;
+`;
+
+export const ProductCard = styled.View`
+  background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
+  width: 116px;
+  height: 154px;
+  border-radius: 5px;
+`;
+
+export const ProductDescription = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.SMALL_SIZE}px;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  text-align: center;
+  opacity: 0.7;
+  text-transform: capitalize;
+  margin-top: 20px;
+`;
+
+export const ProductBenefit = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.SMALL_SIZE + 3}px;
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  text-align: center;
+  opacity: 0.7;
+  text-transform: capitalize;
+  margin-top: 20px;
+`;
+
+export const ProductImage = styled.Image`
+  flex: 1;
+  height: 100%;
 `;
