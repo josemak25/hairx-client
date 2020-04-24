@@ -9,6 +9,7 @@ import GetStartedScreen from './get_started';
 import SignUpScreenTwo from './signup/signup2';
 import SignUpScreenThree from './signup/signup3';
 import BookingScreen from './booking';
+import ProceedHomeScreen from './proceed_home';
 
 export default {
   RegimenScreen,
@@ -21,5 +22,6 @@ export default {
   GetStartedScreen,
   SignUpScreenTwo,
   SignUpScreenThree,
-  BookingScreen
+  BookingScreen,
+  ProceedHomeScreen
 };
