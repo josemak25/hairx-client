@@ -3,9 +3,11 @@ import { NavigationInterface } from '../types';
 import SafeAreaView from '../../commons/header/safe-area-view';
 import Header from '../../commons/header/header';
 import Button from '../../components/button';
+import applyScale from '../../utils/applyScale';
 
 import {
   Container,
+  ContainerHeaderTexts,
   AccentText,
   PrimaryText,
   Placeholder,
@@ -30,14 +32,20 @@ export default function ProceedHomeScreen(props: ProceedHomeScreenProp) {
         )}
       />
       <Container>
-        <AccentText>That was quick, Claire</AccentText>
-        <PrimaryText>You are done with the basics</PrimaryText>
+        <ContainerHeaderTexts>
+          <AccentText>That was quick, Claire</AccentText>
+          <PrimaryText>You are done with the basics</PrimaryText>
+        </ContainerHeaderTexts>
         <Placeholder
           source={require('../../../assets/images/placeholder.png')}
         />
         <Button
           title="Proceed home"
-          buttonStyle={{ width: 180, marginTop: 30 }}
+          buttonStyle={{
+            width: '70%',
+            height: applyScale(60),
+            bottom: applyScale(30)
+          }}
           textStyle={{ textTransform: 'none' }}
           onPress={() => navigation.navigate('RegimenScreen')}
         />
