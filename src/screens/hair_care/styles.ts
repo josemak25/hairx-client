@@ -68,6 +68,7 @@ export const CardValue = styled.Text`
 export const AssessmentCardContainer = styled.ScrollView`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
+  margin: 0px 10px;
 `;
 
 export const AssessmentLabel = styled.Text`
@@ -84,6 +85,7 @@ export const AssessmentCard = styled.View`
   width: 116px;
   height: 139px;
   border-radius: 5px;
+  margin: 0px 5px;
 `;
 
 export const AssessmentCardContent = styled.View`
@@ -132,6 +134,7 @@ export const ProductCard = styled.View`
   width: 116px;
   height: 154px;
   border-radius: 5px;
+  margin: 0px 5px;
 `;
 
 export const ProductDescription = styled.Text`
@@ -157,4 +160,33 @@ export const ProductBenefit = styled.Text`
 export const ProductImage = styled.Image`
   flex: 1;
   height: 100%;
+`;
+
+export const RecommendationContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  margin: 0px 15px;
+`;
+
+export const RecommendationView = styled.View`
+  flex: 1;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: ${({ theme }) => theme.colors.BG_LIGHT_GOLD_COLOR};
+  border-radius: 5px;
+  padding: 14px 19px;
+  margin-bottom: 10px;
+`;
+
+export const Recommendation = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+`;
+
+export const RecommendationFrequency = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.SMALL_SIZE}px;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  text-transform: uppercase;
 `;

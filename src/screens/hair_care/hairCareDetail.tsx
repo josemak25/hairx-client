@@ -24,55 +24,58 @@ import {
   ProductDescription,
   ProductBenefit,
   ProductImage,
-  ProductCard
+  ProductCard,
+  RecommendationView,
+  Recommendation,
+  RecommendationFrequency,
+  RecommendationContainer
 } from './styles';
 
 interface HairCareScreenScreenProp extends NavigationInterface {
   testID?: string;
   assessments: { label: string; value: string; degree: string }[];
   products: { description: string; benefits: string; image: string }[];
+  recommendations: { text: string; frequency: string }[];
 }
 
 export default function HairCareDetailScreen(props: HairCareScreenScreenProp) {
   const { colors } = useThemeContext();
 
-  const PopulateAssessments = () => {
-    return (
-      <AssessmentCardContainer
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{
-          alignItems: 'center'
-        }}
-      >
-        {props.assessments.map((assessment, index) => (
-          <AssessmentCard key={index}>
-            <AssessmentCardContent>
-              <ContentLabel>{assessment.label}</ContentLabel>
-              <ContentValue>{assessment.value}</ContentValue>
-              <ValueDegreeContainer
+  const PopulateAssessments = () => (
+    <AssessmentCardContainer
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={{
+        alignItems: 'center'
+      }}
+    >
+      {props.assessments.map((assessment, index) => (
+        <AssessmentCard key={index}>
+          <AssessmentCardContent>
+            <ContentLabel>{assessment.label}</ContentLabel>
+            <ContentValue>{assessment.value}</ContentValue>
+            <ValueDegreeContainer
+              style={
+                assessment.value.toLowerCase() === 'low' && {
+                  backgroundColor: colors.BG_LIGHT_PINK_COLOR
+                }
+              }
+            >
+              <ValueDegree
                 style={
                   assessment.value.toLowerCase() === 'low' && {
-                    backgroundColor: colors.BG_LIGHT_PINK_COLOR
+                    color: colors.BG_RED_COLOR
                   }
                 }
               >
-                <ValueDegree
-                  style={
-                    assessment.value.toLowerCase() === 'low' && {
-                      color: colors.BG_RED_COLOR
-                    }
-                  }
-                >
-                  {assessment.degree}
-                </ValueDegree>
-              </ValueDegreeContainer>
-            </AssessmentCardContent>
-          </AssessmentCard>
-        ))}
-      </AssessmentCardContainer>
-    );
-  };
+                {assessment.degree}
+              </ValueDegree>
+            </ValueDegreeContainer>
+          </AssessmentCardContent>
+        </AssessmentCard>
+      ))}
+    </AssessmentCardContainer>
+  );
 
   const PopulateProducts = () => (
     <AssessmentCardContainer
@@ -92,6 +95,19 @@ export default function HairCareDetailScreen(props: HairCareScreenScreenProp) {
         </ProductCard>
       ))}
     </AssessmentCardContainer>
+  );
+
+  const PopulateRecommendations = () => (
+    <RecommendationContainer>
+      {props.recommendations.map((recommendation, index) => (
+        <RecommendationView key={index}>
+          <Recommendation>{recommendation.text}</Recommendation>
+          <RecommendationFrequency>
+            {recommendation.frequency}
+          </RecommendationFrequency>
+        </RecommendationView>
+      ))}
+    </RecommendationContainer>
   );
 
   return (
@@ -125,10 +141,18 @@ export default function HairCareDetailScreen(props: HairCareScreenScreenProp) {
             <CardValue>JHB Studio</CardValue>
           </CardInfo>
         </HairCareSaloonCard>
-        <AssessmentLabel>Hair assessment</AssessmentLabel>
+        {props.assessments.length > 0 && (
+          <AssessmentLabel>Hair assessment</AssessmentLabel>
+        )}
         <PopulateAssessments />
-        <AssessmentLabel>Care products</AssessmentLabel>
+        {props.products.length > 0 && (
+          <AssessmentLabel>Care products</AssessmentLabel>
+        )}
         <PopulateProducts />
+        {props.recommendations.length > 0 && (
+          <AssessmentLabel>Recommendations</AssessmentLabel>
+        )}
+        <PopulateRecommendations />
       </ContentArea>
     </Container>
   );
@@ -163,5 +187,18 @@ HairCareDetailScreen.defaultProps = {
       image: require('../../../assets/images/balea-cream.jpg')
     }
   ],
-  recommendations: []
+  recommendations: [
+    {
+      text: 'Sleep on silk pillow',
+      frequency: 'DAILY'
+    },
+    {
+      text: 'Brush and blow out',
+      frequency: 'DAILY'
+    },
+    {
+      text: 'Straighten with straightener',
+      frequency: 'DAILY'
+    }
+  ]
 };
