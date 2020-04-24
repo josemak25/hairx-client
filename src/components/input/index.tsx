@@ -17,7 +17,11 @@ type InputProps = {
 export default function Input(props: InputProps) {
   return (
     <Container style={props.contanierStyle}>
-      {props.inputLabel && <InputLabel style={props.inputLabelStyle}>{props.inputLabel}</InputLabel>}
+      {props.inputLabel && (
+        <InputLabel style={props.inputLabelStyle}>
+          {props.inputLabel}
+        </InputLabel>
+      )}
       <TextInput {...props} style={props.textInputStyle} />
     </Container>
   );
