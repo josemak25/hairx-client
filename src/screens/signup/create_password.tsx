@@ -1,0 +1,126 @@
+import React, { useState } from 'react';
+import {
+  TouchableOpacity,
+  StatusBar,
+  TouchableWithoutFeedback,
+  Keyboard
+} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { useThemeContext } from '../../theme';
+import { NavigationInterface } from '../types';
+import SafeAreaView from '../../commons/header/safe-area-view';
+import Header from '../../commons/header/header';
+import Button from '../../components/button';
+import Input from '../../components/input';
+
+import {
+  Container,
+  NavigationView,
+  Pagination,
+  Welcome,
+  Prompt,
+  OfText
+} from './styles';
+
+interface CreatePasswordProp extends NavigationInterface {
+  testID?: string;
+}
+
+export default function CreatePassword(props: CreatePasswordProp) {
+  const { navigation } = props;
+  const { colors, fonts } = useThemeContext();
+
+  const [profile, setProfile] = useState({
+    fullName: '',
+    password: '',
+    confirmPassword: ''
+  });
+
+  const handleChange = (type: string) => (value: string) => {
+    setProfile({ ...profile, [type]: value });
+  };
+
+  return (
+    <SafeAreaView>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={colors.BG_WHITE_COLOR}
+      />
+      <Header
+        headerLeft={() => (
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            style={{
+              width: '100%',
+              height: '100%',
+              alignItems: 'center',
+              justifyContent: 'center',
+              paddingRight: 20
+            }}
+          >
+            <Ionicons
+              name="ios-arrow-back"
+              size={30}
+              color={colors.INACTIVE_FIELD_COLOR}
+            />
+          </TouchableOpacity>
+        )}
+        title={() => (
+          <NavigationView>
+            <Pagination>
+              3<OfText> of </OfText>4
+            </Pagination>
+          </NavigationView>
+        )}
+      />
+      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+        <Container style={{ paddingTop: 0 }}>
+          <Welcome style={{ marginTop: '15%' }}>Good to have you</Welcome>
+          <Prompt>create account</Prompt>
+          <Input
+            defaultValue={profile.fullName}
+            onChangeText={handleChange('fullName')}
+            placeholder="Claire Tamara"
+            textInputStyle={{
+              height: 60,
+              fontSize: fonts.LARGE_SIZE,
+              marginBottom: '8%'
+            }}
+          />
+          <Input
+            inputLabel="Create Password"
+            placeholder="******"
+            defaultValue={profile.password}
+            onChangeText={handleChange('password')}
+            secureTextEntry={true}
+            inputLabelStyle={{ fontSize: fonts.LARGE_SIZE + 3 }}
+            textInputStyle={{
+              height: 60,
+              fontSize: fonts.LARGE_SIZE,
+              marginBottom: '3%'
+            }}
+          />
+          <Input
+            inputLabel="Confirm Password"
+            placeholder="******"
+            defaultValue={profile.confirmPassword}
+            onChangeText={handleChange('confirmPassword')}
+            secureTextEntry={true}
+            inputLabelStyle={{ fontSize: fonts.LARGE_SIZE + 3 }}
+            textInputStyle={{
+              height: 60,
+              fontSize: fonts.LARGE_SIZE,
+              marginBottom: '8%'
+            }}
+          />
+          <Button
+            title="Proceed"
+            buttonStyle={{ height: 60 }}
+            textStyle={{ fontSize: fonts.LARGE_SIZE }}
+            onPress={() => navigation.navigate('VerifyAccount')}
+          />
+        </Container>
+      </TouchableWithoutFeedback>
+    </SafeAreaView>
+  );
+}
