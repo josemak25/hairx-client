@@ -19,7 +19,8 @@ import {
   Pagination,
   Welcome,
   Prompt,
-  OfText
+  OfText,
+  BackButton
 } from './styles';
 
 interface CreatePasswordProp extends NavigationInterface {
@@ -48,22 +49,13 @@ export default function CreatePassword(props: CreatePasswordProp) {
       />
       <Header
         headerLeft={() => (
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={{
-              width: '100%',
-              height: '100%',
-              alignItems: 'center',
-              justifyContent: 'center',
-              paddingRight: 20
-            }}
-          >
+          <BackButton onPress={() => navigation.goBack()}>
             <Ionicons
               name="ios-arrow-back"
               size={30}
               color={colors.INACTIVE_FIELD_COLOR}
             />
-          </TouchableOpacity>
+          </BackButton>
         )}
         title={() => (
           <NavigationView>
