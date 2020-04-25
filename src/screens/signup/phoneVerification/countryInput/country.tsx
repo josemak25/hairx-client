@@ -4,9 +4,11 @@ import CountryPicker, {
   CountryCode
 } from 'react-native-country-picker-modal';
 import { AsYouType } from 'libphonenumber-js';
-import ContextDisplay from '../contextDisplay/index';
-import { Container, Text, PhoneInputField, CountryDailingCode } from './style';
-import { KeyboardAvoidingView } from 'react-native';
+import { useThemeContext } from '../../../../theme';
+import ContextDisplay from '../contextDisplay';
+import Input from '../../../../commons/input';
+
+import { Container, DailingCode, PhoneNumberContainer } from './style';
 
 interface stateType {
   country: string;
@@ -25,6 +27,8 @@ const initialState: stateType = {
 };
 
 export default function InputCountry() {
+  const { fonts } = useThemeContext();
+
   const [context, setContext] = useState<stateType>(initialState);
 
   const selection = async (country: Country) => {
@@ -41,7 +45,6 @@ export default function InputCountry() {
   const format = (number: string) => {
     const formatedNumber = new AsYouType(context.code as any).input(number);
     setContext({ ...context, phoneNumber: formatedNumber });
-    console.log(context.phoneNumber);
   };
 
   return (
@@ -60,16 +63,23 @@ export default function InputCountry() {
           />
         )}
       />
-      <Text>What's your number?</Text>
-      <CountryDailingCode>
-        <Text>+{context.DailingCode}</Text>
-        <PhoneInputField
-          onChangeText={number => format(number)}
+
+      <PhoneNumberContainer>
+        <DailingCode>+{context.DailingCode}</DailingCode>
+        <Input
+          inputLabel="What's your number?"
           placeholder="202-555-0152"
           keyboardType="phone-pad"
-          value={context.phoneNumber}
+          defaultValue={context.phoneNumber}
+          onChangeText={number => format(number)}
+          returnKeyType="done"
+          textInputStyle={{
+            height: 60,
+            fontSize: fonts.LARGE_SIZE + 3,
+            paddingLeft: context.DailingCode.length >= 3 ? 75 : 50
+          }}
         />
-      </CountryDailingCode>
+      </PhoneNumberContainer>
     </Container>
   );
 }
