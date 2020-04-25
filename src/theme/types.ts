@@ -15,6 +15,7 @@ enum COLORS {
   BUTTON_DARK_GRAY_COLOR = '#242424',
   INPUT_FIELD_COLOR = '#F7F7F7',
   INACTIVE_FIELD_COLOR = '#707070',
+  INACTIVE_FIELD_COLOR_LOW_OPACITY = 'rgba(112, 112, 112, 0.3)',
   ACTIVE_ICON_COLOR = '#BAB200'
 }
 
@@ -50,6 +51,7 @@ declare module 'styled-components' {
       BUTTON_DARK_GRAY_COLOR: string;
       INPUT_FIELD_COLOR: string;
       INACTIVE_FIELD_COLOR: string;
+      INACTIVE_FIELD_COLOR_LOW_OPACITY: string;
       ACTIVE_ICON_COLOR: string;
     };
 
