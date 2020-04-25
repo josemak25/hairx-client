@@ -109,7 +109,7 @@ export default function CreatePassword(props: CreatePasswordProp) {
             title="Proceed"
             buttonStyle={{ height: 60 }}
             textStyle={{ fontSize: fonts.LARGE_SIZE }}
-            onPress={() => navigation.navigate('VerifyAccount')}
+            onPress={() => navigation.navigate('PhoneVerificationScreen')}
           />
         </Container>
       </TouchableWithoutFeedback>

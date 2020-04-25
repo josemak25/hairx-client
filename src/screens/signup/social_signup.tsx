@@ -57,7 +57,7 @@ export default function SignupScreen(props: SignupScreenProp) {
           <Button
             title="Get Started with email"
             buttonStyle={{ height: applyScale(60) }}
-            onPress={() => props.navigation.navigate('SignUpScreenTwo')}
+            onPress={() => props.navigation.navigate('CreateAccountScreen')}
           />
           <Choice>or</Choice>
           <ButtonView>
