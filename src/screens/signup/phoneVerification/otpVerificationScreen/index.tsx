@@ -69,6 +69,7 @@ export default function OTPVerification(props: OTPVerificationProps) {
           buttonStyle={ButtonStyle.mainButton}
           textStyle={ButtonStyle.textStyle}
           title="Verify"
+          onPress={() => navigation.replace('ProceedHomeScreen')}
         />
       </Container>
     </SafeAreaView>
