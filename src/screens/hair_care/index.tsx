@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
+import { FlatList, StatusBar, Animated, Easing } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationInterface } from '../types';
+import { useThemeContext } from '../../theme';
+import { useStoreContext } from '../../store';
+import ResponsiveImage from '../../libs/responsiveImage';
 import SafeAreaView from '../../commons/safe-area-view';
 import Header from '../../commons/header';
-import { useThemeContext } from '../../theme';
-import { Animated } from 'react-native';
 import Button from '../../components/button';
-import { Dimensions } from 'react-native';
-import applyScale from '../../utils/applyScale';
-
-const { width } = Dimensions.get('screen');
+import SaloonCard from './saloon_card';
 
 import {
   Container,
@@ -18,25 +17,19 @@ import {
   HeaderTitleLabel,
   RefreshButton,
   ProfileSection,
-  ProfileImage,
   Username,
+  ProfileImage,
   HairConditionSummary,
   HairConditionLabel,
   HairConditionValueSection,
   HairConditionValue,
-  VisitedSaloonContainer,
   EmptyListContainer,
   EmptyListText,
-  SaloonCard,
-  Cover,
-  CardLabel,
-  CardLabelContainer,
-  CardText,
-  DateText,
-  CoverPart,
-  FlatList
+  EmptySaloonCard,
+  EmptySaloonCardText
 } from './styles';
-import { StatusBar } from 'react-native';
+
+const AnimatedRefreshButton = Animated.createAnimatedComponent(RefreshButton);
 
 interface HairCareScreenScreenProp extends NavigationInterface {
   testID?: string;
@@ -44,6 +37,11 @@ interface HairCareScreenScreenProp extends NavigationInterface {
 }
 
 export default function HairCareScreen(props: HairCareScreenScreenProp) {
+  const { navigation, visitedSaloons } = props;
+  const {
+    state: { grid }
+  } = useStoreContext();
+
   const { colors } = useThemeContext();
   const [state] = useState({ animation: new Animated.Value(0) });
 
@@ -53,10 +51,10 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
     handleRefresh();
     Animated.timing(state.animation, {
       toValue: 360,
-      duration: 1000
-    }).start(() => {
-      state.animation.setValue(0);
-    });
+      duration: 500,
+      easing: Easing.ease,
+      useNativeDriver: true
+    }).start(() => state.animation.setValue(0));
   };
 
   const rotateInterpolation = state.animation.interpolate({
@@ -81,13 +79,7 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
           <AnimatedRefreshButton
             onPress={startAnimation}
             underlayColor="rgba(59, 59, 59, 0.5)"
-            style={{
-              transform: [
-                {
-                  rotate: rotateInterpolation
-                }
-              ]
-            }}
+            style={{ transform: [{ rotate: rotateInterpolation }] }}
           >
             <Ionicons
               name="md-refresh"
@@ -99,76 +91,79 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
       />
 
       <Container>
-        <ProfileSection>
-          <ProfileImage
-            source={require('../../../assets/images/logo.png')}
-            style={{ resizeMode: 'center' }}
-          />
-          <Username>Claire tamara</Username>
-          <HairConditionSummary>
-            <HairConditionValueSection>
-              <HairConditionLabel>Status</HairConditionLabel>
-              <HairConditionValue>Natural</HairConditionValue>
-            </HairConditionValueSection>
-            <HairConditionValueSection>
-              <HairConditionLabel>Type</HairConditionLabel>
-              <HairConditionValue>Curly</HairConditionValue>
-            </HairConditionValueSection>
-            <HairConditionValueSection>
-              <HairConditionLabel>Salon visits</HairConditionLabel>
-              <HairConditionValue>0</HairConditionValue>
-            </HairConditionValueSection>
-          </HairConditionSummary>
-        </ProfileSection>
-
-        <VisitedSaloonContainer>
-          <FlatList
-            ListEmptyComponent={
-              <EmptyListContainer>
-                <EmptyListText>
-                  When you visit a salon, the care that was administered to you
-                  will show up here.
-                </EmptyListText>
-                <Button
-                  title="Book session at JHB Studio"
-                  onPress={() => {}}
-                  buttonStyle={{ marginTop: 100 }}
+        <FlatList
+          ListHeaderComponent={() => (
+            <ProfileSection>
+              <ProfileImage>
+                <ResponsiveImage
+                  height={70}
+                  width={70}
+                  imageUrl="https://bit.ly/2W1BG3K"
+                  style={{
+                    backgroundColor: colors.BG_LIGHT_BLUE_COLOR,
+                    borderRadius: 70 / 2
+                  }}
                 />
-              </EmptyListContainer>
+              </ProfileImage>
+              <Username>Claire tamara</Username>
+              <HairConditionSummary>
+                <HairConditionValueSection>
+                  <HairConditionLabel>Status</HairConditionLabel>
+                  <HairConditionValue>Natural</HairConditionValue>
+                </HairConditionValueSection>
+                <HairConditionValueSection>
+                  <HairConditionLabel>Type</HairConditionLabel>
+                  <HairConditionValue>Curly</HairConditionValue>
+                </HairConditionValueSection>
+                <HairConditionValueSection>
+                  <HairConditionLabel>Salon visits</HairConditionLabel>
+                  <HairConditionValue>0</HairConditionValue>
+                </HairConditionValueSection>
+              </HairConditionSummary>
+            </ProfileSection>
+          )}
+          ListHeaderComponentStyle={{ marginBottom: 20 }}
+          ListEmptyComponent={
+            <EmptyListContainer>
+              <EmptyListText>
+                When you visit a salon, the care that was administered to you
+                will show up here.
+              </EmptyListText>
+              <Button
+                title="Book session at JHB Studio"
+                onPress={() => {}}
+                buttonStyle={{ marginTop: 100 }}
+              />
+            </EmptyListContainer>
+          }
+          data={props.visitedSaloons}
+          numColumns={grid.numOfColumn}
+          renderItem={({ item, index }) => {
+            if (
+              visitedSaloons.length % 2 !== 0 &&
+              visitedSaloons.length - 1 === index
+            ) {
+              return (
+                <Fragment>
+                  <SaloonCard {...item} navigation={navigation} />
+                  <EmptySaloonCard>
+                    <EmptySaloonCardText>No data yet</EmptySaloonCardText>
+                  </EmptySaloonCard>
+                </Fragment>
+              );
             }
-            data={props.visitedSaloons}
-            //@ts-ignore
-            renderItem={({ item: { date, issue } }) => (
-              <SaloonCard onPress={() => {}}>
-                <Cover>
-                  <CoverPart
-                    source={require('../../../assets/images/before.jpg')}
-                  />
-                  <CoverPart
-                    source={require('../../../assets/images/after-image.jpg')}
-                  />
-                </Cover>
-                <DateText>{date}</DateText>
-                <CardLabelContainer>
-                  <CardLabel>issue:</CardLabel>
-                  <CardText>{issue}</CardText>
-                </CardLabelContainer>
-              </SaloonCard>
-            )}
-            keyExtractor={(_item, index) => index.toString()}
-            contentContainerStyle={{
-              alignItems: 'center',
-              width: applyScale(width)
-            }}
-            showsVerticalScrollIndicator={false}
-          />
-        </VisitedSaloonContainer>
+
+            return <SaloonCard {...item} navigation={navigation} />;
+          }}
+          keyExtractor={(_item, index) => index.toString()}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingTop: 30, paddingBottom: 20 }}
+          style={{ width: '90%' }}
+        />
       </Container>
     </SafeAreaView>
   );
 }
-
-const AnimatedRefreshButton = Animated.createAnimatedComponent(RefreshButton);
 
 HairCareScreen.defaultProps = {
   visitedSaloons: new Array(11).fill({
