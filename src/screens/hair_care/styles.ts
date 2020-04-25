@@ -1,11 +1,12 @@
 import styled from 'styled-components/native';
 import applyScale from '../../utils/applyScale';
 import { Dimensions } from 'react-native';
-
 const { width } = Dimensions.get('screen');
 
 export const Container = styled.View`
   flex: 1;
+  justify-content: center;
+  align-items: center;
   background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
 `;
 
@@ -39,16 +40,33 @@ export const HeaderTitleLabel = styled.Text`
 `;
 
 export const ProfileSection = styled.View`
+  width: 100%;
   align-items: center;
   align-content: center;
-  top: 15px;
 `;
 
-export const ProfileImage = styled.Image`
-  width: 66px;
-  height: 66px;
-  background-color: ${({ theme }) => theme.colors.BG_LIGHT_BLUE_COLOR};
-  border-radius: 33px;
+export const EmptySaloonCard = styled.View`
+  flex: 1;
+  height: 184px;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
+  margin: 6px;
+  border-radius: 5px;
+`;
+
+export const EmptySaloonCardText = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 8}px;
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_MEDIUM};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  opacity: 0.3;
+`;
+
+export const ProfileImage = styled.View`
+  width: 100%;
+  height: 70px;
+  align-items: center;
+  align-content: center;
 `;
 
 export const Username = styled.Text`
@@ -85,17 +103,6 @@ export const HairConditionValue = styled.Text`
   text-transform: capitalize;
 `;
 
-export const VisitedSaloonContainer = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  margin-top: 60px;
-`;
-
-export const FlatList = styled.FlatList`
-  flex: 1;
-`;
-
 export const EmptyListContainer = styled.View`
   justify-content: center;
   align-items: center;
@@ -116,18 +123,7 @@ export const SaloonCardContainer = styled.View`
   flex-wrap: wrap;
 `;
 
-export const SaloonCard = styled.TouchableOpacity`
-  background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
-  background-color: ${({ theme }) => theme.colors.BG_LIGHT_GOLD_COLOR};
-  width: 155px;
-  height: 184px;
-  border-radius: 5px;
-  align-items: center;
-  margin: 3px;
-`;
-
 export const Cover = styled.View`
-  flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
   height: 123px;
