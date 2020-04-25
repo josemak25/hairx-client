@@ -22,7 +22,7 @@ export default function SplashScreen({ navigation }: SplashScreenProp) {
 
   const checkInitialLaunch = async () => {
     // do checks here for initial launch and subsequent launch
-    navigation.replace('HomeScreen');
+    navigation.replace('SignupScreen');
   };
 
   return (
