@@ -54,7 +54,7 @@ export default function ProceedHomeScreen(props: ProceedHomeScreenProp) {
             bottom: applyScale(30)
           }}
           textStyle={{ textTransform: 'none' }}
-          onPress={() => navigation.navigate('RegimenScreen')}
+          onPress={() => navigation.replace('HomeScreen')}
         />
       </Container>
     </SafeAreaView>
