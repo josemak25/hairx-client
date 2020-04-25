@@ -57,7 +57,7 @@ export default function AppNavigator() {
 
         <RootStack.Screen
           name="HomeScreen"
-          component={Screens.ProceedHomeScreen}
+          component={HomeNavigator}
           options={{ headerShown: false }}
         />
 
