@@ -1,11 +1,11 @@
-import React from 'react';
-import { StatusBar } from 'react-native';
+import React, { useState } from 'react';
 
 import { NavigationInterface } from '../types';
 import { useThemeContext } from '../../theme';
 import SafeAreaView from '../../commons/safe-area-view';
 import Header from '../../commons/header';
 import Button from '../../components/button';
+import { goals } from '../../libs/regimen_hair_goals.json';
 
 import {
   Container,
@@ -13,7 +13,15 @@ import {
   HeaderTitleContainer,
   HeaderTitle,
   HeaderTitleLabel,
-  ButtonContainer
+  ButtonContainer,
+  HairGoalsBody,
+  HairGoalsTitleContainer,
+  HairGoalsTitleText,
+  HairGoalsBodyText,
+  HairGoalsBodyContainer,
+  HairGoalsOptionsContainer,
+  HairGoalsOption,
+  HairGoalsOptionText
 } from './styles';
 
 interface RegimenScreenProp extends NavigationInterface {
@@ -23,6 +31,8 @@ interface RegimenScreenProp extends NavigationInterface {
 export default function RegimenScreen(props: RegimenScreenProp) {
   const { colors } = useThemeContext();
   const { navigation } = props;
+
+  const [selectedOption, setSelectedOption] = useState(null);
 
   return (
     <SafeAreaView>
@@ -42,14 +52,32 @@ export default function RegimenScreen(props: RegimenScreenProp) {
         <Welcome>Regimen Screen</Welcome>
 
         <ButtonContainer>
-          <Button
-            title="Start Regimen Setup"
-            onPress={() => navigation.navigate('RegimenSetupScreen')}
-          />
-          <Button
-            title="See Activities"
-            onPress={() => navigation.navigate('ActivityScreen')}
-          />
+          <HairGoalsBody>
+            <HairGoalsTitleContainer>
+              <HairGoalsTitleText>Hair goals</HairGoalsTitleText>
+              <HairGoalsBodyContainer>
+                <HairGoalsBodyText>
+                  Select your special hair goals and we’d help you set up a
+                  regimen that works for your specific hair type.
+                </HairGoalsBodyText>
+              </HairGoalsBodyContainer>
+            </HairGoalsTitleContainer>
+            <HairGoalsOptionsContainer>
+              {goals.map(item => (
+                <HairGoalsOption key={item.text}>
+                  <HairGoalsOptionText>{item.text}</HairGoalsOptionText>
+                </HairGoalsOption>
+              ))}
+            </HairGoalsOptionsContainer>
+            <Button
+              title="Start Regimen Setup"
+              onPress={() => navigation.navigate('RegimenSetupScreen')}
+            />
+            <Button
+              title="See Activities"
+              onPress={() => navigation.navigate('ActivityScreen')}
+            />
+          </HairGoalsBody>
         </ButtonContainer>
       </Container>
     </SafeAreaView>
