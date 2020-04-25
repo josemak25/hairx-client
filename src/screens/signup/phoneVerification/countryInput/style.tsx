@@ -1,32 +1,26 @@
 import styled from 'styled-components/native';
 import applyScale from '../../../../utils/applyScale';
+import { Platform } from 'react-native';
 
 export const Container = styled.View`
   width: 100%;
-  margin-top: 40px;
+  margin: 40px 0px;
 `;
 
-export const Text = styled.Text`
+export const DailingCode = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 3}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
-  font-size: 15px;
-  opacity: 0.7;
+  padding-left: 15px;
+  position: absolute;
+  bottom: ${Platform.select({
+    ios: applyScale(19),
+    android: applyScale(25.5)
+  })}px;
+  z-index: 1;
 `;
 
-export const PhoneInputField = styled.TextInput`
-  width: 80%;
-  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
-  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
-  height: ${applyScale(45)}px;
-  padding-left: ${applyScale(10)}px;
-`;
-
-export const CountryDailingCode = styled.View`
-  background: ${({ theme }) => theme.colors.INPUT_FIELD_COLOR};
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
+export const PhoneNumberContainer = styled.View`
   width: 100%;
-  margin-bottom: ${applyScale(40)}px;
-  height: ${applyScale(45)}px;
+  height: 100px;
+  margin-bottom: 3%;
 `;
