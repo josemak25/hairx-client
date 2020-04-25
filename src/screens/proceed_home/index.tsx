@@ -1,4 +1,5 @@
 import React from 'react';
+import { StatusBar } from 'react-native';
 import { NavigationInterface } from '../types';
 import { useThemeContext } from '../../theme';
 import SafeAreaView from '../../commons/safe-area-view';
@@ -15,7 +16,6 @@ import {
   HeaderTitleContainer,
   HeaderTitle
 } from './styles';
-import { StatusBar } from 'react-native';
 
 interface ProceedHomeScreenProp extends NavigationInterface {
   testID?: string;
