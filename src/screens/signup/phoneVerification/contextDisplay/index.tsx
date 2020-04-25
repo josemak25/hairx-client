@@ -13,7 +13,7 @@ export default function ContextDisplay(props: Iprops) {
     <Container>
       <Change onPress={props.onPress}>
         <Text>{props.context}</Text>
-        <Text>Change</Text>
+        <Text style={{ opacity: 1 }}>Change</Text>
       </Change>
     </Container>
   );
