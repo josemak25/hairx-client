@@ -1,9 +1,8 @@
 import { Dimensions } from 'react-native';
+import { RESPONSIVE_CARD_SIZES } from '../constants';
 export const DEVICE = Dimensions.get('window');
 
-type CardItem = { cardSize: number; numOfColumn: number };
-
-const CARD_ITEM: CardItem = { cardSize: 200, numOfColumn: 2 };
+const CARD_ITEM = RESPONSIVE_CARD_SIZES;
 
 if (DEVICE.width <= 414) {
   //Android smartphones
