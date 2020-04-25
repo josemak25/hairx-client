@@ -1,0 +1,54 @@
+{
+  "goals": [
+    {
+      "index": 0,
+      "text": "Fast growth",
+      "backgroundColor": "#FFFDD3"
+    },
+    {
+      "index": 1,
+      "text": "Strengthen",
+      "backgroundColor": "#D3E7FF"
+    },
+    {
+      "index": 2,
+      "text": "Hydrate",
+      "backgroundColor": "#FFE0F7"
+    },
+    {
+      "index": 3,
+      "text": "Lengthen",
+      "backgroundColor": "#FFE0F7"
+    },
+    {
+      "index": 4,
+      "text": "Volumize",
+      "backgroundColor": "#FFE0F7"
+    },
+    {
+      "index": 5,
+      "text": "Shine more",
+      "backgroundColor": "#FFE0F7"
+    },
+    {
+      "index": 6,
+      "text": "Curl definition",
+      "backgroundColor": "#FFE0F7"
+    },
+    {
+      "index": 7,
+      "text": "Color protection",
+      "backgroundColor": "#FFE0F7"
+    },
+    {
+      "index": 8,
+      "text": "Fix split ends",
+      "backgroundColor": "#FFE0F7"
+    },
+    {
+      "index": 9,
+      "text": "Soothe scap",
+      "backgroundColor": "#FFE0F7"
+    }
+  ]
+}
