@@ -34,7 +34,7 @@ export const TextContainer = styled.View`
 `;
 
 export const AboutText = styled.Text`
-  font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE}px;
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   color: ${({ theme }) => theme.colors.INACTIVE_FIELD_COLOR};
   text-transform: uppercase;
@@ -42,10 +42,11 @@ export const AboutText = styled.Text`
 `;
 
 export const Description = styled.Text`
-  font-size: ${({ theme }) => theme.fonts.SMALL_SIZE * 2}px;
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 5}px;
   font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
   color: ${({ theme }) => theme.colors.BUTTON_DARK_COLOR};
-  padding: 0px 16px;
+  padding: 0px 20px;
+  line-height: 30px;
 `;
 
 export const OptionsContainer = styled.View`
