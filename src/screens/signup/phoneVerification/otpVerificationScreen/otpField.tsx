@@ -9,22 +9,22 @@ export default function OTPField() {
     <OTPInputView
       pinCount={5}
       style={{
-        width: '70%',
-        height: applyScale(45),
+        width: '80%',
+        height: applyScale(60),
         marginBottom: 27,
         borderRadius: 5,
         backgroundColor: colors.INPUT_FIELD_COLOR,
         alignSelf: 'center'
       }}
       codeInputFieldStyle={{
-        borderWidth: 0,
-        height: applyScale(42),
-        borderBottomWidth: 4,
-        margin: 1,
+        height: applyScale(60),
+        fontFamily: fonts.JOST_BOOK,
+        fontSize: fonts.LARGE_SIZE + 5,
         color: colors.FONT_DARK_COLOR,
         textAlign: 'center',
-        fontFamily: fonts.JOST_BOOK,
-        fontSize: 20
+        margin: 1,
+        borderWidth: 0,
+        borderBottomWidth: 2
       }}
     />
   );
