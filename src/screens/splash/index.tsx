@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useStoreContext } from '../../store';
 import CARD_ITEM from '../../utils/getItemCardSize';
 import ScreenGridSizeActions from '../../store/grid/actions';
@@ -10,14 +10,11 @@ interface SplashScreenProp extends NavigationInterface {
 }
 
 export default function SplashScreen({ navigation }: SplashScreenProp) {
-  const { state, dispatch } = useStoreContext();
-
-  const [splash, setSplash] = useState({ mobileGridSize: state.grid });
+  const { dispatch } = useStoreContext();
 
   useEffect(() => {
     handleAppLayout();
-    setTimeout(() => setSplash({ ...splash }), 500);
-    setTimeout(checkInitialLaunch, 1000);
+    setTimeout(() => checkInitialLaunch(), 1000);
   }, []);
 
   // set default card sizes for app when app is launched
@@ -25,7 +22,7 @@ export default function SplashScreen({ navigation }: SplashScreenProp) {
 
   const checkInitialLaunch = async () => {
     // do checks here for initial launch and subsequent launch
-    navigation.replace('SigninScreen');
+    navigation.replace('HomeScreen');
   };
 
   return (
