@@ -109,7 +109,7 @@ export default function CreateAccount(props: CreateAccountProp) {
             title="Proceed"
             buttonStyle={{ height: applyScale(60) }}
             textStyle={{ fontSize: fonts.LARGE_SIZE }}
-            onPress={() => navigation.navigate('CreatePassword')}
+            onPress={() => navigation.navigate('CreatePasswordScreen')}
           />
         </Container>
       </TouchableWithoutFeedback>
