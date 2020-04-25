@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AntDesign } from '@expo/vector-icons';
 
 import { NavigationInterface } from '../types';
 import { useThemeContext } from '../../theme';
@@ -6,7 +7,6 @@ import SafeAreaView from '../../commons/safe-area-view';
 import Header from '../../commons/header';
 import Button from '../../components/button';
 import { goals } from '../../libs/regimen_hair_goals.json';
-import { AntDesign } from '@expo/vector-icons';
 
 import {
   Container,
