@@ -40,7 +40,7 @@ export default function SettingsScreen(props: SettingsScreenScreenProp) {
         )}
       />
       <Container
-        contentContainerStyle={{ alignItems: 'center' }}
+        contentContainerStyle={{ alignItems: 'center', paddingBottom: 20 }}
         showsVerticalScrollIndicator={false}
       >
         <TextContainer>
