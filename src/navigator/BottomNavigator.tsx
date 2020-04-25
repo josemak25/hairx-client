@@ -7,6 +7,7 @@ import HairCareIcon from '../../assets/icons/hair_care';
 import SettingIcon from '../../assets/icons/settings';
 import TabBarLabel from '../commons/tab-bar-label';
 import { IconContainer } from './styles';
+import HairCareNavigator from './HairCareNavigator';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -36,7 +37,7 @@ export default function BottomNavigator() {
 
       <Tab.Screen
         name="HairCareScreen"
-        component={Screens.HairCareScreen}
+        component={HairCareNavigator}
         options={{
           tabBarIcon: ({ color, focused }) => (
             <IconContainer>
