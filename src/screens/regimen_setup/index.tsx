@@ -9,11 +9,8 @@ import { useThemeContext } from '../../theme';
 import Header from '../../commons/header';
 import SafeAreaView from '../../commons/safe-area-view';
 import Question from './question';
-import applyScale from '../../utils/applyScale';
 import Button from '../../components/button';
 import { questions } from '../../libs/regimen_setup.json';
-
-const { height: SCREEN_HEIGHT } = Dimensions.get('screen');
 
 const SLIDE_INCREMENT = 1;
 
@@ -26,7 +23,7 @@ import {
   ModalView,
   ModalHeaderText,
   ModalBodyText,
-  ModalButtonContainer
+  ModalButtons
 } from './styles';
 
 export type QuestionItem = {
@@ -70,8 +67,9 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
 
   const handleDoneButton = () => navigation.replace('RegimenScreen');
 
-  const handleSlideChange = (index: number) =>
+  const handleSlideChange = (index: number) => {
     setState({ ...state, currentQuestion: index });
+  };
 
   return (
     <SafeAreaView>
@@ -101,7 +99,7 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
       />
       <AppIntroSlider
         testID="slider"
-        disableSlide={true}
+        scrollEnabled={false}
         renderItem={({ item }) => (
           <Question
             key={item.key}
@@ -117,18 +115,7 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
         showNextButton={false}
         showPrevButton={false}
         showDoneButton={false}
-        activeDotStyle={{
-          width: 0,
-          height: 0
-        }}
-        dotStyle={{
-          width: 0,
-          height: 0
-        }}
-        paginationStyle={{
-          height: 50,
-          top: applyScale(SCREEN_HEIGHT / 2 - 100)
-        }}
+        hidePagination={true}
         slides={questions}
         ref={sliderRef}
       />
@@ -136,14 +123,8 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
         isVisible={modalVisible}
         animationIn="slideInUp"
         animationOut="slideOutDown"
-        onBackdropPress={() => {
-          setState({ ...state, modalVisible: false });
-        }}
-        style={{
-          display: 'flex',
-          justifyContent: 'flex-end',
-          margin: 0
-        }}
+        onBackdropPress={() => setState({ ...state, modalVisible: false })}
+        style={{ display: 'flex', justifyContent: 'flex-end', margin: 0 }}
       >
         <ModalView>
           <ModalHeaderText>Quit regimen?</ModalHeaderText>
@@ -152,37 +133,36 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
             set up your own bespoke regimen. If you need to do something
             quickly, you can save your progress instead.
           </ModalBodyText>
-          <ModalButtonContainer>
+          <ModalButtons>
             <Button
               title="Save my progress"
               buttonStyle={{
-                width: 345,
+                width: '100%',
+                height: 50,
+                margin: 5,
                 backgroundColor: colors.FONT_DARK_COLOR
               }}
               onPress={() => {
                 setState({ ...state, modalVisible: false });
                 navigation.goBack();
               }}
-              textStyle={{
-                color: colors.BG_WHITE_COLOR
-              }}
+              textStyle={{ color: colors.BG_WHITE_COLOR }}
             />
             <Button
               title="Quit & lose progress"
               buttonStyle={{
-                width: 345,
+                width: '100%',
+                height: 50,
+                margin: 10,
                 backgroundColor: colors.BUTTON_LIGHT_COLOR
               }}
               onPress={() => {
                 setState({ ...state, modalVisible: false });
-                navigation.navigate('ResumeScreen', {
-                  currentQuestion,
-                  length: questions.length
-                });
+                navigation.goBack();
               }}
               textStyle={{ color: colors.FONT_DARK_COLOR }}
             />
-          </ModalButtonContainer>
+          </ModalButtons>
         </ModalView>
       </Modal>
     </SafeAreaView>
