@@ -14,6 +14,7 @@ import {
   HeaderTitleLabel,
   RefreshButton
 } from './styles';
+import { StatusBar } from 'react-native';
 
 interface HairCareScreenScreenProp extends NavigationInterface {
   testID?: string;
@@ -26,6 +27,10 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
 
   return (
     <SafeAreaView>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={colors.BG_WHITE_COLOR}
+      />
       <Header
         title={() => (
           <HeaderTitleContainer>
