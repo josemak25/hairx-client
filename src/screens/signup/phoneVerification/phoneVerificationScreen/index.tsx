@@ -1,17 +1,19 @@
 import React from 'react';
-import { AntDesign } from '@expo/vector-icons';
-
+import { Ionicons } from '@expo/vector-icons';
+import { StatusBar } from 'react-native';
+import { useThemeContext } from '../../../../theme';
 import { NavigationInterface } from '../../../types';
 import Button from '../../../../components/button';
 import InputCountry from '../countryInput/country';
-import SafeAreaView from '../../../../commons/header/safe-area-view';
-import Header from '../../../../commons/header/header';
+import SafeAreaView from '../../../../commons/safe-area-view';
+import Header from '../../../../commons/header';
+import { BackButton } from '../../styles';
+
 import {
   Container,
   HeaderTitleContainer,
   HeaderTitleOf,
   HeaderTitleNumber,
-  CancelSetupButton,
   Subtitle,
   Title,
   ButtonStyle
@@ -22,8 +24,15 @@ interface PhoneVerificationProps extends NavigationInterface {
 }
 
 export default function PhoneVerification(props: PhoneVerificationProps) {
+  const { navigation } = props;
+  const { colors } = useThemeContext();
+
   return (
     <SafeAreaView>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={colors.BG_WHITE_COLOR}
+      />
       <Header
         title={() => (
           <HeaderTitleContainer>
@@ -33,9 +42,13 @@ export default function PhoneVerification(props: PhoneVerificationProps) {
           </HeaderTitleContainer>
         )}
         headerLeft={() => (
-          <CancelSetupButton onPress={() => props.navigation.goBack()}>
-            <AntDesign name="left" size={18} />
-          </CancelSetupButton>
+          <BackButton onPress={() => navigation.goBack()}>
+            <Ionicons
+              name="ios-arrow-back"
+              size={30}
+              color={colors.INACTIVE_FIELD_COLOR}
+            />
+          </BackButton>
         )}
       ></Header>
       <Container>
@@ -48,7 +61,7 @@ export default function PhoneVerification(props: PhoneVerificationProps) {
           buttonStyle={ButtonStyle.mainButton}
           textStyle={ButtonStyle.textStyle}
           title="Text me OTP"
-          onPress={() => props.navigation.navigate('OTPVerificationScreen')}
+          onPress={() => navigation.navigate('OTPVerificationScreen')}
         />
       </Container>
     </SafeAreaView>
