@@ -1,6 +1,7 @@
 import React from 'react';
 import { AntDesign } from '@expo/vector-icons';
 import { NavigationInterface } from '../types';
+import { StatusBar } from 'react-native';
 import { useThemeContext } from '../../theme';
 import Header from '../../commons/header';
 import SafeAreaView from '../../commons/safe-area-view';
@@ -25,6 +26,10 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
 
   return (
     <SafeAreaView>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={colors.BG_WHITE_COLOR}
+      />
       <Header
         title={() => (
           <HeaderTitleContainer>
