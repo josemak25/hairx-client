@@ -30,35 +30,35 @@ export default function AppNavigator() {
           component={Screens.SplashScreen}
           options={{ headerShown: false }}
         />
-        <RootStack.Screen
-          name="SigninScreen"
-          component={Screens.SigninScreen}
-        />
-        <RootStack.Screen
-          name="SignupScreen"
-          component={Screens.SignupScreen}
-        />
-        <RootStack.Screen
-          name="SignUpScreenTwo"
-          component={Screens.SignUpScreenTwo}
-          options={{ headerShown: false }}
-        />
-        <RootStack.Screen
-          name="SignUpScreenThree"
-          component={Screens.SignUpScreenThree}
-          options={{ headerShown: false }}
-        />
 
         <RootStack.Screen
           name="GetStartedScreen"
           component={Screens.GetStartedScreen}
           options={{ headerShown: false }}
         />
+
         <RootStack.Screen
-          name="HomeScreen"
-          component={HomeNavigator}
+          name="SigninScreen"
+          component={Screens.SigninScreen}
+        />
+
+        <RootStack.Screen
+          name="SignupScreen"
+          component={Screens.SignupScreen}
+        />
+
+        <RootStack.Screen
+          name="ProceedHomeScreen"
+          component={Screens.ProceedHomeScreen}
           options={{ headerShown: false }}
         />
+
+        <RootStack.Screen
+          name="HomeScreen"
+          component={Screens.ProceedHomeScreen}
+          options={{ headerShown: false }}
+        />
+
         <RootStack.Screen
           name="BookingScreen"
           component={Screens.BookingScreen}
