@@ -1,6 +1,8 @@
 import React from 'react';
 import Button from '../../components/button';
 import { NavigationInterface } from '../types';
+import { useThemeContext } from '../../theme';
+import { StatusBar } from 'react-native';
 import SafeAreaView from '../../commons/safe-area-view';
 import Header from '../../commons/header';
 
@@ -17,8 +19,14 @@ interface SettingsScreenScreenProp extends NavigationInterface {
 }
 
 export default function SettingsScreen(props: SettingsScreenScreenProp) {
+  const { colors } = useThemeContext();
+
   return (
     <SafeAreaView>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={colors.BG_WHITE_COLOR}
+      />
       <Header
         title={() => (
           <HeaderTitleContainer>
