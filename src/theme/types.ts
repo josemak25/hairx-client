@@ -12,6 +12,7 @@ enum COLORS {
   GOOGLE_COLOR = '#D44638',
   BUTTON_DARK_COLOR = '#3B3B3B',
   BUTTON_LIGHT_COLOR = '#F4F4F4',
+  BUTTON_DARK_GRAY_COLOR = '#242424',
   INPUT_FIELD_COLOR = '#F7F7F7',
   INACTIVE_FIELD_COLOR = '#707070',
   ACTIVE_ICON_COLOR = '#BAB200',
@@ -47,6 +48,7 @@ declare module 'styled-components' {
       GOOGLE_COLOR: string;
       BUTTON_DARK_COLOR: string;
       BUTTON_LIGHT_COLOR: string;
+      BUTTON_DARK_GRAY_COLOR: string;
       INPUT_FIELD_COLOR: string;
       INACTIVE_FIELD_COLOR: string;
       ACTIVE_ICON_COLOR: string;
