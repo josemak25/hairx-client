@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavigationInterface } from '../types';
 import { useThemeContext } from '../../theme';
-import SafeAreaView from '../../commons/header/safe-area-view';
-import Header from '../../commons/header/header';
+import SafeAreaView from '../../commons/safe-area-view';
+import Header from '../../commons/header';
 import Button from '../../components/button';
 import applyScale from '../../utils/applyScale';
 

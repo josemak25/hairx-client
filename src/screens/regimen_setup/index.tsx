@@ -2,8 +2,8 @@ import React from 'react';
 import { AntDesign } from '@expo/vector-icons';
 import { NavigationInterface } from '../types';
 import { useThemeContext } from '../../theme';
-import Header from '../../commons/header/header';
-import SafeAreaView from '../../commons/header/safe-area-view';
+import Header from '../../commons/header';
+import SafeAreaView from '../../commons/safe-area-view';
 
 import {
   Container,

@@ -59,7 +59,7 @@ export const Pagination = styled.Text`
   margin-left: auto;
   margin-right: auto;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
-  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE};
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
 `;
 
 export const OfText = styled.Text`

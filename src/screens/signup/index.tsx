@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, StatusBar } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-
-import SafeAreaView from '../../commons/header/safe-area-view';
+import SafeAreaView from '../../commons/safe-area-view';
 import Button from '../../components/button';
-import Input from '../../components/input';
+import Input from '../../commons/input';
 import GoogleIcon from '../../../assets/icons/google_icon';
 import { NavigationInterface } from '../types';
 import { useThemeContext } from '../../theme';
+import applyScale from '../../utils/applyScale';
 
 import {
   Container,
@@ -27,10 +27,19 @@ interface SignupScreenProp extends NavigationInterface {
 export default function SignupScreen(props: SignupScreenProp) {
   const { colors, fonts } = useThemeContext();
   const [email, setEmail] = useState('');
+
   return (
     <SafeAreaView>
-      <Container>
-        <ScrollView showsVerticalScrollIndicator={false}>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={colors.BG_WHITE_COLOR}
+      />
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={{ flex: 1 }}
+        contentContainerStyle={{ paddingBottom: 100 }}
+      >
+        <Container>
           <Welcome>Welcome</Welcome>
           <Prompt>sign up or log in</Prompt>
           <Input
@@ -40,14 +49,14 @@ export default function SignupScreen(props: SignupScreenProp) {
             onChangeText={input => setEmail(input)}
             inputLabelStyle={{ fontSize: fonts.LARGE_SIZE + 3 }}
             textInputStyle={{
-              height: 60,
+              height: applyScale(60),
               fontSize: fonts.LARGE_SIZE,
               marginBottom: '6%'
             }}
           />
           <Button
             title="Get Started with email"
-            buttonStyle={{ height: 60 }}
+            buttonStyle={{ height: applyScale(60) }}
             onPress={() => props.navigation.navigate('SignUpScreenTwo')}
           />
           <Choice>or</Choice>
@@ -55,7 +64,7 @@ export default function SignupScreen(props: SignupScreenProp) {
             <Button
               title="Continue with facebook"
               buttonStyle={{
-                height: 60,
+                height: applyScale(60),
                 borderColor: 'rgba(59, 89, 152, 0.3)',
                 borderWidth: 1,
                 backgroundColor: colors.BG_WHITE_COLOR
@@ -76,7 +85,7 @@ export default function SignupScreen(props: SignupScreenProp) {
             <Button
               title="Continue with Google"
               buttonStyle={{
-                height: 60,
+                height: applyScale(60),
                 borderColor: 'rgba(212, 70, 56, 0.3)',
                 borderWidth: 1,
                 backgroundColor: colors.BG_WHITE_COLOR
@@ -92,8 +101,8 @@ export default function SignupScreen(props: SignupScreenProp) {
             By signing up, you agree to our
             <Service> Terms of Service</Service>
           </Terms>
-        </ScrollView>
-      </Container>
+        </Container>
+      </ScrollView>
     </SafeAreaView>
   );
 }

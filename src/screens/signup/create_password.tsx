@@ -8,10 +8,10 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useThemeContext } from '../../theme';
 import { NavigationInterface } from '../types';
-import SafeAreaView from '../../commons/header/safe-area-view';
-import Header from '../../commons/header/header';
+import SafeAreaView from '../../commons/safe-area-view';
+import Header from '../../commons/header';
 import Button from '../../components/button';
-import Input from '../../components/input';
+import Input from '../../commons/input';
 
 import {
   Container,
