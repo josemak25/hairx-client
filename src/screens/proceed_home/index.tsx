@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavigationInterface } from '../types';
+import { useThemeContext } from '../../theme';
 import SafeAreaView from '../../commons/header/safe-area-view';
 import Header from '../../commons/header/header';
 import Button from '../../components/button';
@@ -14,6 +15,7 @@ import {
   HeaderTitleContainer,
   HeaderTitle
 } from './styles';
+import { StatusBar } from 'react-native';
 
 interface ProceedHomeScreenProp extends NavigationInterface {
   testID?: string;
@@ -21,9 +23,14 @@ interface ProceedHomeScreenProp extends NavigationInterface {
 
 export default function ProceedHomeScreen(props: ProceedHomeScreenProp) {
   const { navigation } = props;
+  const { colors } = useThemeContext();
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ alignItems: 'center' }}>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={colors.BG_WHITE_COLOR}
+      />
       <Header
         title={() => (
           <HeaderTitleContainer>
