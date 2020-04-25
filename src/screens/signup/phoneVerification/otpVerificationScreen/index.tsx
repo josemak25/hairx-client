@@ -1,18 +1,20 @@
 import React from 'react';
-import { AntDesign } from '@expo/vector-icons';
-
+import { StatusBar } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { NavigationInterface } from '../../../types';
+import { useThemeContext } from '../../../../theme';
 import Button from '../../../../components/button';
 import ContextDisplay from '../contextDisplay';
 import OTPField from './otpField';
-import SafeAreaView from '../../../../commons/header/safe-area-view';
-import Header from '../../../../commons/header/header';
+import SafeAreaView from '../../../../commons/safe-area-view';
+import Header from '../../../../commons/header';
+import { BackButton } from '../../styles';
+
 import {
   Container,
   HeaderTitleContainer,
   HeaderTitleOf,
   HeaderTitleNumber,
-  CancelSetupButton,
   Subtitle,
   Title,
   Time,
@@ -24,8 +26,15 @@ interface OTPVerificationProps extends NavigationInterface {
 }
 
 export default function OTPVerification(props: OTPVerificationProps) {
+  const { navigation } = props;
+
+  const { colors } = useThemeContext();
   return (
     <SafeAreaView>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={colors.BG_WHITE_COLOR}
+      />
       <Header
         title={() => (
           <HeaderTitleContainer>
@@ -35,9 +44,13 @@ export default function OTPVerification(props: OTPVerificationProps) {
           </HeaderTitleContainer>
         )}
         headerLeft={() => (
-          <CancelSetupButton onPress={() => props.navigation.goBack()}>
-            <AntDesign name="left" size={18} />
-          </CancelSetupButton>
+          <BackButton onPress={() => navigation.goBack()}>
+            <Ionicons
+              name="ios-arrow-back"
+              size={30}
+              color={colors.INACTIVE_FIELD_COLOR}
+            />
+          </BackButton>
         )}
       ></Header>
       <Container>
@@ -48,7 +61,7 @@ export default function OTPVerification(props: OTPVerificationProps) {
         </Subtitle>
         <ContextDisplay
           context="+1 234 555-6754"
-          onPress={props.navigation.goBack}
+          onPress={() => navigation.goBack()}
         />
         <OTPField />
         <Time>Resend in 19secs</Time>
