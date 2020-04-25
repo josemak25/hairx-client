@@ -141,6 +141,8 @@ export const HairGoalsOption = styled.TouchableOpacity`
   height: 45px;
   padding-left: 7px;
   padding-right: 7px;
+  padding-left: 17px;
+  padding-right: 17px;
   background-color: ${({ theme }) => theme.colors.INPUT_FIELD_COLOR};
   border: 1px solid
     ${({ theme }) => theme.colors.INACTIVE_FIELD_COLOR_LOW_OPACITY};
@@ -158,6 +160,7 @@ export const CancelOption = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
   opacity: 0.7;
+  justify-content: center;
 `;
 
 export const HairGoalsOptionText = styled.Text`
