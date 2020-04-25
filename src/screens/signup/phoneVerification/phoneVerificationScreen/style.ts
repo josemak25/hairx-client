@@ -51,37 +51,25 @@ export const CancelSetupButton = styled.TouchableOpacity`
 `;
 
 export const ButtonStyle = {
-  mainButton: {
-    width: '100%'
-  },
+  mainButton: { width: '100%', height: 60 },
   textStyle: {
     fontFamily: theme.fonts.JOST_MEDIUM,
-    fontSize: applyScale(15)
+    fontSize: theme.fonts.LARGE_SIZE,
+    textTransform: 'none'
   }
 };
 
 export const Title = styled.Text`
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
-  width: 70%;
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   font-size: 30px;
-  height: ${applyScale(43)}px;
   margin-top: 95px;
 `;
 
 export const Subtitle = styled.Text`
   font-size: 20px;
   font-family: ${({ theme }) => theme.fonts.CORMORANT_MEDIUM};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   width: 80%;
   opacity: 0.7;
-  height: ${applyScale(53)}px;
-`;
-
-export const Time = styled.Text`
-  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
-  text-align: center;
-  margin: 0px auto 20px auto;
-  font-size: 13px;
-  width: 80%;
-  height: ${applyScale(18)}px;
-  margin-bottom: 20px;
 `;
