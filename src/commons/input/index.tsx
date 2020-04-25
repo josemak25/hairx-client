@@ -11,6 +11,8 @@ type InputProps = {
   defaultValue: string;
   inputLabelStyle?: {};
   secureTextEntry?: boolean;
+  keyboardType?: any;
+  returnKeyType?: any;
   onChangeText(T: any): void;
 };
 
