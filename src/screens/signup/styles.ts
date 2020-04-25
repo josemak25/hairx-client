@@ -65,3 +65,11 @@ export const Pagination = styled.Text`
 export const OfText = styled.Text`
   font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
 `;
+
+export const BackButton = styled.TouchableOpacity`
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  padding-right: 20px;
+`;
