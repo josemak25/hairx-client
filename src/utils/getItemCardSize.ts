@@ -1,42 +1,22 @@
-import { Dimensions, Platform } from 'react-native';
-const DEVICE = Dimensions.get('window');
+import { Dimensions } from 'react-native';
+import { RESPONSIVE_CARD_SIZES } from '../constants';
+export const DEVICE = Dimensions.get('window');
 
-type CardItem = { cardSize: number; numOfColumn: number };
+const CARD_ITEM = RESPONSIVE_CARD_SIZES;
 
-const CARD_ITEM: CardItem = { cardSize: 320, numOfColumn: 1 };
+if (DEVICE.width <= 414) {
+  //Android smartphones
+  //iPhone4/4S and iPhone5/5S
+  //iPhone6/6S
+  //iPhone6plus/6Splus
 
-switch (Platform.OS) {
-  case 'android':
-    if (DEVICE.width <= 414) {
-      //Android smartphones
-      CARD_ITEM.cardSize = DEVICE.width;
-    } else CARD_ITEM.cardSize = DEVICE.width;
-    break;
+  CARD_ITEM.numOfColumn = CARD_ITEM.numOfColumn;
+} else {
+  // Android tabs
+  // iPad
 
-  case 'ios':
-    switch (DEVICE.width) {
-      //iPhone4/4S and iPhone5/5S
-      case 320:
-        CARD_ITEM.cardSize = DEVICE.width;
-        break;
-      //iPhone6/6S
-      case 375:
-        CARD_ITEM.cardSize = 414;
-        break;
-      //iPhone6plus/6Splus
-      case 414:
-        CARD_ITEM.cardSize = DEVICE.width;
-        break;
-      //iPad
-      default:
-        CARD_ITEM.cardSize = DEVICE.width / 2;
-        CARD_ITEM.numOfColumn = Math.floor(DEVICE.width / CARD_ITEM.cardSize);
-        CARD_ITEM.cardSize =
-          CARD_ITEM.numOfColumn >= 2 ? 400 : CARD_ITEM.cardSize;
-    }
-    break;
-  default:
-    CARD_ITEM;
+  CARD_ITEM.numOfColumn = Math.floor(DEVICE.width / CARD_ITEM.cardSize);
+  CARD_ITEM.cardSize = CARD_ITEM.numOfColumn >= 2 ? 250 : CARD_ITEM.cardSize;
 }
 
 export default CARD_ITEM;

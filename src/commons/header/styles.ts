@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import applyScale from '../../../utils/applyScale';
+import applyScale from '../../utils/applyScale';
 import { Platform } from 'react-native';
 
 export const Container = styled.View`

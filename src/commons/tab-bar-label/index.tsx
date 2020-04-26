@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeContext } from '../../../theme';
+import { useThemeContext } from '../../theme';
 
 import { Label } from './styles';
 

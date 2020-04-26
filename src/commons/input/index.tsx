@@ -9,13 +9,21 @@ type InputProps = {
   inputLabel?: string;
   placeholder: string;
   defaultValue: string;
+  inputLabelStyle?: {};
+  secureTextEntry?: boolean;
+  keyboardType?: any;
+  returnKeyType?: any;
   onChangeText(T: any): void;
 };
 
 export default function Input(props: InputProps) {
   return (
     <Container style={props.contanierStyle}>
-      {props.inputLabel && <InputLabel>{props.inputLabel}</InputLabel>}
+      {props.inputLabel && (
+        <InputLabel style={props.inputLabelStyle}>
+          {props.inputLabel}
+        </InputLabel>
+      )}
       <TextInput {...props} style={props.textInputStyle} />
     </Container>
   );

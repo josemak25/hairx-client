@@ -1,18 +1,13 @@
-import React from 'react';
-import Button from '../../components/button';
-import { NavigationInterface } from '../types';
+import OTPVerificationScreen from './phoneVerification/otpVerificationScreen';
+import PhoneVerificationScreen from './phoneVerification/phoneVerificationScreen';
+import CreateAccountScreen from './create_account';
+import CreatePasswordScreen from './create_password';
+import SocialSignupScreen from './social_signup';
 
-import { Container, Welcome } from './styles';
-
-interface SignupScreenProp extends NavigationInterface {
-  testID?: string;
-}
-
-export default function SignupScreen(props: SignupScreenProp) {
-  return (
-    <Container>
-      <Button title="Sign up screen button" />
-      <Welcome>Signup Screen</Welcome>
-    </Container>
-  );
-}
+export default {
+  PhoneVerificationScreen,
+  OTPVerificationScreen,
+  CreateAccountScreen,
+  CreatePasswordScreen,
+  SocialSignupScreen
+};

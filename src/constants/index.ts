@@ -15,3 +15,6 @@ export const headerBackTitleStyle = {
   fontSize: theme.fonts.MEDIUM_SIZE,
   textTransform: 'capitalize'
 };
+
+// App Card size
+export const RESPONSIVE_CARD_SIZES = { cardSize: 200, numOfColumn: 2 };

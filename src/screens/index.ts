@@ -6,6 +6,9 @@ import HairCareScreen from './hair_care';
 import SignupScreen from './signup';
 import SigninScreen from './signin';
 import GetStartedScreen from './get_started';
+import BookingScreen from './booking';
+import ProceedHomeScreen from './proceed_home';
+import HairCareDetailScreen from './hair_care/hair_care_detail';
 
 export default {
   RegimenScreen,
@@ -15,5 +18,8 @@ export default {
   HairCareScreen,
   SigninScreen,
   SignupScreen,
-  GetStartedScreen
+  GetStartedScreen,
+  BookingScreen,
+  ProceedHomeScreen,
+  HairCareDetailScreen
 };
