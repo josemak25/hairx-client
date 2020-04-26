@@ -15,21 +15,44 @@ import {
 
 interface SaloonCardProp extends NavigationInterface {
   testID?: string;
-  date: string;
-  issue: string;
+  appointmentDate: string;
+  beforeAppointmentImage: string;
+  afterAppointmentImage: string;
+  appointmentIssue: string;
+  assessments: { label: string; value: string; degree: string }[];
+  products: { description: string; benefits: string; image: string }[];
+  recommendations: { text: string; frequency: string }[];
 }
 
 export default function SaloonCard(props: SaloonCardProp) {
-  const { colors } = useThemeContext();
+  const { colors, fonts } = useThemeContext();
   const {
     state: { grid }
   } = useStoreContext();
 
-  const { date, issue, navigation } = props;
+  const {
+    appointmentDate,
+    appointmentIssue,
+    beforeAppointmentImage,
+    afterAppointmentImage,
+    navigation
+  } = props;
+
+  const handleNavigate = () => {
+    navigation.navigate('HairCareDetailScreen', {
+      appointmentDate,
+      appointmentIssue,
+      beforeAppointmentImage: props.beforeAppointmentImage,
+      afterAppointmentImage: props.afterAppointmentImage,
+      assessments: props.assessments,
+      products: props.products,
+      recommendations: props.recommendations
+    });
+  };
 
   return (
     <Card
-      onPress={() => {}}
+      onPress={handleNavigate}
       style={{
         flex: 1,
         height: 184,
@@ -38,12 +61,13 @@ export default function SaloonCard(props: SaloonCardProp) {
         backgroundColor: colors.BG_LIGHT_GOLD_COLOR,
         margin: 6
       }}
+      activeOpacity={0.3}
     >
       <Cover>
         <ResponsiveImage
           width={grid.cardSize / 2}
           height={123}
-          imageUrl="https://bit.ly/3aGEc4O"
+          imageUrl={beforeAppointmentImage}
           style={{
             alignSelf: 'flex-start',
             borderRadius: 5,
@@ -52,9 +76,9 @@ export default function SaloonCard(props: SaloonCardProp) {
           }}
         />
         <ResponsiveImage
-          width={155 / 2}
+          width={grid.cardSize / 2 - 10}
           height={123}
-          imageUrl="https://bit.ly/3byyQdb"
+          imageUrl={afterAppointmentImage}
           style={{
             alignSelf: 'flex-end',
             borderRadius: 5,
@@ -63,10 +87,19 @@ export default function SaloonCard(props: SaloonCardProp) {
           }}
         />
       </Cover>
-      <DateText>{date}</DateText>
+      <DateText>{appointmentDate}</DateText>
       <CardLabelContainer>
-        <CardLabel>issue:</CardLabel>
-        <CardText>{issue}</CardText>
+        <CardLabel
+          style={{
+            opacity: 0.7,
+            textTransform: 'capitalize',
+            fontFamily: fonts.CORMORANT_REGULAR,
+            fontSize: fonts.LARGE_SIZE
+          }}
+        >
+          issue:
+        </CardLabel>
+        <CardText>{appointmentIssue}</CardText>
       </CardLabelContainer>
     </Card>
   );
