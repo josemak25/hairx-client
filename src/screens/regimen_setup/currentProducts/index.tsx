@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Button from '../../../components/button';
 import { Container, Image, Content, Title, SubContent } from './style';
@@ -11,14 +11,20 @@ interface Iprops {
 
 export default function CurrentProduct(props: Iprops) {
   const { colors, fonts } = useThemeContext();
+  const [state, setstate] = useState<'flex' | 'none'>('flex');
+
+  const clickAction = () => {
+    setstate('none');
+  };
+
   return (
-    <Container>
+    <Container style={{ display: state }}>
       <Image source={require('../../../../assets/images/logo.png')} />
       <Content>
         <Title>{props.title}</Title>
         <SubContent>
           <Button
-            title="&#10010; Add Product"
+            title="&#10010; Add product"
             activeOpacity={0}
             buttonStyle={{
               paddingLeft: 0,
@@ -31,11 +37,14 @@ export default function CurrentProduct(props: Iprops) {
               width: applyScale(98),
               height: applyScale(20),
               color: '#BAB200',
+              fontWeight: fonts.FONT_WEIGHT_HEAVY,
               backgroundColor: colors.INPUT_FIELD_COLOR,
               fontSize: 14,
               fontFamily: fonts.JOST_MEDIUM
             }}
+            onPress={clickAction}
           />
+
           <Button
             title="&#8856; Leave empty"
             activeOpacity={0}
@@ -50,6 +59,7 @@ export default function CurrentProduct(props: Iprops) {
             textStyle={{
               width: applyScale(90),
               height: applyScale(20),
+              fontWeight: fonts.FONT_WEIGHT_HEAVY,
               color: colors.FONT_DARK_COLOR,
               opacity: 0.8,
               fontSize: 14,
