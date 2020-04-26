@@ -19,7 +19,7 @@ export default function CurrentProduct(props: Iprops) {
         <Title>{props.option}</Title>
         <SubContent>
           <Button
-            title=" &#10010; Add Product"
+            title="&#10010; Add Product"
             activeOpacity={0}
             buttonStyle={{
               paddingLeft: 0,
