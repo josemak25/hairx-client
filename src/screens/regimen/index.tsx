@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { NavigationInterface } from '../types';
 import SafeAreaView from '../../commons/safe-area-view';
 import Header from '../../commons/header';
 import Button from '../../components/button';
 import { goals } from '../../libs/regimen_hair_goals.json';
+import { AntDesign } from '@expo/vector-icons';
 import { useThemeContext } from '../../theme';
 
 import {
@@ -19,7 +20,8 @@ import {
   HairGoalsBodyContainer,
   HairGoalsOptionsContainer,
   HairGoalsOption,
-  HairGoalsOptionText
+  HairGoalsOptionText,
+  CancelOption
 } from './styles';
 
 interface RegimenScreenProp extends NavigationInterface {
@@ -29,6 +31,8 @@ interface RegimenScreenProp extends NavigationInterface {
 export default function RegimenScreen(props: RegimenScreenProp) {
   const { colors } = useThemeContext();
   const { navigation } = props;
+
+  const [isSelected, setIsSelected] = useState(false);
 
   return (
     <SafeAreaView>
@@ -57,8 +61,32 @@ export default function RegimenScreen(props: RegimenScreenProp) {
           </HairGoalsTitleContainer>
           <HairGoalsOptionsContainer>
             {goals.map(item => (
-              <HairGoalsOption key={item.text}>
+              <HairGoalsOption
+                key={item.text}
+                onPress={() => {
+                  setIsSelected(true);
+                }}
+                style={{
+                  backgroundColor:
+                    isSelected === true
+                      ? item.selectedColor
+                      : colors.INPUT_FIELD_COLOR
+                }}
+              >
                 <HairGoalsOptionText>{item.text}</HairGoalsOptionText>
+                {isSelected && (
+                  <CancelOption
+                    onPress={() => {
+                      setIsSelected(false);
+                    }}
+                  >
+                    <AntDesign
+                      name="close"
+                      size={10}
+                      color={colors.BG_WHITE_COLOR}
+                    />
+                  </CancelOption>
+                )}
               </HairGoalsOption>
             ))}
           </HairGoalsOptionsContainer>

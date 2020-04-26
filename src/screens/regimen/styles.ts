@@ -3,6 +3,9 @@ import applyScale from '../../utils/applyScale';
 
 export const Container = styled.View`
   flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
 `;
 
 export const HeaderTitleContainer = styled.View`
@@ -143,6 +146,8 @@ export const HairGoalsOption = styled.TouchableOpacity`
   padding-right: 7px;
   padding-left: 17px;
   padding-right: 17px;
+  padding-left: 8px;
+  padding-right: 8px;
   background-color: ${({ theme }) => theme.colors.INPUT_FIELD_COLOR};
   border: 1px solid
     ${({ theme }) => theme.colors.INACTIVE_FIELD_COLOR_LOW_OPACITY};
@@ -160,7 +165,12 @@ export const CancelOption = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
   opacity: 0.7;
+  border-radius: 15px;
+  width: ${applyScale(15)}px;
+  height: ${applyScale(15)}px;
   justify-content: center;
+  align-items: center;
+  opacity: 0.7;
 `;
 
 export const HairGoalsOptionText = styled.Text`
@@ -169,4 +179,6 @@ export const HairGoalsOptionText = styled.Text`
   opacity: 0.7;
   margin-right: 2px;
   margin-left: 2px;
+  margin-right: 3px;
+  margin-left: 3px;
 `;
