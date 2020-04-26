@@ -45,7 +45,7 @@
       "key": "5bd80574-f1f2-40d7-abe3-4c0e8d8678r9",
       "index": 4,
       "question": "Current products?",
-      "questionRelevance": "This helps us to understand the type of products you are currently using and its impact on your hair. Add at least 3.",
+      "questionRelevance": "This helps us to understand the type of products you are currently using and its impact on your hair.",
       "options": ["Shampoo", "Conditioner", "Hair oils", "Styling creme & gels"]
     }
   ]

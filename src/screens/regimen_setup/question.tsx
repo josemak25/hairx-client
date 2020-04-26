@@ -4,6 +4,7 @@ import { useThemeContext } from '../../theme';
 import Button from '../../components/button';
 import { questions } from '../../libs/regimen_setup.json';
 import applyScale from '../../utils/applyScale';
+import CurrentProduct from './currentProducts';
 
 import {
   Container,
@@ -17,7 +18,6 @@ import {
   ButtonContainer,
   QuestionRelevanceTextContainer
 } from './styles';
-import CurrentProduct from './currentProducts';
 
 interface RenderItemProp {
   testID?: string;
@@ -32,7 +32,7 @@ interface RenderItemProp {
 }
 
 export default function RenderItem(props: RenderItemProp) {
-  const { colors } = useThemeContext();
+  const { colors, fonts } = useThemeContext();
 
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -63,7 +63,20 @@ export default function RenderItem(props: RenderItemProp) {
           <QuestionTitle>{question}</QuestionTitle>
           <QuestionRelevanceHeader>Question Relevance</QuestionRelevanceHeader>
           <QuestionRelevanceTextContainer>
-            <QuestionRelevanceText>{questionRelevance}</QuestionRelevanceText>
+            <QuestionRelevanceText>
+              {questionRelevance}
+              {/Current/.test(question) && (
+                <QuestionRelevanceText
+                  style={{
+                    fontFamily: fonts.CORMORANT_ITALIC,
+                    color: colors.FONT_RED_COLOR,
+                    opacity: 0.0
+                  }}
+                >
+                  {` Add at least 3.`}
+                </QuestionRelevanceText>
+              )}
+            </QuestionRelevanceText>
           </QuestionRelevanceTextContainer>
         </QuestionContainer>
         <AnswersContainer>

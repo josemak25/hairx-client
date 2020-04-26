@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 import Button from '../../../components/button';
-import { Container, Image, Content, Title, SubContent } from './style';
 import { useThemeContext } from '../../../theme';
 import applyScale from '../../../utils/applyScale';
+import { Container, Image, Content, Title, SubContent } from './style';
 
 interface Iprops {
   title: string;

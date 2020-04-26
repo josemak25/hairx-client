@@ -21,7 +21,7 @@ export const Image = styled.Image`
 
 export const Content = styled.View`
   width: 80%;
-  height: ${applyScale(54)}px;
+  height: ${applyScale(45)}px;
   justify-content: space-between;
   align-items: flex-start;
 `;
