@@ -9,6 +9,7 @@ import SafeAreaView from '../../commons/safe-area-view';
 import Header from '../../commons/header';
 import Button from '../../components/button';
 import SaloonCard from './saloon_card';
+import dummyAppointments from '../../libs/hair_care.json';
 
 import {
   Container,
@@ -31,13 +32,23 @@ import {
 
 const AnimatedRefreshButton = Animated.createAnimatedComponent(RefreshButton);
 
+type AppointmentType = {
+  appointmentDate: string;
+  beforeAppointmentImage: string;
+  afterAppointmentImage: string;
+  appointmentIssue: string;
+  assessments: { label: string; value: string; degree: string }[];
+  products: { description: string; benefits: string; image: string }[];
+  recommendations: { text: string; frequency: string }[];
+};
+
 interface HairCareScreenScreenProp extends NavigationInterface {
   testID?: string;
-  visitedSaloons: { date: string; issue: string }[];
+  appointments: AppointmentType[];
 }
 
 export default function HairCareScreen(props: HairCareScreenScreenProp) {
-  const { navigation, visitedSaloons } = props;
+  const { navigation, appointments } = props;
   const {
     state: { grid }
   } = useStoreContext();
@@ -117,7 +128,9 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
                 </HairConditionValueSection>
                 <HairConditionValueSection>
                   <HairConditionLabel>Salon visits</HairConditionLabel>
-                  <HairConditionValue>0</HairConditionValue>
+                  <HairConditionValue>
+                    {props.appointments.length}
+                  </HairConditionValue>
                 </HairConditionValueSection>
               </HairConditionSummary>
             </ProfileSection>
@@ -136,12 +149,12 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
               />
             </EmptyListContainer>
           }
-          data={props.visitedSaloons}
+          data={props.appointments}
           numColumns={grid.numOfColumn}
           renderItem={({ item, index }) => {
             if (
-              visitedSaloons.length % 2 !== 0 &&
-              visitedSaloons.length - 1 === index
+              appointments.length % 2 !== 0 &&
+              appointments.length - 1 === index
             ) {
               return (
                 <Fragment>
@@ -158,7 +171,7 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
           keyExtractor={(_item, index) => index.toString()}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingTop: 30, paddingBottom: 20 }}
-          style={{ width: '90%' }}
+          style={{ width: '95%' }}
         />
       </Container>
     </SafeAreaView>
@@ -166,8 +179,5 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
 }
 
 HairCareScreen.defaultProps = {
-  visitedSaloons: new Array(11).fill({
-    date: 'April 7, 2020',
-    issue: 'Hair loss'
-  })
+  appointments: new Array(10).fill(dummyAppointments)
 };
