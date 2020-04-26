@@ -6,17 +6,16 @@ import { useThemeContext } from '../../../theme';
 import applyScale from '../../../utils/applyScale';
 
 interface Iprops {
-  option: string;
+  title: string;
 }
 
 export default function CurrentProduct(props: Iprops) {
   const { colors, fonts } = useThemeContext();
-  console.log('nothing entered');
   return (
     <Container>
       <Image source={require('../../../../assets/images/logo.png')} />
       <Content>
-        <Title>{props.option}</Title>
+        <Title>{props.title}</Title>
         <SubContent>
           <Button
             title="&#10010; Add Product"

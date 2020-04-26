@@ -46,7 +46,7 @@
       "index": 4,
       "question": "Current products?",
       "questionRelevance": "This helps us to understand the type of products you are currently using and its impact on your hair. Add at least 3.",
-      "options": ["Shampoo", "Conditioner", "Hair oils"]
+      "options": ["Shampoo", "Conditioner", "Hair oils", "Styling creme & gels"]
     }
   ]
 }

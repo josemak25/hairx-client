@@ -69,7 +69,7 @@ export default function RenderItem(props: RenderItemProp) {
         <AnswersContainer>
           {options.map((item, ind) =>
             /Current/.test(question) ? (
-              <CurrentProduct key={ind} option={item} />
+              <CurrentProduct key={ind} title={item} />
             ) : (
               <AnswerOption
                 key={item}
