@@ -17,6 +17,7 @@ import {
   ButtonContainer,
   QuestionRelevanceTextContainer
 } from './styles';
+import CurrentProduct from './currentProducts';
 
 interface RenderItemProp {
   testID?: string;
@@ -66,22 +67,26 @@ export default function RenderItem(props: RenderItemProp) {
           </QuestionRelevanceTextContainer>
         </QuestionContainer>
         <AnswersContainer>
-          {options.map(item => (
-            <AnswerOption
-              key={item}
-              style={{
-                backgroundColor:
-                  selectedOption === item
-                    ? colors.BG_LIGHT_GOLD_COLOR
-                    : colors.BUTTON_LIGHT_COLOR
-              }}
-              onPress={() => {
-                setSelectedOption(item);
-              }}
-            >
-              <AnswerOptionText>{item}</AnswerOptionText>
-            </AnswerOption>
-          ))}
+          {options.map((item, ind) =>
+            /Current/.test(question) ? (
+              <CurrentProduct key={ind} option={item} />
+            ) : (
+              <AnswerOption
+                key={item}
+                style={{
+                  backgroundColor:
+                    selectedOption === item
+                      ? colors.BG_LIGHT_GOLD_COLOR
+                      : colors.BUTTON_LIGHT_COLOR
+                }}
+                onPress={() => {
+                  setSelectedOption(item);
+                }}
+              >
+                <AnswerOptionText>{item}</AnswerOptionText>
+              </AnswerOption>
+            )
+          )}
         </AnswersContainer>
         <ButtonContainer>
           <Button
