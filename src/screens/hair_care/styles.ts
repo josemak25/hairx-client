@@ -1,10 +1,10 @@
 import styled from 'styled-components/native';
 import applyScale from '../../utils/applyScale';
-import { Dimensions } from 'react-native';
-const { width } = Dimensions.get('screen');
 
-export const Container = styled.ScrollView`
+export const Container = styled.View`
   flex: 1;
+  justify-content: center;
+  align-items: center;
   background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
 `;
 
@@ -12,33 +12,43 @@ export const RefreshButton = styled.TouchableHighlight`
   width: ${applyScale(40)}px;
   height: ${applyScale(40)}px;
   justify-content: center;
-  height: 350px;
-  border-radius: 5px;
-`;
-
-export const BackButtonContainer = styled.View`
   align-items: center;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.colors.BACK_BUTTON_BG_COLOR};
-  width: 28px;
-  height: 28px;
-  border-radius: 14px;
-  position: absolute;
-  top: 40px;
-  left: 5px;
+  border-radius: 20px;
 `;
 
-export const BeforeImage = styled.Image`
-  flex: 1;
-  height: 100%;
+export const BackButton = styled.TouchableOpacity`
+  width: ${applyScale(35)}px;
+  height: ${applyScale(35)}px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  background-color: ${({ theme }) => theme.colors.INACTIVE_FIELD_COLOR};
 `;
-export const AfterImage = styled.Image`
-  flex: 1;
-  height: 100%;
+
+export const HeaderTitleContainer = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const HeaderTitle = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 5}px;
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_MEDIUM};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  text-transform: uppercase;
+`;
+
+export const HeaderTitleLabel = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 2}px;
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  text-transform: capitalize;
+  padding: 0px 5px;
 `;
 
 export const ContentArea = styled.View`
   flex: 1;
+  height: 100%;
 `;
 
 export const HairCareSaloonCard = styled.View`
@@ -46,23 +56,15 @@ export const HairCareSaloonCard = styled.View`
   background-color: ${({ theme }) => theme.colors.BG_LIGHT_GOLD_COLOR};
   width: 80%;
   height: 65px;
-  margin-top: -15px;
   border-radius: 5px;
   align-self: center;
+  position: absolute;
+  bottom: ${applyScale(-55)}px;
 `;
 
 export const CardInfo = styled.View`
   flex: 1;
   justify-content: center;
-`;
-
-export const CardLabel = styled.Text`
-  font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE}px;
-  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
-  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
-  opacity: 0.3;
-  text-align: center;
-  text-transform: uppercase;
 `;
 
 export const CardValue = styled.Text`
@@ -88,85 +90,88 @@ export const AssessmentLabel = styled.Text`
 `;
 
 export const AssessmentCard = styled.View`
-  background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
-  width: 116px;
-  height: 139px;
-  border-radius: 5px;
-  margin: 0px 5px;
-`;
-
-export const AssessmentCardContent = styled.View`
-  flex: 1;
+  width: 130px;
+  height: 160px;
   align-content: center;
   align-items: center;
+  border-radius: 5px;
+  padding: 15px 5px;
+  margin: 0px 5px;
+  background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
 `;
 
 export const ContentLabel = styled.Text`
-  font-size: ${({ theme }) => theme.fonts.SMALL_SIZE}px;
+  font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   text-align: center;
   text-transform: uppercase;
-  margin-top: 20px;
   opacity: 0.7;
 `;
 
 export const ContentValue = styled.Text`
-  font-size: ${({ theme }) => theme.fonts.SMALL_SIZE * 2}px;
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 5}px;
   font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   text-align: center;
   text-transform: capitalize;
+  padding: 10px 0px;
   opacity: 0.7;
 `;
 
 export const ValueDegreeContainer = styled.View`
-  background-color: ${({ theme }) => theme.colors.BG_LIGHT_BLUE_COLOR};
   justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 12px;
-  margin-top: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: ${({ theme }) => theme.colors.BG_LIGHT_BLUE_COLOR};
+  position: absolute;
+  bottom: ${applyScale(30)}px;
 `;
 
 export const ValueDegree = styled.Text`
-  font-size: ${({ theme }) => theme.fonts.SMALL_SIZE}px;
+  font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   color: ${({ theme }) => theme.colors.BG_DARK_BLUE_COLOR};
   text-align: center;
 `;
 
 export const ProductCard = styled.View`
-  background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
-  width: 116px;
-  height: 154px;
+  width: 130px;
+  height: 160px;
   border-radius: 5px;
+  padding: 15px 5px;
   margin: 0px 5px;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
 `;
 
 export const ProductDescription = styled.Text`
-  font-size: ${({ theme }) => theme.fonts.SMALL_SIZE}px;
+  font-size: ${({ theme }) => theme.fonts.SMALL_SIZE + 2}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   text-align: center;
   opacity: 0.7;
   text-transform: capitalize;
-  margin-top: 20px;
 `;
 
 export const ProductBenefit = styled.Text`
-  font-size: ${({ theme }) => theme.fonts.SMALL_SIZE + 3}px;
+  font-size: ${({ theme }) => theme.fonts.SMALL_SIZE + 5}px;
   font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   text-align: center;
   opacity: 0.7;
   text-transform: capitalize;
-  margin-top: 20px;
+  padding: 6px 0px;
+  padding-bottom: 10px;
 `;
 
-export const ProductImage = styled.Image`
+export const ProductImage = styled.View`
   flex: 1;
-  height: 100%;
+  width: 100%;
+  align-items: center;
+  flex-direction: column-reverse;
 `;
 
 export const RecommendationContainer = styled.View`
@@ -274,14 +279,6 @@ export const EmptyListText = styled.Text`
   margin: 0px 25px;
 `;
 
-export const SaloonCardContainer = styled.View`
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: ${applyScale(width)}px;
-  flex-wrap: wrap;
-`;
-
 export const Cover = styled.View`
   justify-content: space-evenly;
   width: 100%;
@@ -307,6 +304,15 @@ export const CardLabelContainer = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+`;
+
+export const CardLabel = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE}px;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  opacity: 0.3;
+  text-align: center;
+  text-transform: uppercase;
 `;
 
 export const CardText = styled.Text`
