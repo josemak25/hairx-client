@@ -29,11 +29,8 @@ export default function Header(props: HeaderProps) {
   return (
     <Container
       style={[
-        style,
-        boxShadow({
-          elevation: 5,
-          shadowColor: colors.BG_LIGHT_BLUE_COLOR
-        })
+        boxShadow({ elevation: 5, shadowColor: colors.BG_LIGHT_BLUE_COLOR }),
+        style
       ]}
     >
       <HeaderLeft style={headerLeftContainerStyle}>
