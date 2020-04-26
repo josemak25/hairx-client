@@ -33,8 +33,6 @@ export default function RegimenScreen(props: RegimenScreenProp) {
 
   const [selectedOptions, setSelectedOptions] = useState([]);
 
-  useEffect(() => {}, []);
-
   return (
     <SafeAreaView>
       <Header

@@ -70,8 +70,8 @@ export const HairGoalsOption = styled.TouchableOpacity`
   margin-right: 10px;
   margin-bottom: 10px;
   height: 45px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 7px;
+  padding-right: 7px;
   background-color: ${({ theme }) => theme.colors.INPUT_FIELD_COLOR};
   border: 1px solid
     ${({ theme }) => theme.colors.INACTIVE_FIELD_COLOR_LOW_OPACITY};
@@ -83,9 +83,9 @@ export const HairGoalsOption = styled.TouchableOpacity`
 
 export const CancelOption = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.colors.BUTTON_DARK_COLOR};
-  border-radius: 15px;
-  width: ${applyScale(15)}px;
-  height: ${applyScale(15)}px;
+  border-radius: 20px;
+  width: ${applyScale(20)}px;
+  height: ${applyScale(20)}px;
   justify-content: center;
   align-items: center;
   opacity: 0.7;
@@ -95,6 +95,6 @@ export const HairGoalsOptionText = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   opacity: 0.7;
-  margin-right: 3px;
-  margin-left: 3px;
+  margin-right: 2px;
+  margin-left: 2px;
 `;
