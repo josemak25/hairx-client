@@ -20,10 +20,11 @@ export default function CurrentProduct(props: Iprops) {
         <SubContent>
           <Button
             title=" &#10010; Add Product"
+            activeOpacity={1}
             buttonStyle={{
               width: applyScale(110),
-              height: 20,
-              padding: 0,
+              height: applyScale(20),
+              padding: 1,
               opacity: 1,
               textAlign: 'left',
               borderWidth: 1,
@@ -32,18 +33,18 @@ export default function CurrentProduct(props: Iprops) {
             }}
             textStyle={{
               color: 'red',
-              backgroundColor: 'gold',
+              backgroundColor: colors.INPUT_FIELD_COLOR,
               fontSize: 14,
               fontFamily: fonts.JOST_MEDIUM
             }}
           />
           <Button
             title="&#8856; Leave empty"
+            activeOpacity={0}
             buttonStyle={{
               width: applyScale(120),
-              height: 20,
-              padding: 0,
-              backgroundColor: colors.BG_WHITE_COLOR,
+              height: applyScale(20),
+              backgroundColor: colors.INPUT_FIELD_COLOR,
               borderWidth: 0
             }}
             textStyle={{
