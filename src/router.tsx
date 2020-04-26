@@ -66,6 +66,12 @@ export default function AppNavigator() {
           component={Screens.BookingScreen}
           options={{ headerShown: false }}
         />
+
+        <RootStack.Screen
+          name="HairCareDetailScreen"
+          component={Screens.HairCareDetailScreen}
+          options={{ headerShown: false }}
+        />
       </RootStack.Navigator>
     </NavigationContainer>
   );
