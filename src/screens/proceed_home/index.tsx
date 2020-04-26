@@ -43,9 +43,7 @@ export default function ProceedHomeScreen(props: ProceedHomeScreenProp) {
           <AccentText>That was quick, Claire</AccentText>
           <PrimaryText>You are done with the basics</PrimaryText>
         </ContainerHeaderTexts>
-        <Placeholder
-          source={require('../../../assets/images/placeholder.png')}
-        />
+        <Placeholder source={require('../../../assets/images/logo.png')} />
         <Button
           title="Proceed home"
           buttonStyle={{
