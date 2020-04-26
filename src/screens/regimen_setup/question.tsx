@@ -44,8 +44,6 @@ export default function RenderItem(props: RenderItemProp) {
     options,
     index,
     handleNext,
-    handleDone,
-    handleGoBack,
     handlePrevious
   } = props;
 
