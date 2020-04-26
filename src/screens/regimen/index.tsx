@@ -6,10 +6,10 @@ import SafeAreaView from '../../commons/safe-area-view';
 import Header from '../../commons/header';
 import Button from '../../components/button';
 import { goals } from '../../libs/regimen_hair_goals.json';
+import { AntDesign } from '@expo/vector-icons';
 
 import {
   Container,
-  Welcome,
   HeaderTitleContainer,
   HeaderTitle,
   HeaderTitleLabel,
@@ -21,7 +21,8 @@ import {
   HairGoalsBodyContainer,
   HairGoalsOptionsContainer,
   HairGoalsOption,
-  HairGoalsOptionText
+  HairGoalsOptionText,
+  CancelOption
 } from './styles';
 
 interface RegimenScreenProp extends NavigationInterface {
@@ -32,7 +33,8 @@ export default function RegimenScreen(props: RegimenScreenProp) {
   const { colors } = useThemeContext();
   const { navigation } = props;
 
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [isSelected, setIsSelected] = useState(false);
 
   return (
     <SafeAreaView>
@@ -79,6 +81,52 @@ export default function RegimenScreen(props: RegimenScreenProp) {
             />
           </HairGoalsBody>
         </ButtonContainer>
+        <HairGoalsBody>
+          <HairGoalsTitleContainer>
+            <HairGoalsTitleText>Hair goals</HairGoalsTitleText>
+            <HairGoalsBodyContainer>
+              <HairGoalsBodyText>
+                Select your special hair goals and we’d help you set up a
+                regimen that works for your specific hair type.
+              </HairGoalsBodyText>
+            </HairGoalsBodyContainer>
+          </HairGoalsTitleContainer>
+          <HairGoalsOptionsContainer>
+            {goals.map(item => (
+              <HairGoalsOption
+                key={item.text}
+                onPress={() => {
+                  setIsSelected(true);
+                }}
+                style={{
+                  backgroundColor:
+                    isSelected === true
+                      ? item.selectedColor
+                      : colors.INPUT_FIELD_COLOR
+                }}
+              >
+                <HairGoalsOptionText>{item.text}</HairGoalsOptionText>
+                {isSelected && (
+                  <CancelOption
+                    onPress={() => {
+                      setIsSelected(false);
+                    }}
+                  >
+                    <AntDesign
+                      name="close"
+                      size={10}
+                      color={colors.BG_WHITE_COLOR}
+                    />
+                  </CancelOption>
+                )}
+              </HairGoalsOption>
+            ))}
+          </HairGoalsOptionsContainer>
+          <Button
+            title="Start Regimen Setup"
+            onPress={() => navigation.navigate('RegimenSetupScreen')}
+          />
+        </HairGoalsBody>
       </Container>
     </SafeAreaView>
   );
