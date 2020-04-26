@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import {
-  TouchableOpacity,
-  StatusBar,
-  TouchableWithoutFeedback,
-  Keyboard
-} from 'react-native';
+import { StatusBar, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useThemeContext } from '../../theme';
 import { NavigationInterface } from '../types';
@@ -68,7 +63,7 @@ export default function CreatePassword(props: CreatePasswordProp) {
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
         <Container style={{ paddingTop: 0 }}>
           <Welcome style={{ marginTop: '15%' }}>Good to have you</Welcome>
-          <Prompt>create account</Prompt>
+          <Prompt>create password</Prompt>
           <Input
             defaultValue={profile.fullName}
             onChangeText={handleChange('fullName')}

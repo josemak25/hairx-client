@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import {
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  StatusBar,
-  Keyboard
-} from 'react-native';
+import { TouchableWithoutFeedback, StatusBar, Keyboard } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationInterface } from '../types';
 import { useThemeContext } from '../../theme';
