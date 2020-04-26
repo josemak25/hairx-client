@@ -99,7 +99,7 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
       />
       <AppIntroSlider
         testID="slider"
-        scrollEnabled={false}
+        scrollEnabled={true}
         renderItem={({ item }) => (
           <Question
             key={item.key}
