@@ -3,52 +3,52 @@
     {
       "index": 0,
       "text": "Fast growth",
-      "selectedColor": "rgba(255,249,111, 0.3)"
+      "isSelected": false
     },
     {
       "index": 1,
       "text": "Strengthen",
-      "selectedColor": "rgba(255,154,232, 0.3)"
+      "isSelected": false
     },
     {
       "index": 2,
       "text": "Hydrate",
-      "selectedColor": "rgba(113,178,255,0.3)"
+      "isSelected": false
     },
     {
       "index": 3,
       "text": "Lengthen",
-      "selectedColor": "rgba(255,249,111, 0.3)"
+      "isSelected": false
     },
     {
       "index": 4,
       "text": "Volumize",
-      "selectedColor": "rgba(255,154,232, 0.3)"
+      "isSelected": false
     },
     {
       "index": 5,
       "text": "Shine more",
-      "selectedColor": "rgba(113,178,255,0.3)"
+      "isSelected": false
     },
     {
       "index": 6,
       "text": "Curl definition",
-      "selectedColor": "rgba(255,249,111, 0.3)"
+      "isSelected": false
     },
     {
       "index": 7,
       "text": "Color protection",
-      "selectedColor": "rgba(255,154,232, 0.3)"
+      "isSelected": false
     },
     {
       "index": 8,
       "text": "Fix split ends",
-      "selectedColor": "rgba(113,178,255,0.3)"
+      "isSelected": false
     },
     {
       "index": 9,
       "text": "Soothe scalp",
-      "selectedColor": "rgba(255,249,111, 0.3)"
+      "isSelected": false
     }
   ]
 }
