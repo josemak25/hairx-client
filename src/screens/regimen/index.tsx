@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavigationInterface } from '../types';
 import { StatusBar } from 'react-native';
 import { useThemeContext } from '../../theme';
@@ -35,7 +35,8 @@ export default function RegimenScreen(props: RegimenScreenProp) {
   const { colors } = useThemeContext();
 
   const [selectedOptions, setSelectedOptions] = useState([]);
-  const [isSelected, setIsSelected] = useState(false);
+
+  useEffect(() => {}, []);
 
   return (
     <SafeAreaView>
@@ -57,7 +58,7 @@ export default function RegimenScreen(props: RegimenScreenProp) {
             <HairGoalsTitleText>Hair goals</HairGoalsTitleText>
             <HairGoalsBodyContainer>
               <HairGoalsBodyText>
-                Select your special hair goals and we’d help you set up a
+                Select your special hair goals and we’ll help you set up a
                 regimen that works for your specific hair type.
               </HairGoalsBodyText>
             </HairGoalsBodyContainer>
@@ -67,25 +68,31 @@ export default function RegimenScreen(props: RegimenScreenProp) {
               <HairGoalsOption
                 key={item.text}
                 onPress={() => {
-                  setIsSelected(true);
+                  item.isSelected = true;
+                  setSelectedOptions([...selectedOptions, item]);
                 }}
                 style={{
                   backgroundColor:
-                    isSelected === true
-                      ? item.selectedColor
+                    item.isSelected === true
+                      ? colors.BG_LIGHT_GOLD_COLOR
                       : colors.INPUT_FIELD_COLOR
                 }}
               >
                 <HairGoalsOptionText>{item.text}</HairGoalsOptionText>
-                {isSelected && (
+                {item.isSelected && (
                   <CancelOption
                     onPress={() => {
-                      setIsSelected(false);
+                      item.isSelected = false;
+                      setSelectedOptions([
+                        selectedOptions.filter(
+                          option => option.isSelected !== item.isSelected
+                        )
+                      ]);
                     }}
                   >
                     <AntDesign
                       name="close"
-                      size={10}
+                      size={12}
                       color={colors.BG_WHITE_COLOR}
                     />
                   </CancelOption>
