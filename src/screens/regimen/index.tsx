@@ -22,6 +22,7 @@ import {
   HairGoalsOptionText,
   CancelOption
 } from './styles';
+import { ScrollView } from 'react-native';
 
 interface RegimenScreenProp extends NavigationInterface {
   testID?: string;
@@ -75,32 +76,34 @@ export default function RegimenScreen(props: RegimenScreenProp) {
 
   return (
     <SafeAreaView>
-      <Header
-        title={() => (
-          <HeaderTitleContainer>
-            <HeaderTitle>hairx</HeaderTitle>
-            <HeaderTitleLabel>regimen</HeaderTitleLabel>
-          </HeaderTitleContainer>
-        )}
-      />
-      <Container>
-        <HairGoalsBody>
-          <HairGoalsTitleContainer>
-            <HairGoalsTitleText>Hair goals</HairGoalsTitleText>
-            <HairGoalsBodyContainer>
-              <HairGoalsBodyText>
-                Select your special hair goals and we’ll help you set up a
-                regimen that works for your specific hair type.
-              </HairGoalsBodyText>
-            </HairGoalsBodyContainer>
-          </HairGoalsTitleContainer>
-          <RenderGoals />
-          <Button
-            title="Start Regimen Setup"
-            onPress={() => navigation.navigate('RegimenSetupScreen')}
-          />
-        </HairGoalsBody>
-      </Container>
+      <ScrollView contentContainerStyle={{ flex: 1 }}>
+        <Header
+          title={() => (
+            <HeaderTitleContainer>
+              <HeaderTitle>hairx</HeaderTitle>
+              <HeaderTitleLabel>regimen</HeaderTitleLabel>
+            </HeaderTitleContainer>
+          )}
+        />
+        <Container>
+          <HairGoalsBody>
+            <HairGoalsTitleContainer>
+              <HairGoalsTitleText>Hair goals</HairGoalsTitleText>
+              <HairGoalsBodyContainer>
+                <HairGoalsBodyText>
+                  Select your special hair goals and we’ll help you set up a
+                  regimen that works for your specific hair type.
+                </HairGoalsBodyText>
+              </HairGoalsBodyContainer>
+            </HairGoalsTitleContainer>
+            <RenderGoals />
+            <Button
+              title="Start Regimen Setup"
+              onPress={() => navigation.navigate('RegimenSetupScreen')}
+            />
+          </HairGoalsBody>
+        </Container>
+      </ScrollView>
     </SafeAreaView>
   );
 }
