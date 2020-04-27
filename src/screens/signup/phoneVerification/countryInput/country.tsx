@@ -9,6 +9,7 @@ import ContextDisplay from '../contextDisplay';
 import Input from '../../../../commons/input';
 
 import { Container, DailingCode, PhoneNumberContainer } from './style';
+import work from '../../../../libs/work';
 
 interface stateType {
   country: string;
@@ -28,7 +29,7 @@ const initialState: stateType = {
 
 export default function InputCountry() {
   const { fonts } = useThemeContext();
-
+  console.log(work());
   const [context, setContext] = useState<stateType>(initialState);
 
   const selection = async (country: Country) => {
