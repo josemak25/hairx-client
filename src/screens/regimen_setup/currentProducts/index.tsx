@@ -43,7 +43,7 @@ export default function CurrentProduct(props: Iprops) {
             textStyle={{
               width: applyScale(98),
               height: applyScale(20),
-              color: '#BAB200',
+              color: colors.FONT_DARK_GOLD_COLOR,
               fontWeight: fonts.FONT_WEIGHT_HEAVY,
               backgroundColor: colors.INPUT_FIELD_COLOR,
               fontSize: 14,
