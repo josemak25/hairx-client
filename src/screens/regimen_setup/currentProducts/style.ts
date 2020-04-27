@@ -2,10 +2,10 @@ import styled from 'styled-components/native';
 import applyScale from '../../../utils/applyScale';
 
 export const Container = styled.View`
+  flex: 1;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   margin-bottom: 15px;
   height: ${applyScale(92)}px;
   border-radius: 5px;
