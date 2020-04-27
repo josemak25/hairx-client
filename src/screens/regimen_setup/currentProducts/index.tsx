@@ -9,11 +9,6 @@ interface Iprops {
   title: string;
 }
 
-interface stateType {
-  display: 'flex' | 'none';
-  added: ``;
-}
-
 export default function CurrentProduct(props: Iprops) {
   const { colors, fonts } = useThemeContext();
   const [state, setstate] = useState<'flex' | 'none'>('flex');
