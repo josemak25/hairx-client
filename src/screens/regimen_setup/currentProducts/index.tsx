@@ -9,6 +9,11 @@ interface Iprops {
   title: string;
 }
 
+interface stateType {
+  display: 'flex' | 'none';
+  added: ``;
+}
+
 export default function CurrentProduct(props: Iprops) {
   const { colors, fonts } = useThemeContext();
   const [state, setstate] = useState<'flex' | 'none'>('flex');
@@ -16,6 +21,8 @@ export default function CurrentProduct(props: Iprops) {
   const clickAction = () => {
     setstate('none');
   };
+
+  const saveAction = () => {};
 
   return (
     <Container style={{ display: state }}>
@@ -42,7 +49,7 @@ export default function CurrentProduct(props: Iprops) {
               fontSize: 14,
               fontFamily: fonts.JOST_MEDIUM
             }}
-            onPress={clickAction}
+            onPress={saveAction}
           />
 
           <Button
@@ -65,6 +72,7 @@ export default function CurrentProduct(props: Iprops) {
               fontSize: 14,
               fontFamily: fonts.JOST_BOOK
             }}
+            onPress={clickAction}
           />
         </SubContent>
       </Content>

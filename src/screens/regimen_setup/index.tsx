@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { AntDesign } from '@expo/vector-icons';
-import { Dimensions } from 'react-native';
 import Modal from 'react-native-modal';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { NavigationInterface } from '../types';
