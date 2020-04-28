@@ -3,9 +3,11 @@ import {
   ScreenGridStateInterface,
   ScreenGridAction
 } from './types';
-import { RESPONSIVE_CARD_SIZES } from '../../constants';
 
-export const gridInitialState: ScreenGridStateInterface = RESPONSIVE_CARD_SIZES;
+export const gridInitialState: ScreenGridStateInterface = {
+  cardSize: 320,
+  numOfColumn: 1
+};
 
 export default function ScreenGridSizeReducer(
   state = gridInitialState,

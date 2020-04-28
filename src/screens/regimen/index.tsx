@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavigationInterface } from '../types';
-import SafeAreaView from '../../commons/safe-area-view';
-import Header from '../../commons/header';
+import SafeAreaView from '../../commons/header/safe-area-view';
+import Header from '../../commons/header/header';
 import Button from '../../components/button';
 import { goals } from '../../libs/regimen_hair_goals.json';
 import { AntDesign } from '@expo/vector-icons';

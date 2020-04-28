@@ -2,14 +2,15 @@ import React from 'react';
 import Button from '../../components/button';
 import { useThemeContext } from '../../theme';
 import { NavigationInterface } from '../types';
-import SafeAreaView from '../../commons/safe-area-view';
-import Header from '../../commons/header';
+import SafeAreaView from '../../commons/header/safe-area-view';
+import Header from '../../commons/header/header';
 
 import {
   ResumeContainer,
   ResumeSetupTextContainer,
   ResumeSetupHeaderText,
   ResumeSetupBodyText,
+  TakeMeBackButton,
   HeaderTitleContainer,
   HeaderTitle,
   HeaderTitleLabel,
@@ -45,15 +46,19 @@ export default function ResumeScreen(props: ResumeProp) {
           </ResumeSetupBodyText>
         </ResumeSetupTextContainer>
         <ResumeImage source={require('../../../assets/icon.png')} />
-        <Button
-          title="Take me back"
-          buttonStyle={{
-            width: '45%',
-            backgroundColor: colors.BUTTON_DARK_GRAY_COLOR
-          }}
-          onPress={() => navigation.navigate('RegimenSetupScreen')}
-          textStyle={{ color: colors.BG_WHITE_COLOR, textTransform: 'none' }}
-        />
+        <TakeMeBackButton>
+          <Button
+            title="take me back"
+            buttonStyle={{
+              width: 180,
+              backgroundColor: colors.BUTTON_DARK_GRAY_COLOR
+            }}
+            onPress={() => {
+              navigation.navigate('RegimenSetupScreen');
+            }}
+            textStyle={{ color: colors.BG_WHITE_COLOR }}
+          />
+        </TakeMeBackButton>
       </ResumeContainer>
     </SafeAreaView>
   );

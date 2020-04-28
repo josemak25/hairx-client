@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Dimensions } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { NavigationInterface } from '../types';
-import SafeAreaView from '../../commons/safe-area-view';
+import SafeAreaView from '../../commons/header/safe-area-view';
 import { useThemeContext } from '../../theme';
 import Slide from './slide';
 import { slides } from '../../libs/get_started.json';
