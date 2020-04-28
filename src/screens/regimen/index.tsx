@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { NavigationInterface } from '../types';
-import { StatusBar } from 'react-native';
-import { useThemeContext } from '../../theme';
 import SafeAreaView from '../../commons/safe-area-view';
 import Header from '../../commons/header';
 import Button from '../../components/button';
@@ -24,86 +22,88 @@ import {
   HairGoalsOptionText,
   CancelOption
 } from './styles';
+import { ScrollView } from 'react-native';
 
 interface RegimenScreenProp extends NavigationInterface {
   testID?: string;
 }
 
 export default function RegimenScreen(props: RegimenScreenProp) {
-  const { colors } = useThemeContext();
   const { navigation } = props;
   const { colors } = useThemeContext();
 
   const [selectedOptions, setSelectedOptions] = useState([]);
 
-  return (
-    <SafeAreaView>
-      <StatusBar
-        barStyle="dark-content"
-        backgroundColor={colors.BG_WHITE_COLOR}
-      />
-      <Header
-        title={() => (
-          <HeaderTitleContainer>
-            <HeaderTitle>hairx</HeaderTitle>
-            <HeaderTitleLabel>regimen</HeaderTitleLabel>
-          </HeaderTitleContainer>
-        )}
-      />
-      <Container>
-        <HairGoalsBody>
-          <HairGoalsTitleContainer>
-            <HairGoalsTitleText>Hair goals</HairGoalsTitleText>
-            <HairGoalsBodyContainer>
-              <HairGoalsBodyText>
-                Select your special hair goals and we’ll help you set up a
-                regimen that works for your specific hair type.
-              </HairGoalsBodyText>
-            </HairGoalsBodyContainer>
-          </HairGoalsTitleContainer>
-          <HairGoalsOptionsContainer>
-            {goals.map(item => (
-              <HairGoalsOption
-                key={item.text}
+  const RenderGoals = () => (
+    <HairGoalsOptionsContainer>
+      {goals.map((item, index) => {
+        const isSelected = selectedOptions.includes(index);
+        return (
+          <HairGoalsOption
+            key={index}
+            onPress={() => {
+              setSelectedOptions([...selectedOptions, index]);
+            }}
+            style={{
+              backgroundColor: isSelected
+                ? colors.BG_LIGHT_GOLD_COLOR
+                : colors.INPUT_FIELD_COLOR
+            }}
+          >
+            <HairGoalsOptionText>{item.text}</HairGoalsOptionText>
+            {isSelected && (
+              <CancelOption
                 onPress={() => {
-                  item.isSelected = true;
-                  setSelectedOptions([...selectedOptions, item]);
-                }}
-                style={{
-                  backgroundColor:
-                    item.isSelected === true
-                      ? colors.BG_LIGHT_GOLD_COLOR
-                      : colors.INPUT_FIELD_COLOR
+                  setSelectedOptions([
+                    ...selectedOptions.filter(
+                      selectedIndex => selectedIndex !== index
+                    )
+                  ]);
                 }}
               >
-                <HairGoalsOptionText>{item.text}</HairGoalsOptionText>
-                {item.isSelected && (
-                  <CancelOption
-                    onPress={() => {
-                      item.isSelected = false;
-                      setSelectedOptions([
-                        selectedOptions.filter(
-                          option => option.isSelected !== item.isSelected
-                        )
-                      ]);
-                    }}
-                  >
-                    <AntDesign
-                      name="close"
-                      size={12}
-                      color={colors.BG_WHITE_COLOR}
-                    />
-                  </CancelOption>
-                )}
-              </HairGoalsOption>
-            ))}
-          </HairGoalsOptionsContainer>
-          <Button
-            title="Start Regimen Setup"
-            onPress={() => navigation.navigate('RegimenSetupScreen')}
-          />
-        </HairGoalsBody>
-      </Container>
+                <AntDesign
+                  name="close"
+                  size={12}
+                  color={colors.BG_WHITE_COLOR}
+                />
+              </CancelOption>
+            )}
+          </HairGoalsOption>
+        );
+      })}
+    </HairGoalsOptionsContainer>
+  );
+
+  return (
+    <SafeAreaView>
+      <ScrollView contentContainerStyle={{ flex: 1 }}>
+        <Header
+          title={() => (
+            <HeaderTitleContainer>
+              <HeaderTitle>hairx</HeaderTitle>
+              <HeaderTitleLabel>regimen</HeaderTitleLabel>
+            </HeaderTitleContainer>
+          )}
+        />
+        <Container>
+          <HairGoalsBody>
+            <HairGoalsTitleContainer>
+              <HairGoalsTitleText>Hair goals</HairGoalsTitleText>
+              <HairGoalsBodyContainer>
+                <HairGoalsBodyText>
+                  Select your special hair goals and we’ll help you set up a
+                  regimen that works for your specific hair type.
+                </HairGoalsBodyText>
+              </HairGoalsBodyContainer>
+            </HairGoalsTitleContainer>
+            <RenderGoals />
+            <Button
+              title="Start Regimen Setup"
+              onPress={() => navigation.navigate('RegimenSetupScreen')}
+            />
+          </HairGoalsBody>
+        </Container>
+      </ScrollView>
     </SafeAreaView>
   );
 }
