@@ -23,30 +23,43 @@ interface CardProps {
 
 export default function Card(props: CardProps) {
   const [order, setOrder] = useState<'row' | 'row-reverse'>('row');
-  const { fonts, colors } = useThemeContext()
+  const { fonts, colors } = useThemeContext();
   useEffect(() => {
     if (props.order === 1) {
-      setOrder('row-reverse')
+      setOrder('row-reverse');
     }
-  }, [])
+  }, []);
 
   return (
-    <CardContainer style={{
-      flexDirection: order
-    }}>
+    <CardContainer
+      style={{
+        flexDirection: order
+      }}
+    >
       <Image source={props.image} />
 
-      <Context >
+      <Context>
         <Time>
-          <Foundation name='clock' size={10} color={colors.BG_DARK_BLUE_COLOR} />
+          <Foundation
+            name="clock"
+            size={10}
+            color={colors.BG_DARK_BLUE_COLOR}
+          />
           <Text>{props.time}</Text>
         </Time>
         <Heading>{props.heading}</Heading>
-        <Content>{props.content}<Text style={{
-          fontFamily: fonts.CORMORANT_ITALIC,
-          fontSize: 13,
-          color: colors.FONT_DARK_COLOR
-        }}>see more</Text></Content>
+        <Content>
+          {props.content}
+          <Text
+            style={{
+              fontFamily: fonts.CORMORANT_ITALIC,
+              fontSize: 13,
+              color: colors.FONT_DARK_COLOR
+            }}
+          >
+            see more
+          </Text>
+        </Content>
       </Context>
     </CardContainer>
   );
