@@ -16,7 +16,7 @@ import {
 interface CardProps {
   time: string;
   order: number;
-  image: ImageSourcePropType;
+  image: string;
   content: string;
   heading: string;
 }
@@ -36,7 +36,7 @@ export default function Card(props: CardProps) {
         flexDirection: order
       }}
     >
-      <Image source={props.image} />
+      <Image source={{ uri: props.image }} />
 
       <Context>
         <Time>

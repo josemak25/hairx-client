@@ -23,7 +23,7 @@ export default function RoutineScreen(props: RoutineProps) {
             order={index % 2}
             time={item.time}
             heading={item.heading}
-            image={Images[index]}
+            image={item.img}
             content={item.content}
           />
         ))}
@@ -31,13 +31,3 @@ export default function RoutineScreen(props: RoutineProps) {
     </Container>
   );
 }
-
-const Images = [
-  require('../../../../assets/images/routine/first.png'),
-  require('../../../../assets/images/routine/second.png'),
-  require('../../../../assets/images/routine/third.png'),
-  require('../../../../assets/images/routine/last.png'),
-  require('../../../../assets/images/routine/last.png'),
-  require('../../../../assets/images/routine/last.png'),
-  require('../../../../assets/images/routine/last.png')
-];
