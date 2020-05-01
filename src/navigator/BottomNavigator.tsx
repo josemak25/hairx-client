@@ -8,6 +8,7 @@ import SettingIcon from '../../assets/icons/settings';
 import TabBarLabel from '../commons/tab-bar-label';
 import { IconContainer } from './styles';
 import HomeTopNavigator from './HomeTopNavigator';
+import RoutineScreen from '../screens/regimen/RegimenScreen';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -25,6 +26,8 @@ export default function BottomNavigator() {
       <Tab.Screen
         name="HomeTopNavigator"
         component={HomeTopNavigator}
+        name="RegimenScreen"
+        component={RoutineScreen}
         options={{
           tabBarIcon: ({ color, focused }) => (
             <IconContainer>

@@ -1,5 +1,5 @@
-import Routine from "./RegimenScreen/index";
+import Routine from './RegimenScreen/index';
 
 export default {
-    Routine
-}
+  Routine
+};
