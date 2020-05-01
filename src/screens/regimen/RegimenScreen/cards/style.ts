@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import applyScale from '../../../../utils/applyScale';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 export const CardContainer = styled.TouchableOpacity`
   flex: 1;
@@ -24,15 +25,17 @@ export const Image = styled.Image`
 `;
 
 export const Time = styled.View`
-  width:58px;
+  width:60px;
   height:${applyScale(14)}px;
   flex-direction:row;
-  justify-content:center;
+  justify-content:flex-start;
   align-items:center;
 `;
 
 export const Text = styled.Text`
   width:43px;
+  color:${({ theme: { colors } }) => colors.BG_DARK_BLUE_COLOR};
+  margin-left:5px;
   font-size:${applyScale(10)}px;
   font-family:${({ theme }) => theme.fonts.JOST_BOOK};
 `;
@@ -41,7 +44,7 @@ export const Heading = styled.Text`
   width:192px;
   margin-bottom:10px;
   font-size:${applyScale(15)}px;
-  font-family:${({ theme }) => theme.fonts.JOST_BOOK}
+  font-family:${({ theme }) => theme.fonts.JOST_BOOK};
 
 `;
 

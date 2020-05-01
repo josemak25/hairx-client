@@ -12,10 +12,11 @@ interface RoutineProps extends NavigationInterface {
 
 export default function RoutineScreen(props: RoutineProps) {
   return (
-    <Container>
-      <ScrollView style={{ flex: 1 }}>
-        <SubTitle>Recommendation</SubTitle>
-        <Title>Recommendation</Title>
+    <Container >
+      <ScrollView showsVerticalScrollIndicator={false}>
+
+        <SubTitle>RECOMMENDED</SubTitle>
+        <Title>ROUTINE</Title>
 
         {Data.map((item, index) => (
           <Card
@@ -37,5 +38,8 @@ const Images = [
   require("../../../../assets/images/routine/first.png"),
   require("../../../../assets/images/routine/second.png"),
   require("../../../../assets/images/routine/third.png"),
+  require("../../../../assets/images/routine/last.png"),
+  require("../../../../assets/images/routine/last.png"),
+  require("../../../../assets/images/routine/last.png"),
   require("../../../../assets/images/routine/last.png")
 ]
