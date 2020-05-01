@@ -25,6 +25,7 @@ interface CardProps {
 export default function Card(props: CardProps) {
   const [order, setOrder] = useState<'row' | 'row-reverse'>('row');
   const { fonts, colors } = useThemeContext();
+
   useEffect(() => {
     if (props.order === 1) {
       setOrder('row-reverse');
@@ -41,7 +42,7 @@ export default function Card(props: CardProps) {
         <Image
           imageUrl={props.image}
           height={applyScale(118)}
-          width={93}
+          width={applyScale(93)}
         />
       </ResponsiveImage>
 
