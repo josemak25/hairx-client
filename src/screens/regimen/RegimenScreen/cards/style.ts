@@ -19,8 +19,8 @@ export const Context = styled.View`
   height: ${applyScale(118)}px;
 `;
 
-export const Image = styled.Image`
-  width: 93px;
+export const ResponsiveImage = styled.View`
+  width: ${applyScale(93)}px;
   height: ${applyScale(118)}px;
 `;
 

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Foundation } from '@expo/vector-icons';
-import { ImageSourcePropType } from 'react-native';
 
 import { useThemeContext } from '../../../../theme';
+import Image from '../../../../libs/responsiveImage/index';
+import applyScale from '../../../../utils/applyScale';
 import {
   CardContainer,
   Context,
   Time,
-  Image,
+  ResponsiveImage,
   Text,
   Heading,
   Content
@@ -36,7 +37,13 @@ export default function Card(props: CardProps) {
         flexDirection: order
       }}
     >
-      <Image source={{ uri: props.image }} />
+      <ResponsiveImage>
+        <Image
+          imageUrl={props.image}
+          height={applyScale(118)}
+          width={93}
+        />
+      </ResponsiveImage>
 
       <Context>
         <Time>
