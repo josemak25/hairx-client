@@ -24,7 +24,7 @@ export default function BottomNavigator() {
     >
       <Tab.Screen
         name="RegimenScreen"
-        component={RoutineScreen}
+        component={Screens.RegimenScreen}
         options={{
           tabBarIcon: ({ color, focused }) => (
             <IconContainer>
