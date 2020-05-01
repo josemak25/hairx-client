@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Ionicons } from '@expo/vector-icons';
+import { Foundation } from '@expo/vector-icons';
 import { ImageSourcePropType } from 'react-native';
 
+import { useThemeContext } from '../../../../theme';
 import {
   CardContainer,
   Context,
@@ -21,28 +22,31 @@ interface CardProps {
 }
 
 export default function Card(props: CardProps) {
-  const [state, setstate] = useState<'row' | 'row-reverse'>('row');
-
+  const [order, setOrder] = useState<'row' | 'row-reverse'>('row');
+  const { fonts, colors } = useThemeContext()
   useEffect(() => {
     if (props.order === 1) {
-      setstate('row-reverse')
+      setOrder('row-reverse')
     }
   }, [])
 
-
   return (
     <CardContainer style={{
-      flexDirection: state
+      flexDirection: order
     }}>
       <Image source={props.image} />
 
       <Context >
         <Time>
-          <Ionicons />
+          <Foundation name='clock' size={10} color={colors.BG_DARK_BLUE_COLOR} />
           <Text>{props.time}</Text>
         </Time>
         <Heading>{props.heading}</Heading>
-        <Content>{props.content}</Content>
+        <Content>{props.content}<Text style={{
+          fontFamily: fonts.CORMORANT_ITALIC,
+          fontSize: 13,
+          color: colors.FONT_DARK_COLOR
+        }}>see more</Text></Content>
       </Context>
     </CardContainer>
   );
