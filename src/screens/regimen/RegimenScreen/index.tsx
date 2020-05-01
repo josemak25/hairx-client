@@ -12,9 +12,8 @@ interface RoutineProps extends NavigationInterface {
 
 export default function RoutineScreen(props: RoutineProps) {
   return (
-    <Container >
+    <Container>
       <ScrollView showsVerticalScrollIndicator={false}>
-
         <SubTitle>RECOMMENDED</SubTitle>
         <Title>ROUTINE</Title>
 
@@ -33,13 +32,12 @@ export default function RoutineScreen(props: RoutineProps) {
   );
 }
 
-
 const Images = [
-  require("../../../../assets/images/routine/first.png"),
-  require("../../../../assets/images/routine/second.png"),
-  require("../../../../assets/images/routine/third.png"),
-  require("../../../../assets/images/routine/last.png"),
-  require("../../../../assets/images/routine/last.png"),
-  require("../../../../assets/images/routine/last.png"),
-  require("../../../../assets/images/routine/last.png")
-]
+  require('../../../../assets/images/routine/first.png'),
+  require('../../../../assets/images/routine/second.png'),
+  require('../../../../assets/images/routine/third.png'),
+  require('../../../../assets/images/routine/last.png'),
+  require('../../../../assets/images/routine/last.png'),
+  require('../../../../assets/images/routine/last.png'),
+  require('../../../../assets/images/routine/last.png')
+];
