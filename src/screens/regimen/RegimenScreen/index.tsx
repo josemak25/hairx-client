@@ -4,7 +4,11 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { NavigationInterface } from '../../types';
 import Card from './cards/Card';
 import Data from '../../../libs/getRoutine.json';
-import { Container, SubTitle, Title } from './style';
+import {
+  Container,
+  SubTitle,
+  Title
+} from './style';
 
 interface RoutineProps extends NavigationInterface {
   testId?: string;

@@ -12,6 +12,7 @@ export const ScrollView = styled.ScrollView``;
 export const Title = styled.Text`
   text-align: center;
   margin-top: 20px;
+  margin-bottom: 40px;
   font-family: ${({ theme: { fonts } }) => fonts.JOST_BOOK};
   font-size: ${applyScale(30)}px;
 `;
