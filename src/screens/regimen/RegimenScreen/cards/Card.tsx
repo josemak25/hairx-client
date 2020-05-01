@@ -8,7 +8,6 @@ import {
     Heading,
     Content
 } from "./style";
-import { Image } from '../../../../libs/responsiveImage/styles';
 
 interface CardProps {
     time: string;
@@ -21,8 +20,6 @@ interface CardProps {
 export default function Card(props: CardProps) {
     return (
         <CardContainer>
-            <Image
-                source={props.image} />
             <Context>
                 <Time>
                     <Ionicons />
