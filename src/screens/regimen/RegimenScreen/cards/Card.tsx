@@ -33,11 +33,7 @@ export default function Card(props: CardProps) {
   }, []);
 
   return (
-    <CardContainer
-      style={{
-        flexDirection: order
-      }}
-    >
+    <CardContainer style={{ flexDirection: order }}>
       <ResponsiveImage>
         <Image
           imageUrl={props.image}
@@ -55,20 +51,16 @@ export default function Card(props: CardProps) {
           />
           <Text>{props.time}</Text>
         </Time>
+
         <Heading>{props.heading}</Heading>
         <Content>
           {props.content}
-          <Text
-            style={{
-              fontFamily: fonts.CORMORANT_ITALIC,
-              fontSize: 13,
-              color: colors.FONT_DARK_COLOR
-            }}
-          >
+          <Content style={{ fontFamily: fonts.CORMORANT_ITALIC }}>
             see more
-          </Text>
+          </Content>
         </Content>
       </Context>
+
     </CardContainer>
   );
 }
