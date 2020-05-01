@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import applyScale from '../../utils/applyScale';
 
 export const Container = styled.View`
   flex: 1;
@@ -33,4 +34,13 @@ export const HeaderTitleLabel = styled.Text`
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   text-transform: capitalize;
   padding: 0px 5px;
+`;
+
+export const HeaderTab = styled.View`
+  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: ${applyScale(50)}px;
+  background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
 `;
