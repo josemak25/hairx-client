@@ -5,7 +5,7 @@ import { useThemeContext } from '../../theme';
 import SafeAreaView from '../../commons/safe-area-view';
 import Header from '../../commons/header';
 import Button from '../../components/button';
-
+import SubHeaderSection from './sub_header_section';
 import {
   Container,
   Welcome,
@@ -36,6 +36,7 @@ export default function RegimenScreen(props: RegimenScreenProp) {
           </HeaderTitleContainer>
         )}
       />
+      <SubHeaderSection navigation={navigation} />
       <Container>
         <Button
           title="Start Regimen Setup"
