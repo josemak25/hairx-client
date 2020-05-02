@@ -16,7 +16,8 @@ enum COLORS {
   INPUT_FIELD_COLOR = '#F7F7F7',
   INACTIVE_FIELD_COLOR = '#707070',
   INACTIVE_FIELD_COLOR_LOW_OPACITY = 'rgba(112, 112, 112, 0.3)',
-  ACTIVE_ICON_COLOR = '#BAB200'
+  ACTIVE_ICON_COLOR = '#BAB200',
+  FONT_BLUE_COLOR = '#2D6BB5'
 }
 
 // All app font sizes
@@ -53,6 +54,7 @@ declare module 'styled-components' {
       INACTIVE_FIELD_COLOR: string;
       INACTIVE_FIELD_COLOR_LOW_OPACITY: string;
       ACTIVE_ICON_COLOR: string;
+      FONT_BLUE_COLOR: string;
     };
 
     // All Global App Font Sizes
