@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { ScrollView } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { ScrollView, Animated, Easing } from 'react-native';
 import { useThemeContext } from '../../theme';
+import applyScale from '../../utils/applyScale';
 
 import {
   Container,
@@ -11,7 +12,9 @@ import {
   AnswersContainer,
   AnswerOption,
   AnswerOptionText,
-  QuestionRelevanceTextContainer
+  QuestionRelevanceTextContainer,
+  AnswerOptionOverlay,
+  AnswerOptionContainer
 } from './styles';
 
 interface RenderItemProp {
@@ -22,10 +25,41 @@ interface RenderItemProp {
   options: string[];
 }
 
-export default function RenderItem(props: RenderItemProp) {
-  const { colors } = useThemeContext();
+const AnimatedAnswerOptionOverlay = Animated.createAnimatedComponent(
+  AnswerOptionOverlay
+);
 
-  const [selectedOption, setSelectedOption] = useState(null);
+export default function RenderItem(props: RenderItemProp) {
+  const [animation, setAnimation] = useState({ selected: '' });
+
+  useEffect(() => {
+    const optionAnimationValues = options.reduce((acc, item) => {
+      acc[item] = new Animated.Value(0);
+      return acc;
+    }, {});
+
+    setAnimation({ ...animation, ...optionAnimationValues });
+  }, []);
+
+  const startButtonAnimation = (answer: string) => {
+    if (answer === animation.selected) return;
+
+    setAnimation({ ...animation, selected: answer });
+
+    if (animation.selected && answer !== animation.selected) {
+      Animated.timing(animation[animation.selected], {
+        toValue: 0,
+        duration: 300,
+        easing: Easing.elastic(0.7)
+      }).start();
+    }
+
+    Animated.timing(animation[answer], {
+      toValue: applyScale(373),
+      duration: 500,
+      easing: Easing.elastic(0.7)
+    }).start();
+  };
 
   const { question, questionRelevance, options } = props;
 
@@ -49,18 +83,11 @@ export default function RenderItem(props: RenderItemProp) {
         </QuestionContainer>
         <AnswersContainer>
           {options.map(item => (
-            <AnswerOption
-              key={item}
-              style={{
-                backgroundColor:
-                  selectedOption === item
-                    ? colors.BG_LIGHT_GOLD_COLOR
-                    : colors.BUTTON_LIGHT_COLOR
-              }}
-              onPress={() => setSelectedOption(item)}
-            >
+            <AnswerOptionContainer key={item}>
               <AnswerOptionText>{item}</AnswerOptionText>
-            </AnswerOption>
+              <AnimatedAnswerOptionOverlay style={{ width: animation[item] }} />
+              <AnswerOption onPress={() => startButtonAnimation(item)} />
+            </AnswerOptionContainer>
           ))}
         </AnswersContainer>
       </Container>
