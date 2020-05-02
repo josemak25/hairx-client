@@ -7,7 +7,6 @@ import HairCareIcon from '../../assets/icons/hair_care';
 import SettingIcon from '../../assets/icons/settings';
 import TabBarLabel from '../commons/tab-bar-label';
 import { IconContainer } from './styles';
-import RoutineScreen from '../screens/regimen/RegimenScreen';
 
 const Tab = createMaterialBottomTabNavigator();
 
