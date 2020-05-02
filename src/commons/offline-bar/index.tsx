@@ -1,8 +1,6 @@
-//@ts-nocheck
 import React, { useState, useEffect } from 'react';
-import { StatusBar, AppState } from 'react-native';
+import { StatusBar, AppState, Animated, Easing } from 'react-native';
 import NetInfo, { NetInfoState } from '@react-native-community/netinfo';
-import Animated, { Easing } from 'react-native-reanimated';
 import { useThemeContext } from '../../theme';
 
 import { Container, Label } from './styles';
@@ -43,21 +41,29 @@ export default function OfflineBar({ offlineText }: { offlineText?: string }) {
     Animated.timing(network.animation, {
       duration: ANIMATION_CONSTANTS.DURATION,
       toValue: ANIMATION_CONSTANTS.TO_VALUE,
-      easing: Easing.bounce
+      easing: Easing.bounce,
+      useNativeDriver: true
     }).start();
   };
 
   const setNetworkStatus = (state: NetInfoState) => {
-    if (state.isConnected && !state.isInternetReachable) {
-      setNetwork({ ...network, offlineText: 'Internet is not reachable' });
-    }
+    const { isConnected, isInternetReachable } = state;
 
-    if (state.isConnected && state.isInternetReachable) {
-      setNetwork({
-        ...network,
-        isConnected: state.isConnected,
-        offlineText: defaultOfflineText
-      });
+    switch (true) {
+      case isConnected && !isInternetReachable:
+        setNetwork({ ...network, offlineText: 'Internet is not reachable' });
+        break;
+
+      case !isConnected && !isInternetReachable:
+        setNetwork({ ...network, isConnected });
+        break;
+
+      default:
+        setNetwork({
+          ...network,
+          isConnected,
+          offlineText: defaultOfflineText
+        });
     }
 
     if (state) triggerAnimation();
