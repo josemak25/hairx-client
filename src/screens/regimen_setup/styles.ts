@@ -111,7 +111,9 @@ export const ButtonContainer = styled.View`
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
-  margin-top: 30px;
+  padding: 30px 20px;
+  padding-top: 20px;
+  background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
 `;
 
 export const ModalView = styled.View`
