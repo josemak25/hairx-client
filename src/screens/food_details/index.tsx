@@ -2,7 +2,6 @@ import React from 'react';
 import { ScrollView, View } from 'react-native';
 import { NavigationInterface } from '../types';
 import SafeAreaView from '../../commons/header/safe-area-view';
-import { useThemeContext } from '../../theme';
 import { products } from '../../libs/food_details_screen_products.json';
 import {
   Container,
@@ -26,10 +25,6 @@ interface FoodDetailsScreenProp extends NavigationInterface {
 }
 
 export default function FoodDetailsScreen(props: FoodDetailsScreenProp) {
-  const { navigation } = props;
-
-  const { colors } = useThemeContext();
-
   return (
     <SafeAreaView>
       <ScrollView
