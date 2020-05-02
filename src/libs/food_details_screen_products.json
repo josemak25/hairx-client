@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "price": "$274",
+      "image": "food_details_product_1.png",
+      "name": "Bumble and Bumble Invisible Oil Pre-Shampoo Masque"
+    },
+    {
+      "price": "$499",
+      "image": "food_details_product_2.png",
+      "name": "Philip Kingsley Coconut Breeze Elasticizer"
+    },
+    {
+      "price": "$523",
+      "image": "food_details_product_3.png",
+      "name": "Leonor Greyl L’Huile de Leonor Greyl"
+    }
+  ]
+}
