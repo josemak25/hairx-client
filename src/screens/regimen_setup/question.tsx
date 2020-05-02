@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { ScrollView } from 'react-native';
 import { useThemeContext } from '../../theme';
-import Button from '../../components/button';
-import { questions } from '../../libs/regimen_setup.json';
-import applyScale from '../../utils/applyScale';
 
 import {
   Container,
@@ -14,7 +11,6 @@ import {
   AnswersContainer,
   AnswerOption,
   AnswerOptionText,
-  ButtonContainer,
   QuestionRelevanceTextContainer
 } from './styles';
 
@@ -24,10 +20,6 @@ interface RenderItemProp {
   questionRelevance: string;
   index: number;
   options: string[];
-  handleNext(): void;
-  handleDone(): void;
-  handleGoBack(): void;
-  handlePrevious(): void;
 }
 
 export default function RenderItem(props: RenderItemProp) {
@@ -35,17 +27,7 @@ export default function RenderItem(props: RenderItemProp) {
 
   const [selectedOption, setSelectedOption] = useState(null);
 
-  const firstItemIndex = 0;
-  const lastItemIndex = questions.length - 1;
-
-  const {
-    question,
-    questionRelevance,
-    options,
-    index,
-    handleNext,
-    handlePrevious
-  } = props;
+  const { question, questionRelevance, options } = props;
 
   return (
     <ScrollView
@@ -75,43 +57,12 @@ export default function RenderItem(props: RenderItemProp) {
                     ? colors.BG_LIGHT_GOLD_COLOR
                     : colors.BUTTON_LIGHT_COLOR
               }}
-              onPress={() => {
-                setSelectedOption(item);
-              }}
+              onPress={() => setSelectedOption(item)}
             >
               <AnswerOptionText>{item}</AnswerOptionText>
             </AnswerOption>
           ))}
         </AnswersContainer>
-        <ButtonContainer>
-          <Button
-            title="previous"
-            buttonStyle={{
-              width: applyScale(120),
-              backgroundColor: colors.BG_WHITE_COLOR,
-              alignItems: 'flex-start',
-              paddingLeft: 5,
-              borderWidth: 1,
-              borderColor: colors.BG_WHITE_COLOR
-            }}
-            onPress={index === firstItemIndex ? null : handlePrevious}
-            textStyle={{
-              color: colors.FONT_DARK_COLOR,
-              opacity: index === firstItemIndex ? 0.3 : 1
-            }}
-          />
-          <Button
-            title="next"
-            buttonStyle={{
-              width: applyScale(120),
-              backgroundColor: colors.BG_WHITE_COLOR,
-              borderWidth: 1,
-              borderColor: colors.INACTIVE_FIELD_COLOR
-            }}
-            onPress={index !== lastItemIndex ? handleNext : null}
-            textStyle={{ color: colors.FONT_DARK_COLOR }}
-          />
-        </ButtonContainer>
       </Container>
     </ScrollView>
   );
