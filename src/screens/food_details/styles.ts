@@ -2,8 +2,8 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex: 1;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
 `;
 
@@ -11,10 +11,12 @@ export const FoodImage = styled.Image``;
 
 export const FoodDetailContainer = styled.View`
   align-items: center;
-  width: 70%;
+  width: 53%;
+  justify-content: space-evenly;
 `;
 
 export const FoodDetailHeader = styled.Text`
+  margin-top: 15px;
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 5}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
 `;
@@ -27,6 +29,7 @@ export const FoodDetailBenefits = styled.Text`
 `;
 
 export const FoodDetailText = styled.Text`
+  margin-top: 10px;
   text-align: center;
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
   font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
@@ -35,6 +38,9 @@ export const FoodDetailText = styled.Text`
 
 export const ProductsContainer = styled.View`
   align-items: center;
+  height: 40%;
+  justify-content: space-between;
+  margin-top: 25px;
 `;
 
 export const ProductHeaders = styled.View``;
@@ -60,7 +66,7 @@ export const ProductsList = styled.View`
 
 export const ProductBox = styled.View`
   background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
-  height: 189px;
+  height: 169px;
   margin-left: 10px;
   margin-right: 10px;
   width: 116px;
