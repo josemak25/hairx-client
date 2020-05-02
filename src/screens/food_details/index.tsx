@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { NavigationInterface } from '../types';
 import SafeAreaView from '../../commons/header/safe-area-view';
 import { useThemeContext } from '../../theme';
@@ -21,8 +21,6 @@ import {
   ProductText
 } from './styles';
 
-const { height: SCREEN_HEIGHT } = Dimensions.get('screen');
-
 interface FoodDetailsScreenProp extends NavigationInterface {
   testID?: string;
 }
@@ -34,7 +32,11 @@ export default function FoodDetailsScreen(props: FoodDetailsScreenProp) {
 
   return (
     <SafeAreaView>
-      <ScrollView>
+      <ScrollView
+        scrollEnabled
+        style={{ flex: 1 }}
+        showsVerticalScrollIndicator={false}
+      >
         <Container>
           <FoodImage
             source={require('../../../assets/images/chickpeas-in-a-bowl.png')}
@@ -55,7 +57,7 @@ export default function FoodDetailsScreen(props: FoodDetailsScreenProp) {
               <ProductsHeader1>RECOMMENDED</ProductsHeader1>
               <ProductsHeader2>PRODUCTS</ProductsHeader2>
             </ProductHeaders>
-            <ScrollView horizontal style={{ paddingLeft: 30 }}>
+            <ScrollView horizontal style={{ paddingLeft: 30, marginTop: 20 }}>
               {products.map(product => (
                 <ProductBox key={product.name}>
                   <ProductPrice>{product.price}</ProductPrice>
