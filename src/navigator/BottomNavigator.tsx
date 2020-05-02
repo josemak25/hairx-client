@@ -7,6 +7,7 @@ import HairCareIcon from '../../assets/icons/hair_care';
 import SettingIcon from '../../assets/icons/settings';
 import TabBarLabel from '../commons/tab-bar-label';
 import { IconContainer } from './styles';
+import HomeTopNavigator from './HomeTopNavigator';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -18,12 +19,12 @@ export default function BottomNavigator() {
       activeColor={colors.ACTIVE_ICON_COLOR}
       inactiveColor={colors.INACTIVE_FIELD_COLOR}
       barStyle={{ backgroundColor: colors.INPUT_FIELD_COLOR }}
-      initialRouteName="RegimenScreen"
+      initialRouteName="HomeTopNavigator"
       labeled={false}
     >
       <Tab.Screen
-        name="RegimenScreen"
-        component={Screens.RegimenScreen}
+        name="HomeTopNavigator"
+        component={HomeTopNavigator}
         options={{
           tabBarIcon: ({ color, focused }) => (
             <IconContainer>
