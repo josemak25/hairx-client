@@ -1,11 +1,17 @@
 import React from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, Dimensions, StatusBar } from 'react-native';
 import { NavigationInterface } from '../types';
+import { Ionicons } from '@expo/vector-icons';
+import { useThemeContext } from '../../theme';
+import Header from '../../commons/header/header';
+import applyScale from '../../utils/applyScale';
 import SafeAreaView from '../../commons/header/safe-area-view';
 import { products } from '../../libs/food_details_screen_products.json';
+import ResponsiveImage from '../../libs/responsiveImage';
+import boxShadow from '../../utils/boxShadows';
 import {
   Container,
-  FoodImage,
+  BackButton,
   FoodDetailContainer,
   FoodDetailHeader,
   FoodDetailBenefits,
@@ -13,6 +19,7 @@ import {
   ProductsContainer,
   ProductBox,
   ProductPrice,
+  ContentArea,
   ProductsHeader1,
   ProductsHeader2,
   ProductImage,
@@ -20,22 +27,61 @@ import {
   ProductText
 } from './styles';
 
+const HEADER_EXPANDED_HEIGHT = 300;
+
 interface FoodDetailsScreenProp extends NavigationInterface {
   testID?: string;
 }
 
 export default function FoodDetailsScreen(props: FoodDetailsScreenProp) {
+  const { navigation } = props;
+
+  const { colors } = useThemeContext();
+
   return (
     <SafeAreaView>
+      <StatusBar barStyle="dark-content" translucent />
+      <Header
+        headerLeft={() => (
+          <BackButton onPress={() => navigation.goBack()}>
+            <Ionicons
+              name="ios-arrow-back"
+              size={20}
+              color={colors.BG_WHITE_COLOR}
+            />
+          </BackButton>
+        )}
+        headerLeftContainerStyle={{
+          justifyContent: 'flex-start',
+          paddingLeft: 10,
+          position: 'absolute',
+          alignItems: 'flex-start',
+          paddingTop: 10,
+          zIndex: 999
+        }}
+        title={() => (
+          <ContentArea>
+            <ResponsiveImage
+              width={Dimensions.get('screen').width + 40}
+              height={HEADER_EXPANDED_HEIGHT}
+              imageUrl="https://lh3.googleusercontent.com/proxy/MV7mEwwbQWEuzI6NHw2R0aYkXvMpY1fOPZmTqWceTyjZBLvFuZ706mzmmjNWSPO-d46LRB9gaco-HvUnODP8vtVgAIVRzyKFO1i7zbQyGGge_w"
+              style={{}}
+            />
+          </ContentArea>
+        )}
+        headerRightContainerStyle={{ display: 'none' }}
+        style={[
+          { height: applyScale(HEADER_EXPANDED_HEIGHT) },
+          boxShadow({ elevation: 0, shadowColor: colors.BG_WHITE_COLOR })
+        ]}
+      />
+
       <ScrollView
         scrollEnabled
         style={{ flex: 1 }}
         showsVerticalScrollIndicator={false}
       >
         <Container>
-          <FoodImage
-            source={require('../../../assets/images/chickpeas-in-a-bowl.png')}
-          />
           <FoodDetailContainer>
             <FoodDetailHeader>Cheakpeas and lentils</FoodDetailHeader>
             <FoodDetailBenefits>Benefits</FoodDetailBenefits>

@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import applyScale from '../../utils/applyScale';
 
 export const Container = styled.View`
   flex: 1;
@@ -9,14 +10,28 @@ export const Container = styled.View`
 
 export const FoodImage = styled.Image``;
 
+export const ContentArea = styled.View`
+  flex: 1;
+  height: 100%;
+`;
+
+export const BackButton = styled.TouchableOpacity`
+  width: ${applyScale(35)}px;
+  height: ${applyScale(35)}px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  background-color: ${({ theme }) => theme.colors.INACTIVE_FIELD_COLOR};
+`;
+
 export const FoodDetailContainer = styled.View`
+  margin-top: 25px;
   align-items: center;
   width: 53%;
   justify-content: space-evenly;
 `;
 
 export const FoodDetailHeader = styled.Text`
-  margin-top: 15px;
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 5}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
 `;
@@ -37,10 +52,9 @@ export const FoodDetailText = styled.Text`
 `;
 
 export const ProductsContainer = styled.View`
-  align-items: center;
-  height: 40%;
-  justify-content: space-between;
   margin-top: 25px;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const ProductHeaders = styled.View``;
@@ -60,13 +74,9 @@ export const ProductsHeader2 = styled.Text`
   text-align: center;
 `;
 
-export const ProductsList = styled.View`
-  flex-direction: row;
-`;
-
 export const ProductBox = styled.View`
   background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
-  height: 169px;
+  height: 189px;
   margin-left: 10px;
   margin-right: 10px;
   width: 116px;
