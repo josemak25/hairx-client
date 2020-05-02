@@ -60,12 +60,13 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
 
   const startAnimation = () => {
     handleRefresh();
+    state.animation.setValue(0);
     Animated.timing(state.animation, {
       toValue: 360,
       duration: 500,
       easing: Easing.ease,
       useNativeDriver: true
-    }).start(() => state.animation.setValue(0));
+    }).start();
   };
 
   const rotateInterpolation = state.animation.interpolate({
