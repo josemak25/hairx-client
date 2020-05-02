@@ -92,19 +92,37 @@ export const AnswersContainer = styled.View`
   margin-bottom: 20px;
 `;
 
-export const AnswerOption = styled.TouchableOpacity`
+export const AnswerOptionContainer = styled.View`
   height: ${applyScale(60)}px;
+  width: 100%;
   justify-content: center;
   margin: 5px 0px;
-  padding: 0px 10px;
   border-radius: 5px;
+`;
+
+export const AnswerOption = styled.TouchableOpacity`
+  height: 100%;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 0px 10px;
   background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
+`;
+
+export const AnswerOptionOverlay = styled.View`
+  height: 100%;
+  justify-content: center;
+  border-radius: 5px;
+  position: absolute;
+  background-color: ${({ theme }) => theme.colors.BG_LIGHT_GOLD_COLOR};
+  z-index: 9;
 `;
 
 export const AnswerOptionText = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 2}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
-  padding-left: 10px;
+  padding-left: 20px;
+  position: absolute;
+  z-index: 999;
 `;
 
 export const ButtonContainer = styled.View`
