@@ -16,24 +16,17 @@ import {
 
 interface CardProps {
   time: string;
-  order: number;
+  order: 'row' | 'row-reverse';
   image: string;
   content: string;
   heading: string;
 }
 
 export default function Card(props: CardProps) {
-  const [order, setOrder] = useState<'row' | 'row-reverse'>('row');
   const { fonts, colors } = useThemeContext();
 
-  useEffect(() => {
-    if (props.order === 1) {
-      setOrder('row-reverse');
-    }
-  }, []);
-
   return (
-    <CardContainer style={{ flexDirection: order }}>
+    <CardContainer style={{ flexDirection: props.order }}>
       <ResponsiveImage>
         <Image
           imageUrl={props.image}
@@ -60,7 +53,6 @@ export default function Card(props: CardProps) {
           </Content>
         </Content>
       </Context>
-
     </CardContainer>
   );
 }

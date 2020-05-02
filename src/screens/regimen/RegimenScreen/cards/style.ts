@@ -13,7 +13,7 @@ export const CardContainer = styled.TouchableOpacity`
 `;
 
 export const Context = styled.View`
-  width:  ${applyScale(252)}px;;
+  width: ${applyScale(252)}px;
   justify-content: center;
   margin-left: 19px;
   height: ${applyScale(118)}px;
@@ -25,7 +25,7 @@ export const ResponsiveImage = styled.View`
 `;
 
 export const Time = styled.View`
-  width:  ${applyScale(60)}px;;
+  width: ${applyScale(60)}px;
   height: ${applyScale(14)}px;
   flex-direction: row;
   justify-content: flex-start;
@@ -33,7 +33,7 @@ export const Time = styled.View`
 `;
 
 export const Text = styled.Text`
-  width:  ${applyScale(43)}px;;
+  width: ${applyScale(43)}px;
   color: ${({ theme: { colors } }) => colors.BG_DARK_BLUE_COLOR};
   margin-left: 5px;
   font-size: ${applyScale(10)}px;
@@ -41,14 +41,14 @@ export const Text = styled.Text`
 `;
 
 export const Heading = styled.Text`
-  width:  ${applyScale(192)}px;;
+  width: ${applyScale(192)}px;
   margin-bottom: 10px;
   font-size: ${applyScale(15)}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
 `;
 
 export const Content = styled.Text`
-  width:  ${applyScale(209)}px;;
+  width: ${applyScale(209)}px;
   font-size: ${applyScale(13)}px;
   font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
 `;
