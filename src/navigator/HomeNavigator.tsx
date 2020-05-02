@@ -8,12 +8,17 @@ const RegimenStack = createStackNavigator();
 export default function HomeNavigator() {
   return (
     <RegimenStack.Navigator
-      initialRouteName="RegimenScreen"
+      initialRouteName="FoodDetailsScreen"
       headerMode="screen"
       mode="modal"
       screenOptions={{ headerShown: false }}
     >
       <RegimenStack.Screen name="RegimenScreen" component={BottomNavigator} />
+
+      <RegimenStack.Screen
+        name="FoodDetailsScreen"
+        component={Screens.FoodDetailsScreen}
+      />
 
       <RegimenStack.Screen
         name="RegimenSetupScreen"
