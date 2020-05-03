@@ -7,13 +7,19 @@ const HomeStack = createStackNavigator();
 export default function HomeTopNavigator() {
   return (
     <HomeStack.Navigator
-      initialRouteName="FoodScreen"
+      initialRouteName="RoutineScreen"
       headerMode="screen"
       screenOptions={{ headerShown: false }}
     >
-      <HomeStack.Screen name="RoutineScreen" component={null} />
-      <HomeStack.Screen name="FoodScreen" component={Screens.FoodScreen} />
-      <HomeStack.Screen name="SaloonVisits" component={null} />
+      <HomeStack.Screen
+        name="RoutineScreen"
+        component={Screens.RegimenScreen}
+      />
+      <HomeStack.Screen
+        name="ActivityScreen"
+        component={Screens.ActivityScreen}
+      />
+      {/* <HomeStack.Screen name="SaloonVisits" component={null} /> */}
     </HomeStack.Navigator>
   );
 }

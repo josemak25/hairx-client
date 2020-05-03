@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { NavigationInterface } from '../types';
-import ResponsiveImage from '../../libs/responsiveImage';
-import { useThemeContext } from '../../theme';
+import { NavigationInterface } from '../../types';
+import ResponsiveImage from '../../../libs/responsiveImage';
+import { useThemeContext } from '../../../theme';
 import {
   CardContent,
   TextContainer,

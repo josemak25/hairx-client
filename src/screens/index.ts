@@ -9,7 +9,9 @@ import GetStartedScreen from './get_started';
 import BookingScreen from './booking';
 import ProceedHomeScreen from './proceed_home';
 import HairCareDetailScreen from './hair_care/hair_care_detail';
-import FoodScreen from './regimen/food';
+import FoodScreen from './regimen/food/food';
+import RoutineScreen from './regimen/routine';
+import ActivityScreen from './regimen/ActivityScreen';
 
 export default {
   RegimenScreen,
@@ -23,5 +25,7 @@ export default {
   BookingScreen,
   ProceedHomeScreen,
   HairCareDetailScreen,
-  FoodScreen
+  FoodScreen,
+  RoutineScreen,
+  ActivityScreen
 };
