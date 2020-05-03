@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { ScrollView, Animated, Easing } from 'react-native';
+import React, { useState, useEffect, Fragment } from 'react';
+import { ScrollView, Animated, Easing, ActivityIndicator } from 'react-native';
 import { useThemeContext } from '../../theme';
 import applyScale from '../../utils/applyScale';
 
@@ -14,7 +14,8 @@ import {
   AnswerOptionText,
   QuestionRelevanceTextContainer,
   AnswerOptionOverlay,
-  AnswerOptionContainer
+  AnswerOptionContainer,
+  LoadDropDownContainer
 } from './styles';
 
 interface RenderItemProp {
@@ -23,6 +24,7 @@ interface RenderItemProp {
   questionRelevance: string;
   index: number;
   options: string[];
+  optionsDropDown?: string[];
 }
 
 const AnimatedAnswerOptionOverlay = Animated.createAnimatedComponent(
@@ -30,7 +32,17 @@ const AnimatedAnswerOptionOverlay = Animated.createAnimatedComponent(
 );
 
 export default function RenderItem(props: RenderItemProp) {
-  const [animation, setAnimation] = useState({ selected: '' });
+  const { colors } = useThemeContext();
+
+  const [animation, setAnimation] = useState({
+    options: { selected: '' },
+    optionDropDown: { selected: '' }
+  });
+
+  const [dropDown, setDropDown] = useState({
+    showDropDown: false,
+    loadDropDown: false
+  });
 
   useEffect(() => {
     const optionAnimationValues = options.reduce((acc, item) => {
@@ -38,30 +50,60 @@ export default function RenderItem(props: RenderItemProp) {
       return acc;
     }, {});
 
-    setAnimation({ ...animation, ...optionAnimationValues });
+    const dropDownAnimationValues = optionsDropDown?.reduce((acc, item) => {
+      acc[item] = new Animated.Value(0);
+      return acc;
+    }, {});
+
+    setAnimation({
+      ...animation,
+      options: { ...animation.options, ...optionAnimationValues },
+      optionDropDown: {
+        ...animation.optionDropDown,
+        ...dropDownAnimationValues
+      }
+    });
   }, []);
 
-  const startButtonAnimation = (answer: string) => {
-    if (answer === animation.selected) return;
+  const startButtonAnimation = (answer: string, buttonType: string) => {
+    if (answer === animation[buttonType].selected) return;
 
-    setAnimation({ ...animation, selected: answer });
+    setAnimation({
+      ...animation,
+      [buttonType]: { ...animation[buttonType], selected: answer }
+    });
 
-    if (animation.selected && answer !== animation.selected) {
-      Animated.timing(animation[animation.selected], {
+    if (/Natural|Processed/.test(answer)) loadDropDown();
+
+    if (
+      animation[buttonType].selected &&
+      answer !== animation[buttonType].selected
+    ) {
+      const selectedValue = animation[buttonType].selected;
+
+      Animated.timing(animation[buttonType][selectedValue], {
         toValue: 0,
         duration: 300,
         easing: Easing.elastic(0.7)
       }).start();
     }
 
-    Animated.timing(animation[answer], {
-      toValue: applyScale(373),
+    Animated.timing(animation[buttonType][answer], {
+      toValue: applyScale(buttonType === 'options' ? 373 : 335),
       duration: 500,
       easing: Easing.elastic(0.7)
     }).start();
   };
 
-  const { question, questionRelevance, options } = props;
+  const loadDropDown = () => {
+    setDropDown({ ...dropDown, loadDropDown: true, showDropDown: false });
+
+    setTimeout(() => {
+      setDropDown({ ...dropDown, loadDropDown: false, showDropDown: true });
+    }, 300);
+  };
+
+  const { question, questionRelevance, options, optionsDropDown } = props;
 
   return (
     <ScrollView
@@ -85,10 +127,48 @@ export default function RenderItem(props: RenderItemProp) {
           {options.map(item => (
             <AnswerOptionContainer key={item}>
               <AnswerOptionText>{item}</AnswerOptionText>
-              <AnimatedAnswerOptionOverlay style={{ width: animation[item] }} />
-              <AnswerOption onPress={() => startButtonAnimation(item)} />
+              <AnimatedAnswerOptionOverlay
+                style={{ width: animation['options'][item] }}
+              />
+              <AnswerOption
+                onPress={() => startButtonAnimation(item, 'options')}
+              />
             </AnswerOptionContainer>
           ))}
+
+          {dropDown.loadDropDown && (
+            <LoadDropDownContainer>
+              <ActivityIndicator
+                size="large"
+                color={colors.BUTTON_DARK_COLOR}
+              />
+            </LoadDropDownContainer>
+          )}
+
+          {optionsDropDown && dropDown.showDropDown ? (
+            <Fragment>
+              <QuestionRelevanceHeader
+                style={{
+                  alignSelf: 'flex-start',
+                  marginTop: 10,
+                  paddingLeft: 20
+                }}
+              >
+                {animation.options.selected} options
+              </QuestionRelevanceHeader>
+              {optionsDropDown.map(item => (
+                <AnswerOptionContainer key={item} style={{ width: '90%' }}>
+                  <AnswerOptionText>{item}</AnswerOptionText>
+                  <AnimatedAnswerOptionOverlay
+                    style={{ width: animation['optionDropDown'][item] }}
+                  />
+                  <AnswerOption
+                    onPress={() => startButtonAnimation(item, 'optionDropDown')}
+                  />
+                </AnswerOptionContainer>
+              ))}
+            </Fragment>
+          ) : null}
         </AnswersContainer>
       </Container>
     </ScrollView>
