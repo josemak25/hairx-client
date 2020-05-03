@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import { ScrollView } from 'react-native';
+import React, { useState, useEffect, Fragment } from 'react';
+import { ScrollView, Animated, Easing, ActivityIndicator } from 'react-native';
 import { useThemeContext } from '../../theme';
-import Button from '../../components/button';
-import { questions } from '../../libs/regimen_setup.json';
 import applyScale from '../../utils/applyScale';
 
 import {
@@ -14,8 +12,10 @@ import {
   AnswersContainer,
   AnswerOption,
   AnswerOptionText,
-  ButtonContainer,
-  QuestionRelevanceTextContainer
+  QuestionRelevanceTextContainer,
+  AnswerOptionOverlay,
+  AnswerOptionContainer,
+  LoadDropDownContainer
 } from './styles';
 
 interface RenderItemProp {
@@ -24,28 +24,86 @@ interface RenderItemProp {
   questionRelevance: string;
   index: number;
   options: string[];
-  handleNext(): void;
-  handleDone(): void;
-  handleGoBack(): void;
-  handlePrevious(): void;
+  optionsDropDown?: string[];
 }
+
+const AnimatedAnswerOptionOverlay = Animated.createAnimatedComponent(
+  AnswerOptionOverlay
+);
 
 export default function RenderItem(props: RenderItemProp) {
   const { colors } = useThemeContext();
 
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [animation, setAnimation] = useState({
+    options: { selected: '' },
+    optionDropDown: { selected: '' }
+  });
 
-  const firstItemIndex = 0;
-  const lastItemIndex = questions.length - 1;
+  const [dropDown, setDropDown] = useState({
+    showDropDown: false,
+    loadDropDown: false
+  });
 
-  const {
-    question,
-    questionRelevance,
-    options,
-    index,
-    handleNext,
-    handlePrevious
-  } = props;
+  useEffect(() => {
+    const optionAnimationValues = options.reduce((acc, item) => {
+      acc[item] = new Animated.Value(0);
+      return acc;
+    }, {});
+
+    const dropDownAnimationValues = optionsDropDown?.reduce((acc, item) => {
+      acc[item] = new Animated.Value(0);
+      return acc;
+    }, {});
+
+    setAnimation({
+      ...animation,
+      options: { ...animation.options, ...optionAnimationValues },
+      optionDropDown: {
+        ...animation.optionDropDown,
+        ...dropDownAnimationValues
+      }
+    });
+  }, []);
+
+  const startButtonAnimation = (answer: string, buttonType: string) => {
+    if (answer === animation[buttonType].selected) return;
+
+    setAnimation({
+      ...animation,
+      [buttonType]: { ...animation[buttonType], selected: answer }
+    });
+
+    if (/Natural|Processed/.test(answer)) loadDropDown();
+
+    if (
+      animation[buttonType].selected &&
+      answer !== animation[buttonType].selected
+    ) {
+      const selectedValue = animation[buttonType].selected;
+
+      Animated.timing(animation[buttonType][selectedValue], {
+        toValue: 0,
+        duration: 300,
+        easing: Easing.elastic(0.7)
+      }).start();
+    }
+
+    Animated.timing(animation[buttonType][answer], {
+      toValue: applyScale(buttonType === 'options' ? 373 : 335),
+      duration: 500,
+      easing: Easing.elastic(0.7)
+    }).start();
+  };
+
+  const loadDropDown = () => {
+    setDropDown({ ...dropDown, loadDropDown: true, showDropDown: false });
+
+    setTimeout(() => {
+      setDropDown({ ...dropDown, loadDropDown: false, showDropDown: true });
+    }, 300);
+  };
+
+  const { question, questionRelevance, options, optionsDropDown } = props;
 
   return (
     <ScrollView
@@ -67,51 +125,51 @@ export default function RenderItem(props: RenderItemProp) {
         </QuestionContainer>
         <AnswersContainer>
           {options.map(item => (
-            <AnswerOption
-              key={item}
-              style={{
-                backgroundColor:
-                  selectedOption === item
-                    ? colors.BG_LIGHT_GOLD_COLOR
-                    : colors.BUTTON_LIGHT_COLOR
-              }}
-              onPress={() => {
-                setSelectedOption(item);
-              }}
-            >
+            <AnswerOptionContainer key={item}>
               <AnswerOptionText>{item}</AnswerOptionText>
-            </AnswerOption>
+              <AnimatedAnswerOptionOverlay
+                style={{ width: animation['options'][item] }}
+              />
+              <AnswerOption
+                onPress={() => startButtonAnimation(item, 'options')}
+              />
+            </AnswerOptionContainer>
           ))}
+
+          {dropDown.loadDropDown && (
+            <LoadDropDownContainer>
+              <ActivityIndicator
+                size="large"
+                color={colors.BUTTON_DARK_COLOR}
+              />
+            </LoadDropDownContainer>
+          )}
+
+          {optionsDropDown && dropDown.showDropDown ? (
+            <Fragment>
+              <QuestionRelevanceHeader
+                style={{
+                  alignSelf: 'flex-start',
+                  marginTop: 10,
+                  paddingLeft: 20
+                }}
+              >
+                {animation.options.selected} options
+              </QuestionRelevanceHeader>
+              {optionsDropDown.map(item => (
+                <AnswerOptionContainer key={item} style={{ width: '90%' }}>
+                  <AnswerOptionText>{item}</AnswerOptionText>
+                  <AnimatedAnswerOptionOverlay
+                    style={{ width: animation['optionDropDown'][item] }}
+                  />
+                  <AnswerOption
+                    onPress={() => startButtonAnimation(item, 'optionDropDown')}
+                  />
+                </AnswerOptionContainer>
+              ))}
+            </Fragment>
+          ) : null}
         </AnswersContainer>
-        <ButtonContainer>
-          <Button
-            title="previous"
-            buttonStyle={{
-              width: applyScale(120),
-              backgroundColor: colors.BG_WHITE_COLOR,
-              alignItems: 'flex-start',
-              paddingLeft: 5,
-              borderWidth: 1,
-              borderColor: colors.BG_WHITE_COLOR
-            }}
-            onPress={index === firstItemIndex ? null : handlePrevious}
-            textStyle={{
-              color: colors.FONT_DARK_COLOR,
-              opacity: index === firstItemIndex ? 0.3 : 1
-            }}
-          />
-          <Button
-            title="next"
-            buttonStyle={{
-              width: applyScale(120),
-              backgroundColor: colors.BG_WHITE_COLOR,
-              borderWidth: 1,
-              borderColor: colors.INACTIVE_FIELD_COLOR
-            }}
-            onPress={index !== lastItemIndex ? handleNext : null}
-            textStyle={{ color: colors.FONT_DARK_COLOR }}
-          />
-        </ButtonContainer>
       </Container>
     </ScrollView>
   );
