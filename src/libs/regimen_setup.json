@@ -39,7 +39,8 @@
       "index": 3,
       "question": "Hair status?",
       "questionRelevance": "This helps to understand how strong your hair scalp will be. The older you are, the stronger your scalp and vice versa.",
-      "options": ["Natural", "Processed"]
+      "options": ["Natural", "Processed"],
+      "optionsDropDown": ["Colored", "Permed", "Both Coloured and Permed"]
     },
     {
       "key": "5bd80574-f1f2-40d7-abe3-4c0e8d8678r9",
