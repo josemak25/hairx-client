@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
+import Constants from 'expo-constants';
 
 export const Container = styled.View`
+  padding-top: ${Constants.statusBarHeight}px;
   background-color: ${({ theme }) => theme.colors.BUTTON_DARK_GRAY_COLOR};
   justify-content: center;
   align-items: center;

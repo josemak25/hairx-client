@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { StatusBar, AppState, Animated, Easing } from 'react-native';
+import { AppState, Animated, Easing } from 'react-native';
 import NetInfo, { NetInfoState } from '@react-native-community/netinfo';
-import { useThemeContext } from '../../theme';
 
 import { Container, Label } from './styles';
 
@@ -15,8 +14,6 @@ const ANIMATION_CONSTANTS = {
 const AnimatedText = Animated.createAnimatedComponent(Label);
 
 export default function OfflineBar({ offlineText }: { offlineText?: string }) {
-  const { colors } = useThemeContext();
-
   const defaultOfflineText = 'You are not connected to Internet';
 
   const [network, setNetwork] = useState({
@@ -80,7 +77,6 @@ export default function OfflineBar({ offlineText }: { offlineText?: string }) {
 
   return !network.isConnected ? (
     <Container>
-      <StatusBar backgroundColor={colors.BUTTON_DARK_GRAY_COLOR} />
       <AnimatedText style={{ transform: [{ translateX: interpolated }] }}>
         {network.offlineText}
       </AnimatedText>
