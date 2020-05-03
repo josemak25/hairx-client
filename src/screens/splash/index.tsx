@@ -5,12 +5,16 @@ import ScreenGridSizeActions from '../../store/grid/actions';
 import { NavigationInterface } from '../types';
 
 import { Container, Logo } from './styles';
+import SafeAreaView from '../../commons/safe-area-view';
+import { StatusBar } from 'react-native';
+import { useThemeContext } from '../../theme';
 interface SplashScreenProp extends NavigationInterface {
   testID?: string;
 }
 
 export default function SplashScreen({ navigation }: SplashScreenProp) {
   const { dispatch } = useStoreContext();
+  const { colors } = useThemeContext();
 
   useEffect(() => {
     handleAppLayout();
@@ -26,8 +30,14 @@ export default function SplashScreen({ navigation }: SplashScreenProp) {
   };
 
   return (
-    <Container>
-      <Logo source={require('../../../assets/images/logo.png')} />
-    </Container>
+    <SafeAreaView>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={colors.BG_WHITE_COLOR}
+      />
+      <Container>
+        <Logo source={require('../../../assets/images/logo.png')} />
+      </Container>
+    </SafeAreaView>
   );
 }

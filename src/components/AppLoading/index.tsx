@@ -4,6 +4,8 @@ import { AppLoading as ExpoAppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 
+type FontType = { [name: string]: Font.FontSource };
+
 export default function AppLoading({ setIsAppReady }) {
   const cacheImages = (images: number[]) => {
     return images.map(image => {
@@ -13,7 +15,7 @@ export default function AppLoading({ setIsAppReady }) {
     });
   };
 
-  const cacheFonts = (fonts: any[]) => {
+  const cacheFonts = (fonts: FontType[]) => {
     return fonts.map(font => Font.loadAsync(font));
   };
 
