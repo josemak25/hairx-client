@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import boxShadow from '../../utils/boxShadows';
 
 import { Container, ButtonText } from './styles';
@@ -10,7 +10,6 @@ type ButtonProps = {
   title: string;
   activeOpacity?: number;
   onPress?(): void;
-  children?: ReactNode;
 };
 
 export default function Button(props: ButtonProps) {
@@ -23,7 +22,6 @@ export default function Button(props: ButtonProps) {
       {...props}
     >
       <ButtonText style={textStyle}>{title}</ButtonText>
-      {props.children}
     </Container>
   );
 }

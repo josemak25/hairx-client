@@ -6,8 +6,8 @@ import Screens from '../screens';
 import RegimenIcon from '../../assets/icons/regimen';
 import HairCareIcon from '../../assets/icons/hair_care';
 import SettingIcon from '../../assets/icons/settings';
-import TabBarLabel from '../commons/tab-bar-label';
 import HomeTopNavigator from './HomeTopNavigator';
+import TabBarLabel from '../commons/header/tab-bar-label';
 import { IconContainer } from './styles';
 
 const Tab = createMaterialBottomTabNavigator();

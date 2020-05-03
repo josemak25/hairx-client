@@ -1,5 +1,6 @@
 import RegimenScreen from './regimen';
 import RegimenSetupScreen from './regimen_setup';
+import ResumeScreen from './regimen_setup/resume';
 import SplashScreen from './splash';
 import SettingsScreen from './settings';
 import HairCareScreen from './hair_care';
@@ -12,6 +13,7 @@ import HairCareDetailScreen from './hair_care/hair_care_detail';
 import FoodScreen from './regimen/food/food';
 import RoutineScreen from './regimen/routine';
 import ActivityScreen from './regimen/ActivityScreen';
+import FoodDetailsScreen from './food_details';
 
 export default {
   RegimenScreen,
@@ -28,4 +30,6 @@ export default {
   FoodScreen,
   RoutineScreen,
   ActivityScreen
+  ResumeScreen,
+  FoodDetailsScreen
 };

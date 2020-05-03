@@ -12,10 +12,9 @@ type ResponsiveImageProps = {
   resizeMode?: string;
   style?: any;
   imageUrl: string;
-  offlineImage?: object;
   testID?: string;
   imageFadeDuration?: number;
-  thumbnailSource?: string;
+  thumbnailSource?: object;
   thumbnailFadeDuration?: number;
   thumbnailBlurRadius?: number;
   onLoadStart?(T: void): void;
@@ -38,7 +37,6 @@ export default function ResponsiveImage(props: ResponsiveImageProps) {
   const imageFadeDuration = props.imageFadeDuration || 250;
   const thumbnailBlurRadius = props.thumbnailBlurRadius || 10;
   const thumbnailSource = props.thumbnailSource || props.imageUrl;
-  const onlineImage = { uri: props.imageUrl, cache: 'force-cache' };
 
   const onLoadThumbnail = () => {
     Animated.timing(animation.thumbnailOpacity, {
@@ -62,11 +60,11 @@ export default function ResponsiveImage(props: ResponsiveImageProps) {
       <ProgressiveImage
         style={[{ width, height, resizeMode }, props.style]}
         source={{ uri: thumbnailSource, cache: 'force-cache' }}
-        onLoadStart={() => (props.onLoadStart ? props.onLoadStart() : null)}
-        onProgress={() => (props.onLoadStart ? props.onLoadStart() : null)}
-        onLoad={onLoadThumbnail}
-        onError={() => (props.onError ? props.onError() : null)}
-        onLoadEnd={() => (props.onLoadEnd ? props.onLoadEnd() : null)}
+        onLoadStart={props.onLoadStart}
+        onProgress={props.onLoadStart}
+        onLoad={() => onLoadThumbnail}
+        onError={props.onError}
+        onLoadEnd={props.onLoadEnd}
         blurRadius={thumbnailBlurRadius}
         testID="image-thumbnail"
       />
@@ -77,12 +75,12 @@ export default function ResponsiveImage(props: ResponsiveImageProps) {
           { opacity: animation.imageOpacity },
           props.style
         ]}
-        source={props.offlineImage ? props.offlineImage : onlineImage}
-        onLoadStart={() => (props.onLoadStart ? props.onLoadStart() : null)}
-        onProgress={() => (props.onLoadStart ? props.onLoadStart() : null)}
+        source={{ uri: props.imageUrl, cache: 'force-cache' }}
+        onLoadStart={props.onLoadStart}
+        onProgress={props.onLoadStart}
         onLoad={onLoadImage}
-        onError={() => (props.onError ? props.onError() : null)}
-        onLoadEnd={() => (props.onLoadEnd ? props.onLoadEnd() : null)}
+        onError={props.onError}
+        onLoadEnd={props.onLoadEnd}
         testID="image-data"
       />
     </Fragment>

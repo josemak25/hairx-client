@@ -52,7 +52,15 @@ export const Welcome = styled.Text`
   text-transform: capitalize;
 `;
 
+export const RegimenQuestionBody = styled.View`
+  flex: 1;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 80%;
+`;
+
 export const QuestionContainer = styled.View`
+  height: 18%;
   width: 100%;
   justify-content: space-between;
   align-items: center;
@@ -78,6 +86,7 @@ export const QuestionRelevanceHeader = styled.Text`
 
 export const QuestionRelevanceTextContainer = styled.View`
   width: 80%;
+  margin-bottom: 20px;
 `;
 
 export const QuestionRelevanceText = styled.Text`
@@ -91,6 +100,8 @@ export const AnswersContainer = styled.View`
   align-items: center;
   margin-top: 40px;
   margin-bottom: 20px;
+  height: 340px;
+  width: 100%;
 `;
 
 export const AnswerOptionContainer = styled.View`
@@ -119,7 +130,7 @@ export const AnswerOptionOverlay = styled.View`
 `;
 
 export const AnswerOptionText = styled.Text`
-  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 2}px;
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   padding-left: 20px;
   position: absolute;
@@ -136,20 +147,21 @@ export const ButtonContainer = styled.View`
 `;
 
 export const ModalView = styled.View`
-  width: 100%;
-  height: ${applyScale(400)}px;
   background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
-  justify-content: space-around;
+  height: 400px;
+  justify-content: space-evenly;
   align-items: center;
+  align-self: center;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+  width: 100%;
 `;
 
 export const ModalHeaderText = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 15}px;
+  text-transform: uppercase;
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
-  text-transform: uppercase;
 `;
 
 export const ModalBodyText = styled.Text`
@@ -161,10 +173,9 @@ export const ModalBodyText = styled.Text`
   opacity: 0.7;
 `;
 
-export const ModalButtons = styled.View`
-  width: 85%;
-  align-items: center;
-  padding-bottom: 10px;
+export const ModalButtonContainer = styled.View`
+  height: 120px;
+  justify-content: space-between;
 `;
 
 export const ResumeContainer = styled.View`
@@ -175,7 +186,8 @@ export const ResumeContainer = styled.View`
 `;
 
 export const ResumeSetupTextContainer = styled.View`
-  width: 80%;
+  height: 20%;
+  width: 70%;
 `;
 
 export const ResumeSetupHeaderText = styled.Text`
@@ -197,6 +209,8 @@ export const ResumeImage = styled.Image`
   width: 80%;
   height: 30%;
 `;
+
+export const TakeMeBackButton = styled.TouchableOpacity``;
 
 export const HeaderTitleLabel = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 2}px;

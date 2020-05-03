@@ -15,12 +15,14 @@ enum COLORS {
   BUTTON_DARK_GRAY_COLOR = '#242424',
   INPUT_FIELD_COLOR = '#F7F7F7',
   INACTIVE_FIELD_COLOR = '#707070',
+  INACTIVE_FIELD_COLOR_LOW_OPACITY = 'rgba(112, 112, 112, 0.3)',
   ACTIVE_ICON_COLOR = '#BAB200',
   FONT_RED_COLOR = '#FF0B0B',
   BACK_BUTTON_BG_COLOR = '#494039',
   BG_DARK_BLUE_COLOR = '#0856B4',
   BG_RED_COLOR = '#B40808',
-  BG_LIGHT_LEMON_COLOR = '#E0FFEE'
+  BG_LIGHT_LEMON_COLOR = '#E0FFEE',
+  FONT_BLUE_COLOR = '#2D6BB5'
 }
 
 // All app font sizes
@@ -55,12 +57,14 @@ declare module 'styled-components' {
       BUTTON_DARK_GRAY_COLOR: string;
       INPUT_FIELD_COLOR: string;
       INACTIVE_FIELD_COLOR: string;
+      INACTIVE_FIELD_COLOR_LOW_OPACITY: string;
       ACTIVE_ICON_COLOR: string;
       FONT_RED_COLOR: string;
       BACK_BUTTON_BG_COLOR: string;
       BG_DARK_BLUE_COLOR: string;
       BG_RED_COLOR: string;
       BG_LIGHT_LEMON_COLOR: string;
+      FONT_BLUE_COLOR: string;
     };
 
     // All Global App Font Sizes
