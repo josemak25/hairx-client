@@ -16,8 +16,8 @@ export default function HomeTopNavigator() {
         component={Screens.RegimenScreen}
       />
       <HomeStack.Screen
-        name="ActivityScreen"
-        component={Screens.ActivityScreen}
+        name="RecommendationScreen"
+        component={Screens.RecommendationScreen}
       />
       {/* <HomeStack.Screen name="SaloonVisits" component={null} /> */}
     </HomeStack.Navigator>

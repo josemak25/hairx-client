@@ -16,12 +16,12 @@ import {
   HeaderTitle
 } from './styles';
 
-interface ActivityScreenProp extends NavigationInterface {
+interface RecommendationScreenProp extends NavigationInterface {
   testID?: string;
   children: React.ReactChild;
 }
 
-export default function ActivityScreen(props: ActivityScreenProp) {
+export default function RecommendationScreen(props: RecommendationScreenProp) {
   const { colors } = useThemeContext();
   const [state, setState] = useState({ ref: null, isFirstRender: true });
 

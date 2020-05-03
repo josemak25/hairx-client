@@ -11,7 +11,7 @@ import ProceedHomeScreen from './proceed_home';
 import HairCareDetailScreen from './hair_care/hair_care_detail';
 import FoodScreen from './regimen/food/food';
 import RoutineScreen from './regimen/routine';
-import ActivityScreen from './regimen/ActivityScreen';
+import RecommendationScreen from './regimen/Recommendation';
 import FoodDetailsScreen from './food_details';
 import ResumeScreen from './regimen_setup/resume';
 
@@ -29,7 +29,7 @@ export default {
   HairCareDetailScreen,
   FoodScreen,
   RoutineScreen,
-  ActivityScreen,
+  RecommendationScreen,
   ResumeScreen,
   FoodDetailsScreen
 };

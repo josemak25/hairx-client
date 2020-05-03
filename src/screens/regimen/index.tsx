@@ -3,8 +3,6 @@ import { NavigationInterface } from '../types';
 import SafeAreaView from '../../commons/safe-area-view';
 import Header from '../../commons/header';
 import Button from '../../components/button';
-import { goals } from '../../libs/regimen_hair_goals.json';
-import { AntDesign } from '@expo/vector-icons';
 import { useThemeContext } from '../../theme';
 
 import {
@@ -16,13 +14,9 @@ import {
   HairGoalsTitleContainer,
   HairGoalsTitleText,
   HairGoalsBodyText,
-  HairGoalsBodyContainer,
-  HairGoalsOptionsContainer,
-  HairGoalsOption,
-  HairGoalsOptionText,
-  CancelOption
+  HairGoalsBodyContainer
 } from './styles';
-import { ScrollView } from 'react-native';
+import { ScrollView, StatusBar } from 'react-native';
 
 interface RegimenScreenProp extends NavigationInterface {
   testID?: string;
@@ -60,10 +54,13 @@ export default function RegimenScreen(props: RegimenScreenProp) {
                 </HairGoalsBodyText>
               </HairGoalsBodyContainer>
             </HairGoalsTitleContainer>
-            <RenderGoals />
             <Button
               title="Start Regimen Setup"
               onPress={() => navigation.navigate('RegimenSetupScreen')}
+            />
+            <Button
+              title="See Recommendations"
+              onPress={() => navigation.navigate('RecommendationScreen')}
             />
           </HairGoalsBody>
         </Container>
