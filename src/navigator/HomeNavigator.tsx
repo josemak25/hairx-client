@@ -8,7 +8,7 @@ const RegimenStack = createStackNavigator();
 export default function HomeNavigator() {
   return (
     <RegimenStack.Navigator
-      initialRouteName="FoodDetailsScreen"
+      initialRouteName="RegimenScreen"
       headerMode="screen"
       mode="modal"
       screenOptions={{ headerShown: false }}
