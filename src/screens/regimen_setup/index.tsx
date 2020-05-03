@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import { AntDesign } from '@expo/vector-icons';
 import Modal from 'react-native-modal';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import { LinearGradient } from 'expo-linear-gradient';
 import { NavigationInterface } from '../types';
 import { StatusBar } from 'react-native';
 import { useThemeContext } from '../../theme';
@@ -25,8 +24,7 @@ import {
   ModalHeaderText,
   ModalBodyText,
   ModalButtons,
-  ButtonContainer,
-  ButtonContainerOpacity
+  ButtonContainer
 } from './styles';
 
 export type QuestionItem = {
