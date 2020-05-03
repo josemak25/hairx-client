@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
 import Modal from 'react-native-modal';
-// import { WheelPicker } from 'react-native-wheel-picker-android';
-// import Picker from 'react-native-wheel-picker';
 import WheelPicker from 'react-native-wheely';
 
 import { useThemeContext } from '../../theme';
@@ -15,34 +12,21 @@ interface HairStatusModalProps {
   onBackdropPress(): void;
 }
 
-// let PickerItem = Picker.Item;
-
 const wheelPickerData = [
-  's',
-  'monday',
-  'tuesday',
-  'wednesday',
-  'thursday',
-  'friday'
+  'Less than a month ago',
+  '3 months ago',
+  '6 months ago',
+  '9 months ago',
+  'Over 1 year ago'
 ];
 
 export default function HairStatusModal(props: HairStatusModalProps) {
   const { colors, fonts } = useThemeContext();
 
   const [state, setState] = useState({
-    selectedItem: 'tuesday',
-    initPosition: 4,
-    hideIndicator: true,
+    selectedItem: '6 months ago',
     itemList: wheelPickerData
   });
-
-  const onItemSelected = selectedItem => {
-    setState({ ...state, selectedItem });
-  };
-
-  const onPickerSelect = index => {
-    setState({ ...state, selectedItem: index });
-  };
 
   return (
     <Modal
@@ -59,6 +43,14 @@ export default function HairStatusModal(props: HairStatusModalProps) {
           options={wheelPickerData}
           selected={state.selectedItem}
           onChange={hair => setState({ ...state, selectedItem: hair })}
+          itemTextStyle={{
+            color: colors.FONT_DARK_COLOR,
+            fontSize: fonts.LARGE_SIZE + 5,
+            fontFamily: fonts.JOST_BOOK
+          }}
+          itemStyle={{ backgroundColor: colors.BG_WHITE_COLOR }}
+          selectedIndicatorStyle={{ backgroundColor: colors.BG_WHITE_COLOR }}
+          itemHeight={50}
         />
       </ModalView>
     </Modal>
