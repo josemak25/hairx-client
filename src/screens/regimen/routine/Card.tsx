@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Foundation } from '@expo/vector-icons';
 
-import { useThemeContext } from '../../../../theme';
-import Image from '../../../../libs/responsiveImage/index';
-import applyScale from '../../../../utils/applyScale';
+import { useThemeContext } from '../../../theme';
+import Image from '../../../libs/responsiveImage/index';
+import applyScale from '../../../utils/applyScale';
 import {
   CardContainer,
   Context,
