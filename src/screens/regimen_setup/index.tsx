@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { AntDesign } from '@expo/vector-icons';
 import Modal from 'react-native-modal';
 import AppIntroSlider from 'react-native-app-intro-slider';
+
 import { NavigationInterface } from '../types';
 import { StatusBar } from 'react-native';
 import { useThemeContext } from '../../theme';
@@ -11,8 +12,6 @@ import Question from './question';
 import Button from '../../components/button';
 import { questions } from '../../libs/regimen_setup.json';
 import applyScale from '../../utils/applyScale';
-
-const SLIDE_INCREMENT = 1;
 
 import {
   HeaderTitle,
@@ -34,6 +33,7 @@ export type QuestionItem = {
   options: string[];
 };
 
+const SLIDE_INCREMENT = 1;
 interface RegimenSetupScreenProp extends NavigationInterface {
   testID?: string;
 }
