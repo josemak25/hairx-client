@@ -19,6 +19,10 @@ export default function HomeTopNavigator() {
         name="RecommendationScreen"
         component={Screens.RecommendationScreen}
       />
+      <HomeStack.Screen
+        name="FoodDetailsScreen"
+        component={Screens.FoodDetailsScreen}
+      />
       {/* <HomeStack.Screen name="SaloonVisits" component={null} /> */}
     </HomeStack.Navigator>
   );

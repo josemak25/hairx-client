@@ -3,10 +3,8 @@ import { TouchableOpacity, StatusBar } from 'react-native';
 
 import { NavigationInterface } from '../types';
 import applyScale from '../../utils/applyScale';
-import Header from '../../commons/header';
 import { useThemeContext } from '../../theme';
 import FoodScreen from './food/food';
-import SafeAreaView from '../../commons/safe-area-view';
 import RoutineScreen from './routine';
 
 import {
@@ -15,6 +13,8 @@ import {
   HeaderTitleContainer,
   HeaderTitle
 } from './styles';
+import SafeAreaView from '../../commons/safe-area-view';
+import Header from '../../commons/header';
 
 interface RecommendationScreenProp extends NavigationInterface {
   testID?: string;

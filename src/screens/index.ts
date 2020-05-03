@@ -12,7 +12,7 @@ import HairCareDetailScreen from './hair_care/hair_care_detail';
 import FoodScreen from './regimen/food/food';
 import RoutineScreen from './regimen/routine';
 import RecommendationScreen from './regimen/Recommendation';
-import FoodDetailsScreen from './food_details';
+import FoodDetailsScreen from './regimen/food/food_details';
 import ResumeScreen from './regimen_setup/resume';
 
 export default {

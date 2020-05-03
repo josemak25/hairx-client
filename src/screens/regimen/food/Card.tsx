@@ -28,7 +28,7 @@ export default function FoodCard(props: FoodCardProp) {
   const { image, title, description, style, navigation } = props;
 
   const handleClick = () => {
-    navigation.navigate('foodDetailsScreen');
+    navigation.navigate('FoodDetailsScreen');
   };
 
   const FoodImage = () => (

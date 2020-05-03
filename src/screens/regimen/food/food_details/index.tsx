@@ -1,12 +1,15 @@
 import React from 'react';
 import { ScrollView, Dimensions, StatusBar } from 'react-native';
-import { NavigationInterface } from '../types';
 import { Ionicons } from '@expo/vector-icons';
-import { useThemeContext } from '../../theme';
-import applyScale from '../../utils/applyScale';
-import { products } from '../../libs/food_details_screen_products.json';
-import ResponsiveImage from '../../libs/responsiveImage';
-import boxShadow from '../../utils/boxShadows';
+
+import { NavigationInterface } from '../../../types';
+import { useThemeContext } from '../../../../theme';
+import applyScale from '../../../../utils/applyScale';
+import { products } from '../../../../libs/food_details_screen_products.json';
+import ResponsiveImage from '../../../../libs/responsiveImage';
+import boxShadow from '../../../../utils/boxShadows';
+import Header from '../../../../commons/header';
+import SafeAreaView from '../../../../commons/safe-area-view';
 import {
   Container,
   BackButton,
@@ -24,8 +27,6 @@ import {
   ProductHeaders,
   ProductText
 } from './styles';
-import Header from '../../commons/header';
-import SafeAreaView from '../../commons/safe-area-view';
 
 const HEADER_EXPANDED_HEIGHT = 300;
 
@@ -104,7 +105,7 @@ export default function FoodDetailsScreen(props: FoodDetailsScreenProp) {
                   <ProductPrice>{product.price}</ProductPrice>
                   <ProductImage
                     resizeMode="contain"
-                    source={require('../../../assets/images/food_details_product_2.png')}
+                    source={require('../../../../../assets/images/food_details_product_2.png')}
                   />
                   <ProductText>{product.name}</ProductText>
                 </ProductBox>
