@@ -88,6 +88,7 @@ export const QuestionRelevanceText = styled.Text`
 
 export const AnswersContainer = styled.View`
   width: 100%;
+  align-items: center;
   margin-top: 40px;
   margin-bottom: 20px;
 `;
@@ -203,4 +204,14 @@ export const HeaderTitleLabel = styled.Text`
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   text-transform: capitalize;
   padding: 0px 5px;
+`;
+
+export const LoadDropDownContainer = styled.View`
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  border-radius: 5px;
+  background-color: ${({ theme }) => theme.colors.INPUT_FIELD_COLOR};
 `;
