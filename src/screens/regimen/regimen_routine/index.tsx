@@ -31,8 +31,9 @@ import {
   ProductImage,
   Name
 } from './styles';
+import { abs } from 'react-native-reanimated';
 
-const HEADER_EXPANDED_HEIGHT = 300;
+const HEADER_EXPANDED_HEIGHT = 250;
 
 const products = RecommendedProducts;
 
@@ -51,7 +52,8 @@ export default function RegimenRoutineScreen(props: RegimenRoutineScreenProp) {
 
   return (
     <SafeAreaView>
-      <Header
+        <ScrollView showsVerticalScrollIndicator={false}>
+        <Header
         headerLeft={() => (
           <IconCover onPress={() => navigation.goBack()}>
             <Ionicons
@@ -100,16 +102,17 @@ export default function RegimenRoutineScreen(props: RegimenRoutineScreenProp) {
       <ScrollView
         horizontal={true}
         showsHorizontalScrollIndicator={false}
-        style={{ flexDirection: 'row', marginLeft: 10 }}
+        style={{ flexDirection: 'row', marginLeft: 10, marginTop: '5%' }}
       >
         {products.map(item => (
           <Card
             style={{
               backgroundColor: colors.BG_LIGHT_GRAY,
               marginLeft: 10,
-              width: grid.cardSize / 2 + 10,
-              height: 170,
-              borderRadius: 5
+              width: grid.cardSize / 2 + 30,
+              height: 200,
+              borderRadius: 5,
+              justifyContent: 'flex-start'
             }}
           >
             <PriceCover>
@@ -118,9 +121,12 @@ export default function RegimenRoutineScreen(props: RegimenRoutineScreenProp) {
             </PriceCover>
             <ProductImage source={item.image} />
             <Name>{item.name}</Name>
+            <Button title="Buy now" buttonStyle={{backgroundColor: colors.BG_LIGHT_GOLD_COLOR, borderTopColor: colors.BG_LIGHT_GOLD_COLOR, paddingTop: 5, paddingBottom: 5, position: 'absolute', bottom: 0, marginBottom: 10}} textStyle={{color: colors.ACTIVE_ICON_COLOR}} />
           </Card>
         ))}
       </ScrollView>
-    </SafeAreaView>
+    
+        </ScrollView>
+  </SafeAreaView>
   );
 }

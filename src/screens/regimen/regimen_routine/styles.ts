@@ -62,7 +62,7 @@ export const Recommendation = styled.Text`
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE - 2}px;
   color: rgba(0, 0, 0, 0.3);
-  margin: 10% 0 1%;
+  margin: 8% 0 1%;
   text-transform: uppercase;
 `;
 
@@ -72,4 +72,33 @@ export const Products = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 5}px;
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   text-transform: uppercase;
+`;
+
+export const Price = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE};
+  color: rgba(0, 0, 0, 0.7);
+`;
+
+export const PriceSub = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  font-size: ${({ theme }) => theme.fonts.SMALL_SIZE - 2}px;
+  color: rgba(0, 0, 0, 0.7);
+`;
+
+export const PriceCover = styled.View`
+  flex-direction: row;
+  padding-top: 10px
+`;
+
+export const ProductImage = styled.Image`
+margin: 8% 0;
+`;
+
+export const Name = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  font-size: ${({ theme }) => theme.fonts.SMALL_SIZE};
+  color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  padding: 0 10px;
 `;
