@@ -37,16 +37,14 @@ export default function FoodCard(props: FoodCardProp) {
       style={{
         height: '100%',
         width: '100%',
-        borderRadius: 5,
-        overflow: 'hidden',
-        ...props.style.imageStyle
+        overflow: 'hidden'
       }}
     />
   );
 
   return (
     <CardContent style={style.cardStyle} onPress={handleClick}>
-      <ImageContainer>
+      <ImageContainer style={{ ...props.style.imageStyle }}>
         <FoodImage />
       </ImageContainer>
       <TextContainer>

@@ -69,8 +69,7 @@ export default function FoodScreen(props: FoodScreenProp) {
                 cardStyle: { flexDirection: 'row-reverse' },
                 imageStyle: {
                   borderTopLeftRadius: 0,
-                  borderBottomLeftRadius: 0,
-                  alignSelf: 'flex-end'
+                  borderBottomLeftRadius: 0
                 }
               };
         return <FoodCard {...item} navigation={navigation} style={style} />;

@@ -7,7 +7,7 @@ const HomeStack = createStackNavigator();
 export default function HomeTopNavigator() {
   return (
     <HomeStack.Navigator
-      initialRouteName="RoutineScreen"
+      initialRouteName="RecommendationScreen"
       headerMode="screen"
       screenOptions={{ headerShown: false }}
     >

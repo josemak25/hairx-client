@@ -50,18 +50,18 @@ export const CardContent = styled.TouchableOpacity`
   border-radius: 5px;
   background-color: ${({ theme }) => theme.colors.BG_LIGHT_LEMON_COLOR};
   margin: 6px;
+  height: ${applyScale(118)}px;
 `;
 
 export const TextContainer = styled.View`
   flex: 1;
-  margin: 19px;
+  margin: 10px;
 `;
 
 export const Title = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
-  margin-bottom: 15px;
 `;
 export const Description = styled.Text`
   font-size: ${({ theme }) => theme.fonts.SMALL_SIZE + 3}px;
@@ -73,6 +73,7 @@ export const Description = styled.Text`
 
 export const ImageContainer = styled.View`
   flex: 1;
+  border-radius: 5px;
 `;
 
 export const ReadMore = styled.Text`
@@ -80,11 +81,10 @@ export const ReadMore = styled.Text`
   font-family: ${({ theme }) => theme.fonts.CORMORANT_ITALIC};
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   opacity: 0.8;
-  align-self: flex-end;
 `;
 
 export const DescriptionContainer = styled.View`
-  flex: 1;
   flex-direction: row;
   flex-wrap: wrap;
+  height: 100%;
 `;
