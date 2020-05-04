@@ -1,11 +1,13 @@
 import React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+
 import { useThemeContext } from '../theme';
 import Screens from '../screens';
 import RegimenIcon from '../../assets/icons/regimen';
 import HairCareIcon from '../../assets/icons/hair_care';
 import SettingIcon from '../../assets/icons/settings';
 import TabBarLabel from '../commons/tab-bar-label';
+import HomeTopNavigator from './HomeTopNavigator';
 import { IconContainer } from './styles';
 
 const Tab = createMaterialBottomTabNavigator();
@@ -18,12 +20,12 @@ export default function BottomNavigator() {
       activeColor={colors.ACTIVE_ICON_COLOR}
       inactiveColor={colors.INACTIVE_FIELD_COLOR}
       barStyle={{ backgroundColor: colors.INPUT_FIELD_COLOR }}
-      initialRouteName="RegimenScreen"
+      initialRouteName="HomeTopNavigator"
       labeled={false}
     >
       <Tab.Screen
-        name="RegimenScreen"
-        component={Screens.RegimenScreen}
+        name="HomeTopNavigator"
+        component={HomeTopNavigator}
         options={{
           tabBarIcon: ({ color, focused }) => (
             <IconContainer>
