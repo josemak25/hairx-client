@@ -1,8 +1,19 @@
 import styled from 'styled-components/native';
+import Constants from 'expo-constants';
 
 import applyScale from '../../../utils/applyScale';
 
-export const Container = styled.View``;
+export const SplashTopStatusBar = styled.View`
+  width: 100%;
+  height: ${Constants.statusBarHeight}px;
+  position: absolute;
+  top: 0;
+`;
+
+export const Container = styled.View`
+  background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
+  padding-bottom: 20px
+`;
 
 export const Cover = styled.View`
   flex: 1;
@@ -21,6 +32,9 @@ export const IconCover = styled.TouchableOpacity`
 export const BackgroundCover = styled.Image`
   flex: 1;
   width: 100%;
+  position: absolute;
+  bottom: 0;
+  top: 0
 `;
 
 export const TimeCover = styled.View`
@@ -88,11 +102,11 @@ export const PriceSub = styled.Text`
 
 export const PriceCover = styled.View`
   flex-direction: row;
-  padding-top: 10px
+  padding-top: 10px;
 `;
 
 export const ProductImage = styled.Image`
-margin: 8% 0;
+  margin: 8% 0;
 `;
 
 export const Name = styled.Text`
