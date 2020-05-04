@@ -27,7 +27,7 @@ import {
   Products,
   Price,
   PriceCover,
-  PriceSub,
+  PriceSuperscript,
   ProductImage,
   Name,
   SplashTopStatusBar
@@ -123,7 +123,7 @@ export default function RegimenRoutineDetailScreen(props: RegimenRoutineScreenPr
               >
                 <PriceCover>
                   <Price>{item.price}</Price>
-                  <PriceSub>{item.subPrice}</PriceSub>
+                  <PriceSuperscript>{item.subPrice}</PriceSuperscript>
                 </PriceCover>
                 <ProductImage source={item.image} />
                 <Name>{item.name}</Name>

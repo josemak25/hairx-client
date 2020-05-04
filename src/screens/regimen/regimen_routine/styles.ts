@@ -94,7 +94,7 @@ export const Price = styled.Text`
   color: rgba(0, 0, 0, 0.7);
 `;
 
-export const PriceSub = styled.Text`
+export const PriceSuperscript = styled.Text`
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   font-size: ${({ theme }) => theme.fonts.SMALL_SIZE - 2}px;
   color: rgba(0, 0, 0, 0.7);
