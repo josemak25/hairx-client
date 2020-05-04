@@ -41,7 +41,7 @@ interface RegimenRoutineScreenProp extends NavigationInterface {
   testID?: string;
 }
 
-export default function RegimenRoutineScreen(props: RegimenRoutineScreenProp) {
+export default function RegimenRoutineDetailScreen(props: RegimenRoutineScreenProp) {
   const { navigation } = props;
 
   const { colors } = useThemeContext();
