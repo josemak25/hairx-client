@@ -44,7 +44,7 @@ export const TimeCover = styled.View`
   margin: 4% 0 2%;
 `;
 
-export const Night = styled.Text`
+export const Period = styled.Text`
   color: ${({ theme }) => theme.colors.FONT_BLUE_COLOR};
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   font-size: ${({ theme }) => theme.fonts.SMALL_SIZE}px;
@@ -62,7 +62,7 @@ export const TitleText = styled.Text`
 export const Description = styled.Text`
   text-align: center;
   width: 65%;
-  font-family: ${({ theme }) => theme.fonts.CORMORANT_MEDIUM};
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
   color: rgba(0, 0, 0, 0.8);
 `;

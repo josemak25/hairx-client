@@ -20,7 +20,7 @@ import {
   BackgroundCover,
   DescriptionCover,
   TimeCover,
-  Night,
+  Period,
   TitleText,
   Description,
   Recommendation,
@@ -94,7 +94,7 @@ export default function RegimenRoutineDetailScreen(props: RegimenRoutineScreenPr
                 size={10}
                 color={colors.FONT_BLUE_COLOR}
               />
-              <Night>At night</Night>
+              <Period>At night</Period>
             </TimeCover>
             <TitleText>Pre-poo your hair</TitleText>
             <Description>
@@ -123,7 +123,7 @@ export default function RegimenRoutineDetailScreen(props: RegimenRoutineScreenPr
               >
                 <PriceCover>
                   <Price>{item.price}</Price>
-                  <PriceSuperscript>{item.subPrice}</PriceSuperscript>
+                  <PriceSuperscript>{item.priceSuperscript}</PriceSuperscript>
                 </PriceCover>
                 <ProductImage source={item.image} />
                 <Name>{item.name}</Name>
