@@ -72,6 +72,12 @@ export default function AppNavigator() {
           component={Screens.HairCareDetailScreen}
           options={{ headerShown: false }}
         />
+
+        <RootStack.Screen
+          name="RegimenRoutineDetailScreen"
+          component={Screens.RegimenRoutineDetailScreen}
+          options={{ headerShown: false }}
+        />
       </RootStack.Navigator>
     </NavigationContainer>
   );
