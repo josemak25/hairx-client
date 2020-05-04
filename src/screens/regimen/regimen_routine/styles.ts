@@ -56,3 +56,20 @@ export const Description = styled.Text`
 export const DescriptionCover = styled.View`
   align-items: center;
 `;
+
+export const Recommendation = styled.Text`
+  text-align: center;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE - 2}px;
+  color: rgba(0, 0, 0, 0.3);
+  margin: 10% 0 1%;
+  text-transform: uppercase;
+`;
+
+export const Products = styled.Text`
+  text-align: center;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 5}px;
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  text-transform: uppercase;
+`;
