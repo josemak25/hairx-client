@@ -60,6 +60,7 @@ export default function RegimenRoutineScreen(props: RegimenRoutineScreenProp) {
       <Container>
           <DescriptionCover>
               <TimeCover>
+                  <Ionicons name="md-time" size={10} color={colors.FONT_BLUE_COLOR} />
                 <Night>At night</Night>
               </TimeCover>
               <TitleText>Pre-poo your hair</TitleText>
