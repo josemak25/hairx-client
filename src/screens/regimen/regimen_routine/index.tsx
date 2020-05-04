@@ -30,7 +30,8 @@ import {
   PriceSuperscript,
   ProductImage,
   Name,
-  SplashTopStatusBar
+  SplashTopStatusBar,
+  ButtonWrapper
 } from './styles';
 
 const HEADER_EXPANDED_HEIGHT = 300;
@@ -134,6 +135,7 @@ export default function RegimenRoutineDetailScreen(
                 </PriceCover>
                 <ProductImage source={item.image} />
                 <Name>{item.name}</Name>
+                <ButtonWrapper>
                 <Button
                   title="Buy now"
                   buttonStyle={{
@@ -141,12 +143,10 @@ export default function RegimenRoutineDetailScreen(
                     borderTopColor: colors.BG_LIGHT_GOLD_COLOR,
                     paddingTop: 5,
                     paddingBottom: 5,
-                    position: 'absolute',
-                    bottom: 0,
-                    marginBottom: 10
                   }}
                   textStyle={{ color: colors.ACTIVE_ICON_COLOR }}
                 />
+                </ButtonWrapper>
               </Card>
             ))}
           </ScrollView>

@@ -32,9 +32,6 @@ export const IconCover = styled.TouchableOpacity`
 export const BackgroundCover = styled.Image`
   flex: 1;
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  top: 0;
 `;
 
 export const TimeCover = styled.View`
@@ -54,7 +51,7 @@ export const Period = styled.Text`
 
 export const TitleText = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 5}px;
-  font-family: ${({ theme }) => theme.fonts.JOST_BOOK}px;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   color: rgba(0, 0, 0, 0.9);
   margin-bottom: 3%;
 `;
@@ -86,6 +83,12 @@ export const Products = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 5}px;
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   text-transform: uppercase;
+`;
+
+export const ButtonWrapper = styled.View`
+    flex: 1;
+    justify-content: flex-end;
+    margin-bottom: 10px;
 `;
 
 export const Price = styled.Text`
