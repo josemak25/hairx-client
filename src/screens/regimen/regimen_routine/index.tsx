@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StatusBar, Platform, View } from 'react-native';
+import { ScrollView, StatusBar } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import { NavigationInterface } from '../../types';
