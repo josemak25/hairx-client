@@ -12,7 +12,7 @@ export const SplashTopStatusBar = styled.View`
 
 export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
-  padding-bottom: 20px
+  padding-bottom: 20px;
 `;
 
 export const Cover = styled.View`
@@ -34,7 +34,7 @@ export const BackgroundCover = styled.Image`
   width: 100%;
   position: absolute;
   bottom: 0;
-  top: 0
+  top: 0;
 `;
 
 export const TimeCover = styled.View`

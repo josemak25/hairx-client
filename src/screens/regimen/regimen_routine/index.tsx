@@ -41,7 +41,9 @@ interface RegimenRoutineScreenProp extends NavigationInterface {
   testID?: string;
 }
 
-export default function RegimenRoutineDetailScreen(props: RegimenRoutineScreenProp) {
+export default function RegimenRoutineDetailScreen(
+  props: RegimenRoutineScreenProp
+) {
   const { navigation } = props;
 
   const { colors } = useThemeContext();
@@ -52,10 +54,15 @@ export default function RegimenRoutineDetailScreen(props: RegimenRoutineScreenPr
 
   return (
     <SafeAreaView>
-      <SplashTopStatusBar style={{ backgroundColor: colors.BG_DARK_BLUE_GREEN_COLOR }}>
+      <SplashTopStatusBar
+        style={{ backgroundColor: colors.BG_DARK_BLUE_GREEN_COLOR }}
+      >
         <StatusBar barStyle="dark-content" />
       </SplashTopStatusBar>
-      <ScrollView showsVerticalScrollIndicator={false} style={{ backgroundColor: colors.BG_DARK_BLUE_GREEN_COLOR }}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={{ backgroundColor: colors.BG_DARK_BLUE_GREEN_COLOR }}
+      >
         <Header
           headerLeft={() => (
             <IconCover onPress={() => navigation.goBack()}>
