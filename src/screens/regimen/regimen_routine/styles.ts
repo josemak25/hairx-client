@@ -47,14 +47,14 @@ export const TimeCover = styled.View`
 export const Night = styled.Text`
   color: ${({ theme }) => theme.colors.FONT_BLUE_COLOR};
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
-  font-size: ${({ theme }) => theme.fonts.SMALL_SIZE};
+  font-size: ${({ theme }) => theme.fonts.SMALL_SIZE}px;
   margin-left: 1%;
   text-transform: uppercase;
 `;
 
 export const TitleText = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 5}px;
-  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK}px;
   color: rgba(0, 0, 0, 0.9);
   margin-bottom: 3%;
 `;
@@ -63,7 +63,7 @@ export const Description = styled.Text`
   text-align: center;
   width: 65%;
   font-family: ${({ theme }) => theme.fonts.CORMORANT_MEDIUM};
-  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE};
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
   color: rgba(0, 0, 0, 0.8);
 `;
 
@@ -90,7 +90,7 @@ export const Products = styled.Text`
 
 export const Price = styled.Text`
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
-  font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE};
+  font-size: ${({ theme }) => theme.fonts.MEDIUM_SIZE}px;
   color: rgba(0, 0, 0, 0.7);
 `;
 
@@ -111,7 +111,7 @@ export const ProductImage = styled.Image`
 
 export const Name = styled.Text`
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
-  font-size: ${({ theme }) => theme.fonts.SMALL_SIZE};
+  font-size: ${({ theme }) => theme.fonts.SMALL_SIZE}px;
   color: rgba(0, 0, 0, 0.7);
   text-align: center;
   padding: 0 10px;
