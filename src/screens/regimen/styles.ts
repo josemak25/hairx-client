@@ -29,14 +29,18 @@ export const HeaderTitleLabel = styled.Text`
 `;
 
 export const HeaderTab = styled.View`
-  justify-content: space-between;
+  width: 100%;
+  height: ${applyScale(50)}px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: ${applyScale(50)}px;
   background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
-  border-top-width: 1px;
-  border-top-color: rgba(112, 112, 112, 0.3);
+`;
+
+export const HeaderTabButton = styled.TouchableOpacity`
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const SubHeaderTitle = styled.Text`
@@ -69,6 +73,7 @@ export const Title = styled.Text`
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   margin-bottom: 15px;
 `;
+
 export const Description = styled.Text`
   font-size: ${({ theme }) => theme.fonts.SMALL_SIZE + 3}px;
   font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
