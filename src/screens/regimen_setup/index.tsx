@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import { AntDesign } from '@expo/vector-icons';
 import Modal from 'react-native-modal';
 import AppIntroSlider from 'react-native-app-intro-slider';
-
 import { NavigationInterface } from '../types';
 import { StatusBar } from 'react-native';
 import { useThemeContext } from '../../theme';
