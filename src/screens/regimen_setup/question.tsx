@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { ScrollView, Animated, Easing, ActivityIndicator } from 'react-native';
 import { useThemeContext } from '../../theme';
 import applyScale from '../../utils/applyScale';
+import HairStatusModal from './hair_status_modal';
 
 import {
   Container,
@@ -22,6 +23,7 @@ interface RenderItemProp {
   testID?: string;
   question: string;
   questionRelevance: string;
+  currentQuestion: number;
   index: number;
   options: string[];
   optionsDropDown?: string[];
@@ -37,6 +39,11 @@ export default function RenderItem(props: RenderItemProp) {
   const [animation, setAnimation] = useState({
     options: { selected: '' },
     optionDropDown: { selected: '' }
+  });
+
+  const [hairStatus, setHairStatus] = useState({
+    date: '6 months ago',
+    showModal: false
   });
 
   const [dropDown, setDropDown] = useState({
@@ -92,7 +99,10 @@ export default function RenderItem(props: RenderItemProp) {
       toValue: applyScale(buttonType === 'options' ? 373 : 335),
       duration: 500,
       easing: Easing.elastic(0.7)
-    }).start();
+    }).start(({ finished }) => {
+      if (finished && buttonType !== 'optionDropDown') return;
+      setHairStatus({ ...hairStatus, showModal: true });
+    });
   };
 
   const loadDropDown = () => {
@@ -133,6 +143,19 @@ export default function RenderItem(props: RenderItemProp) {
               <AnswerOption
                 onPress={() => startButtonAnimation(item, 'options')}
               />
+
+              {props.currentQuestion === 3 && hairStatus.showModal ? (
+                <HairStatusModal
+                  isVisible={hairStatus.showModal}
+                  hairStatusDate={hairStatus.date}
+                  onBackdropPress={() =>
+                    setHairStatus({ ...hairStatus, showModal: false })
+                  }
+                  onChange={(hairStatusDate: string) =>
+                    setHairStatus({ ...hairStatus, date: hairStatusDate })
+                  }
+                />
+              ) : null}
             </AnswerOptionContainer>
           ))}
 
