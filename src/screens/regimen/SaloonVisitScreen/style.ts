@@ -26,7 +26,7 @@ export const SubTitle = styled.Text`
 
 export const Content = styled.Text`
     font-size:20px;
-    width:100%;
+    width:70%;
     margin-bottom:35px;
     text-align:center;
     font-family:${({ theme }) => theme.fonts.CORMORANT_MEDIUM};

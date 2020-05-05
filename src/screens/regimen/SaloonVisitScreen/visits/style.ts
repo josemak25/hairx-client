@@ -21,7 +21,7 @@ export const Content = styled.View`
 export const Time = styled.Text`
     font-size:10px;
     font-family:${({ theme }) => theme.fonts.JOST_BOOK};
-    color:${({ theme }) => theme.colors.FONT_RED_COLOR};
+    color:${({ theme }) => theme.colors.BG_DARK_BLUE_COLOR};
     opacity:0.8;
 `;
 
