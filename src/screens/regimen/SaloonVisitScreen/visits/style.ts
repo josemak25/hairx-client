@@ -20,6 +20,7 @@ export const Content = styled.View`
 
 export const Time = styled.Text`
     font-size:10px;
+    text-transform:uppercase;
     font-family:${({ theme }) => theme.fonts.JOST_BOOK};
     color:${({ theme }) => theme.colors.BG_DARK_BLUE_COLOR};
     opacity:0.8;
@@ -41,7 +42,7 @@ export const Booking = styled.TouchableOpacity`
     z-index:2;
     width:34%;
     position:relative;
-    right:8px;
+    right:10px;
     height:${applyScale(50)}px;
     align-items:center;
     justify-content:center;

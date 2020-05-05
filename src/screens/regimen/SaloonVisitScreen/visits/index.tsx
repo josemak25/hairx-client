@@ -22,7 +22,7 @@ export default function Visits(props: VisitProps) {
             <Content>
                 <Time>{props.time}</Time>
                 <Title>{props.title}</Title>
-                <Purpose>Purpose:{props.purpose}</Purpose>
+                <Purpose>Purpose: {props.purpose}</Purpose>
             </Content>
             <Booking>
                 <Book>Book Now</Book>
