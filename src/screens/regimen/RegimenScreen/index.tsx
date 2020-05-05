@@ -11,7 +11,6 @@ interface RoutineProps extends NavigationInterface {
 }
 
 export default function RoutineScreen(props: RoutineProps) {
-
   const setOrder = (index: number) => (index === 1 ? 'row-reverse' : 'row');
   return (
     <Container>
