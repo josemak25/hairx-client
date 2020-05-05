@@ -17,7 +17,7 @@ interface RoutineProps extends NavigationInterface {
 
 export default function SaloonVisitScreen(props: RoutineProps) {
     return (
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
             <Container>
                 <SubTitle>RECOMMENDED</SubTitle>
                 <Title>ROUTINE</Title>

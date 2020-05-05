@@ -4,7 +4,6 @@ import applyScale from '../../../../utils/applyScale';
 export const Container = styled.View`
   flex: 1;
   flex-direction: row;
-  position:relative;
   height: ${applyScale(71)}px;
   margin-bottom: 10px;
 `;
@@ -39,8 +38,10 @@ export const Purpose = styled.Text`
 `;
 
 export const Booking = styled.TouchableOpacity`
-    z-index:3;
+    z-index:2;
     width:34%;
+    position:relative;
+    right:8px;
     height:${applyScale(50)}px;
     align-items:center;
     justify-content:center;
