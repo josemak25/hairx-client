@@ -1,22 +1,188 @@
-[
-  {
-    "image": "https://bit.ly/2L53saN",
-    "title": "Flax and chia seeds",
-    "description": "They are full of mineral irons that help to promote growth and strong shampooing and  your scalp a massage with light oil along with drops of essential oils."
-  },
-  {
-    "image": "https://bit.ly/3f9cn8F",
-    "title": "Lean meat & seafood",
-    "description": "They are full of mineral irons that help to promote growth and strong shampooing and  your scalp a massage with light oil along with drops of essential oils."
-  },
-  {
-    "image": "https://bit.ly/2WgNm2V",
-    "title": "Cheakpeas and lentils",
-    "description": "They are full of mineral irons that."
-  },
-  {
-    "image": "https://bit.ly/2SqRhca",
-    "title": "Pumpkin seeds",
-    "description": "They are full of mineral irons that help to promote growth and strong shampooing and  your scalp a massage with light oil along with drops of essential oils."
-  }
-]
+{
+  "dummyFoodData": [
+    {
+      "image": "https://bit.ly/2SAZASJ",
+      "title": "Flax and chia seeds",
+      "description": "Many whole grains, including brown rice and oats, are rich in b vitamins, including biotin (B7), which can help alleviate alopecia and brittle hair. Healthy whole grains such as raw oats are also a good source of silica, which can help reduce hair breakage, and zinc; an important hair mineral which, in its deficiency, can lead to hair loss. For healthy, strong hair, try to eat a variety of whole grains – opting for grains that are as close to their natural state as possible.",
+      "afterTreatmentImage": "https://bit.ly/3dibd9b",
+      "products": [
+        {
+          "price": "$274",
+          "image": "https://bit.ly/3aAkbgp",
+          "name": "Bumble and Bumble Invisible Oil Pre-Shampoo Masque"
+        },
+        {
+          "price": "$499",
+          "image": "https://bit.ly/2VF2xUp",
+          "name": "Philip Kingsley Coconut Breeze Elasticizer"
+        },
+        {
+          "price": "$523",
+          "image": "https://bit.ly/3bDwA4h",
+          "name": "Leonor Greyl L’Huile de Leonor Greyl"
+        }
+      ]
+    },
+    {
+      "image": "https://bit.ly/3c0tNT0",
+      "title": "Lean meat & seafood",
+      "description": "Many whole grains, including brown rice and oats, are rich in b vitamins, including biotin (B7), which can help alleviate alopecia and brittle hair. Healthy whole grains such as raw oats are also a good source of silica, which can help reduce hair breakage, and zinc; an important hair mineral which, in its deficiency, can lead to hair loss. For healthy, strong hair, try to eat a variety of whole grains – opting for grains that are as close to their natural state as possible.",
+      "afterTreatmentImage": "https://bit.ly/3dibd9b",
+      "products": [
+        {
+          "price": "$274",
+          "image": "https://bit.ly/3aAkbgp",
+          "name": "Bumble and Bumble Invisible Oil Pre-Shampoo Masque"
+        },
+        {
+          "price": "$499",
+          "image": "https://bit.ly/2VF2xUp",
+          "name": "Philip Kingsley Coconut Breeze Elasticizer"
+        },
+        {
+          "price": "$523",
+          "image": "https://bit.ly/3bDwA4h",
+          "name": "Leonor Greyl L’Huile de Leonor Greyl"
+        }
+      ]
+    },
+    {
+      "image": "https://bit.ly/2z5MLJn",
+      "title": "Cheakpeas and lentils",
+      "description": "Many whole grains, including brown rice and oats, are rich in b vitamins, including biotin (B7), which can help alleviate alopecia and brittle hair. Healthy whole grains such as raw oats are also a good source of silica, which can help reduce hair breakage, and zinc; an important hair mineral which, in its deficiency, can lead to hair loss. For healthy, strong hair, try to eat a variety of whole grains – opting for grains that are as close to their natural state as possible.",
+      "afterTreatmentImage": "https://bit.ly/3dibd9b",
+      "products": [
+        {
+          "price": "$274",
+          "image": "https://bit.ly/3aAkbgp",
+          "name": "Bumble and Bumble Invisible Oil Pre-Shampoo Masque"
+        },
+        {
+          "price": "$499",
+          "image": "https://bit.ly/2VF2xUp",
+          "name": "Philip Kingsley Coconut Breeze Elasticizer"
+        },
+        {
+          "price": "$523",
+          "image": "https://bit.ly/3bDwA4h",
+          "name": "Leonor Greyl L’Huile de Leonor Greyl"
+        }
+      ]
+    },
+    {
+      "image": "https://bit.ly/2xyrGXx",
+      "title": "Pumpkin seeds",
+      "description": "Many whole grains, including brown rice and oats, are rich in b vitamins, including biotin (B7), which can help alleviate alopecia and brittle hair. Healthy whole grains such as raw oats are also a good source of silica, which can help reduce hair breakage, and zinc; an important hair mineral which, in its deficiency, can lead to hair loss. For healthy, strong hair, try to eat a variety of whole grains – opting for grains that are as close to their natural state as possible.",
+      "afterTreatmentImage": "https://bit.ly/3dibd9b",
+      "products": [
+        {
+          "price": "$274",
+          "image": "https://bit.ly/3aAkbgp",
+          "name": "Bumble and Bumble Invisible Oil Pre-Shampoo Masque"
+        },
+        {
+          "price": "$499",
+          "image": "https://bit.ly/2VF2xUp",
+          "name": "Philip Kingsley Coconut Breeze Elasticizer"
+        },
+        {
+          "price": "$523",
+          "image": "https://bit.ly/3bDwA4h",
+          "name": "Leonor Greyl L’Huile de Leonor Greyl"
+        }
+      ]
+    },
+    {
+      "image": "https://bit.ly/2yjeera",
+      "title": "Whole grains",
+      "description": "Many whole grains, including brown rice and oats, are rich in b vitamins, including biotin (B7), which can help alleviate alopecia and brittle hair. Healthy whole grains such as raw oats are also a good source of silica, which can help reduce hair breakage, and zinc; an important hair mineral which, in its deficiency, can lead to hair loss. For healthy, strong hair, try to eat a variety of whole grains – opting for grains that are as close to their natural state as possible.",
+      "afterTreatmentImage": "https://bit.ly/3dibd9b",
+      "products": [
+        {
+          "price": "$274",
+          "image": "https://bit.ly/3aAkbgp",
+          "name": "Bumble and Bumble Invisible Oil Pre-Shampoo Masque"
+        },
+        {
+          "price": "$499",
+          "image": "https://bit.ly/2VF2xUp",
+          "name": "Philip Kingsley Coconut Breeze Elasticizer"
+        },
+        {
+          "price": "$523",
+          "image": "https://bit.ly/3bDwA4h",
+          "name": "Leonor Greyl L’Huile de Leonor Greyl"
+        }
+      ]
+    },
+    {
+      "image": "https://bit.ly/35z44hX",
+      "title": "Yoghurt",
+      "description": "Yoghurt is rich in calcium – an essential mineral for healthy hair growth – and is also a great source of protein. One of the best things about yoghurt, however, is that it can double up as a hair mask as well as a health food. For those suffering from an itchy scalp or dandruff, try applying some yoghurt straight to your scalp and hair and massaging in. Leave on for 10 minutes for a soothing hair and scalp treatment.",
+      "afterTreatmentImage": "https://bit.ly/3dibd9b",
+      "products": [
+        {
+          "price": "$274",
+          "image": "https://bit.ly/3aAkbgp",
+          "name": "Bumble and Bumble Invisible Oil Pre-Shampoo Masque"
+        },
+        {
+          "price": "$499",
+          "image": "https://bit.ly/2VF2xUp",
+          "name": "Philip Kingsley Coconut Breeze Elasticizer"
+        },
+        {
+          "price": "$523",
+          "image": "https://bit.ly/3bDwA4h",
+          "name": "Leonor Greyl L’Huile de Leonor Greyl"
+        }
+      ]
+    },
+    {
+      "image": "https://bit.ly/2Ww9k1O",
+      "title": "Oily Fish",
+      "description": "If you’re longing for strong, shiny hair, try adding oily fish – such as salmon, trout and sardines to your regular diet. Oily fish are packed with omega-3 fatty acids, which are important for healthy skin and keeping your scalp in good condition. Not only that, oily fish is also loaded with protein, which is essential for hair growth and strength, and iron, which can alleviate hair loss. To boost your body’s absorption of iron, try eating your oily fish sprinkled with vitamin C-rich lemon juice. ",
+      "afterTreatmentImage": "https://bit.ly/3dibd9b",
+      "products": [
+        {
+          "price": "$274",
+          "image": "https://bit.ly/3aAkbgp",
+          "name": "Bumble and Bumble Invisible Oil Pre-Shampoo Masque"
+        },
+        {
+          "price": "$499",
+          "image": "https://bit.ly/2VF2xUp",
+          "name": "Philip Kingsley Coconut Breeze Elasticizer"
+        },
+        {
+          "price": "$523",
+          "image": "https://bit.ly/3bDwA4h",
+          "name": "Leonor Greyl L’Huile de Leonor Greyl"
+        }
+      ]
+    },
+    {
+      "image": "https://bit.ly/2xAm4vX",
+      "title": "Avocado",
+      "description": "Avocados are packed with monounsaturated fats, fatty acids and vitamin E, all of which can help promote nourished, supple and strong hair. The healthy fruit is also surprisingly high in protein and rich in B vitamins. To keep hair smooth and shiny, make avocados a part of your hair care routine as well as your regular diet by mashing one up and applying directly to your hair as a moisturizing, nourishing treatment.",
+      "afterTreatmentImage": "https://bit.ly/3dibd9b",
+      "products": [
+        {
+          "price": "$274",
+          "image": "https://bit.ly/3aAkbgp",
+          "name": "Bumble and Bumble Invisible Oil Pre-Shampoo Masque"
+        },
+        {
+          "price": "$499",
+          "image": "https://bit.ly/2VF2xUp",
+          "name": "Philip Kingsley Coconut Breeze Elasticizer"
+        },
+        {
+          "price": "$523",
+          "image": "https://bit.ly/3bDwA4h",
+          "name": "Leonor Greyl L’Huile de Leonor Greyl"
+        }
+      ]
+    }
+  ]
+}
