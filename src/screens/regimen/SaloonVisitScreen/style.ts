@@ -3,7 +3,7 @@ import applyScale from '../../../utils/applyScale';
 
 export const Container = styled.View`
   flex: 1;
-  padding: 10px;
+  padding: 20px;
   align-items: center;
 `;
 
@@ -27,6 +27,7 @@ export const SubTitle = styled.Text`
 export const Content = styled.Text`
     font-size:20px;
     width:100%;
+    margin-bottom:35px;
     text-align:center;
     font-family:${({ theme }) => theme.fonts.CORMORANT_MEDIUM};
     opacity:0.7;

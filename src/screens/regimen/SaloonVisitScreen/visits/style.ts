@@ -7,13 +7,15 @@ export const Container = styled.View`
   position:relative;
   height: ${applyScale(71)}px;
   margin-bottom: 10px;
-  background-color: ${({ theme }) => theme.colors.BG_LIGHT_PINK_COLOR};
 `;
 
 export const Content = styled.View`
   width:70%;
+  justify-content:center;
   height: ${applyScale(71)}px;
-  padding-left:10px;
+  padding-left:20px;
+  border-radius:5px;
+  background-color: ${({ theme }) => theme.colors.BG_LIGHT_BLUE_COLOR};
   z-index:3;
 `;
 
@@ -36,8 +38,8 @@ export const Purpose = styled.Text`
     opacity:0.7;
 `;
 
-export const Booking = styled.View`
-    z-index:2;
+export const Booking = styled.TouchableOpacity`
+    z-index:3;
     width:34%;
     height:${applyScale(50)}px;
     align-items:center;

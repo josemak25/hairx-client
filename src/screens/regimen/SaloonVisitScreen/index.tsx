@@ -17,8 +17,8 @@ interface RoutineProps extends NavigationInterface {
 
 export default function SaloonVisitScreen(props: RoutineProps) {
     return (
-        <Container>
-            <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+            <Container>
                 <SubTitle>RECOMMENDED</SubTitle>
                 <Title>ROUTINE</Title>
                 <Content>
@@ -33,7 +33,7 @@ export default function SaloonVisitScreen(props: RoutineProps) {
                         purpose={item.purpose}
                     />
                 ))}
-            </ScrollView>
-        </Container>
+            </Container>
+        </ScrollView>
     );
 }
