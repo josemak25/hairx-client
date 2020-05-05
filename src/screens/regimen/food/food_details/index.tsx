@@ -1,47 +1,69 @@
 import React from 'react';
 import { ScrollView, Dimensions, StatusBar } from 'react-native';
+import expoConstants from 'expo-constants';
 import { Ionicons } from '@expo/vector-icons';
-
 import { NavigationInterface } from '../../../types';
 import { useThemeContext } from '../../../../theme';
 import applyScale from '../../../../utils/applyScale';
-import { products } from '../../../../libs/food_details_screen_products.json';
 import ResponsiveImage from '../../../../libs/responsiveImage';
 import boxShadow from '../../../../utils/boxShadows';
 import Header from '../../../../commons/header';
-import SafeAreaView from '../../../../commons/safe-area-view';
+
 import {
   Container,
   BackButton,
-  FoodDetailContainer,
   FoodDetailHeader,
   FoodDetailBenefits,
   FoodDetailText,
   ProductsContainer,
-  ProductBox,
+  ProductCard,
   ProductPrice,
   ContentArea,
-  ProductsHeader1,
-  ProductsHeader2,
   ProductImage,
-  ProductHeaders,
-  ProductText
+  ProductTitle,
+  HeaderSection,
+  SubHeaderTitle,
+  HeaderTitle
 } from './styles';
 
 const HEADER_EXPANDED_HEIGHT = 300;
+const HEADER_COLLAPSED_HEIGHT = 60;
+
+const HEADER_IMAGE_WIDTH = Math.floor(
+  Dimensions.get('screen').width <= 375
+    ? Dimensions.get('screen').width + 50
+    : Dimensions.get('screen').width + 10
+);
+
+type FoodDetailsType = {
+  title: string;
+  description: string;
+  afterTreatmentImage: string;
+  products: { price: string; image: string; name: string }[];
+};
 
 interface FoodDetailsScreenProp extends NavigationInterface {
   testID?: string;
+  route: { params: FoodDetailsType };
 }
 
 export default function FoodDetailsScreen(props: FoodDetailsScreenProp) {
-  const { navigation } = props;
+  const {
+    navigation,
+    route: { params }
+  } = props;
 
-  const { colors } = useThemeContext();
+  const { title, description, afterTreatmentImage, products } = params;
+
+  const { colors, fonts } = useThemeContext();
 
   return (
-    <SafeAreaView>
-      <StatusBar barStyle="dark-content" translucent />
+    <Container style={{ paddingBottom: expoConstants.statusBarHeight - 15 }}>
+      <StatusBar
+        barStyle="light-content"
+        translucent
+        backgroundColor="transparent"
+      />
       <Header
         headerLeft={() => (
           <BackButton onPress={() => navigation.goBack()}>
@@ -57,16 +79,15 @@ export default function FoodDetailsScreen(props: FoodDetailsScreenProp) {
           paddingLeft: 10,
           position: 'absolute',
           alignItems: 'flex-start',
-          paddingTop: 10,
+          paddingTop: expoConstants.statusBarHeight + 5,
           zIndex: 999
         }}
         title={() => (
           <ContentArea>
             <ResponsiveImage
-              width={Dimensions.get('screen').width + 40}
+              width={HEADER_IMAGE_WIDTH}
               height={HEADER_EXPANDED_HEIGHT}
-              imageUrl="https://lh3.googleusercontent.com/proxy/MV7mEwwbQWEuzI6NHw2R0aYkXvMpY1fOPZmTqWceTyjZBLvFuZ706mzmmjNWSPO-d46LRB9gaco-HvUnODP8vtVgAIVRzyKFO1i7zbQyGGge_w"
-              style={{}}
+              imageUrl={afterTreatmentImage}
             />
           </ContentArea>
         )}
@@ -76,44 +97,61 @@ export default function FoodDetailsScreen(props: FoodDetailsScreenProp) {
           boxShadow({ elevation: 0, shadowColor: colors.BG_WHITE_COLOR })
         ]}
       />
-
       <ScrollView
         scrollEnabled
-        style={{ flex: 1 }}
+        contentContainerStyle={{
+          flexGrow: 1,
+          alignItems: 'center',
+          paddingTop: 40,
+          paddingLeft: 10,
+          paddingRight: 10
+        }}
         showsVerticalScrollIndicator={false}
       >
-        <Container>
-          <FoodDetailContainer>
-            <FoodDetailHeader>Cheakpeas and lentils</FoodDetailHeader>
-            <FoodDetailBenefits>Benefits</FoodDetailBenefits>
-            <FoodDetailText>
-              Chickpeas, Lentils, Nuts, seeds, Beans (great source of Protein)
-              vegans must have omega-3 and B12 supplement. Include clean Protein
-              like Hemp, Spirulina, pea Protein (add them into smoothies),
-              Berries- Loaded with antioxidants (1 Cup of strawberries contain
-              141% of your daily vitamin C needs)
-            </FoodDetailText>
-          </FoodDetailContainer>
-          <ProductsContainer>
-            <ProductHeaders>
-              <ProductsHeader1>RECOMMENDED</ProductsHeader1>
-              <ProductsHeader2>PRODUCTS</ProductsHeader2>
-            </ProductHeaders>
-            <ScrollView horizontal style={{ paddingLeft: 30, marginTop: 20 }}>
-              {products.map(product => (
-                <ProductBox key={product.name}>
-                  <ProductPrice>{product.price}</ProductPrice>
-                  <ProductImage
+        <FoodDetailHeader>{title}</FoodDetailHeader>
+        <FoodDetailBenefits>Benefits</FoodDetailBenefits>
+        <FoodDetailText>{description}</FoodDetailText>
+        <ProductsContainer>
+          <HeaderSection>
+            <SubHeaderTitle
+              style={{ opacity: 0.4, fontSize: fonts.MEDIUM_SIZE }}
+            >
+              recommended
+            </SubHeaderTitle>
+            <HeaderTitle
+              style={{
+                fontSize: fonts.LARGE_SIZE * 2,
+                fontFamily: fonts.JOST_BOOK,
+                marginTop: 5,
+                marginBottom: 10
+              }}
+            >
+              products
+            </HeaderTitle>
+          </HeaderSection>
+          <ScrollView
+            horizontal
+            contentContainerStyle={{ flexGrow: 1, paddingBottom: 30 }}
+          >
+            {products.map(({ name, price, image }) => (
+              <ProductCard key={name}>
+                <ProductPrice>{price}</ProductPrice>
+                <ProductImage>
+                  <ResponsiveImage
+                    imageUrl={image}
+                    width={60}
+                    height={60}
                     resizeMode="contain"
-                    source={require('../../../../../assets/images/food_details_product_2.png')}
+                    thumbnailBlurRadius={2}
+                    style={{ marginTop: 10 }}
                   />
-                  <ProductText>{product.name}</ProductText>
-                </ProductBox>
-              ))}
-            </ScrollView>
-          </ProductsContainer>
-        </Container>
+                </ProductImage>
+                <ProductTitle>{name}</ProductTitle>
+              </ProductCard>
+            ))}
+          </ScrollView>
+        </ProductsContainer>
       </ScrollView>
-    </SafeAreaView>
+    </Container>
   );
 }
