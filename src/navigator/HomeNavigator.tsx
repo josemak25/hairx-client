@@ -19,6 +19,26 @@ export default function HomeNavigator() {
         name="RegimenSetupScreen"
         component={Screens.RegimenSetupScreen}
       />
+
+      <HomeStack.Screen
+        name="HairCareDetailScreen"
+        component={Screens.HairCareDetailScreen}
+      />
+
+      <HomeStack.Screen
+        name="FoodDetailScreen"
+        component={Screens.FoodDetailScreen}
+      />
+
+      <HomeStack.Screen
+        name="RoutineDetailScreen"
+        component={Screens.FoodDetailScreen}
+      />
+
+      <HomeStack.Screen
+        name="BookingScreen"
+        component={Screens.BookingScreen}
+      />
     </HomeStack.Navigator>
   );
 }
