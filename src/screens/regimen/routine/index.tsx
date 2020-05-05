@@ -1,41 +1,61 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-
 import { NavigationInterface } from '../../types';
-import Card from './Card';
-import Data from '../../../libs/getRoutine.json';
-import { SubTitle, Title, HeaderSection, Description } from './style';
+import { useThemeContext } from '../../../theme';
+import RoutineCard from './routine-card';
+import setCardItemOrder from '../../../utils/setCardItemOrder';
+import { dummyRoutineData } from '../../../libs/routine_list.json';
+
+import { HeaderSection, Description } from './style';
+import { Container, SubHeaderTitle, HeaderTitle } from '../styles';
 
 interface RoutineProps extends NavigationInterface {
   testId?: string;
 }
 
-const ListHeaderComponent = () => (
-  <HeaderSection>
-    <SubTitle>RECOMMENDED</SubTitle>
-    <Title>ROUTINE</Title>
-  </HeaderSection>
-);
-
 export default function RoutineScreen(props: RoutineProps) {
-  const setOrder = (index: number) => (index === 1 ? 'row-reverse' : 'row');
+  const { fonts } = useThemeContext();
+
+  props;
+
   return (
-    <FlatList
-      ListHeaderComponent={ListHeaderComponent}
-      ListEmptyComponent={<Description>No data yet</Description>}
-      renderItem={({ item, index }) => (
-        <Card
-          key={index}
-          order={setOrder(index % 2)}
-          time={item.time}
-          heading={item.heading}
-          image={item.img}
-          content={item.content}
-        />
-      )}
-      data={Data}
-      keyExtractor={(_item, index) => index.toString()}
-      showsVerticalScrollIndicator={false}
-    />
+    <Container>
+      <FlatList
+        ListHeaderComponent={() => (
+          <HeaderSection>
+            <SubHeaderTitle
+              style={{ opacity: 0.4, fontSize: fonts.SMALL_SIZE }}
+            >
+              recommended
+            </SubHeaderTitle>
+            <HeaderTitle
+              style={{
+                fontSize: fonts.LARGE_SIZE * 2,
+                fontFamily: fonts.JOST_BOOK,
+                marginTop: 20,
+                marginBottom: 40
+              }}
+            >
+              routine
+            </HeaderTitle>
+          </HeaderSection>
+        )}
+        ListHeaderComponentStyle={{ height: 120 }}
+        ListEmptyComponent={<Description>No data yet</Description>}
+        renderItem={({ item, index }) => (
+          <RoutineCard
+            key={index}
+            order={setCardItemOrder(index % 2)}
+            {...item}
+            {...props}
+          />
+        )}
+        data={dummyRoutineData}
+        contentContainerStyle={{ paddingBottom: 10 }}
+        keyExtractor={(_item, index) => index.toString()}
+        showsVerticalScrollIndicator={false}
+        style={{ width: '92%' }}
+      />
+    </Container>
   );
 }
