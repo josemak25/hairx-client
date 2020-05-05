@@ -1,81 +1,46 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { TouchableOpacity, StatusBar } from 'react-native';
-
+import React, { useState, useRef } from 'react';
+import { StatusBar } from 'react-native';
+import AppIntroSlider from 'react-native-app-intro-slider';
+import SafeAreaView from '../../commons/safe-area-view';
+import Header from '../../commons/header';
 import { NavigationInterface } from '../types';
 import applyScale from '../../utils/applyScale';
 import { useThemeContext } from '../../theme';
-import FoodScreen from './food/food';
+import FoodScreen from './food';
 import RoutineScreen from './routine';
 
 import {
-  HeaderTab,
-  HeaderTitleLabel,
   HeaderTitleContainer,
-  HeaderTitle
+  HeaderTitle,
+  HeaderTitleLabel,
+  Container,
+  HeaderTab,
+  HeaderTabButton
 } from './styles';
-import SafeAreaView from '../../commons/safe-area-view';
-import Header from '../../commons/header';
+
+const TOP_NAV_HEADER_ROUTES = ['routine', 'foods', 'saloon visits'];
 
 interface RecommendationScreenProp extends NavigationInterface {
   testID?: string;
-  children: React.ReactChild;
 }
 
 export default function RecommendationScreen(props: RecommendationScreenProp) {
   const { colors } = useThemeContext();
-  const [state, setState] = useState({ ref: null, isFirstRender: true });
 
-  const { navigation } = props;
+  const [routineTabTitle, foodsTabTitle, saloonVisit] = TOP_NAV_HEADER_ROUTES;
 
-  const headerTabRef = useRef({
-    routineRef: null,
-    foodRef: null,
-    saloonVisitsRef: null
-  });
+  const [state, setState] = useState({ activeHeader: routineTabTitle });
 
-  const { routineRef, foodRef, saloonVisitsRef } = headerTabRef.current;
+  const sliderRef = useRef<{ goToSlide(index: number): void }>(null);
 
-  useEffect(() => {
-    //select this routeRef if its the first render
-    setState({ ...state, ref: routineRef, isFirstRender: false });
-  }, [routineRef]);
-
-  const handleDecoration = (ref: any) => {
-    if (!ref) return;
-    //First set existing textDecorationLine to none
-    Object.keys(headerTabRef.current).forEach(key => {
-      if (headerTabRef.current[key]) {
-        headerTabRef.current[key].setNativeProps({
-          style: {
-            textDecorationLine: 'none',
-            opacity: 0.5
-          }
-        });
-      }
-    });
-    //Now set textDecorationLine = underline for this ref
-    ref.setNativeProps({
-      style: {
-        textDecorationLine: 'underline',
-        opacity: 1
-      }
-    });
+  const handleSlideChange = (index: number) => {
+    setState({ ...state, activeHeader: TOP_NAV_HEADER_ROUTES[index] });
   };
 
-  const MountSelectedScreen = () => {
-    switch (state.ref) {
-      case routineRef:
-        handleDecoration(state.ref);
-        return <RoutineScreen navigation={navigation} />;
-      case foodRef:
-        handleDecoration(state.ref);
-        return <FoodScreen navigation={navigation} />;
-      case saloonVisitsRef:
-        handleDecoration(state.ref);
-        return <FoodScreen navigation={navigation} />;
-      default:
-        return <RoutineScreen navigation={navigation} />;
-    }
+  const handleTopNavSelect = (topBarTitle: string) => {
+    const nextScrollIndex = TOP_NAV_HEADER_ROUTES.indexOf(topBarTitle);
+    sliderRef.current.goToSlide(nextScrollIndex);
+    setState({ ...state, activeHeader: topBarTitle });
   };
 
   return (
@@ -92,57 +57,70 @@ export default function RecommendationScreen(props: RecommendationScreenProp) {
           </HeaderTitleContainer>
         )}
       />
-      <HeaderTab>
-        <TouchableOpacity
-          onPress={() => {
-            setState({ ...state, ref: routineRef });
+      <Container>
+        <HeaderTab>
+          <HeaderTabButton onPress={() => handleTopNavSelect(routineTabTitle)}>
+            <HeaderTitleLabel
+              style={{
+                opacity: state.activeHeader === routineTabTitle ? 1 : 0.5,
+                textDecorationLine:
+                  state.activeHeader === routineTabTitle ? 'underline' : 'none'
+              }}
+            >
+              {routineTabTitle}
+            </HeaderTitleLabel>
+          </HeaderTabButton>
+          <HeaderTabButton onPress={() => handleTopNavSelect(foodsTabTitle)}>
+            <HeaderTitleLabel
+              style={{
+                marginLeft: applyScale(30),
+                marginRight: applyScale(30),
+                opacity: state.activeHeader === foodsTabTitle ? 1 : 0.5,
+                textDecorationLine:
+                  state.activeHeader === foodsTabTitle ? 'underline' : 'none'
+              }}
+            >
+              {foodsTabTitle}
+            </HeaderTitleLabel>
+          </HeaderTabButton>
+          <HeaderTabButton onPress={() => handleTopNavSelect(saloonVisit)}>
+            <HeaderTitleLabel
+              style={{
+                opacity: state.activeHeader === saloonVisit ? 1 : 0.5,
+                textDecorationLine:
+                  state.activeHeader === saloonVisit ? 'underline' : 'none'
+              }}
+            >
+              {saloonVisit}
+            </HeaderTitleLabel>
+          </HeaderTabButton>
+        </HeaderTab>
+        <AppIntroSlider
+          testID="slider"
+          scrollEnabled={true}
+          renderItem={({ item }) => {
+            switch (item) {
+              case foodsTabTitle:
+                return <FoodScreen {...props} key={item} />;
+
+              case saloonVisit:
+                return <FoodScreen {...props} key={item} />;
+
+              default:
+                return <RoutineScreen {...props} key={item} />;
+            }
           }}
-        >
-          <HeaderTitleLabel
-            ref={ref => {
-              headerTabRef.current.routineRef = ref;
-              if (state.isFirstRender)
-                handleDecoration(headerTabRef.current.routineRef);
-            }}
-            style={{ opacity: 0.5 }}
-          >
-            routine
-          </HeaderTitleLabel>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {
-            setState({ ...state, ref: foodRef });
-          }}
-        >
-          <HeaderTitleLabel
-            style={{
-              marginLeft: applyScale(30),
-              marginRight: applyScale(30),
-              opacity: 0.5
-            }}
-            ref={ref => {
-              headerTabRef.current.foodRef = ref;
-            }}
-          >
-            foods
-          </HeaderTitleLabel>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {
-            setState({ ...state, ref: saloonVisitsRef });
-          }}
-        >
-          <HeaderTitleLabel
-            ref={ref => {
-              headerTabRef.current.saloonVisitsRef = ref;
-            }}
-            style={{ opacity: 0.5 }}
-          >
-            saloon visits
-          </HeaderTitleLabel>
-        </TouchableOpacity>
-      </HeaderTab>
-      <MountSelectedScreen />
+          onSlideChange={handleSlideChange}
+          showSkipButton={false}
+          showNextButton={false}
+          showPrevButton={false}
+          showDoneButton={false}
+          hidePagination={true}
+          slides={TOP_NAV_HEADER_ROUTES}
+          ref={sliderRef}
+          keyExtractor={(item: string) => item}
+        />
+      </Container>
     </SafeAreaView>
   );
 }
