@@ -8,8 +8,6 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
 `;
 
-export const FoodImage = styled.Image``;
-
 export const ContentArea = styled.View`
   flex: 1;
   height: 100%;
@@ -24,79 +22,82 @@ export const BackButton = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.colors.INACTIVE_FIELD_COLOR};
 `;
 
-export const FoodDetailContainer = styled.View`
-  margin-top: 25px;
-  align-items: center;
-  width: 53%;
-  justify-content: space-evenly;
-`;
-
 export const FoodDetailHeader = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 5}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  padding: 4px 30px;
+  text-align: center;
 `;
 
 export const FoodDetailBenefits = styled.Text`
-  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE - 5}px;
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE - 2}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
-  text-transform: uppercase;
   color: ${({ theme }) => theme.colors.FONT_BLUE_COLOR};
+  text-transform: uppercase;
+  padding: 5px 30px;
+  text-align: center;
 `;
 
 export const FoodDetailText = styled.Text`
   margin-top: 10px;
-  text-align: center;
-  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE}px;
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 3}px;
   font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
   opacity: 0.8;
+  padding: 5px 20px;
+  text-align: center;
 `;
 
 export const ProductsContainer = styled.View`
   margin-top: 25px;
   align-items: center;
-  justify-content: space-between;
 `;
 
-export const ProductHeaders = styled.View``;
-
-export const ProductsHeader1 = styled.Text`
-  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE - 5}px;
-  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
-  text-transform: uppercase;
-  opacity: 0.3;
-  text-align: center;
-`;
-
-export const ProductsHeader2 = styled.Text`
+export const HeaderTitle = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 5}px;
-  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_MEDIUM};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   text-transform: uppercase;
-  text-align: center;
 `;
 
-export const ProductBox = styled.View`
-  background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
-  height: 189px;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 116px;
+export const SubHeaderTitle = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE * 2}px;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  text-transform: uppercase;
+`;
+
+export const HeaderSection = styled.View`
   align-items: center;
-  justify-content: space-evenly;
+  margin-bottom: 20px;
+`;
+
+export const ProductCard = styled.View`
+  width: 130px;
+  height: 160px;
   border-radius: 5px;
+  padding: 10px 4px;
+  margin: 0px 5px;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
+`;
+
+export const ProductTitle = styled.Text`
+  font-size: ${({ theme }) => theme.fonts.SMALL_SIZE + 2}px;
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  text-align: center;
+  opacity: 0.7;
+  text-transform: capitalize;
+`;
+
+export const ProductImage = styled.View`
+  flex: 1;
+  width: 100%;
+  align-items: center;
 `;
 
 export const ProductPrice = styled.Text`
-  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE - 5}px;
-  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
-  text-align: center;
-`;
-
-export const ProductImage = styled.Image`
-  width: 50%;
-  height: 50%;
-`;
-
-export const ProductText = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE - 5}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   text-align: center;
