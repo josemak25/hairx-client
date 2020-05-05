@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { AntDesign } from '@expo/vector-icons';
-import { Dimensions } from 'react-native';
 import Modal from 'react-native-modal';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { NavigationInterface } from '../types';
@@ -11,6 +10,7 @@ import SafeAreaView from '../../commons/safe-area-view';
 import Question from './question';
 import Button from '../../components/button';
 import { questions } from '../../libs/regimen_setup.json';
+import applyScale from '../../utils/applyScale';
 
 const SLIDE_INCREMENT = 1;
 
@@ -23,7 +23,8 @@ import {
   ModalView,
   ModalHeaderText,
   ModalBodyText,
-  ModalButtons
+  ModalButtons,
+  ButtonContainer
 } from './styles';
 
 export type QuestionItem = {
@@ -104,10 +105,7 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
           <Question
             key={item.key}
             {...item}
-            handleNext={handleNextButton}
-            handlePrevious={handlePreviousButton}
             handleGoBack={handleGoBackButton}
-            handleDone={handleDoneButton}
           />
         )}
         onSlideChange={handleSlideChange}
@@ -119,6 +117,39 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
         slides={questions}
         ref={sliderRef}
       />
+
+      <ButtonContainer>
+        <Button
+          title="previous"
+          buttonStyle={{
+            width: applyScale(120),
+            backgroundColor: colors.BG_WHITE_COLOR,
+            alignItems: 'flex-start',
+            paddingLeft: 5,
+            borderWidth: 1,
+            borderColor: colors.BG_WHITE_COLOR
+          }}
+          onPress={currentQuestion === 0 ? null : handlePreviousButton}
+          textStyle={{
+            color: colors.FONT_DARK_COLOR,
+            opacity: currentQuestion === 0 ? 0.3 : 1
+          }}
+        />
+        <Button
+          title="next"
+          buttonStyle={{
+            width: applyScale(120),
+            backgroundColor: colors.BG_WHITE_COLOR,
+            borderWidth: 1,
+            borderColor: colors.INACTIVE_FIELD_COLOR
+          }}
+          onPress={
+            currentQuestion !== questions.length - 1 ? handleNextButton : null
+          }
+          textStyle={{ color: colors.FONT_DARK_COLOR }}
+        />
+      </ButtonContainer>
+
       <Modal
         isVisible={modalVisible}
         animationIn="slideInUp"

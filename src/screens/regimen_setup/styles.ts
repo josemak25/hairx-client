@@ -88,30 +88,51 @@ export const QuestionRelevanceText = styled.Text`
 
 export const AnswersContainer = styled.View`
   width: 100%;
+  align-items: center;
   margin-top: 40px;
   margin-bottom: 20px;
 `;
 
-export const AnswerOption = styled.TouchableOpacity`
+export const AnswerOptionContainer = styled.View`
   height: ${applyScale(60)}px;
+  width: 100%;
   justify-content: center;
   margin: 5px 0px;
-  padding: 0px 10px;
   border-radius: 5px;
+`;
+
+export const AnswerOption = styled.TouchableOpacity`
+  height: 100%;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 0px 10px;
   background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
+`;
+
+export const AnswerOptionOverlay = styled.View`
+  height: 100%;
+  justify-content: center;
+  border-radius: 5px;
+  position: absolute;
+  background-color: ${({ theme }) => theme.colors.BG_LIGHT_GOLD_COLOR};
+  z-index: 9;
 `;
 
 export const AnswerOptionText = styled.Text`
   font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 2}px;
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
-  padding-left: 10px;
+  padding-left: 20px;
+  position: absolute;
+  z-index: 999;
 `;
 
 export const ButtonContainer = styled.View`
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
-  margin-top: 30px;
+  padding: 30px 20px;
+  padding-top: 20px;
+  background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
 `;
 
 export const ModalView = styled.View`
@@ -183,4 +204,14 @@ export const HeaderTitleLabel = styled.Text`
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   text-transform: capitalize;
   padding: 0px 5px;
+`;
+
+export const LoadDropDownContainer = styled.View`
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  border-radius: 5px;
+  background-color: ${({ theme }) => theme.colors.INPUT_FIELD_COLOR};
 `;
