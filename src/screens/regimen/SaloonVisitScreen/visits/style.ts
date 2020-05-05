@@ -17,20 +17,20 @@ export const Content = styled.View`
   z-index:3;
 `;
 
-export const Time = styled.View`
+export const Time = styled.Text`
     font-size:10px;
     font-family:${({ theme }) => theme.fonts.JOST_BOOK};
     color:${({ theme }) => theme.colors.FONT_RED_COLOR};
     opacity:0.8;
 `;
 
-export const Title = styled.View`
+export const Title = styled.Text`
     font-size:15px;
     font-family:${({ theme }) => theme.fonts.JOST_BOOK};
 
 `;
 
-export const Purpose = styled.View`
+export const Purpose = styled.Text`
     font-size:13px;
     font-family:${({ theme }) => theme.fonts.CORMORANT_REGULAR};
     opacity:0.7;
@@ -40,9 +40,13 @@ export const Booking = styled.View`
     z-index:2;
     width:34%;
     height:${applyScale(50)}px;
+    align-items:center;
+    justify-content:center;
+    border-radius:5px;
     background-color:${({ theme }) => theme.colors.BG_LIGHT_YELLOW_COLOR};
 `;
 
-export const Book = styled.View`
-    
+export const Book = styled.Text`
+    font-size:10px;
+    font-family:${({ theme }) => theme.fonts.JOST_MEDIUM};
 `;
