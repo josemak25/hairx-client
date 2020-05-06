@@ -17,6 +17,7 @@ import {
   HeaderTab,
   HeaderTabButton
 } from './styles';
+import SaloonVisitScreen from './SaloonVisitScreen';
 
 const TOP_NAV_HEADER_ROUTES = ['routine', 'foods', 'saloon visits'];
 
@@ -104,7 +105,7 @@ export default function RecommendationScreen(props: RecommendationScreenProp) {
                 return <FoodScreen {...props} key={item} />;
 
               case saloonVisit:
-                return <FoodScreen {...props} key={item} />;
+                return <SaloonVisitScreen {...props} key={item} />;
 
               default:
                 return <RoutineScreen {...props} key={item} />;
