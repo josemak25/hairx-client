@@ -9,21 +9,23 @@ export const Container = styled.View`
   margin-bottom: 15px;
   height: ${applyScale(92)}px;
   border-radius: 5px;
-  padding: 0px 5%;
+  padding: 0px 10px;
   background-color: ${({ theme }) => theme.colors.INPUT_FIELD_COLOR};
 `;
 
-export const Image = styled.Image`
+export const ProductImage = styled.View`
   width: ${applyScale(58)}px;
   height: ${applyScale(58)}px;
-  border-radius: 29px;
+  background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
+  border-radius: 58px;
 `;
 
 export const Content = styled.View`
-  width: 80%;
+  flex: 1;
   height: ${applyScale(45)}px;
   justify-content: space-between;
   align-items: flex-start;
+  padding-left: 10px;
 `;
 
 export const Title = styled.Text`
@@ -33,9 +35,8 @@ export const Title = styled.Text`
 `;
 
 export const SubContent = styled.View`
-  flex-direction: row;
   width: 100%;
-  height: ${applyScale(19)}px;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 `;
