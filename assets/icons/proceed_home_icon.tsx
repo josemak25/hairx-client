@@ -4,7 +4,7 @@ import { IconProps } from './types';
 
 export default function ProceedHomeIcon(props: IconProps) {
   return (
-    <Svg width="100%" height="100%" viewBox="0 0 274.809 214.121" {...props}>
+    <Svg width="100%" height="50%" viewBox="0 0 274.809 214.121" {...props}>
       <G data-name="Group 160">
         <G data-name="Character/rolling" fillRule="evenodd">
           <Path

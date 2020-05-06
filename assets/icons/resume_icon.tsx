@@ -4,7 +4,7 @@ import { IconProps } from './types';
 
 export default function ResumeIcon(props: IconProps) {
   return (
-    <Svg width="100%" height="100%" viewBox="0 0 274.703 145.485" {...props}>
+    <Svg width="80%" height="40%" viewBox="0 0 274.703 145.485" {...props}>
       <G data-name="Group 163">
         <G data-name="Illustrations/laying" fillRule="evenodd">
           <Path
