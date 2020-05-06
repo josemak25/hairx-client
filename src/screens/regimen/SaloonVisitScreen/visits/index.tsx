@@ -35,17 +35,19 @@ export default function Visits(props: VisitProps) {
     const checkBooking = () => {
         switch (state.booking) {
             case 'Book Now':
-                setstate({
+                return setstate({
                     booking: 'Booked',
                     contentColor: colors.BG_LIGHT_PINK_COLOR,
                     timeColor: colors.FONT_RED_COLOR
                 });
             case 'Booked':
-                setstate({
+                return setstate({
                     booking: 'Book Now',
                     contentColor: colors.BG_LIGHT_BLUE_COLOR,
                     timeColor: colors.BG_DARK_BLUE_COLOR
                 });
+            default:
+                return;
         }
     };
 

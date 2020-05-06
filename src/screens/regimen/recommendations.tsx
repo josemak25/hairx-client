@@ -8,6 +8,7 @@ import applyScale from '../../utils/applyScale';
 import { useThemeContext } from '../../theme';
 import FoodScreen from './food';
 import RoutineScreen from './routine';
+import SaloonVisitScreen from './SaloonVisitScreen';
 
 import {
   HeaderTitleContainer,
@@ -17,7 +18,6 @@ import {
   HeaderTab,
   HeaderTabButton
 } from './styles';
-import SaloonVisitScreen from './SaloonVisitScreen';
 
 const TOP_NAV_HEADER_ROUTES = ['routine', 'foods', 'saloon visits'];
 
