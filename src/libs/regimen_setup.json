@@ -48,6 +48,24 @@
       "question": "Current products?",
       "questionRelevance": "This helps us to understand the type of products you are currently using and its impact on your hair.",
       "options": ["Shampoo", "Conditioner", "Hair oils", "Styling creme & gels"]
+    },
+    {
+      "key": "6af90575-e1f2-30d6-abe3-5c0e8d2676r9",
+      "index": 5,
+      "question": "Time Schedule?",
+      "questionRelevance": "This helps us understand how busy or free you are so we can recommend a regimen that works for your time.",
+      "options": [
+        {
+          "name": "Ms. A",
+          "status": "Quite busy",
+          "details": "If you work a 9-5 from Monday to Friday and sometimes into weekends, this is you."
+        },
+        {
+          "name": "Ms. B",
+          "status": "Got time",
+          "details": "If you are a stay-home mum or typically doesn’t do much during the week, this is you."
+        }
+      ]
     }
   ]
 }
