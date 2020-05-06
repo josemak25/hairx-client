@@ -18,7 +18,8 @@ import {
   QuestionRelevanceTextContainer,
   AnswerOptionOverlay,
   AnswerOptionContainer,
-  LoadDropDownContainer
+  LoadDropDownContainer,
+  TimeScheduleContainer
 } from './styles';
 
 interface RenderItemProp {
@@ -51,6 +52,8 @@ export default function RenderItem(props: RenderItemProp) {
     showDropDown: false,
     loadDropDown: false
   });
+
+  const [selected, setSelected] = useState(null);
 
   useEffect(() => {
     const optionAnimationValues = options.reduce((acc, item) => {
@@ -156,18 +159,29 @@ export default function RenderItem(props: RenderItemProp) {
               : null
           }
         >
-          {options.map(item => {
+          {options.map((item, index) => {
             switch (question) {
               case 'Current products?':
                 return <CurrentProduct key={item} title={item} />;
               case 'Time Schedule?':
                 return (
-                  <TimeSchedule
+                  <TimeScheduleContainer
                     key={item.name}
-                    title={item.name}
-                    detailsHeader={item.status}
-                    detailsText={item.details}
-                  />
+                    onPress={() => setSelected(item)}
+                    style={{
+                      backgroundColor:
+                        selected === item
+                          ? colors.BG_LIGHT_GOLD_COLOR
+                          : colors.BUTTON_LIGHT_COLOR
+                    }}
+                  >
+                    <TimeSchedule
+                      title={item.name}
+                      detailsHeader={item.status}
+                      detailsText={item.details}
+                      index={index}
+                    />
+                  </TimeScheduleContainer>
                 );
               default:
                 return (
