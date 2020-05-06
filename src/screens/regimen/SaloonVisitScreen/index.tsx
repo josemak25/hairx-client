@@ -28,6 +28,7 @@ export default function SaloonVisitScreen(props: RoutineProps) {
                 {Data.map((item, index) => (
                     <Visits
                         key={index}
+                        index={index}
                         time={item.time}
                         title={item.title}
                         purpose={item.purpose}
