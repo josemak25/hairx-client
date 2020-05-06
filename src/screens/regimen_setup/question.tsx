@@ -147,30 +147,34 @@ export default function RenderItem(props: RenderItemProp) {
           </QuestionRelevanceTextContainer>
         </QuestionContainer>
         <AnswersContainer>
-          {options.map(item => (
-            <AnswerOptionContainer key={item}>
-              <AnswerOptionText>{item}</AnswerOptionText>
-              <AnimatedAnswerOptionOverlay
-                style={{ width: animation['options'][item] }}
-              />
-              <AnswerOption
-                onPress={() => startButtonAnimation(item, 'options')}
-              />
-
-              {hairStatus.showModal ? (
-                <HairStatusModal
-                  isVisible={hairStatus.showModal}
-                  hairStatusDate={hairStatus.date}
-                  onBackdropPress={() =>
-                    setHairStatus({ ...hairStatus, showModal: false })
-                  }
-                  onChange={(hairStatusDate: string) =>
-                    setHairStatus({ ...hairStatus, date: hairStatusDate })
-                  }
+          {options.map(item =>
+            /Current/.test(question) ? (
+              <CurrentProduct key={item} title={item} />
+            ) : (
+              <AnswerOptionContainer key={item}>
+                <AnswerOptionText>{item}</AnswerOptionText>
+                <AnimatedAnswerOptionOverlay
+                  style={{ width: animation['options'][item] }}
                 />
-              ) : null}
-            </AnswerOptionContainer>
-          ))}
+                <AnswerOption
+                  onPress={() => startButtonAnimation(item, 'options')}
+                />
+
+                {hairStatus.showModal ? (
+                  <HairStatusModal
+                    isVisible={hairStatus.showModal}
+                    hairStatusDate={hairStatus.date}
+                    onBackdropPress={() =>
+                      setHairStatus({ ...hairStatus, showModal: false })
+                    }
+                    onChange={(hairStatusDate: string) =>
+                      setHairStatus({ ...hairStatus, date: hairStatusDate })
+                    }
+                  />
+                ) : null}
+              </AnswerOptionContainer>
+            )
+          )}
 
           {dropDown.loadDropDown && (
             <LoadDropDownContainer>
