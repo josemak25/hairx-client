@@ -36,7 +36,7 @@ export default function ResponsiveImage(props: ResponsiveImageProps) {
 
   const thumbnailFadeDuration = props.thumbnailFadeDuration || 250;
   const imageFadeDuration = props.imageFadeDuration || 250;
-  const thumbnailBlurRadius = props.thumbnailBlurRadius || 10;
+  const thumbnailBlurRadius = props.thumbnailBlurRadius || 3;
   const thumbnailSource = props.thumbnailSource || props.imageUrl;
   const onlineImage = { uri: props.imageUrl, cache: 'force-cache' };
 

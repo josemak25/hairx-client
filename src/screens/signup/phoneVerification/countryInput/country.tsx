@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import IOSPicker from 'react-native-ios-picker';
 import CountryPicker, {
   Country,
   CountryCode
@@ -7,6 +8,7 @@ import { AsYouType } from 'libphonenumber-js';
 import { useThemeContext } from '../../../../theme';
 import ContextDisplay from '../contextDisplay';
 import Input from '../../../../commons/input';
+import GetCountry from './getCountry';
 
 import { Container, DailingCode, PhoneNumberContainer } from './style';
 
@@ -28,7 +30,6 @@ const initialState: stateType = {
 
 export default function InputCountry() {
   const { fonts } = useThemeContext();
-
   const [context, setContext] = useState<stateType>(initialState);
 
   const selection = async (country: Country) => {
@@ -49,6 +50,7 @@ export default function InputCountry() {
 
   return (
     <Container>
+      {/* <IOSPicker /> */}
       <CountryPicker
         visible={context.visibility}
         withCallingCode={true}

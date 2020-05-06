@@ -174,6 +174,20 @@ export const ResumeContainer = styled.View`
   background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
 `;
 
+export const ModalHairType = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 5}px;
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  margin: 10% 0 5%;
+`;
+
+export const ModalHairTypeDuration = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
+  font-size: ${({ theme }) => theme.fonts.LARGE_SIZE + 15}px;
+  color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
+  text-transform: uppercase;
+`;
+
 export const ResumeSetupTextContainer = styled.View`
   width: 80%;
 `;
@@ -191,11 +205,6 @@ export const ResumeSetupBodyText = styled.Text`
   font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
   text-align: center;
   margin-bottom: 5px;
-`;
-
-export const ResumeImage = styled.Image`
-  width: 80%;
-  height: 30%;
 `;
 
 export const HeaderTitleLabel = styled.Text`

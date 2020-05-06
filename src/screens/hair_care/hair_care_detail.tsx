@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Animated, ScrollView, Dimensions } from 'react-native';
+import { Animated, ScrollView, Dimensions, StatusBar } from 'react-native';
+import expoConstants from 'expo-constants';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationInterface } from '../types';
 import { useThemeContext } from '../../theme';
-import SafeAreaView from '../../commons/safe-area-view';
 import Products from './products';
 import Assessments from './assessments';
 import Recommendations from './recommendations';
@@ -13,6 +13,7 @@ import ResponsiveImage from '../../libs/responsiveImage';
 import boxShadow from '../../utils/boxShadows';
 
 import {
+  Container,
   BackButton,
   ContentArea,
   HairCareSaloonCard,
@@ -59,7 +60,12 @@ export default function HairCareDetailScreen(props: HairCareScreenScreenProp) {
   });
 
   return (
-    <SafeAreaView>
+    <Container style={{ paddingBottom: expoConstants.statusBarHeight - 15 }}>
+      <StatusBar
+        barStyle="light-content"
+        translucent
+        backgroundColor="transparent"
+      />
       <Header
         headerLeft={() => (
           <BackButton onPress={() => navigation.goBack()}>
@@ -75,7 +81,7 @@ export default function HairCareDetailScreen(props: HairCareScreenScreenProp) {
           paddingLeft: 10,
           position: 'absolute',
           alignItems: 'flex-start',
-          paddingTop: 10,
+          paddingTop: expoConstants.statusBarHeight + 5,
           zIndex: 999
         }}
         title={() => (
@@ -130,6 +136,6 @@ export default function HairCareDetailScreen(props: HairCareScreenScreenProp) {
           <Recommendations recommendations={params.recommendations} />
         </ContentArea>
       </ScrollView>
-    </SafeAreaView>
+    </Container>
   );
 }

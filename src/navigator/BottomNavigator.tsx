@@ -1,5 +1,6 @@
 import React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import RegimenNavigator from './RegimenNavigator';
 import { useThemeContext } from '../theme';
 import Screens from '../screens';
 import RegimenIcon from '../../assets/icons/regimen';
@@ -24,7 +25,7 @@ export default function BottomNavigator() {
     >
       <Tab.Screen
         name="RegimenScreen"
-        component={SaloonVisitScreen}
+        component={RegimenNavigator}
         options={{
           tabBarIcon: ({ color, focused }) => (
             <IconContainer>

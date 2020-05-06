@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AppState, Animated, Easing } from 'react-native';
+import { AppState, Animated, Easing, StatusBar } from 'react-native';
 import NetInfo, { NetInfoState } from '@react-native-community/netinfo';
 
 import { Container, Label } from './styles';
@@ -77,6 +77,11 @@ export default function OfflineBar({ offlineText }: { offlineText?: string }) {
 
   return !network.isConnected ? (
     <Container>
+      <StatusBar
+        barStyle="dark-content"
+        translucent
+        backgroundColor="transparent"
+      />
       <AnimatedText style={{ transform: [{ translateX: interpolated }] }}>
         {network.offlineText}
       </AnimatedText>

@@ -1,4 +1,3 @@
-import RegimenScreen from './regimen';
 import RegimenSetupScreen from './regimen_setup';
 import SplashScreen from './splash';
 import SettingsScreen from './settings';
@@ -9,9 +8,11 @@ import GetStartedScreen from './get_started';
 import BookingScreen from './booking';
 import ProceedHomeScreen from './proceed_home';
 import HairCareDetailScreen from './hair_care/hair_care_detail';
+import FoodDetailScreen from './regimen/food/food_details';
+import RoutineDetailScreen from './regimen/routine/regimen_details';
+import ResumeScreen from './regimen_setup/resume';
 
 export default {
-  RegimenScreen,
   RegimenSetupScreen,
   SplashScreen,
   SettingsScreen,
@@ -21,5 +22,8 @@ export default {
   GetStartedScreen,
   BookingScreen,
   ProceedHomeScreen,
-  HairCareDetailScreen
+  HairCareDetailScreen,
+  FoodDetailScreen,
+  RoutineDetailScreen,
+  ResumeScreen
 };

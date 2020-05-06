@@ -15,8 +15,9 @@ export default function AppNavigator() {
   return (
     <NavigationContainer>
       <RootStack.Navigator
-        initialRouteName="SplashScreen"
+        initialRouteName="HomeScreen"
         screenOptions={{
+          headerShown: false,
           headerStyle: customHeaderStyle,
           headerBackTitleStyle: {
             fontFamily: fonts.CORMORANT_REGULAR,
@@ -29,13 +30,11 @@ export default function AppNavigator() {
         <RootStack.Screen
           name="SplashScreen"
           component={Screens.SplashScreen}
-          options={{ headerShown: false }}
         />
 
         <RootStack.Screen
           name="GetStartedScreen"
           component={Screens.GetStartedScreen}
-          options={{ headerShown: false }}
         />
 
         <RootStack.Screen
@@ -43,35 +42,14 @@ export default function AppNavigator() {
           component={Screens.SigninScreen}
         />
 
-        <RootStack.Screen
-          name="SignupScreen"
-          component={SignupNavigator}
-          options={{ headerShown: false }}
-        />
+        <RootStack.Screen name="SignupScreen" component={SignupNavigator} />
 
         <RootStack.Screen
           name="ProceedHomeScreen"
           component={Screens.ProceedHomeScreen}
-          options={{ headerShown: false }}
         />
 
-        <RootStack.Screen
-          name="HomeScreen"
-          component={HomeNavigator}
-          options={{ headerShown: false }}
-        />
-
-        <RootStack.Screen
-          name="BookingScreen"
-          component={Screens.BookingScreen}
-          options={{ headerShown: false }}
-        />
-
-        <RootStack.Screen
-          name="HairCareDetailScreen"
-          component={Screens.HairCareDetailScreen}
-          options={{ headerShown: false }}
-        />
+        <RootStack.Screen name="HomeScreen" component={HomeNavigator} />
       </RootStack.Navigator>
     </NavigationContainer>
   );
