@@ -1,9 +1,11 @@
 import React from 'react';
+import { StatusBar } from 'react-native';
 import Button from '../../components/button';
 import { useThemeContext } from '../../theme';
 import { NavigationInterface } from '../types';
 import SafeAreaView from '../../commons/safe-area-view';
 import Header from '../../commons/header';
+import ResumeIcon from '../../../assets/icons/resume_icon';
 
 import {
   ResumeContainer,
@@ -12,8 +14,7 @@ import {
   ResumeSetupBodyText,
   HeaderTitleContainer,
   HeaderTitle,
-  HeaderTitleLabel,
-  ResumeImage
+  HeaderTitleLabel
 } from './styles';
 
 interface ResumeProp extends NavigationInterface {
@@ -28,6 +29,10 @@ export default function ResumeScreen(props: ResumeProp) {
 
   return (
     <SafeAreaView>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={colors.BG_WHITE_COLOR}
+      />
       <Header
         title={() => (
           <HeaderTitleContainer>
@@ -44,7 +49,7 @@ export default function ResumeScreen(props: ResumeProp) {
             left off to set up a bespoke regimen for your hair challenges.
           </ResumeSetupBodyText>
         </ResumeSetupTextContainer>
-        <ResumeImage source={require('../../../assets/icon.png')} />
+        <ResumeIcon />
         <Button
           title="Take me back"
           buttonStyle={{
