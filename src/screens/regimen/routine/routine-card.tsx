@@ -24,6 +24,12 @@ interface CardProps extends NavigationInterface {
   image: string;
   description: string;
   title: string;
+  afterTreatmentImage: string;
+  products: {
+    price: string;
+    image: string;
+    name: string;
+  }[];
 }
 
 export default function RoutineCard(props: CardProps) {
@@ -43,7 +49,14 @@ export default function RoutineCard(props: CardProps) {
         overflow: 'hidden',
         backgroundColor: colors.BG_LIGHT_BLUE_COLOR
       }}
-      onPress={() => navigation.navigate('RoutineDetailScreen')}
+      onPress={() =>
+        navigation.navigate('RoutineDetailScreen', {
+          title,
+          description,
+          afterTreatmentImage: props.afterTreatmentImage,
+          products: props.products
+        })
+      }
     >
       <ResponsiveImageContainer>
         <ResponsiveImage

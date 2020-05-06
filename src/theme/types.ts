@@ -23,7 +23,10 @@ enum COLORS {
   BG_LIGHT_LEMON_COLOR = '#E0FFEE',
   INACTIVE_FIELD_COLOR_LOW_OPACITY = 'rgba(112, 112, 112, 0.3)',
   ACTIVE_ICON_COLOR = '#BAB200',
-  FONT_BLUE_COLOR = '#2D6BB5'
+  FONT_BLUE_COLOR = '#2D6BB5',
+  BG_BLUE_GREEN_COLOR = '#A8DDE2',
+  BG_LIGHT_GRAY = '#F4F4F4',
+  BG_DARK_BLUE_GREEN_COLOR = '#83B8BD'
 }
 
 // All app font sizes
@@ -66,7 +69,10 @@ declare module 'styled-components' {
       BG_DARK_BLUE_COLOR: string;
       BG_RED_COLOR: string;
       BG_LIGHT_LEMON_COLOR: string;
+      BG_BLUE_GREEN_COLOR: string;
       FONT_BLUE_COLOR: string;
+      BG_LIGHT_GRAY: string;
+      BG_DARK_BLUE_GREEN_COLOR: string;
     };
 
     // All Global App Font Sizes

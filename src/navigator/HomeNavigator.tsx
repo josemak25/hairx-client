@@ -32,7 +32,7 @@ export default function HomeNavigator() {
 
       <HomeStack.Screen
         name="RoutineDetailScreen"
-        component={Screens.FoodDetailScreen}
+        component={Screens.RoutineDetailScreen}
       />
 
       <HomeStack.Screen
