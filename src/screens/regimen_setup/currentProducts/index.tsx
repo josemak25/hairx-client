@@ -1,47 +1,55 @@
 import React, { useState } from 'react';
-
 import Button from '../../../components/button';
 import { useThemeContext } from '../../../theme';
-import applyScale from '../../../utils/applyScale';
-import { Container, Image, Content, Title, SubContent } from './style';
+import { Container, ProductImage, Content, Title, SubContent } from './style';
+import ResponsiveImage from '../../../libs/responsiveImage';
+import boxShadow from '../../../utils/boxShadows';
 
-interface Iprops {
+interface CurrentProductProps {
   title: string;
 }
 
-export default function CurrentProduct(props: Iprops) {
+export default function CurrentProduct(props: CurrentProductProps) {
   const { colors, fonts } = useThemeContext();
-  const [state, setstate] = useState<'flex' | 'none'>('flex');
+  const [state, setState] = useState<'flex' | 'none'>('flex');
 
-  const clickAction = () => {
-    setstate('none');
-  };
+  const clickAction = () => setState('none');
 
   const saveAction = () => {};
 
   return (
     <Container style={{ display: state }}>
-      <Image source={require('../../../../assets/images/logo.png')} />
+      <ProductImage>
+        <ResponsiveImage
+          width={58}
+          height={58}
+          imageUrl="https://bit.ly/2L1ujUY"
+          thumbnailBlurRadius={2}
+        />
+      </ProductImage>
       <Content>
         <Title>{props.title}</Title>
         <SubContent>
           <Button
-            title="&#10010; Add product"
+            title="&#65291; Add product"
             activeOpacity={0}
-            buttonStyle={{
-              paddingLeft: 0,
-              paddingTop: 0,
-              paddingBottom: 0,
-              paddingRigth: 0,
-              backgroundColor: colors.BUTTON_LIGHT_COLOR
-            }}
+            buttonStyle={[
+              {
+                paddingLeft: 0,
+                paddingTop: 0,
+                paddingBottom: 0,
+                paddingRight: 0,
+                backgroundColor: colors.BUTTON_LIGHT_COLOR
+              },
+              boxShadow({
+                elevation: 0,
+                shadowOpacity: 0,
+                shadowColor: colors.BG_WHITE_COLOR
+              })
+            ]}
             textStyle={{
-              width: applyScale(98),
-              height: applyScale(20),
               color: colors.FONT_DARK_GOLD_COLOR,
-              fontWeight: fonts.FONT_WEIGHT_HEAVY,
-              backgroundColor: colors.INPUT_FIELD_COLOR,
-              fontSize: 14,
+              fontSize: fonts.LARGE_SIZE,
               fontFamily: fonts.JOST_MEDIUM
             }}
             onPress={saveAction}
@@ -50,22 +58,25 @@ export default function CurrentProduct(props: Iprops) {
           <Button
             title="&#8856; Leave empty"
             activeOpacity={0}
-            buttonStyle={{
-              paddingLeft: 0,
-              paddingTop: 0,
-              paddingBottom: 0,
-              paddingRigth: 0,
-              backgroundColor: colors.INPUT_FIELD_COLOR,
-              borderWidth: 0
-            }}
+            buttonStyle={[
+              {
+                paddingLeft: 0,
+                paddingTop: 0,
+                paddingBottom: 0,
+                paddingRight: 0,
+                backgroundColor: colors.INPUT_FIELD_COLOR
+              },
+              boxShadow({
+                elevation: 0,
+                shadowOpacity: 0,
+                shadowColor: colors.BG_WHITE_COLOR
+              })
+            ]}
             textStyle={{
-              width: applyScale(90),
-              height: applyScale(20),
-              fontWeight: fonts.FONT_WEIGHT_HEAVY,
               color: colors.FONT_DARK_COLOR,
-              opacity: 0.8,
-              fontSize: 14,
-              fontFamily: fonts.JOST_BOOK
+              fontSize: fonts.LARGE_SIZE,
+              fontFamily: fonts.JOST_BOOK,
+              opacity: 0.8
             }}
             onPress={clickAction}
           />
