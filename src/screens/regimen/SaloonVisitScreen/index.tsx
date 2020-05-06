@@ -20,7 +20,7 @@ export default function SaloonVisitScreen(props: RoutineProps) {
         <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
             <Container>
                 <SubTitle>RECOMMENDED</SubTitle>
-                <Title>ROUTINE</Title>
+                <Title>SALON VISITS</Title>
                 <Content>
                     Claire, no hair care routine is complete with a visit to a
                     hair saloon where expert stylist can assess your hair.

@@ -7,6 +7,7 @@ import HairCareIcon from '../../assets/icons/hair_care';
 import SettingIcon from '../../assets/icons/settings';
 import TabBarLabel from '../commons/tab-bar-label';
 import { IconContainer } from './styles';
+import SaloonVisitScreen from '../screens/regimen/SaloonVisitScreen';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -23,7 +24,7 @@ export default function BottomNavigator() {
     >
       <Tab.Screen
         name="RegimenScreen"
-        component={Screens.RegimenScreen}
+        component={SaloonVisitScreen}
         options={{
           tabBarIcon: ({ color, focused }) => (
             <IconContainer>
