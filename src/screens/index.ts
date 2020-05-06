@@ -9,7 +9,7 @@ import BookingScreen from './booking';
 import ProceedHomeScreen from './proceed_home';
 import HairCareDetailScreen from './hair_care/hair_care_detail';
 import FoodDetailScreen from './regimen/food/food_details';
-import RoutineDetailScreen from './regimen/routine/regimen_details';
+import RoutineDetailScreen from './regimen/routine/routine_details';
 import ResumeScreen from './regimen_setup/resume';
 
 export default {

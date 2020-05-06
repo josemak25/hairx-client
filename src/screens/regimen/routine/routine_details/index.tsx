@@ -1,29 +1,32 @@
 import React from 'react';
-import { ScrollView, Dimensions, StatusBar } from 'react-native';
+import { ScrollView, StatusBar, Dimensions } from 'react-native';
 import expoConstants from 'expo-constants';
 import { Ionicons } from '@expo/vector-icons';
+import ResponsiveImage from '../../../../libs/responsiveImage';
 import { NavigationInterface } from '../../../types';
 import { useThemeContext } from '../../../../theme';
-import applyScale from '../../../../utils/applyScale';
-import ResponsiveImage from '../../../../libs/responsiveImage';
-import boxShadow from '../../../../utils/boxShadows';
 import Header from '../../../../commons/header';
+import applyScale from '../../../../utils/applyScale';
+import boxShadow from '../../../../utils/boxShadows';
+import Card from '../../../../components/card';
+import Button from '../../../../components/button';
 
 import {
   Container,
+  ContentArea,
   BackButton,
-  FoodDetailHeader,
-  FoodDetailBenefits,
-  FoodDetailText,
   ProductsContainer,
+  HeaderTitle,
+  SubHeaderTitle,
+  HeaderSection,
+  TimeCover,
+  Period,
+  TitleText,
+  Description,
   ProductCard,
   ProductPrice,
-  ContentArea,
   ProductImage,
-  ProductTitle,
-  HeaderSection,
-  SubHeaderTitle,
-  HeaderTitle
+  ProductTitle
 } from './styles';
 
 const HEADER_EXPANDED_HEIGHT = 300;
@@ -35,19 +38,21 @@ const HEADER_IMAGE_WIDTH = Math.floor(
     : Dimensions.get('screen').width + 10
 );
 
-type FoodDetailsType = {
+type RoutineDetailsType = {
   title: string;
   description: string;
   afterTreatmentImage: string;
   products: { price: string; image: string; name: string }[];
 };
 
-interface FoodDetailsScreenProp extends NavigationInterface {
+interface RegimenRoutineScreenProp extends NavigationInterface {
   testID?: string;
-  route: { params: FoodDetailsType };
+  route: { params: RoutineDetailsType };
 }
 
-export default function FoodDetailsScreen(props: FoodDetailsScreenProp) {
+export default function RegimenRoutineDetailScreen(
+  props: RegimenRoutineScreenProp
+) {
   const { colors, fonts } = useThemeContext();
 
   const {
@@ -75,7 +80,6 @@ export default function FoodDetailsScreen(props: FoodDetailsScreenProp) {
           </BackButton>
         )}
         headerLeftContainerStyle={{
-          justifyContent: 'flex-start',
           paddingLeft: 10,
           position: 'absolute',
           alignItems: 'flex-start',
@@ -108,9 +112,12 @@ export default function FoodDetailsScreen(props: FoodDetailsScreenProp) {
         }}
         showsVerticalScrollIndicator={false}
       >
-        <FoodDetailHeader>{title}</FoodDetailHeader>
-        <FoodDetailBenefits>Benefits</FoodDetailBenefits>
-        <FoodDetailText>{description}</FoodDetailText>
+        <TimeCover>
+          <Ionicons name="md-time" size={15} color={colors.FONT_BLUE_COLOR} />
+          <Period>At night</Period>
+        </TimeCover>
+        <TitleText>{title}</TitleText>
+        <Description>{description}</Description>
         <ProductsContainer>
           <HeaderSection>
             <SubHeaderTitle
@@ -129,29 +136,40 @@ export default function FoodDetailsScreen(props: FoodDetailsScreenProp) {
               products
             </HeaderTitle>
           </HeaderSection>
-          <ScrollView
-            horizontal
-            contentContainerStyle={{ flexGrow: 1, paddingBottom: 30 }}
-            showsHorizontalScrollIndicator={false}
-          >
-            {products.map(({ name, price, image }) => (
-              <ProductCard key={name}>
-                <ProductPrice>{price}</ProductPrice>
-                <ProductImage>
-                  <ResponsiveImage
-                    imageUrl={image}
-                    width={60}
-                    height={60}
-                    resizeMode="contain"
-                    thumbnailBlurRadius={2}
-                    style={{ marginTop: 10 }}
-                  />
-                </ProductImage>
-                <ProductTitle>{name}</ProductTitle>
-              </ProductCard>
-            ))}
-          </ScrollView>
         </ProductsContainer>
+        <ScrollView
+          horizontal
+          contentContainerStyle={{ flexGrow: 1, paddingBottom: 30 }}
+          showsHorizontalScrollIndicator={false}
+        >
+          {products.map(({ name, price, image }) => (
+            <ProductCard key={name}>
+              <ProductPrice>{price}</ProductPrice>
+              <ProductImage>
+                <ResponsiveImage
+                  imageUrl={image}
+                  width={60}
+                  height={60}
+                  resizeMode="contain"
+                  thumbnailBlurRadius={2}
+                  style={{ marginTop: 10 }}
+                />
+              </ProductImage>
+              <ProductTitle>{name}</ProductTitle>
+              <Button
+                title="Buy now"
+                activeOpacity={0.2}
+                buttonStyle={{
+                  backgroundColor: colors.BG_LIGHT_GOLD_COLOR,
+                  borderTopColor: colors.BG_LIGHT_GOLD_COLOR,
+                  paddingTop: 10,
+                  paddingBottom: 10
+                }}
+                textStyle={{ color: colors.ACTIVE_ICON_COLOR }}
+              />
+            </ProductCard>
+          ))}
+        </ScrollView>
       </ScrollView>
     </Container>
   );
