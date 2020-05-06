@@ -8,6 +8,7 @@ enum COLORS {
   BG_WHITE_COLOR = '#FFFFFF',
   FONT_DARK_COLOR = '#000000',
   FONT_LIGHT_COLOR = '#FFFFFF',
+  FONT_DARK_GOLD_COLOR = '#BAB200',
   FACEBOOK_COLOR = '#4267B2',
   GOOGLE_COLOR = '#D44638',
   BUTTON_DARK_COLOR = '#3B3B3B',
@@ -15,11 +16,17 @@ enum COLORS {
   BUTTON_DARK_GRAY_COLOR = '#242424',
   INPUT_FIELD_COLOR = '#F7F7F7',
   INACTIVE_FIELD_COLOR = '#707070',
-  ACTIVE_ICON_COLOR = '#BAB200',
   FONT_RED_COLOR = '#FF0B0B',
   BACK_BUTTON_BG_COLOR = '#494039',
   BG_DARK_BLUE_COLOR = '#0856B4',
-  BG_RED_COLOR = '#B40808'
+  BG_RED_COLOR = '#B40808',
+  BG_LIGHT_LEMON_COLOR = '#E0FFEE',
+  INACTIVE_FIELD_COLOR_LOW_OPACITY = 'rgba(112, 112, 112, 0.3)',
+  ACTIVE_ICON_COLOR = '#BAB200',
+  FONT_BLUE_COLOR = '#2D6BB5',
+  BG_BLUE_GREEN_COLOR = '#A8DDE2',
+  BG_LIGHT_GRAY = '#F4F4F4',
+  BG_DARK_BLUE_GREEN_COLOR = '#83B8BD'
 }
 
 // All app font sizes
@@ -47,6 +54,7 @@ declare module 'styled-components' {
       BG_WHITE_COLOR: string;
       FONT_DARK_COLOR: string;
       FONT_LIGHT_COLOR: string;
+      FONT_DARK_GOLD_COLOR: string;
       FACEBOOK_COLOR: string;
       GOOGLE_COLOR: string;
       BUTTON_DARK_COLOR: string;
@@ -54,11 +62,17 @@ declare module 'styled-components' {
       BUTTON_DARK_GRAY_COLOR: string;
       INPUT_FIELD_COLOR: string;
       INACTIVE_FIELD_COLOR: string;
+      INACTIVE_FIELD_COLOR_LOW_OPACITY: string;
       ACTIVE_ICON_COLOR: string;
       FONT_RED_COLOR: string;
       BACK_BUTTON_BG_COLOR: string;
       BG_DARK_BLUE_COLOR: string;
       BG_RED_COLOR: string;
+      BG_LIGHT_LEMON_COLOR: string;
+      BG_BLUE_GREEN_COLOR: string;
+      FONT_BLUE_COLOR: string;
+      BG_LIGHT_GRAY: string;
+      BG_DARK_BLUE_GREEN_COLOR: string;
     };
 
     // All Global App Font Sizes

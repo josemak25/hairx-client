@@ -6,13 +6,13 @@ import SafeAreaView from '../../commons/safe-area-view';
 import Header from '../../commons/header';
 import Button from '../../components/button';
 import applyScale from '../../utils/applyScale';
+import ProceedHomeIcon from '../../../assets/icons/proceed_home_icon';
 
 import {
   Container,
   ContainerHeaderTexts,
   AccentText,
   PrimaryText,
-  Placeholder,
   HeaderTitleContainer,
   HeaderTitle
 } from './styles';
@@ -43,7 +43,7 @@ export default function ProceedHomeScreen(props: ProceedHomeScreenProp) {
           <AccentText>That was quick, Claire</AccentText>
           <PrimaryText>You are done with the basics</PrimaryText>
         </ContainerHeaderTexts>
-        <Placeholder source={require('../../../assets/images/logo.png')} />
+        <ProceedHomeIcon />
         <Button
           title="Proceed home"
           buttonStyle={{

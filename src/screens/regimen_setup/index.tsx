@@ -12,8 +12,6 @@ import Button from '../../components/button';
 import { questions } from '../../libs/regimen_setup.json';
 import applyScale from '../../utils/applyScale';
 
-const SLIDE_INCREMENT = 1;
-
 import {
   HeaderTitle,
   HeaderTitleNumber,
@@ -34,6 +32,7 @@ export type QuestionItem = {
   options: string[];
 };
 
+const SLIDE_INCREMENT = 1;
 interface RegimenSetupScreenProp extends NavigationInterface {
   testID?: string;
 }

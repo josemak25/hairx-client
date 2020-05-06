@@ -3,11 +3,12 @@ import { useStoreContext } from '../../store';
 import CARD_ITEM from '../../utils/getItemCardSize';
 import ScreenGridSizeActions from '../../store/grid/actions';
 import { NavigationInterface } from '../types';
-
-import { Container, Logo } from './styles';
 import SafeAreaView from '../../commons/safe-area-view';
 import { StatusBar } from 'react-native';
 import { useThemeContext } from '../../theme';
+
+import { Container, Logo } from './styles';
+
 interface SplashScreenProp extends NavigationInterface {
   testID?: string;
 }

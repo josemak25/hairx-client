@@ -2,6 +2,8 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { ScrollView, Animated, Easing, ActivityIndicator } from 'react-native';
 import { useThemeContext } from '../../theme';
 import applyScale from '../../utils/applyScale';
+import HairStatusModal from './hair_status_modal';
+import CurrentProduct from './currentProducts';
 
 import {
   Container,
@@ -32,11 +34,16 @@ const AnimatedAnswerOptionOverlay = Animated.createAnimatedComponent(
 );
 
 export default function RenderItem(props: RenderItemProp) {
-  const { colors } = useThemeContext();
+  const { colors, fonts } = useThemeContext();
 
   const [animation, setAnimation] = useState({
     options: { selected: '' },
     optionDropDown: { selected: '' }
+  });
+
+  const [hairStatus, setHairStatus] = useState({
+    date: '6 months ago',
+    showModal: false
   });
 
   const [dropDown, setDropDown] = useState({
@@ -92,7 +99,10 @@ export default function RenderItem(props: RenderItemProp) {
       toValue: applyScale(buttonType === 'options' ? 373 : 335),
       duration: 500,
       easing: Easing.elastic(0.7)
-    }).start();
+    }).start(({ finished }) => {
+      if (finished && buttonType !== 'optionDropDown') return;
+      setHairStatus({ ...hairStatus, showModal: true });
+    });
   };
 
   const loadDropDown = () => {
@@ -120,21 +130,51 @@ export default function RenderItem(props: RenderItemProp) {
           <QuestionTitle>{question}</QuestionTitle>
           <QuestionRelevanceHeader>Question Relevance</QuestionRelevanceHeader>
           <QuestionRelevanceTextContainer>
-            <QuestionRelevanceText>{questionRelevance}</QuestionRelevanceText>
+            <QuestionRelevanceText>
+              {questionRelevance}
+              {/Current/.test(question) && (
+                <QuestionRelevanceText
+                  style={{
+                    fontFamily: fonts.CORMORANT_ITALIC,
+                    color: colors.FONT_RED_COLOR,
+                    opacity: 0.0
+                  }}
+                >
+                  {` Add at least 3.`}
+                </QuestionRelevanceText>
+              )}
+            </QuestionRelevanceText>
           </QuestionRelevanceTextContainer>
         </QuestionContainer>
         <AnswersContainer>
-          {options.map(item => (
-            <AnswerOptionContainer key={item}>
-              <AnswerOptionText>{item}</AnswerOptionText>
-              <AnimatedAnswerOptionOverlay
-                style={{ width: animation['options'][item] }}
-              />
-              <AnswerOption
-                onPress={() => startButtonAnimation(item, 'options')}
-              />
-            </AnswerOptionContainer>
-          ))}
+          {options.map(item =>
+            /Current/.test(question) ? (
+              <CurrentProduct key={item} title={item} />
+            ) : (
+              <AnswerOptionContainer key={item}>
+                <AnswerOptionText>{item}</AnswerOptionText>
+                <AnimatedAnswerOptionOverlay
+                  style={{ width: animation['options'][item] }}
+                />
+                <AnswerOption
+                  onPress={() => startButtonAnimation(item, 'options')}
+                />
+
+                {hairStatus.showModal ? (
+                  <HairStatusModal
+                    isVisible={hairStatus.showModal}
+                    hairStatusDate={hairStatus.date}
+                    onBackdropPress={() =>
+                      setHairStatus({ ...hairStatus, showModal: false })
+                    }
+                    onChange={(hairStatusDate: string) =>
+                      setHairStatus({ ...hairStatus, date: hairStatusDate })
+                    }
+                  />
+                ) : null}
+              </AnswerOptionContainer>
+            )
+          )}
 
           {dropDown.loadDropDown && (
             <LoadDropDownContainer>

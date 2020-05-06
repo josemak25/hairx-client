@@ -28,13 +28,6 @@ export const PrimaryText = styled.Text`
   text-align: center;
 `;
 
-export const Placeholder = styled.Image`
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 40%;
-`;
-
 export const HeaderTitleContainer = styled.View`
   flex-direction: row;
   justify-content: center;
