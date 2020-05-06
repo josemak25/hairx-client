@@ -44,6 +44,7 @@ export const FoodDetailText = styled.Text`
   font-family: ${({ theme }) => theme.fonts.CORMORANT_REGULAR};
   opacity: 0.8;
   padding: 5px 20px;
+  line-height: 30px;
   text-align: center;
 `;
 

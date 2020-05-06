@@ -48,14 +48,14 @@ interface FoodDetailsScreenProp extends NavigationInterface {
 }
 
 export default function FoodDetailsScreen(props: FoodDetailsScreenProp) {
+  const { colors, fonts } = useThemeContext();
+
   const {
     navigation,
     route: { params }
   } = props;
 
   const { title, description, afterTreatmentImage, products } = params;
-
-  const { colors, fonts } = useThemeContext();
 
   return (
     <Container style={{ paddingBottom: expoConstants.statusBarHeight - 15 }}>
@@ -132,6 +132,7 @@ export default function FoodDetailsScreen(props: FoodDetailsScreenProp) {
           <ScrollView
             horizontal
             contentContainerStyle={{ flexGrow: 1, paddingBottom: 30 }}
+            showsHorizontalScrollIndicator={false}
           >
             {products.map(({ name, price, image }) => (
               <ProductCard key={name}>
