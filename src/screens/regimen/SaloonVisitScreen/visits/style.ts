@@ -39,7 +39,7 @@ export const Purpose = styled.Text`
 
 export const Booking = styled.TouchableOpacity`
   z-index: 2;
-  width: 34%;
+  width: 30%;
   position: relative;
   right: 10px;
   height: ${applyScale(50)}px;
