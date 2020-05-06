@@ -19,6 +19,11 @@ export default function RegimenNavigator() {
       />
 
       <RegimenStack.Screen
+        name="ResumeRegimenSetup"
+        component={Screens.ResumeRegimenSetup}
+      />
+
+      <RegimenStack.Screen
         name="RecommendationScreen"
         component={Screens.RecommendationScreen}
       />
