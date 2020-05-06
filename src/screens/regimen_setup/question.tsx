@@ -4,6 +4,7 @@ import { useThemeContext } from '../../theme';
 import applyScale from '../../utils/applyScale';
 import HairStatusModal from './hair_status_modal';
 import CurrentProduct from './currentProducts';
+import TimeSchedule from './timeSchedule';
 
 import {
   Container,
@@ -146,35 +147,55 @@ export default function RenderItem(props: RenderItemProp) {
             </QuestionRelevanceText>
           </QuestionRelevanceTextContainer>
         </QuestionContainer>
-        <AnswersContainer>
-          {options.map(item =>
-            /Current/.test(question) ? (
-              <CurrentProduct key={item} title={item} />
-            ) : (
-              <AnswerOptionContainer key={item}>
-                <AnswerOptionText>{item}</AnswerOptionText>
-                <AnimatedAnswerOptionOverlay
-                  style={{ width: animation['options'][item] }}
-                />
-                <AnswerOption
-                  onPress={() => startButtonAnimation(item, 'options')}
-                />
-
-                {hairStatus.showModal ? (
-                  <HairStatusModal
-                    isVisible={hairStatus.showModal}
-                    hairStatusDate={hairStatus.date}
-                    onBackdropPress={() =>
-                      setHairStatus({ ...hairStatus, showModal: false })
-                    }
-                    onChange={(hairStatusDate: string) =>
-                      setHairStatus({ ...hairStatus, date: hairStatusDate })
-                    }
+        <AnswersContainer
+          style={
+            question === 'Time Schedule?'
+              ? {
+                  flexDirection: 'row'
+                }
+              : null
+          }
+        >
+          {options.map(item => {
+            switch (question) {
+              case 'Current products?':
+                return <CurrentProduct key={item} title={item} />;
+              case 'Time Schedule?':
+                return (
+                  <TimeSchedule
+                    key={item.name}
+                    title={item.name}
+                    detailsHeader={item.status}
+                    detailsText={item.details}
                   />
-                ) : null}
-              </AnswerOptionContainer>
-            )
-          )}
+                );
+              default:
+                return (
+                  <AnswerOptionContainer key={item}>
+                    <AnswerOptionText>{item}</AnswerOptionText>
+                    <AnimatedAnswerOptionOverlay
+                      style={{ width: animation['options'][item] }}
+                    />
+                    <AnswerOption
+                      onPress={() => startButtonAnimation(item, 'options')}
+                    />
+
+                    {hairStatus.showModal ? (
+                      <HairStatusModal
+                        isVisible={hairStatus.showModal}
+                        hairStatusDate={hairStatus.date}
+                        onBackdropPress={() =>
+                          setHairStatus({ ...hairStatus, showModal: false })
+                        }
+                        onChange={(hairStatusDate: string) =>
+                          setHairStatus({ ...hairStatus, date: hairStatusDate })
+                        }
+                      />
+                    ) : null}
+                  </AnswerOptionContainer>
+                );
+            }
+          })}
 
           {dropDown.loadDropDown && (
             <LoadDropDownContainer>
