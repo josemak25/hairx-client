@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
     Container,
@@ -19,11 +19,13 @@ interface VisitProps {
 }
 
 export default function Visits(props: VisitProps) {
-
+    const [state, setstate] = useState<"Booked Now" | "Booked">("Booked Now")
     const { colors } = useThemeContext()
 
     const ContentColor = ((props.index === 0) ? colors.BG_LIGHT_PINK_COLOR : colors.BG_LIGHT_BLUE_COLOR)
     const TimeColor = ((props.index === 0) ? colors.FONT_RED_COLOR : colors.BG_DARK_BLUE_COLOR)
+
+    const checkBooking = () => (state === "Booked Now") ? setstate("Booked") : setstate("Booked Now")
 
     return (
         <Container>
@@ -32,8 +34,8 @@ export default function Visits(props: VisitProps) {
                 <Title>{props.title}</Title>
                 <Purpose>Purpose: {props.purpose}</Purpose>
             </Content>
-            <Booking>
-                <Book>Book Now</Book>
+            <Booking onPress={checkBooking}>
+                <Book>{state}</Book>
             </Booking>
         </Container>
     );
