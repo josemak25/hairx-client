@@ -8,6 +8,7 @@ enum COLORS {
   BG_WHITE_COLOR = '#FFFFFF',
   FONT_DARK_COLOR = '#000000',
   FONT_LIGHT_COLOR = '#FFFFFF',
+  FONT_DARK_GOLD_COLOR = '#BAB200',
   FACEBOOK_COLOR = '#4267B2',
   GOOGLE_COLOR = '#D44638',
   BUTTON_DARK_COLOR = '#3B3B3B',
@@ -50,6 +51,7 @@ declare module 'styled-components' {
       BG_WHITE_COLOR: string;
       FONT_DARK_COLOR: string;
       FONT_LIGHT_COLOR: string;
+      FONT_DARK_GOLD_COLOR: string;
       FACEBOOK_COLOR: string;
       GOOGLE_COLOR: string;
       BUTTON_DARK_COLOR: string;

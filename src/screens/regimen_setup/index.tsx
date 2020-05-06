@@ -104,7 +104,6 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
           <Question
             key={item.key}
             {...item}
-            currentQuestion={state.currentQuestion}
             handleGoBack={handleGoBackButton}
           />
         )}

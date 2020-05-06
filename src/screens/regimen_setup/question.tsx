@@ -3,6 +3,7 @@ import { ScrollView, Animated, Easing, ActivityIndicator } from 'react-native';
 import { useThemeContext } from '../../theme';
 import applyScale from '../../utils/applyScale';
 import HairStatusModal from './hair_status_modal';
+import CurrentProduct from './currentProducts';
 
 import {
   Container,
@@ -23,7 +24,6 @@ interface RenderItemProp {
   testID?: string;
   question: string;
   questionRelevance: string;
-  currentQuestion: number;
   index: number;
   options: string[];
   optionsDropDown?: string[];
@@ -34,7 +34,7 @@ const AnimatedAnswerOptionOverlay = Animated.createAnimatedComponent(
 );
 
 export default function RenderItem(props: RenderItemProp) {
-  const { colors } = useThemeContext();
+  const { colors, fonts } = useThemeContext();
 
   const [animation, setAnimation] = useState({
     options: { selected: '' },
@@ -130,7 +130,20 @@ export default function RenderItem(props: RenderItemProp) {
           <QuestionTitle>{question}</QuestionTitle>
           <QuestionRelevanceHeader>Question Relevance</QuestionRelevanceHeader>
           <QuestionRelevanceTextContainer>
-            <QuestionRelevanceText>{questionRelevance}</QuestionRelevanceText>
+            <QuestionRelevanceText>
+              {questionRelevance}
+              {/Current/.test(question) && (
+                <QuestionRelevanceText
+                  style={{
+                    fontFamily: fonts.CORMORANT_ITALIC,
+                    color: colors.FONT_RED_COLOR,
+                    opacity: 0.0
+                  }}
+                >
+                  {` Add at least 3.`}
+                </QuestionRelevanceText>
+              )}
+            </QuestionRelevanceText>
           </QuestionRelevanceTextContainer>
         </QuestionContainer>
         <AnswersContainer>
@@ -144,7 +157,7 @@ export default function RenderItem(props: RenderItemProp) {
                 onPress={() => startButtonAnimation(item, 'options')}
               />
 
-              {props.currentQuestion === 3 && hairStatus.showModal ? (
+              {hairStatus.showModal ? (
                 <HairStatusModal
                   isVisible={hairStatus.showModal}
                   hairStatusDate={hairStatus.date}
