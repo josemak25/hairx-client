@@ -19,13 +19,13 @@ interface VisitProps {
 }
 
 export default function Visits(props: VisitProps) {
-    const [state, setstate] = useState<"Booked Now" | "Booked">("Booked Now")
+    const [state, setstate] = useState<"Book Now" | "Booked">("Book Now")
     const { colors } = useThemeContext()
 
     const ContentColor = ((props.index === 0) ? colors.BG_LIGHT_PINK_COLOR : colors.BG_LIGHT_BLUE_COLOR)
     const TimeColor = ((props.index === 0) ? colors.FONT_RED_COLOR : colors.BG_DARK_BLUE_COLOR)
 
-    const checkBooking = () => (state === "Booked Now") ? setstate("Booked") : setstate("Booked Now")
+    const checkBooking = () => (state === "Book Now") ? setstate("Booked") : setstate("Book Now")
 
     return (
         <Container>
