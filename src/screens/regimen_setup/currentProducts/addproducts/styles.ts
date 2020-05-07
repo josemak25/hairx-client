@@ -10,4 +10,18 @@ export const ModalContainer = styled.View`
   border-top-right-radius: 30px;
 `;
 
-export const ModalTitle = styled.Text``;
+export const ModalTitle = styled.Text`
+    text-transform: capitalize;
+    margin: 5% 0;
+    font-family: ${({theme}) => theme.fonts.JOST_MEDIUM};
+    font-size: ${({theme}) => theme.fonts.LARGE_SIZE + 3}px;
+    color: ${({theme}) => theme.colors.FONT_DARK_COLOR};
+`;
+
+export const ModalTitleProduct = styled.Text`
+     text-transform: capitalize;
+    margin: 5% 0;
+    font-family: ${({theme}) => theme.fonts.CORMORANT_REGULAR};
+    font-size: ${({theme}) => theme.fonts.LARGE_SIZE + 3}px;
+    color: ${({theme}) => theme.colors.FONT_DARK_COLOR};
+`;

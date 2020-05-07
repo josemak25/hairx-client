@@ -4,7 +4,7 @@ import Modal from 'react-native-modal';
 import { NavigationInterface } from '../../../types';
 import { useThemeContext } from '../../../../theme';
 
-import { ModalContainer, ModalTitle } from './styles';
+import { ModalContainer, ModalTitle, ModalTitleProduct } from './styles';
 
 interface SearchhProductScreenProp {
   testID?: string;
@@ -24,7 +24,7 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
       style={{ display: 'flex', justifyContent: 'flex-end', margin: 0 }}
     >
       <ModalContainer>
-        <ModalTitle>Add products</ModalTitle>
+        <ModalTitle>add <ModalTitleProduct>shampoo</ModalTitleProduct></ModalTitle>
       </ModalContainer>
     </Modal>
   );
