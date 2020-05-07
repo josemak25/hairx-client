@@ -62,7 +62,7 @@ export default function Visits(props: VisitProps) {
                 }}>
                 <Time style={{ color: state.timeColor }}>{props.time}</Time>
                 <Title>{props.title}</Title>
-                <Purpose>Pulrpose: {props.purpose}</Purpose>
+                <Purpose>Purpose: {props.purpose}</Purpose>
             </Content>
             <Booking onPress={checkBooking} style={{
                 backgroundColor:state.bookBg,
