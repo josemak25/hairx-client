@@ -63,7 +63,10 @@ export default function CreateAccount(props: CreateAccountProp) {
         )}
       />
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-        <Container style={{ paddingTop: 0 }}>
+        <Container
+          style={{ paddingTop: 0 }}
+          showsVerticalScrollIndicator={false}
+        >
           <Welcome style={{ marginTop: '15%' }}>Good to have you</Welcome>
           <Prompt>create account</Prompt>
           <Input

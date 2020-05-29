@@ -61,7 +61,10 @@ export default function CreatePassword(props: CreatePasswordProp) {
         )}
       />
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-        <Container style={{ paddingTop: 0 }}>
+        <Container
+          style={{ paddingTop: 0 }}
+          showsVerticalScrollIndicator={false}
+        >
           <Welcome style={{ marginTop: '15%' }}>Good to have you</Welcome>
           <Prompt>create password</Prompt>
           <Input
@@ -102,7 +105,7 @@ export default function CreatePassword(props: CreatePasswordProp) {
           />
           <Button
             title="Proceed"
-            buttonStyle={{ height: 60 }}
+            buttonStyle={{ height: 60, marginBottom: 10 }}
             textStyle={{ fontSize: fonts.LARGE_SIZE }}
             onPress={() => navigation.navigate('PhoneVerificationScreen')}
           />

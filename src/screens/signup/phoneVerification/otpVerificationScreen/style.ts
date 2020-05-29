@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import { theme } from '../../../../theme/types';
 
-export const Container = styled.View`
+export const Container = styled.ScrollView`
   flex: 1;
   padding: 15px;
 `;
@@ -55,7 +55,7 @@ export const Title = styled.Text`
   font-family: ${({ theme }) => theme.fonts.JOST_BOOK};
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
   font-size: 30px;
-  margin-top: 70px;
+  margin-top: 50px;
 `;
 
 export const Subtitle = styled.Text`

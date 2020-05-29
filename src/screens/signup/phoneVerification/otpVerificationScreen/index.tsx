@@ -53,7 +53,7 @@ export default function OTPVerification(props: OTPVerificationProps) {
           </BackButton>
         )}
       ></Header>
-      <Container>
+      <Container showsVerticalScrollIndicator={false}>
         <Title>VERIFY YOUR IDENTITY</Title>
         <Subtitle>
           We have sent a text message with your OTP to your phone, provide it

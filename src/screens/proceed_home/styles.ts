@@ -1,10 +1,7 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
-  flex: 1;
+export const Container = styled.ScrollView`
   width: 80%;
-  align-items: center;
-  justify-content: space-around;
   background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
   padding-top: 30px;
 `;

@@ -38,7 +38,14 @@ export default function ProceedHomeScreen(props: ProceedHomeScreenProp) {
           </HeaderTitleContainer>
         )}
       />
-      <Container>
+      <Container
+        contentContainerStyle={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'space-around'
+        }}
+        showsVerticalScrollIndicator={false}
+      >
         <ContainerHeaderTexts>
           <AccentText>That was quick, Claire</AccentText>
           <PrimaryText>You are done with the basics</PrimaryText>
@@ -49,7 +56,8 @@ export default function ProceedHomeScreen(props: ProceedHomeScreenProp) {
           buttonStyle={{
             width: '70%',
             height: applyScale(60),
-            bottom: applyScale(30)
+            bottom: applyScale(30),
+            marginTop: applyScale(20)
           }}
           textStyle={{ textTransform: 'none' }}
           onPress={() => navigation.replace('HomeScreen')}
