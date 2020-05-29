@@ -5,6 +5,8 @@ enum COLORS {
   BG_LIGHT_GOLD_COLOR = '#FFFDD3',
   BG_LIGHT_BLUE_COLOR = '#D3E7FF',
   BG_LIGHT_PINK_COLOR = '#FFE0F7',
+  BG_EXTRA_LIGHT_PINK_COLOR = '#FFE0F8',
+  BG_LIGHT_YELLOW_COLOR = '#FFFDD3',
   BG_WHITE_COLOR = '#FFFFFF',
   FONT_DARK_COLOR = '#000000',
   FONT_LIGHT_COLOR = '#FFFFFF',
@@ -51,6 +53,8 @@ declare module 'styled-components' {
       BG_LIGHT_GOLD_COLOR: string;
       BG_LIGHT_BLUE_COLOR: string;
       BG_LIGHT_PINK_COLOR: string;
+      BG_EXTRA_LIGHT_PINK_COLOR :string;
+      BG_LIGHT_YELLOW_COLOR: string;
       BG_WHITE_COLOR: string;
       FONT_DARK_COLOR: string;
       FONT_LIGHT_COLOR: string;

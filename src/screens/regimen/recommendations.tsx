@@ -8,6 +8,7 @@ import applyScale from '../../utils/applyScale';
 import { useThemeContext } from '../../theme';
 import FoodScreen from './food';
 import RoutineScreen from './routine';
+import SaloonVisitScreen from './SaloonVisitScreen';
 
 import {
   HeaderTitleContainer,
@@ -104,7 +105,7 @@ export default function RecommendationScreen(props: RecommendationScreenProp) {
                 return <FoodScreen {...props} key={item} />;
 
               case saloonVisit:
-                return <FoodScreen {...props} key={item} />;
+                return <SaloonVisitScreen {...props} key={item} />;
 
               default:
                 return <RoutineScreen {...props} key={item} />;
