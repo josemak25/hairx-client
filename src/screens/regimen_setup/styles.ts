@@ -224,3 +224,9 @@ export const LoadDropDownContainer = styled.View`
   border-radius: 5px;
   background-color: ${({ theme }) => theme.colors.INPUT_FIELD_COLOR};
 `;
+
+export const TimeScheduleContainer = styled.TouchableOpacity`
+  height: ${applyScale(302)}px;
+  width: ${applyScale(154)}px;
+  margin: auto;
+`;

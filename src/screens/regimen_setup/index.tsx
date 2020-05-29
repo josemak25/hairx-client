@@ -135,7 +135,7 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
           }}
         />
         <Button
-          title="next"
+          title={currentQuestion !== questions.length - 1 ? 'next' : 'finish'}
           buttonStyle={{
             width: applyScale(120),
             backgroundColor: colors.BG_WHITE_COLOR,
