@@ -27,7 +27,8 @@ enum COLORS {
   BG_BLUE_GREEN_COLOR = '#A8DDE2',
   BG_LIGHT_GRAY = '#F4F4F4',
   BG_DARK_BLUE_GREEN_COLOR = '#83B8BD',
-  FONT_DARK_COLOR_LOW_OPACITY = 'rgba(0, 0, 0, 0.5)'
+  FONT_DARK_COLOR_LOW_OPACITY = 'rgba(0, 0, 0, 0.5)',
+  FONT_DARK_COLOR_MID_OPACITY = 'rgba(0, 0, 0, 0.7)'
 }
 
 // All app font sizes
@@ -75,6 +76,7 @@ declare module 'styled-components' {
       BG_LIGHT_GRAY: string;
       BG_DARK_BLUE_GREEN_COLOR: string;
       FONT_DARK_COLOR_LOW_OPACITY: string;
+      FONT_DARK_COLOR_MID_OPACITY: string;
     };
 
     // All Global App Font Sizes
