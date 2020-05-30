@@ -4,8 +4,8 @@ import SearchInput, { createFilter } from 'react-native-search-filter';
 import { Ionicons } from '@expo/vector-icons';
 
 import { useThemeContext } from '../../../../theme';
-import {productsNames} from '../../../../libs/products';
-import {brandNames} from '../../../../libs/products';
+import { productsNames } from '../../../../libs/products';
+import { brandNames } from '../../../../libs/products';
 
 import { ModalContainer, ModalTitle, ModalTitleProduct } from './styles';
 
@@ -25,6 +25,8 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
     searchProduct: '',
     displayBrand: false,
     displayProduct: false,
+    displayBrandInput: 'show',
+    displayProductInput: 'show'
   });
 
   const searchBrandUpdated = text => {
@@ -35,6 +37,21 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
     });
   };
 
+  const brandOnclick = () => {
+    setSearch({
+      ...search,
+      displayBrandInput: 'hide'
+    })
+  }
+
+  const brandOnblur = () => {
+    setSearch({
+      ...search,
+      displayBrandInput: 'show'
+    })
+  }
+
+
   const searchProductUpdated = text => {
     setSearch({
       ...search,
@@ -43,9 +60,23 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
     });
   };
 
+  const productOnclick = () => {
+    setSearch({
+      ...search,
+      displayProductInput: 'hide'
+    })
+  }
+
+  const productOnblur = () => {
+    setSearch({
+      ...search,
+      displayProductInput: 'show'
+    })
+  }
+
   const filteredProducts = productsNames.filter(
     createFilter(search.searchProduct, KEYS_TO_FILTERS)
-  );  
+  );
 
   const filteredBrands = brandNames.filter(
     createFilter(search.searchBrand, KEYS_TO_FILTERS)
@@ -64,9 +95,12 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
         <ModalTitle>
           add <ModalTitleProduct>shampoo</ModalTitleProduct>
         </ModalTitle>
-        <SearchInput
+       {search.displayBrandInput === 'show' ? (
+          <SearchInput
           onChangeText={text => searchBrandUpdated(text)}
           placeholder="Search brand name"
+          onFocus={() => productOnclick()}
+          onBlur={() => productOnblur()}
           inputViewStyles={{
             backgroundColor: colors.BG_LIGHT_GRAY,
             width: '93%',
@@ -77,12 +111,22 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
             borderRadius: 5
           }}
           inputFocus={true}
-          clearIcon={<Ionicons name="ios-search" size={17} color={colors.FONT_DARK_COLOR_LOW_OPACITY} />}
+          clearIcon={
+            <Ionicons
+              name="ios-search"
+              size={17}
+              color={colors.FONT_DARK_COLOR_LOW_OPACITY}
+            />
+          }
           clearIconViewStyles={{ position: 'absolute', top: 18, left: 10 }}
         />
-        <SearchInput
+       ) : null}
+        {search.displayProductInput === 'show' ? (
+          <SearchInput
           onChangeText={text => searchProductUpdated(text)}
           placeholder="Search product here"
+          onFocus={() => brandOnclick()}
+          onBlur={() => brandOnblur()}
           inputViewStyles={{
             backgroundColor: colors.BG_LIGHT_GRAY,
             width: '93%',
@@ -94,12 +138,19 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
             marginTop: 15
           }}
           inputFocus={true}
-          clearIcon={<Ionicons name="ios-search" size={17} color={colors.FONT_DARK_COLOR_LOW_OPACITY} />}
+          clearIcon={
+            <Ionicons
+              name="ios-search"
+              size={17}
+              color={colors.FONT_DARK_COLOR_LOW_OPACITY}
+            />
+          }
           clearIconViewStyles={{ position: 'absolute', top: 18, left: 10 }}
         />
+        ) : null}
         {search.displayProduct === true &&
           filteredProducts.map(item => <ModalTitle>{item.name}</ModalTitle>)}
-          {search.displayBrand === true &&
+        {search.displayBrand === true &&
           filteredBrands.map(item => <ModalTitle>{item.name}</ModalTitle>)}
       </ModalContainer>
     </Modal>
