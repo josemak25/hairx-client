@@ -1,13 +1,26 @@
 import React, { useState } from 'react';
 import Modal from 'react-native-modal';
 import SearchInput, { createFilter } from 'react-native-search-filter';
+import RadioButton from 'react-native-simple-radio-button-input';
 import { Ionicons } from '@expo/vector-icons';
-
 import { useThemeContext } from '../../../../theme';
 import { productsNames } from '../../../../libs/products';
 import { brandNames } from '../../../../libs/products';
 
-import { ModalContainer, ModalTitle, ModalTitleProduct } from './styles';
+import {
+  ModalContainer,
+  ModalTitle,
+  ModalTitleProduct,
+  CardView,
+  BrandIcon,
+  Name,
+  AvailableProducts,
+  BrandView,
+  ProductCover,
+  RadioCover,
+  BrandName,
+  ProductIcon
+} from './styles';
 
 interface SearchhProductScreenProp {
   testID?: string;
@@ -26,8 +39,19 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
     displayBrand: false,
     displayProduct: false,
     displayBrandInput: 'show',
-    displayProductInput: 'show'
+    displayProductInput: 'show',
+    selectedProduct: false
   });
+
+  const toggleSelectedProduct = () => {
+    search.selectedProduct == false ? setSearch({
+      ...search,
+      selectedProduct: true
+    }) : setSearch({
+      ...search,
+      selectedProduct: false
+    })
+  }
 
   const searchBrandUpdated = text => {
     setSearch({
@@ -41,16 +65,15 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
     setSearch({
       ...search,
       displayBrandInput: 'hide'
-    })
-  }
+    });
+  };
 
   const brandOnblur = () => {
     setSearch({
       ...search,
       displayBrandInput: 'show'
-    })
-  }
-
+    });
+  };
 
   const searchProductUpdated = text => {
     setSearch({
@@ -64,15 +87,15 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
     setSearch({
       ...search,
       displayProductInput: 'hide'
-    })
-  }
+    });
+  };
 
   const productOnblur = () => {
     setSearch({
       ...search,
       displayProductInput: 'show'
-    })
-  }
+    });
+  };
 
   const filteredProducts = productsNames.filter(
     createFilter(search.searchProduct, KEYS_TO_FILTERS)
@@ -95,63 +118,87 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
         <ModalTitle>
           add <ModalTitleProduct>shampoo</ModalTitleProduct>
         </ModalTitle>
-       {search.displayBrandInput === 'show' ? (
+        {search.displayBrandInput === 'show' ? (
           <SearchInput
-          onChangeText={text => searchBrandUpdated(text)}
-          placeholder="Search brand name"
-          onFocus={() => productOnclick()}
-          onBlur={() => productOnblur()}
-          inputViewStyles={{
-            backgroundColor: colors.BG_LIGHT_GRAY,
-            width: '93%',
-            paddingTop: 20,
-            paddingBottom: 20,
-            paddingLeft: 35,
-            height: 55,
-            borderRadius: 5
-          }}
-          inputFocus={true}
-          clearIcon={
-            <Ionicons
-              name="ios-search"
-              size={17}
-              color={colors.FONT_DARK_COLOR_LOW_OPACITY}
-            />
-          }
-          clearIconViewStyles={{ position: 'absolute', top: 18, left: 10 }}
-        />
-       ) : null}
+            onChangeText={text => searchBrandUpdated(text)}
+            placeholder="Search brand name"
+            onFocus={() => productOnclick()}
+            onBlur={() => productOnblur()}
+            inputViewStyles={{
+              backgroundColor: colors.BG_LIGHT_GRAY,
+              width: '93%',
+              paddingTop: 20,
+              paddingBottom: 20,
+              paddingLeft: 35,
+              height: 55,
+              borderRadius: 5
+            }}
+            inputFocus={true}
+            clearIcon={
+              <Ionicons
+                name="ios-search"
+                size={17}
+                color={colors.FONT_DARK_COLOR_LOW_OPACITY}
+              />
+            }
+            clearIconViewStyles={{ position: 'absolute', top: 18, left: 10 }}
+          />
+        ) : null}
         {search.displayProductInput === 'show' ? (
           <SearchInput
-          onChangeText={text => searchProductUpdated(text)}
-          placeholder="Search product here"
-          onFocus={() => brandOnclick()}
-          onBlur={() => brandOnblur()}
-          inputViewStyles={{
-            backgroundColor: colors.BG_LIGHT_GRAY,
-            width: '93%',
-            paddingTop: 20,
-            paddingBottom: 20,
-            paddingLeft: 35,
-            height: 55,
-            borderRadius: 5,
-            marginTop: 15
-          }}
-          inputFocus={true}
-          clearIcon={
-            <Ionicons
-              name="ios-search"
-              size={17}
-              color={colors.FONT_DARK_COLOR_LOW_OPACITY}
-            />
-          }
-          clearIconViewStyles={{ position: 'absolute', top: 18, left: 10 }}
-        />
+            onChangeText={text => searchProductUpdated(text)}
+            placeholder="Search product here"
+            onFocus={() => brandOnclick()}
+            onBlur={() => brandOnblur()}
+            inputViewStyles={{
+              backgroundColor: colors.BG_LIGHT_GRAY,
+              width: '93%',
+              paddingTop: 20,
+              paddingBottom: 20,
+              paddingLeft: 35,
+              height: 55,
+              borderRadius: 5,
+              marginTop: 15
+            }}
+            inputFocus={true}
+            clearIcon={
+              <Ionicons
+                name="ios-search"
+                size={17}
+                color={colors.FONT_DARK_COLOR_LOW_OPACITY}
+              />
+            }
+            clearIconViewStyles={{ position: 'absolute', top: 18, left: 10 }}
+          />
         ) : null}
         {search.displayProduct === true &&
-          filteredProducts.map(item => <ModalTitle>{item.name}</ModalTitle>)}
+          filteredProducts.map(item => (
+            <CardView>
+              <BrandView>
+                <ProductIcon source={item.image} />
+              </BrandView>
+              <ProductCover>
+                <Name>{item.name}</Name>
+                <BrandName>{item.brand}</BrandName>
+              </ProductCover>
+              <RadioCover>
+              <RadioButton color={colors.INACTIVE_FIELD_COLOR} selected={search.selectedProduct} onPress={toggleSelectedProduct} />
+              </RadioCover>
+            </CardView>
+          ))}
         {search.displayBrand === true &&
-          filteredBrands.map(item => <ModalTitle>{item.name}</ModalTitle>)}
+          filteredBrands.map(item => (
+            <CardView>
+                <BrandIcon source={item.image} />
+              <ProductCover>
+                <Name>{item.name}</Name>
+                <AvailableProducts>{item.products}</AvailableProducts>
+              </ProductCover>
+              <RadioCover>
+              <RadioButton color={colors.INACTIVE_FIELD_COLOR} selected={search.selectedProduct} onPress={toggleSelectedProduct} />
+              </RadioCover>
+            </CardView>
+          ))}
       </ModalContainer>
     </Modal>
   );
