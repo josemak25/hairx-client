@@ -7,6 +7,7 @@ import boxShadow from '../../../utils/boxShadows';
 
 interface CurrentProductProps {
   title: string;
+  handleAddProduct(title: string): void;
 }
 
 export default function CurrentProduct(props: CurrentProductProps) {
@@ -14,8 +15,6 @@ export default function CurrentProduct(props: CurrentProductProps) {
   const [state, setState] = useState<'flex' | 'none'>('flex');
 
   const clickAction = () => setState('none');
-
-  const saveAction = () => {};
 
   return (
     <Container style={{ display: state }}>
@@ -52,7 +51,9 @@ export default function CurrentProduct(props: CurrentProductProps) {
               fontSize: fonts.LARGE_SIZE,
               fontFamily: fonts.JOST_MEDIUM
             }}
-            onPress={saveAction}
+            onPress={() => {
+              props.handleAddProduct(props.title);
+            }}
           />
 
           <Button

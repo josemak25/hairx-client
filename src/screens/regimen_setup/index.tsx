@@ -11,6 +11,7 @@ import Question from './question';
 import Button from '../../components/button';
 import { questions } from '../../libs/regimen_setup.json';
 import applyScale from '../../utils/applyScale';
+import SearchProductScreen from './currentProducts/addproducts';
 
 import {
   HeaderTitle,
@@ -43,8 +44,9 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
   const { navigation } = props;
 
   const [state, setState] = useState({
-    modalVisible: false,
-    currentQuestion: 0
+    modalVisible: { quitSetUp: false, addProduct: false },
+    currentQuestion: 0,
+    productCategoryName: ''
   });
 
   const { modalVisible, currentQuestion } = state;
@@ -63,12 +65,94 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
     handleSlideChange(previousScrollIndex);
   };
 
-  const handleGoBackButton = () => navigation.goBack();
-
   const handleDoneButton = () => navigation.replace('RegimenScreen');
 
+  const handleAddProduct = (productCategoryName: string) => {
+    setState({
+      ...state,
+      modalVisible: { ...state.modalVisible, addProduct: true },
+      productCategoryName
+    });
+  };
   const handleSlideChange = (index: number) => {
     setState({ ...state, currentQuestion: index });
+  };
+
+  const AddCurrentProduct = () => {
+    return (
+      <SearchProductScreen
+        isVisible={state.modalVisible.addProduct}
+        onBackdropPress={() =>
+          setState({
+            ...state,
+            modalVisible: { ...state.modalVisible, addProduct: false }
+          })
+        }
+        productCategoryName={state.productCategoryName}
+      />
+    );
+  };
+
+  const QuitRegimentSetup = () => {
+    return (
+      <Modal
+        isVisible={modalVisible.quitSetUp}
+        animationIn="slideInUp"
+        animationOut="slideOutDown"
+        onBackdropPress={() =>
+          setState({
+            ...state,
+            modalVisible: { ...state.modalVisible, quitSetUp: false }
+          })
+        }
+        style={{ display: 'flex', justifyContent: 'flex-end', margin: 0 }}
+      >
+        <ModalView>
+          <ModalHeaderText>Quit regimen?</ModalHeaderText>
+          <ModalBodyText>
+            You’ve answered {currentQuestion} of {questions.length} questions to
+            set up your own bespoke regimen. If you need to do something
+            quickly, you can save your progress instead.
+          </ModalBodyText>
+          <ModalButtons>
+            <Button
+              title="Save my progress"
+              buttonStyle={{
+                width: '100%',
+                height: 50,
+                margin: 5,
+                backgroundColor: colors.FONT_DARK_COLOR
+              }}
+              onPress={() => {
+                setState({
+                  ...state,
+                  modalVisible: { ...state.modalVisible, quitSetUp: false }
+                });
+                navigation.goBack();
+              }}
+              textStyle={{ color: colors.BG_WHITE_COLOR }}
+            />
+            <Button
+              title="Quit & lose progress"
+              buttonStyle={{
+                width: '100%',
+                height: 50,
+                margin: 10,
+                backgroundColor: colors.BUTTON_LIGHT_COLOR
+              }}
+              onPress={() => {
+                setState({
+                  ...state,
+                  modalVisible: { ...state.modalVisible, quitSetUp: false }
+                });
+                navigation.goBack();
+              }}
+              textStyle={{ color: colors.FONT_DARK_COLOR }}
+            />
+          </ModalButtons>
+        </ModalView>
+      </Modal>
+    );
   };
 
   return (
@@ -90,7 +174,10 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
         headerRight={() => (
           <CancelSetupButton
             onPress={() => {
-              setState({ ...state, modalVisible: true });
+              setState({
+                ...state,
+                modalVisible: { ...state.modalVisible, quitSetUp: true }
+              });
             }}
           >
             <AntDesign name="close" size={15} color={colors.BG_WHITE_COLOR} />
@@ -104,7 +191,7 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
           <Question
             key={item.key}
             {...item}
-            handleGoBack={handleGoBackButton}
+            handleAddProduct={handleAddProduct}
           />
         )}
         onSlideChange={handleSlideChange}
@@ -143,58 +230,16 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
             borderColor: colors.INACTIVE_FIELD_COLOR
           }}
           onPress={
-            currentQuestion !== questions.length - 1 ? handleNextButton : null
+            currentQuestion !== questions.length - 1
+              ? handleNextButton
+              : handleDoneButton
           }
           textStyle={{ color: colors.FONT_DARK_COLOR }}
         />
       </ButtonContainer>
 
-      <Modal
-        isVisible={modalVisible}
-        animationIn="slideInUp"
-        animationOut="slideOutDown"
-        onBackdropPress={() => setState({ ...state, modalVisible: false })}
-        style={{ display: 'flex', justifyContent: 'flex-end', margin: 0 }}
-      >
-        <ModalView>
-          <ModalHeaderText>Quit regimen?</ModalHeaderText>
-          <ModalBodyText>
-            You’ve answered {currentQuestion} of {questions.length} questions to
-            set up your own bespoke regimen. If you need to do something
-            quickly, you can save your progress instead.
-          </ModalBodyText>
-          <ModalButtons>
-            <Button
-              title="Save my progress"
-              buttonStyle={{
-                width: '100%',
-                height: 50,
-                margin: 5,
-                backgroundColor: colors.FONT_DARK_COLOR
-              }}
-              onPress={() => {
-                setState({ ...state, modalVisible: false });
-                navigation.goBack();
-              }}
-              textStyle={{ color: colors.BG_WHITE_COLOR }}
-            />
-            <Button
-              title="Quit & lose progress"
-              buttonStyle={{
-                width: '100%',
-                height: 50,
-                margin: 10,
-                backgroundColor: colors.BUTTON_LIGHT_COLOR
-              }}
-              onPress={() => {
-                setState({ ...state, modalVisible: false });
-                navigation.goBack();
-              }}
-              textStyle={{ color: colors.FONT_DARK_COLOR }}
-            />
-          </ModalButtons>
-        </ModalView>
-      </Modal>
+      <QuitRegimentSetup />
+      <AddCurrentProduct />
     </SafeAreaView>
   );
 }

@@ -55,7 +55,7 @@ declare module 'styled-components' {
       BG_LIGHT_GOLD_COLOR: string;
       BG_LIGHT_BLUE_COLOR: string;
       BG_LIGHT_PINK_COLOR: string;
-      BG_EXTRA_LIGHT_PINK_COLOR :string;
+      BG_EXTRA_LIGHT_PINK_COLOR: string;
       BG_LIGHT_YELLOW_COLOR: string;
       BG_WHITE_COLOR: string;
       FONT_DARK_COLOR: string;

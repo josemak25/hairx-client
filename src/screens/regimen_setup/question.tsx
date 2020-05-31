@@ -29,6 +29,7 @@ interface RenderItemProp {
   index: number;
   options: string[];
   optionsDropDown?: string[];
+  handleAddProduct(): void;
 }
 
 const AnimatedAnswerOptionOverlay = Animated.createAnimatedComponent(
@@ -162,7 +163,13 @@ export default function RenderItem(props: RenderItemProp) {
           {options.map((item, index) => {
             switch (question) {
               case 'Current products?':
-                return <CurrentProduct key={item} title={item} />;
+                return (
+                  <CurrentProduct
+                    key={item}
+                    title={item}
+                    handleAddProduct={props.handleAddProduct}
+                  />
+                );
               case 'Time Schedule?':
                 return (
                   <TimeScheduleContainer

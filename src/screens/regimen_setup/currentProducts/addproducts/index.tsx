@@ -8,21 +8,20 @@ import { brandNames } from '../../../../libs/products';
 import Search from './search';
 import CardView from './card';
 
-import {
-  ModalContainer,
-  ModalTitle,
-  ModalTitleProduct
-} from './styles';
+import { ModalContainer, ModalTitle, ModalTitleProduct } from './styles';
 
 interface SearchProductScreenProp {
   testID?: string;
   isVisible: boolean;
   onBackdropPress(): void;
+  productCategoryName: string;
 }
 
 const KEYS_TO_FILTERS = ['name'];
 
 export default function SearchProductScreen(props: SearchProductScreenProp) {
+  const { productCategoryName, isVisible, onBackdropPress } = props;
+
   const { colors } = useThemeContext();
 
   const [search, setSearch] = useState({
@@ -106,10 +105,10 @@ export default function SearchProductScreen(props: SearchProductScreenProp) {
 
   return (
     <Modal
-      isVisible={props.isVisible}
+      isVisible={isVisible}
       animationIn="slideInUp"
       animationOut="slideOutDown"
-      onBackdropPress={props.onBackdropPress}
+      onBackdropPress={onBackdropPress}
       useNativeDriver={true}
       style={{
         display: 'flex',
@@ -121,7 +120,7 @@ export default function SearchProductScreen(props: SearchProductScreenProp) {
       <StatusBar hidden={true} />
       <ModalContainer>
         <ModalTitle>
-          add <ModalTitleProduct>shampoo</ModalTitleProduct>
+          add <ModalTitleProduct>{productCategoryName}</ModalTitleProduct>
         </ModalTitle>
         {search.displayBrandInput === 'show' ? (
           <Search
@@ -155,14 +154,14 @@ export default function SearchProductScreen(props: SearchProductScreenProp) {
           {search.displayBrand === true &&
             filteredBrands.map((item, index) => (
               <CardView
-              key={index}
-              brandIcon={item.image}
-              name={item.name}
-              availableProducts={item.products}
-              selected={search.selectedBrand == index}
-              onPress={() => toggleSelectedBrand(index)}
-              value={item.value}
-            />
+                key={index}
+                brandIcon={item.image}
+                name={item.name}
+                availableProducts={item.products}
+                selected={search.selectedBrand == index}
+                onPress={() => toggleSelectedBrand(index)}
+                value={item.value}
+              />
             ))}
         </ScrollView>
       </ModalContainer>

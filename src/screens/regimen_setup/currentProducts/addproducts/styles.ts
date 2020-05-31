@@ -3,7 +3,7 @@ import applyScale from '../../../../utils/applyScale';
 
 export const ModalContainer = styled.View`
   width: 100%;
-  height: ${applyScale(700)}px;
+  height: ${applyScale(750)}px;
   background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
   align-items: center;
   border-top-left-radius: 30px;
