@@ -120,7 +120,7 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
       animationOut="slideOutDown"
       onBackdropPress={props.onBackdropPress}
       useNativeDriver={true}
-      style={{ display: 'flex', justifyContent: 'flex-end', margin: 0 }}
+      style={{ display: 'flex', justifyContent: 'flex-end', margin: 0, backgroundColor: colors.FONT_DARK_COLOR }}
     >
       <ModalContainer>
         <ModalTitle>
