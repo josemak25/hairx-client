@@ -1,29 +1,20 @@
 import React, { useState } from 'react';
-import {ScrollView, StatusBar} from 'react-native';
+import { ScrollView, StatusBar } from 'react-native';
 import Modal from 'react-native-modal';
-import SearchInput, { createFilter } from 'react-native-search-filter';
-import RadioButton from 'react-native-simple-radio-button-input';
-import { Ionicons } from '@expo/vector-icons';
+import { createFilter } from 'react-native-search-filter';
 import { useThemeContext } from '../../../../theme';
 import { productsNames } from '../../../../libs/products';
 import { brandNames } from '../../../../libs/products';
+import Search from './search';
+import CardView from './card';
 
 import {
   ModalContainer,
   ModalTitle,
-  ModalTitleProduct,
-  CardView,
-  BrandIcon,
-  Name,
-  AvailableProducts,
-  BrandView,
-  ProductCover,
-  RadioCover,
-  BrandName,
-  ProductIcon
+  ModalTitleProduct
 } from './styles';
 
-interface SearchhProductScreenProp {
+interface SearchProductScreenProp {
   testID?: string;
   isVisible: boolean;
   onBackdropPress(): void;
@@ -31,7 +22,7 @@ interface SearchhProductScreenProp {
 
 const KEYS_TO_FILTERS = ['name'];
 
-export default function SearchProductScreen(props: SearchhProductScreenProp) {
+export default function SearchProductScreen(props: SearchProductScreenProp) {
   const { colors } = useThemeContext();
 
   const [search, setSearch] = useState({
@@ -42,21 +33,21 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
     displayBrandInput: 'show',
     displayProductInput: 'show',
     selectedProduct: null,
-    selectedBrand: null,
+    selectedBrand: null
   });
 
-  const toggleSelectedProduct = (index) => {
-     setSearch({
-          ...search,
-          selectedProduct: index
-        })
+  const toggleSelectedProduct = index => {
+    setSearch({
+      ...search,
+      selectedProduct: index
+    });
   };
 
-  const toggleSelectedBrand = (index) => {
-  setSearch({
-          ...search,
-          selectedBrand: index
-        })
+  const toggleSelectedBrand = index => {
+    setSearch({
+      ...search,
+      selectedBrand: index
+    });
   };
 
   const searchBrandUpdated = text => {
@@ -94,7 +85,7 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
     setSearch({
       ...search,
       displayProductInput: 'hide',
-      displayProduct: false,
+      displayProduct: false
     });
   };
 
@@ -120,7 +111,12 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
       animationOut="slideOutDown"
       onBackdropPress={props.onBackdropPress}
       useNativeDriver={true}
-      style={{ display: 'flex', justifyContent: 'flex-end', margin: 0, backgroundColor: colors.FONT_DARK_COLOR }}
+      style={{
+        display: 'flex',
+        justifyContent: 'flex-end',
+        margin: 0,
+        backgroundColor: colors.FONT_DARK_COLOR
+      }}
     >
       <StatusBar hidden={true} />
       <ModalContainer>
@@ -128,98 +124,47 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
           add <ModalTitleProduct>shampoo</ModalTitleProduct>
         </ModalTitle>
         {search.displayBrandInput === 'show' ? (
-          <SearchInput
+          <Search
             onChangeText={text => searchBrandUpdated(text)}
             placeholder="Search brand name"
             onFocus={() => productOnclick()}
             onBlur={() => productOnblur()}
-            inputViewStyles={{
-              backgroundColor: colors.BG_LIGHT_GRAY,
-              width: '93%',
-              paddingTop: 20,
-              paddingBottom: 20,
-              paddingLeft: 35,
-              height: 55,
-              borderRadius: 5
-            }}
-            inputFocus={true}
-            clearIcon={
-              <Ionicons
-                name="ios-search"
-                size={17}
-                color={colors.FONT_DARK_COLOR_LOW_OPACITY}
-              />
-            }
-            clearIconViewStyles={{ position: 'absolute', top: 18, left: 10 }}
           />
         ) : null}
         {search.displayProductInput === 'show' ? (
-          <SearchInput
+          <Search
             onChangeText={text => searchProductUpdated(text)}
             placeholder="Search product here"
             onFocus={() => brandOnclick()}
             onBlur={() => brandOnblur()}
-            inputViewStyles={{
-              backgroundColor: colors.BG_LIGHT_GRAY,
-              width: '93%',
-              paddingTop: 20,
-              paddingBottom: 20,
-              paddingLeft: 35,
-              height: 55,
-              borderRadius: 5,
-              marginTop: 15
-            }}
-            inputFocus={true}
-            clearIcon={
-              <Ionicons
-                name="ios-search"
-                size={17}
-                color={colors.FONT_DARK_COLOR_LOW_OPACITY}
-              />
-            }
-            clearIconViewStyles={{ position: 'absolute', top: 18, left: 10 }}
           />
         ) : null}
         <ScrollView showsVerticalScrollIndicator={false}>
-        {search.displayProduct === true &&
-          filteredProducts.map((item, index) => (
-            <CardView key={index}>
-              <BrandView>
-                <ProductIcon source={item.image} />
-              </BrandView>
-              <ProductCover>
-                <Name>{item.name}</Name>
-                <BrandName>{item.brand}</BrandName>
-              </ProductCover>
-              <RadioCover>
-                <RadioButton
-                  color={colors.INACTIVE_FIELD_COLOR}
-                  selected={search.selectedProduct == index}
-                  onPress={() => toggleSelectedProduct(index)}
-                  value={item.value}
-                />
-              </RadioCover>
-            </CardView>
-          ))}
-        {search.displayBrand === true &&
-          filteredBrands.map((item, index) => (
-            <CardView key={index}>
-              <BrandIcon source={item.image} />
-              <ProductCover>
-                <Name>{item.name}</Name>
-                <AvailableProducts>{item.products}</AvailableProducts>
-              </ProductCover>
-              <RadioCover>
-                <RadioButton
-                  color={colors.INACTIVE_FIELD_COLOR}
-                  selected={search.selectedBrand == index}
-                  onPress={() => toggleSelectedBrand(index)}
-                  value={item.value}
-                />
-              </RadioCover>
-            </CardView>
-          ))}
-      </ScrollView>
+          {search.displayProduct === true &&
+            filteredProducts.map((item, index) => (
+              <CardView
+                key={index}
+                productIcon={item.image}
+                name={item.name}
+                brand={item.brand}
+                selected={search.selectedProduct == index}
+                onPress={() => toggleSelectedProduct(index)}
+                value={item.value}
+              />
+            ))}
+          {search.displayBrand === true &&
+            filteredBrands.map((item, index) => (
+              <CardView
+              key={index}
+              brandIcon={item.image}
+              name={item.name}
+              availableProducts={item.products}
+              selected={search.selectedBrand == index}
+              onPress={() => toggleSelectedBrand(index)}
+              value={item.value}
+            />
+            ))}
+        </ScrollView>
       </ModalContainer>
     </Modal>
   );
