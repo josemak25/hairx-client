@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {ScrollView} from 'react-native';
+import {ScrollView, StatusBar} from 'react-native';
 import Modal from 'react-native-modal';
 import SearchInput, { createFilter } from 'react-native-search-filter';
 import RadioButton from 'react-native-simple-radio-button-input';
@@ -122,6 +122,7 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
       useNativeDriver={true}
       style={{ display: 'flex', justifyContent: 'flex-end', margin: 0, backgroundColor: colors.FONT_DARK_COLOR }}
     >
+      <StatusBar hidden={true} />
       <ModalContainer>
         <ModalTitle>
           add <ModalTitleProduct>shampoo</ModalTitleProduct>
