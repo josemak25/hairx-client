@@ -45,14 +45,14 @@ export const BrandView = styled.View`
 `;
 
 export const CardView = styled.View`
-    background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
-    display: flex;
-    flex-direction: row;
-    width: 93%;
-    margin: 3px 0;
-    padding: 20px 15px;
-    align-items: center;
-    border-radius: 5px;
+  background-color: ${({ theme }) => theme.colors.BUTTON_LIGHT_COLOR};
+  display: flex;
+  flex-direction: row;
+  width: 97%;
+  margin: 3px auto 0;
+  padding: 20px 15px;
+  align-items: center;
+  border-radius: 5px;
 `;
 
 export const Name = styled.Text`
@@ -80,5 +80,5 @@ export const ProductCover = styled.View`
 `;
 
 export const RadioCover = styled.View`
-  margin-left: auto
+  margin-left: auto;
 `;
