@@ -70,7 +70,8 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
   const brandOnclick = () => {
     setSearch({
       ...search,
-      displayBrandInput: 'hide'
+      displayBrandInput: 'hide',
+      displayBrand: false
     });
   };
 
@@ -92,7 +93,8 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
   const productOnclick = () => {
     setSearch({
       ...search,
-      displayProductInput: 'hide'
+      displayProductInput: 'hide',
+      displayProduct: false,
     });
   };
 
