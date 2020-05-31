@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {ScrollView} from 'react-native';
 import Modal from 'react-native-modal';
 import SearchInput, { createFilter } from 'react-native-search-filter';
 import RadioButton from 'react-native-simple-radio-button-input';
@@ -40,18 +41,23 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
     displayProduct: false,
     displayBrandInput: 'show',
     displayProductInput: 'show',
-    selectedProduct: false
+    selectedProduct: null,
+    selectedBrand: null,
   });
 
-  const toggleSelectedProduct = () => {
-    search.selectedProduct == false ? setSearch({
-      ...search,
-      selectedProduct: true
-    }) : setSearch({
-      ...search,
-      selectedProduct: false
-    })
-  }
+  const toggleSelectedProduct = (index) => {
+     setSearch({
+          ...search,
+          selectedProduct: index
+        })
+  };
+
+  const toggleSelectedBrand = (index) => {
+  setSearch({
+          ...search,
+          selectedBrand: index
+        })
+  };
 
   const searchBrandUpdated = text => {
     setSearch({
@@ -171,9 +177,10 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
             clearIconViewStyles={{ position: 'absolute', top: 18, left: 10 }}
           />
         ) : null}
+        <ScrollView showsVerticalScrollIndicator={false}>
         {search.displayProduct === true &&
-          filteredProducts.map(item => (
-            <CardView>
+          filteredProducts.map((item, index) => (
+            <CardView key={index}>
               <BrandView>
                 <ProductIcon source={item.image} />
               </BrandView>
@@ -182,23 +189,34 @@ export default function SearchProductScreen(props: SearchhProductScreenProp) {
                 <BrandName>{item.brand}</BrandName>
               </ProductCover>
               <RadioCover>
-              <RadioButton color={colors.INACTIVE_FIELD_COLOR} selected={search.selectedProduct} onPress={toggleSelectedProduct} />
+                <RadioButton
+                  color={colors.INACTIVE_FIELD_COLOR}
+                  selected={search.selectedProduct == index}
+                  onPress={() => toggleSelectedProduct(index)}
+                  value={item.value}
+                />
               </RadioCover>
             </CardView>
           ))}
         {search.displayBrand === true &&
-          filteredBrands.map(item => (
-            <CardView>
-                <BrandIcon source={item.image} />
+          filteredBrands.map((item, index) => (
+            <CardView key={index}>
+              <BrandIcon source={item.image} />
               <ProductCover>
                 <Name>{item.name}</Name>
                 <AvailableProducts>{item.products}</AvailableProducts>
               </ProductCover>
               <RadioCover>
-              <RadioButton color={colors.INACTIVE_FIELD_COLOR} selected={search.selectedProduct} onPress={toggleSelectedProduct} />
+                <RadioButton
+                  color={colors.INACTIVE_FIELD_COLOR}
+                  selected={search.selectedBrand == index}
+                  onPress={() => toggleSelectedBrand(index)}
+                  value={item.value}
+                />
               </RadioCover>
             </CardView>
           ))}
+      </ScrollView>
       </ModalContainer>
     </Modal>
   );
