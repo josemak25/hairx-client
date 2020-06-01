@@ -1,17 +1,17 @@
 import React from 'react';
 import RadioButton from 'react-native-simple-radio-button-input';
 import { useThemeContext } from '../../../../theme';
+import applyScale from '../../../../utils/applyScale';
+import ResponsiveImage from '../../../../libs/responsiveImage';
 
 import {
   CardView,
-  BrandIcon,
   Name,
   AvailableProducts,
   BrandView,
   ProductCover,
   RadioCover,
-  BrandName,
-  ProductIcon
+  BrandName
 } from './styles';
 
 interface CardProductScreenProp {
@@ -22,8 +22,8 @@ interface CardProductScreenProp {
   value: string;
   selected: {};
   onPress: any;
-  brandIcon?: any;
-  productIcon?: any;
+  brandIcon?: string;
+  productIcon?: string;
 }
 
 export default function CardProduct(props: CardProductScreenProp) {
@@ -32,10 +32,13 @@ export default function CardProduct(props: CardProductScreenProp) {
     <CardView>
       {props.productIcon ? (
         <BrandView>
-          <ProductIcon source={props.productIcon} />
+          <ResponsiveImage
+            imageUrl={props.productIcon}
+            width={applyScale(40)}
+          />
         </BrandView>
       ) : (
-        <BrandIcon source={props.brandIcon} />
+        <ResponsiveImage imageUrl={props.brandIcon} width={applyScale(58)} />
       )}
       <ProductCover>
         <Name>{props.name}</Name>

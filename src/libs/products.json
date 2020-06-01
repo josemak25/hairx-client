@@ -1,0 +1,31 @@
+{
+  "productsNames": [
+    {
+      "image": "https://bit.ly/3cjvM4h",
+      "name": "Styling cream flexible look",
+      "brand": "nivea",
+      "value": "SCFL"
+    },
+    {
+      "image": "https://bit.ly/2XQzWLC",
+      "name": "Styling hair gel creme",
+      "brand": "nivea",
+      "value": "SHGC"
+    },
+    {
+      "image": "https://bit.ly/3cjvM4h",
+      "name": "Styling cream flexible",
+      "brand": "nivea",
+      "value": "SCF8L"
+    }
+  ],
+
+  "brandNames": [
+    {
+      "image": "https://bit.ly/3eNSqn9",
+      "name": "Nivea",
+      "products": "923+ Products",
+      "value": "Nivea"
+    }
+  ]
+}

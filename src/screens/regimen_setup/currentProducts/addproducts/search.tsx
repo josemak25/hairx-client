@@ -8,7 +8,7 @@ interface SearchProductScreenProp {
   placeholder: string;
   onFocus: any;
   onChangeText: any;
-  onBlur: any;
+  // onBlur: any;
 }
 
 export default function Search(props: SearchProductScreenProp) {
@@ -18,7 +18,7 @@ export default function Search(props: SearchProductScreenProp) {
       onChangeText={props.onChangeText}
       placeholder={props.placeholder}
       onFocus={props.onFocus}
-      onBlur={props.onBlur}
+      // onBlur={props.onBlur}
       inputViewStyles={{
         backgroundColor: colors.BG_LIGHT_GRAY,
         width: '93%',

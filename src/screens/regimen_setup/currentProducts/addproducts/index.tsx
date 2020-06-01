@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { ScrollView, StatusBar } from 'react-native';
+import { ScrollView, StatusBar, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
 import { createFilter } from 'react-native-search-filter';
 import { useThemeContext } from '../../../../theme';
-import { productsNames } from '../../../../libs/products';
-import { brandNames } from '../../../../libs/products';
+import { productsNames } from '../../../../libs/products.json';
+import { brandNames } from '../../../../libs/products.json';
 import Search from './search';
 import CardView from './card';
 
@@ -32,43 +32,15 @@ export default function SearchProductScreen(props: SearchProductScreenProp) {
     displayBrandInput: 'show',
     displayProductInput: 'show',
     selectedProduct: null,
-    selectedBrand: null
+    selectedBrand: null,
+    canShow: { brandInput: true, productInput: true }
   });
-
-  const toggleSelectedProduct = index => {
-    setSearch({
-      ...search,
-      selectedProduct: index
-    });
-  };
-
-  const toggleSelectedBrand = index => {
-    setSearch({
-      ...search,
-      selectedBrand: index
-    });
-  };
 
   const searchBrandUpdated = text => {
     setSearch({
       ...search,
       searchBrand: text,
       displayBrand: true
-    });
-  };
-
-  const brandOnclick = () => {
-    setSearch({
-      ...search,
-      displayBrandInput: 'hide',
-      displayBrand: false
-    });
-  };
-
-  const brandOnblur = () => {
-    setSearch({
-      ...search,
-      displayBrandInput: 'show'
     });
   };
 
@@ -80,19 +52,15 @@ export default function SearchProductScreen(props: SearchProductScreenProp) {
     });
   };
 
-  const productOnclick = () => {
-    setSearch({
-      ...search,
-      displayProductInput: 'hide',
-      displayProduct: false
-    });
-  };
-
-  const productOnblur = () => {
-    setSearch({
-      ...search,
-      displayProductInput: 'show'
-    });
+  const handleToggle = (
+    canShow: {
+      brandInput: boolean;
+      productInput: boolean;
+    },
+    displayProduct: boolean,
+    displayBrand: boolean
+  ) => {
+    setSearch({ ...search, canShow, displayProduct, displayBrand });
   };
 
   const filteredProducts = productsNames.filter(
@@ -103,65 +71,106 @@ export default function SearchProductScreen(props: SearchProductScreenProp) {
     createFilter(search.searchBrand, KEYS_TO_FILTERS)
   );
 
+  const toggleSelection = (
+    selected: object,
+    displayProduct: boolean,
+    displayBrand: boolean
+  ) => {
+    setSearch({
+      ...search,
+      ...selected,
+      canShow: { productInput: true, brandInput: true },
+      displayProduct,
+      displayBrand
+    });
+  };
+
   return (
     <Modal
       isVisible={isVisible}
       animationIn="slideInUp"
       animationOut="slideOutDown"
       onBackdropPress={onBackdropPress}
+      onSwipeComplete={onBackdropPress}
+      swipeDirection={['down']}
       useNativeDriver={true}
       style={{
         display: 'flex',
         justifyContent: 'flex-end',
-        margin: 0,
-        backgroundColor: colors.FONT_DARK_COLOR
+        margin: 0
       }}
     >
-      <StatusBar hidden={true} />
+      <StatusBar hidden />
       <ModalContainer>
         <ModalTitle>
           add <ModalTitleProduct>{productCategoryName}</ModalTitleProduct>
         </ModalTitle>
-        {search.displayBrandInput === 'show' ? (
+        {search.canShow.brandInput && (
           <Search
             onChangeText={text => searchBrandUpdated(text)}
             placeholder="Search brand name"
-            onFocus={() => productOnclick()}
-            onBlur={() => productOnblur()}
+            onFocus={() =>
+              handleToggle(
+                { productInput: false, brandInput: true },
+                false,
+                true
+              )
+            }
           />
-        ) : null}
-        {search.displayProductInput === 'show' ? (
+        )}
+        {search.canShow.productInput && (
           <Search
             onChangeText={text => searchProductUpdated(text)}
             placeholder="Search product here"
-            onFocus={() => brandOnclick()}
-            onBlur={() => brandOnblur()}
+            onFocus={() =>
+              handleToggle(
+                { productInput: true, brandInput: false },
+                true,
+                false
+              )
+            }
           />
-        ) : null}
+        )}
         <ScrollView showsVerticalScrollIndicator={false}>
-          {search.displayProduct === true &&
+          {search.displayProduct &&
             filteredProducts.map((item, index) => (
-              <CardView
+              <TouchableOpacity
                 key={index}
-                productIcon={item.image}
-                name={item.name}
-                brand={item.brand}
-                selected={search.selectedProduct == index}
-                onPress={() => toggleSelectedProduct(index)}
-                value={item.value}
-              />
+                onPress={() =>
+                  toggleSelection({ selectedProduct: index }, true, false)
+                }
+              >
+                <CardView
+                  productIcon={item.image}
+                  name={item.name}
+                  brand={item.brand}
+                  selected={search.selectedProduct == index}
+                  onPress={() =>
+                    toggleSelection({ selectedProduct: index }, true, false)
+                  }
+                  value={item.value}
+                />
+              </TouchableOpacity>
             ))}
-          {search.displayBrand === true &&
+          {search.displayBrand &&
             filteredBrands.map((item, index) => (
-              <CardView
+              <TouchableOpacity
                 key={index}
-                brandIcon={item.image}
-                name={item.name}
-                availableProducts={item.products}
-                selected={search.selectedBrand == index}
-                onPress={() => toggleSelectedBrand(index)}
-                value={item.value}
-              />
+                onPress={() =>
+                  toggleSelection({ selectedBrand: index }, false, true)
+                }
+              >
+                <CardView
+                  brandIcon={item.image}
+                  name={item.name}
+                  availableProducts={item.products}
+                  selected={search.selectedBrand == index}
+                  onPress={() =>
+                    toggleSelection({ selectedBrand: index }, false, true)
+                  }
+                  value={item.value}
+                />
+              </TouchableOpacity>
             ))}
         </ScrollView>
       </ModalContainer>

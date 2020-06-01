@@ -3,7 +3,7 @@ import applyScale from '../../../../utils/applyScale';
 
 export const ModalContainer = styled.View`
   width: 100%;
-  height: ${applyScale(750)}px;
+  height: 90%;
   background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
   align-items: center;
   border-top-left-radius: 30px;
@@ -26,17 +26,9 @@ export const ModalTitleProduct = styled.Text`
   color: ${({ theme }) => theme.colors.FONT_DARK_COLOR};
 `;
 
-export const ProductIcon = styled.Image`
-  width: 40px;
-`;
-
-export const BrandIcon = styled.Image`
-  width: 58px;
-`;
-
 export const BrandView = styled.View`
-  width: 60px;
-  height: 60px;
+  width: ${applyScale(60)}px;
+  height: ${applyScale(60)}px;
   border-radius: 30px;
   background-color: ${({ theme }) => theme.colors.FONT_LIGHT_COLOR};
   display: flex;
