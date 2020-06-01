@@ -6,9 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 interface SearchProductScreenProp {
   testID?: string;
   placeholder: string;
-  onFocus: any;
   onChangeText: any;
-  // onBlur: any;
 }
 
 export default function Search(props: SearchProductScreenProp) {
@@ -17,8 +15,6 @@ export default function Search(props: SearchProductScreenProp) {
     <SearchInput
       onChangeText={props.onChangeText}
       placeholder={props.placeholder}
-      onFocus={props.onFocus}
-      // onBlur={props.onBlur}
       inputViewStyles={{
         backgroundColor: colors.BG_LIGHT_GRAY,
         width: '93%',
