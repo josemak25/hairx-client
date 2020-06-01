@@ -59,9 +59,9 @@ export default function ResponsiveImage(props: ResponsiveImageProps) {
     if (props.onLoad) props.onLoad();
   };
 
-  const handleImageLoading = (error: any) => {
-    onLoadImage();
+  const handleImageLoading = () => {
     setAnimation({ ...animation, hideContentLoader: false });
+    onLoadThumbnail();
   };
 
   return (
@@ -76,7 +76,7 @@ export default function ResponsiveImage(props: ResponsiveImageProps) {
         source={{ uri: thumbnailSource, cache: 'force-cache' }}
         onLoadStart={() => (props.onLoadStart ? props.onLoadStart() : null)}
         onProgress={() => (props.onLoadStart ? props.onLoadStart() : null)}
-        onLoad={onLoadThumbnail}
+        onLoad={handleImageLoading}
         onError={() => (props.onError ? props.onError() : null)}
         onLoadEnd={() => (props.onLoadEnd ? props.onLoadEnd() : null)}
         blurRadius={thumbnailBlurRadius}
@@ -92,7 +92,7 @@ export default function ResponsiveImage(props: ResponsiveImageProps) {
         source={props.offlineImage ? props.offlineImage : onlineImage}
         onLoadStart={() => (props.onLoadStart ? props.onLoadStart() : null)}
         onProgress={() => (props.onLoadStart ? props.onLoadStart() : null)}
-        onLoad={handleImageLoading}
+        onLoad={onLoadImage}
         onError={() => (props.onError ? props.onError() : null)}
         onLoadEnd={() => (props.onLoadEnd ? props.onLoadEnd() : null)}
         testID="image-data"

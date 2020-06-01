@@ -10,7 +10,8 @@ import {
   CardLabel,
   CardLabelContainer,
   CardText,
-  DateText
+  DateText,
+  ImagesContainer
 } from './styles';
 
 interface SaloonCardProp extends NavigationInterface {
@@ -64,28 +65,30 @@ export default function SaloonCard(props: SaloonCardProp) {
       activeOpacity={0.3}
     >
       <Cover>
-        <ResponsiveImage
-          width={grid.cardSize / 2}
-          height={123}
-          imageUrl={beforeAppointmentImage}
-          style={{
-            alignSelf: 'flex-start',
-            borderRadius: 5,
-            borderTopRightRadius: 0,
-            borderBottomRightRadius: 0
-          }}
-        />
-        <ResponsiveImage
-          width={grid.cardSize / 2 - 10}
-          height={123}
-          imageUrl={afterAppointmentImage}
-          style={{
-            alignSelf: 'flex-end',
-            borderRadius: 5,
-            borderTopLeftRadius: 0,
-            borderBottomLeftRadius: 0
-          }}
-        />
+        <ImagesContainer>
+          <ResponsiveImage
+            width={grid.cardSize / 2 - 3}
+            height={123}
+            imageUrl={beforeAppointmentImage}
+            style={{
+              borderRadius: 5,
+              borderTopRightRadius: 0,
+              borderBottomRightRadius: 0
+            }}
+          />
+        </ImagesContainer>
+        <ImagesContainer>
+          <ResponsiveImage
+            width={grid.cardSize / 2 - 3}
+            height={123}
+            imageUrl={afterAppointmentImage}
+            style={{
+              borderRadius: 5,
+              borderTopLeftRadius: 0,
+              borderBottomLeftRadius: 0
+            }}
+          />
+        </ImagesContainer>
       </Cover>
       <DateText>{appointmentDate}</DateText>
       <CardLabelContainer>

@@ -18,6 +18,7 @@ export const ProductImage = styled.View`
   height: ${applyScale(58)}px;
   background-color: ${({ theme }) => theme.colors.BG_WHITE_COLOR};
   border-radius: 58px;
+  overflow: hidden;
 `;
 
 export const Content = styled.View`

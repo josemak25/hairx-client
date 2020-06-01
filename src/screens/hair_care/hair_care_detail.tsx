@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Animated, ScrollView, Dimensions, StatusBar } from 'react-native';
+import React from 'react';
+import { ScrollView, Dimensions, StatusBar } from 'react-native';
 import expoConstants from 'expo-constants';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationInterface } from '../types';
@@ -19,7 +19,9 @@ import {
   HairCareSaloonCard,
   CardInfo,
   CardLabel,
-  CardValue
+  CardValue,
+  ImagesContainer,
+  Cover
 } from './styles';
 
 const HEADER_IMAGE_WIDTH = Math.floor(
@@ -54,11 +56,6 @@ export default function HairCareDetailScreen(props: HairCareScreenScreenProp) {
 
   const { colors } = useThemeContext();
 
-  const [state] = useState({
-    beforeAnimation: new Animated.Value(1),
-    afterAnimation: new Animated.Value(1)
-  });
-
   return (
     <Container style={{ paddingBottom: expoConstants.statusBarHeight - 15 }}>
       <StatusBar
@@ -86,19 +83,23 @@ export default function HairCareDetailScreen(props: HairCareScreenScreenProp) {
         }}
         title={() => (
           <ContentArea>
-            <ResponsiveImage
-              width={HEADER_IMAGE_WIDTH}
-              height={HEADER_EXPANDED_HEIGHT}
-              imageUrl={params.beforeAppointmentImage}
-              style={{ alignSelf: 'flex-start' }}
-            />
+            <Cover style={{ height: HEADER_EXPANDED_HEIGHT }}>
+              <ImagesContainer>
+                <ResponsiveImage
+                  width={HEADER_IMAGE_WIDTH}
+                  height={HEADER_EXPANDED_HEIGHT}
+                  imageUrl={params.beforeAppointmentImage}
+                />
+              </ImagesContainer>
+              <ImagesContainer>
+                <ResponsiveImage
+                  width={HEADER_IMAGE_WIDTH}
+                  height={HEADER_EXPANDED_HEIGHT}
+                  imageUrl={params.afterAppointmentImage}
+                />
+              </ImagesContainer>
+            </Cover>
 
-            <ResponsiveImage
-              width={HEADER_IMAGE_WIDTH}
-              height={HEADER_EXPANDED_HEIGHT}
-              imageUrl={params.afterAppointmentImage}
-              style={{ alignSelf: 'flex-end' }}
-            />
             <HairCareSaloonCard>
               <CardInfo>
                 <CardLabel>goal</CardLabel>

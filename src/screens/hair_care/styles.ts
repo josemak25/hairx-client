@@ -227,10 +227,12 @@ export const EmptySaloonCardText = styled.Text`
 `;
 
 export const ProfileImage = styled.View`
-  width: 100%;
-  height: 70px;
+  width: ${applyScale(60)}px;
+  height: ${applyScale(60)}px;
+  border-radius: 30px;
   align-items: center;
   align-content: center;
+  overflow: hidden;
 `;
 
 export const Username = styled.Text`
@@ -280,9 +282,9 @@ export const EmptyListText = styled.Text`
 `;
 
 export const Cover = styled.View`
-  justify-content: space-evenly;
+  flex-direction: row;
   width: 100%;
-  height: 123px;
+  height: 65%;
   border-radius: 5px;
   overflow: hidden;
 `;
@@ -322,3 +324,5 @@ export const CardText = styled.Text`
   opacity: 0.7;
   margin: 3px;
 `;
+
+export const ImagesContainer = styled.View``;

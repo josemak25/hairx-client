@@ -112,9 +112,9 @@ export default function HairCareScreen(props: HairCareScreenScreenProp) {
                   width={70}
                   imageUrl="https://bit.ly/2W1BG3K"
                   style={{
-                    backgroundColor: colors.BG_LIGHT_BLUE_COLOR,
                     borderRadius: 70 / 2
                   }}
+                  resizeMode="contain"
                 />
               </ProfileImage>
               <Username>Claire tamara</Username>
