@@ -33,7 +33,13 @@ export const BrandView = styled.View`
   background-color: ${({ theme }) => theme.colors.FONT_LIGHT_COLOR};
   display: flex;
   justify-content: center;
+  overflow: hidden;
   align-items: center;
+`;
+
+export const BrandIcon = styled.Image`
+  height: 100%;
+  width: 100%;
 `;
 
 export const CardView = styled.View`
