@@ -23,7 +23,8 @@ export default function Search(props: SearchProductScreenProp) {
         paddingLeft: 35,
         height: 55,
         borderRadius: 5,
-        marginTop: 15
+        marginTop: 15,
+        marginBottom: 20
       }}
       inputFocus={true}
       clearIcon={
