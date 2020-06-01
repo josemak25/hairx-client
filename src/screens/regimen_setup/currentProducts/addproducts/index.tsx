@@ -8,11 +8,7 @@ import { brandNames } from '../../../../libs/products';
 import Search from './search';
 import CardView from './card';
 
-import {
-  ModalContainer,
-  ModalTitle,
-  ModalTitleProduct
-} from './styles';
+import { ModalContainer, ModalTitle, ModalTitleProduct } from './styles';
 
 interface SearchProductScreenProp {
   testID?: string;
@@ -28,10 +24,10 @@ export default function SearchProductScreen(props: SearchProductScreenProp) {
   const [search, setSearch] = useState({
     searchBrand: '',
     searchProduct: '',
-    displayBrand: false,
-    displayProduct: false,
-    displayBrandInput: 'show',
-    displayProductInput: 'show',
+    displayBrand: null,
+    displayProduct: null,
+    displayBrandInput: true,
+    displayProductInput: true,
     selectedProduct: null,
     selectedBrand: null
   });
@@ -61,15 +57,15 @@ export default function SearchProductScreen(props: SearchProductScreenProp) {
   const brandOnclick = () => {
     setSearch({
       ...search,
-      displayBrandInput: 'hide',
-      displayBrand: false
+      displayBrandInput: false,
+      displayBrand: null
     });
   };
 
   const brandOnblur = () => {
     setSearch({
       ...search,
-      displayBrandInput: 'show'
+      displayBrandInput: true
     });
   };
 
@@ -84,15 +80,15 @@ export default function SearchProductScreen(props: SearchProductScreenProp) {
   const productOnclick = () => {
     setSearch({
       ...search,
-      displayProductInput: 'hide',
-      displayProduct: false
+      displayProductInput: false,
+      displayProduct: null
     });
   };
 
   const productOnblur = () => {
     setSearch({
       ...search,
-      displayProductInput: 'show'
+      displayProductInput: true
     });
   };
 
@@ -123,7 +119,7 @@ export default function SearchProductScreen(props: SearchProductScreenProp) {
         <ModalTitle>
           add <ModalTitleProduct>shampoo</ModalTitleProduct>
         </ModalTitle>
-        {search.displayBrandInput === 'show' ? (
+        {search.displayBrandInput ? (
           <Search
             onChangeText={text => searchBrandUpdated(text)}
             placeholder="Search brand name"
@@ -131,7 +127,7 @@ export default function SearchProductScreen(props: SearchProductScreenProp) {
             onBlur={() => productOnblur()}
           />
         ) : null}
-        {search.displayProductInput === 'show' ? (
+        {search.displayProductInput ? (
           <Search
             onChangeText={text => searchProductUpdated(text)}
             placeholder="Search product here"
@@ -140,7 +136,7 @@ export default function SearchProductScreen(props: SearchProductScreenProp) {
           />
         ) : null}
         <ScrollView showsVerticalScrollIndicator={false}>
-          {search.displayProduct === true &&
+          {search.displayProduct &&
             filteredProducts.map((item, index) => (
               <CardView
                 key={index}
@@ -152,17 +148,17 @@ export default function SearchProductScreen(props: SearchProductScreenProp) {
                 value={item.value}
               />
             ))}
-          {search.displayBrand === true &&
+          {search.displayBrand &&
             filteredBrands.map((item, index) => (
               <CardView
-              key={index}
-              brandIcon={item.image}
-              name={item.name}
-              availableProducts={item.products}
-              selected={search.selectedBrand == index}
-              onPress={() => toggleSelectedBrand(index)}
-              value={item.value}
-            />
+                key={index}
+                brandIcon={item.image}
+                name={item.name}
+                availableProducts={item.products}
+                selected={search.selectedBrand == index}
+                onPress={() => toggleSelectedBrand(index)}
+                value={item.value}
+              />
             ))}
         </ScrollView>
       </ModalContainer>
