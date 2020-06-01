@@ -15,16 +15,16 @@ import {
 } from './styles';
 
 interface CardProductScreenProp {
-    testID?: string;
-    name: string;
-    brand?: string;
-    availableProducts?: string;
-    value: string;
-    selected: {}; 
-    onPress: any;
-    brandIcon?: any;
-    productIcon?: any;
-  }
+  testID?: string;
+  name: string;
+  brand?: string;
+  availableProducts?: string;
+  value: string;
+  selected: {};
+  onPress: any;
+  brandIcon?: any;
+  productIcon?: any;
+}
 
 export default function CardProduct(props: CardProductScreenProp) {
   const { colors } = useThemeContext();
