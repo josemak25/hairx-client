@@ -12,6 +12,7 @@ import {
   BrandName,
   BrandIcon
 } from './styles';
+import ResponsiveImage from '../../../../libs/responsiveImage';
 
 interface CardProductScreenProp {
   testID?: string;
@@ -29,7 +30,12 @@ export default function CardProduct(props: CardProductScreenProp) {
   return (
     <CardView>
       <BrandView>
-        <BrandIcon source={{ uri: props.productIcon }} />
+        <ResponsiveImage
+          imageUrl={props.productIcon}
+          width={60}
+          height={60}
+          resizeMode="contain"
+        />
       </BrandView>
       <ProductCover>
         <Name>{props.name}</Name>
