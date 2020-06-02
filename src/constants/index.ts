@@ -18,3 +18,6 @@ export const headerBackTitleStyle = {
 
 // App Card size
 export const RESPONSIVE_CARD_SIZES = { cardSize: 200, numOfColumn: 2 };
+
+export const FACEBOOK_APP_ID = '278917806624947';
+export const FACEBOOK_APP_NAME = 'HairX';

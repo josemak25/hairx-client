@@ -23,6 +23,7 @@
     "add": "^2.0.6",
     "expo": "~36.0.0",
     "expo-constants": "~8.0.0",
+    "expo-facebook": "~8.0.0",
     "expo-font": "~8.0.0",
     "libphonenumber-js": "^1.7.50",
     "react": "~16.9.0",

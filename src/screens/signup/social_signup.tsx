@@ -8,6 +8,7 @@ import GoogleIcon from '../../../assets/icons/google_icon';
 import { NavigationInterface } from '../types';
 import { useThemeContext } from '../../theme';
 import applyScale from '../../utils/applyScale';
+import { facebookLogin } from '../../socials/facebook';
 
 import {
   Container,
@@ -27,6 +28,10 @@ interface SignupScreenProp extends NavigationInterface {
 export default function SignupScreen(props: SignupScreenProp) {
   const { colors, fonts } = useThemeContext();
   const [email, setEmail] = useState('');
+
+  const handleFacebookLogin = async () => {
+    const data = await facebookLogin();
+  };
 
   return (
     <SafeAreaView>
@@ -70,6 +75,7 @@ export default function SignupScreen(props: SignupScreenProp) {
                 backgroundColor: colors.BG_WHITE_COLOR
               }}
               textStyle={{ color: colors.FACEBOOK_COLOR }}
+              onPress={handleFacebookLogin}
             >
               <IconView>
                 <Ionicons
