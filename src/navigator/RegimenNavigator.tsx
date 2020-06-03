@@ -5,7 +5,7 @@ import Screens from '../screens/regimen';
 const RegimenStack = createStackNavigator();
 
 export default function RegimenNavigator() {
-  const [show, setShow] = useState(true);
+  const [show] = useState(false);
 
   return (
     <RegimenStack.Navigator

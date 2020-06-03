@@ -142,7 +142,7 @@ export default function RenderItem(props: RenderItemProp) {
                   style={{
                     fontFamily: fonts.CORMORANT_ITALIC,
                     color: colors.FONT_RED_COLOR,
-                    opacity: 0.0
+                    opacity: 0.8
                   }}
                 >
                   {` Add at least 3.`}
