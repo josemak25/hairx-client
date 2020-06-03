@@ -1,15 +1,9 @@
 import * as Facebook from 'expo-facebook';
 import { FACEBOOK_APP_ID, FACEBOOK_APP_NAME } from '../constants';
-
-interface IData {
-  type: string;
-  token: string;
-  userData: object;
-  error: string;
-}
+import { IAuthData } from '../screens/signup/social_signup';
 
 export const facebookLogin = async () => {
-  const data: IData = { type: '', token: '', userData: {}, error: '' };
+  const data: IAuthData = { type: '', token: '', userData: {}, error: '' };
 
   try {
     //First call this method to ensure facebook sdk is initialized properly
