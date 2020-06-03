@@ -82,7 +82,7 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
     return (
       <SearchProductScreen
         isVisible={state.modalVisible.addProduct}
-        onBackdropPress={() =>
+        onBackButtonPress={() =>
           setState({
             ...state,
             modalVisible: { ...state.modalVisible, addProduct: false }
@@ -99,7 +99,7 @@ export default function RegimenSetupScreen(props: RegimenSetupScreenProp) {
         isVisible={modalVisible.quitSetUp}
         animationIn="slideInUp"
         animationOut="slideOutDown"
-        onBackdropPress={() =>
+        onBackButtonPress={() =>
           setState({
             ...state,
             modalVisible: { ...state.modalVisible, quitSetUp: false }

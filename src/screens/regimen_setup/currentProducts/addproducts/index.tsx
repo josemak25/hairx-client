@@ -12,14 +12,14 @@ import { ModalContainer, ModalTitle, ModalTitleProduct } from './styles';
 interface SearchProductScreenProp {
   testID?: string;
   isVisible: boolean;
-  onBackdropPress(): void;
+  onBackButtonPress(): void;
   productCategoryName: string;
 }
 
 const KEYS_TO_FILTERS = ['name', 'brand', 'value'];
 
 export default function SearchProductScreen(props: SearchProductScreenProp) {
-  const { productCategoryName, isVisible, onBackdropPress } = props;
+  const { productCategoryName, isVisible, onBackButtonPress } = props;
 
   const [search, setSearch] = useState({
     searchProduct: '',
@@ -43,8 +43,8 @@ export default function SearchProductScreen(props: SearchProductScreenProp) {
       isVisible={isVisible}
       animationIn="slideInUp"
       animationOut="slideOutDown"
-      onBackdropPress={onBackdropPress}
-      onSwipeComplete={onBackdropPress}
+      onBackButtonPress={onBackButtonPress}
+      onSwipeComplete={onBackButtonPress}
       swipeDirection={['down']}
       useNativeDriver={true}
       style={{
