@@ -20,7 +20,14 @@ import {
   Service,
   ButtonView
 } from './styles';
+import { googleLogin } from '../../socials/google';
 
+export interface IAuthData {
+  type: string;
+  token: string;
+  userData: object;
+  error: string;
+}
 interface SignupScreenProp extends NavigationInterface {
   testID?: string;
 }
@@ -31,6 +38,10 @@ export default function SignupScreen(props: SignupScreenProp) {
 
   const handleFacebookLogin = async () => {
     const data = await facebookLogin();
+  };
+
+  const handleGoogleLogin = async () => {
+    const data = await googleLogin();
   };
 
   return (
@@ -97,6 +108,7 @@ export default function SignupScreen(props: SignupScreenProp) {
                 backgroundColor: colors.BG_WHITE_COLOR
               }}
               textStyle={{ color: colors.GOOGLE_COLOR }}
+              onPress={handleGoogleLogin}
             >
               <IconView>
                 <GoogleIcon />
