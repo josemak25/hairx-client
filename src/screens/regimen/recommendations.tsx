@@ -44,6 +44,10 @@ export default function RecommendationScreen(props: RecommendationScreenProp) {
     setState({ ...state, activeHeader: topBarTitle });
   };
 
+  const handleSaloonBooking = () => {
+    props.navigation.navigate('BookingScreen');
+  };
+
   return (
     <SafeAreaView>
       <StatusBar
@@ -105,7 +109,13 @@ export default function RecommendationScreen(props: RecommendationScreenProp) {
                 return <FoodScreen {...props} key={item} />;
 
               case saloonVisit:
-                return <SaloonVisitScreen {...props} key={item} />;
+                return (
+                  <SaloonVisitScreen
+                    {...props}
+                    handleSaloonBooking={handleSaloonBooking}
+                    key={item}
+                  />
+                );
 
               default:
                 return <RoutineScreen {...props} key={item} />;

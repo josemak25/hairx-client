@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { useThemeContext } from '../../../../theme';
+
 import {
   Container,
   Content,
@@ -16,8 +17,8 @@ interface VisitProps {
   index: number;
   title: string;
   purpose: string;
+  handleSaloonBooking(): void;
 }
-
 interface stateProps {
   booking: 'Book Now' | 'Booked';
   contentColor: string;
@@ -27,7 +28,7 @@ interface stateProps {
 
 export default function Visits(props: VisitProps) {
   const { colors } = useThemeContext();
-  const [state, setstate] = useState<stateProps>({
+  const [state, setState] = useState<stateProps>({
     booking: 'Book Now',
     contentColor: colors.BG_LIGHT_BLUE_COLOR,
     timeColor: colors.BG_DARK_BLUE_COLOR,
@@ -37,22 +38,25 @@ export default function Visits(props: VisitProps) {
   const checkBooking = () => {
     switch (state.booking) {
       case 'Book Now':
-        return setstate({
+        setState({
           booking: 'Booked',
           contentColor: colors.BG_LIGHT_PINK_COLOR,
           timeColor: colors.FONT_RED_COLOR,
           bookBg: colors.BG_LIGHT_GRAY
         });
+        break;
       case 'Booked':
-        return setstate({
+        setState({
           booking: 'Book Now',
           contentColor: colors.BG_LIGHT_BLUE_COLOR,
           timeColor: colors.BG_DARK_BLUE_COLOR,
           bookBg: colors.BG_LIGHT_YELLOW_COLOR
         });
+        break;
       default:
-        return;
+        break;
     }
+    props.handleSaloonBooking();
   };
 
   return (

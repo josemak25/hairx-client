@@ -8,6 +8,7 @@ import { Container, SubTitle, Title, Content } from './style';
 
 interface RoutineProps extends NavigationInterface {
   testId?: string;
+  handleSaloonBooking(): void;
 }
 
 export default function SaloonVisitScreen(props: RoutineProps) {
@@ -27,6 +28,7 @@ export default function SaloonVisitScreen(props: RoutineProps) {
             time={item.time}
             title={item.title}
             purpose={item.purpose}
+            handleSaloonBooking={props.handleSaloonBooking}
           />
         ))}
       </Container>
