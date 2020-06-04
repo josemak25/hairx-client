@@ -15,12 +15,11 @@ const AnimatedText = Animated.createAnimatedComponent(Label);
 
 export default function OfflineBar({ offlineText }: { offlineText?: string }) {
   const defaultOfflineText = 'You are not connected to Internet';
-
+  
   const [network, setNetwork] = useState({
     isConnected: true,
     animation: new Animated.Value(0),
-    offlineText: offlineText ? offlineText : defaultOfflineText,
-    dismiss: false
+    offlineText: offlineText ? offlineText : defaultOfflineText
   });
 
   useEffect(() => {
@@ -31,7 +30,7 @@ export default function OfflineBar({ offlineText }: { offlineText?: string }) {
       unsubscribe();
       AppState.removeEventListener('change', handleAppStateChange);
     };
-  }, [network.isConnected, network.dismiss]);
+  }, [network.isConnected]);
 
   const triggerAnimation = () => {
     network.animation.setValue(0);
@@ -42,19 +41,6 @@ export default function OfflineBar({ offlineText }: { offlineText?: string }) {
       easing: Easing.bounce,
       useNativeDriver: true
     }).start();
-  };
-
-  const dismissViewAnimation = () => {
-    network.animation.setValue(4);
-
-    Animated.timing(network.animation, {
-      duration: ANIMATION_CONSTANTS.DURATION,
-      toValue: 0,
-      easing: Easing.bounce,
-      useNativeDriver: true
-    }).start(() => {
-      setNetwork({ ...network, dismiss: true });
-    });
   };
 
   const setNetworkStatus = (state: NetInfoState) => {
@@ -90,22 +76,15 @@ export default function OfflineBar({ offlineText }: { offlineText?: string }) {
   });
 
   return !network.isConnected ? (
-    !network.dismiss ? (
-      <Container>
-        <StatusBar
-          barStyle="dark-content"
-          translucent
-          backgroundColor="transparent"
-        />
-        <AnimatedText
-          onPress={dismissViewAnimation}
-          style={{
-            transform: [{ translateX: interpolated }]
-          }}
-        >
-          {network.offlineText}
-        </AnimatedText>
-      </Container>
-    ) : null
+    <Container>
+      <StatusBar
+        barStyle="dark-content"
+        translucent
+        backgroundColor="transparent"
+      />
+      <AnimatedText style={{ transform: [{ translateX: interpolated }] }}>
+        {network.offlineText}
+      </AnimatedText>
+    </Container>
   ) : null;
 }
