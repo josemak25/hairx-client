@@ -44,6 +44,7 @@ export default function SearchProductScreen(props: SearchProductScreenProp) {
       animationIn="slideInUp"
       animationOut="slideOutDown"
       onBackButtonPress={onBackButtonPress}
+      onBackdropPress={onBackButtonPress}
       onSwipeComplete={onBackButtonPress}
       swipeDirection={['down']}
       useNativeDriver={true}
