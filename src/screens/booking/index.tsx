@@ -1,5 +1,8 @@
 import React from 'react';
 import { WebView } from 'react-native-webview';
+import { useRoute } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
+
 import { NavigationInterface } from '../types';
 import Header from '../../commons/header';
 import SafeAreaView from '../../commons/safe-area-view';
@@ -22,6 +25,15 @@ export default function Booking(props: BookingScreenProp) {
         backgroundColor={colors.BG_WHITE_COLOR}
       />
       <Header
+        headerLeft={() => (
+          <BackButton onPress={() => props.navigation.goBack()}>
+            <Ionicons
+              name="ios-arrow-back"
+              size={30}
+              color={colors.INACTIVE_FIELD_COLOR}
+            />
+          </BackButton>
+        )}
         title={() => (
           <HeaderTitleContainer>
             <HeaderTitle>hairx</HeaderTitle>
@@ -37,6 +49,7 @@ export default function Booking(props: BookingScreenProp) {
         cacheEnabled
         javaScriptEnabled
         showsVerticalScrollIndicator={false}
+        startInLoadingState={true}
       />
     </SafeAreaView>
   );
