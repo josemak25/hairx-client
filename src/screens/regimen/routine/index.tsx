@@ -16,7 +16,9 @@ interface RoutineProps extends NavigationInterface {
 export default function RoutineScreen(props: RoutineProps) {
   const { fonts } = useThemeContext();
 
-  props;
+  const onEndReached = () => {};
+
+  const onRefresh = () => {};
 
   return (
     <Container>
@@ -55,6 +57,9 @@ export default function RoutineScreen(props: RoutineProps) {
         keyExtractor={(_item, index) => index.toString()}
         showsVerticalScrollIndicator={false}
         style={{ width: '92%' }}
+        refreshing={true}
+        onEndReached={onEndReached}
+        onRefresh={onRefresh}
       />
     </Container>
   );

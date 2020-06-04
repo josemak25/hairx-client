@@ -16,6 +16,10 @@ interface FoodScreenProp extends NavigationInterface {
 export default function FoodScreen(props: FoodScreenProp) {
   const { fonts } = useThemeContext();
 
+  const onEndReached = () => {};
+
+  const onRefresh = () => {};
+
   return (
     <Container>
       <FlatList
@@ -48,6 +52,9 @@ export default function FoodScreen(props: FoodScreenProp) {
         keyExtractor={(_item, index) => index.toString()}
         showsVerticalScrollIndicator={false}
         style={{ width: '92%' }}
+        refreshing={true}
+        onEndReached={onEndReached}
+        onRefresh={onRefresh}
       />
     </Container>
   );
