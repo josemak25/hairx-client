@@ -57,7 +57,7 @@ export default function ProceedHomeScreen(props: ProceedHomeScreenProp) {
             width: '70%',
             height: applyScale(60),
             bottom: applyScale(30),
-            marginTop: applyScale(20)
+            marginTop: applyScale(30)
           }}
           textStyle={{ textTransform: 'none' }}
           onPress={() => navigation.replace('HomeScreen')}
